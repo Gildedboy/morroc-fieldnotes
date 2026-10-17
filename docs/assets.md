@@ -13,6 +13,8 @@ Downloaded on 2026-10-17. Files are served locally; no runtime image hotlinking.
 
 The server website footer says site content is free to copy. That statement does not transfer ownership of third-party artwork. Credits appear in figures and the site's credits page. No broader license is asserted here.
 
+`public/images/brand/refuge-mark.png` is an unmodified local copy of the 192 × 192 Refuge mark used by the database website header: https://rtm-database.pages.dev/assets/img/icon-192.png. The header and favicon use this local file rather than fetching it from the database at runtime. The Fieldnotes wordmark remains separate text.
+
 Fonts are unmodified Google Fonts distributions: Amarante by Karolina Lach and Atkinson Hyperlegible by the Braille Institute. SIL Open Font License files are stored with the fonts. The Fieldnotes mark and line icons are authored SVG interface elements.
 
 The original Google Doc contains 26 images. At the owner's explicit request they are included, without cropping or alteration, under `public/images/new-orphan/image-001.png` through `image-026.png`. Source copies remain in ignored `imports/new-orphan-guide/assets/`. Metadata, intrinsic dimensions, and alt text are in `src/data/source-images.ts`.

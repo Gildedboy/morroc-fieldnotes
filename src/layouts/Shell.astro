@@ -20,7 +20,7 @@ const { title, description, currentId, library, noindex } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />}
-    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={withBase('images/brand/refuge-mark.png')} type="image/png" />
     <title>{title} · Return to Morroc: Refuge Fieldnotes</title>
   </head>
   <body>
