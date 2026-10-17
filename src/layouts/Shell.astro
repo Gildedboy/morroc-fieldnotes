@@ -15,19 +15,19 @@ const { title, description, currentId, library, noindex } = Astro.props;
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, follow" />}
     <meta name="theme-color" content="#101014" />
-    <meta property="og:title" content={`${title} · Morroc Fieldnotes`} />
+    <meta property="og:site_name" content="Return to Morroc: Refuge Fieldnotes" />
+    <meta property="og:title" content={`${title} · Return to Morroc: Refuge Fieldnotes`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />}
     <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
-    <title>{title} · Morroc Fieldnotes</title>
+    <title>{title} · Return to Morroc: Refuge Fieldnotes</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <button class="icon-button mobile-menu-button" aria-label="Open guide navigation" data-open-menu><Icon name="menu" /></button>
       <Brand />
-      <span class="header-divider"></span><span class="header-context">RETURN TO MORROC: REFUGE</span>
       <button class="search-trigger" data-open-search aria-label="Search" aria-haspopup="dialog"><Icon name="search" size={17} /><span>Search</span><kbd>Ctrl K</kbd></button>
       <nav class="header-links" aria-label="External resources">
         <a class="header-external" href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Main website<Icon name="external" size={13} /></a>

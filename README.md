@@ -1,4 +1,4 @@
-# Morroc Fieldnotes
+# Return to Morroc: Refuge Fieldnotes
 
 An independent English guide library for Return to Morroc: Refuge. Built with Astro, strict TypeScript, and MDX. Static output; no accounts, database, backend, or CMS.
 
