@@ -40,7 +40,7 @@ Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to use an existing Chromium installati
 
 ## Hosting
 
-GitHub Pages is the intended host. The manual `Deploy to GitHub Pages` workflow builds static output and handles repository subpaths. Select GitHub Actions in the repository's Pages settings before running it. CI validation runs on pushes and pull requests. No remote repository or hosted site is created by local builds.
+The site is hosted on GitHub Pages at [rtm-fieldnotes.gilded.dev](https://rtm-fieldnotes.gilded.dev/). The manual `Deploy to GitHub Pages` workflow builds the static site for that custom domain. CI validation runs on pushes and pull requests. No backend or Railway service is needed.
 
 For a custom host, deploy `dist/`. Set `SITE_URL` to the site's origin and `BASE_PATH` to its path prefix before building. No Railway service is needed for this MVP.
 
