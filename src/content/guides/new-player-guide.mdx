@@ -1,0 +1,272 @@
+---
+title: New Player Guide
+publication: published
+description: An illustrated walkthrough from character creation through the tutorial, scarf selection, and your first supplies.
+category: Getting Started
+icon: compass
+order: 1
+updated: 2026-10-17
+verified: null
+status: source-reviewed
+statusNote: The tutorial instructions, reward details, scarf table, and eight original screenshots are presented here from the source guide. The source has not been updated for Refuge. Refuge skill changes are identified separately; the walkthrough has not yet been verified in game.
+readingMinutes: 7
+tags: [orphan, beginner, tutorial, first character, scarf, heal, hiding]
+related: [choosing-your-path, leveling-foundations]
+sources:
+  - title: The New Orphan’s Guide To Morroc
+    url: https://docs.google.com/document/d/1KVRrnLTCRxi_ou5hQrZS7mDr-W2aBcUD2uZKclWuyyo/edit
+    author: Gryph, with the introduction and framework by Agent Q
+    note: Original tutorial, item details, and screenshots by Gryph, with the introduction and framework by Agent Q. Eight source screenshots are included with their corresponding steps. The author states that the source has not been updated for Refuge.
+    sourceUpdated: September 6 notice; year unspecified
+  - title: Refuge — Start Here
+    url: https://rtmrefuge.pages.dev/start.html
+    author: Return to Morroc Refuge team
+    note: Reference for current starter skills and Orphanage changes. The page also contains archived material, which is distinguished from Refuge changes.
+  - title: Refuge — Combat and Stats
+    url: https://rtmrefuge.pages.dev/mechanics.html
+    author: Return to Morroc Refuge team
+    note: Combat principles. Archived numerical rules on this page are not treated as independently verified live values.
+  - title: Refuge — Gear and Items
+    url: https://rtmrefuge.pages.dev/gear.html
+    author: Return to Morroc Refuge team
+    note: Equipment systems overview. Follow the database for individual item details.
+  - title: My First Card Album
+    url: https://rtm-database.pages.dev/index.html?id=616
+    author: Return to Morroc Refuge team
+    note: Item 616, formerly Old Card Album. The illustration beside the Memory Mirror comes from this database entry.
+  - title: Refuge — Orphan Skills
+    url: https://rtm-database.pages.dev/skills.html
+    author: Return to Morroc Refuge team
+    note: Current descriptions of Increase Agility, Area Loot, and Morroc's Mark, including durations and cooldowns.
+---
+
+import Callout from '../../components/Callout.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import ScarfTable from '../../components/ScarfTable.astro';
+import MemoryMirrorReward from '../../components/MemoryMirrorReward.astro';
+import NpcCard from '../../components/NpcCard.astro';
+import SkillIcon from '../../components/SkillIcon.astro';
+import { guideHref } from '../../lib/paths';
+
+<Callout title="Install the game">
+If you have not installed the game yet, follow the [server's joining instructions](https://rtmrefuge.pages.dev/join.html). Then return here to begin the tutorial.
+</Callout>
+
+<Callout title="Source version">
+Gryph's September 6 notice says the original guide has not been updated for Refuge. The tutorial, rewards, and item stats below describe that source version. **Refuge update** notes are separate editorial additions.
+</Callout>
+
+## Start with the tutorial
+
+Completing the tutorial is highly encouraged to gain your first levels and receive a scarf.
+
+## Wake up as an Orphan
+
+### 1. Speak to the Reflection
+
+Click the **Reflection** on the left of the starting area.
+
+<SourceScreenshot number={1} />
+
+### 2. Choose the tutorial
+
+Select the first option, **I want to remember (Intro and Tutorial)**.
+
+<SourceScreenshot number={2} />
+
+### 3. Continue with your Memories
+
+Interact with **Memories** to enter the tutorial.
+
+<SourceScreenshot number={3} />
+
+### 4. Choose the second dialogue response
+
+Choose the second dialogue option each time to receive extra experience and items.
+
+<SourceScreenshot number={4} />
+
+### 5. Allocate starting stats and finish
+
+Start by increasing **STR** for early Orphan leveling. After completing the tutorial, you should have:
+
+- Base/Job level **6/3**.
+- **Toy Knife**.
+- **+2 Sandals**, with **Movement Speed +5%**.
+- A scarf of your choice.
+- **3 Initiate Potions**.
+
+## Choose your scarf
+
+Choose one of these nine scarves near the end of the tutorial.
+
+<SourceScreenshot number={5} />
+
+<ScarfTable />
+
+Scarves cannot be traded, but you can put them in storage. Complete the tutorial on another character if you want a different scarf.
+
+## Collect your starting supplies
+
+Speak to the **Nanny** in the hallway after the tutorial.
+
+<SourceScreenshot number={6} />
+
+She gives you **15 Initiate Potions**, **3 Initiate Butterfly Wings**, **2 Initiate Magnifiers**, an **Orphan Badge**, and a **Memory Mirror**. The initiate consumables cannot be transferred or traded.
+
+## Keep the Orphan Badge
+
+Use the badge to return to the Orphanage. It is **not consumed**, so you can reuse it.
+
+<SourceScreenshot number={7} />
+
+## Understand the Memory Mirror
+
+Use the Memory Mirror to reset your stats before **Base Level 15**. If you keep it unused until **Base Level 15** and return it to the **Nanny**, you will receive **My First Card Album**.
+
+<MemoryMirrorReward />
+
+## Know your starting tools
+
+- <SkillIcon icon="AL_WARP" /> **Warp Portal**
+  - Starts at **skill level 1**.
+  - Type `@memo` to view your saved locations.
+  - Use `@memo 0`, `@memo 1`, or `@memo 2` to save your current location in that slot.
+  - You cannot save locations in dungeons or on maps with bosses.
+- <SkillIcon icon="AL_TELEPORT" /> **Teleport**
+  - Starts at **skill level 1**.
+- <SkillIcon icon="AL_HEAL" /> **Heal**
+  - Restores more HP as your base level increases.
+  - Maximum skill level: **1**.
+- <SkillIcon icon="TF_HIDING" /> **Hiding**
+  - Hides you for **2 seconds**.
+  - Works against bosses.
+  - Maximum skill level: **1**.
+- <SkillIcon icon="AL_INCAGI" /> **Increase AGI**
+  - Sets your movement speed to maximum for **5 seconds**.
+  - Cooldown: **60 seconds**.
+- <SkillIcon icon="BS_GREED" /> **Area Loot**
+  - Picks up all items within **2 cells** of your character.
+- <SkillIcon icon="ALL_FULL_THROTTLE" /> **Morroc's Mark**
+  - Fully restores your **HP and SP** when cast.
+  - Grants **all stats +10%** and **movement speed +50%** for **10 seconds**.
+  - Cooldown: **60 minutes**.
+
+## Make the Orphanage your home
+
+Return to the Orphanage to heal, repair your equipment, and access storage and transport.
+
+<Callout title="Help the Orphanage grow">
+Donate Zeny to **Amadeus Windsor** to help level up the Orphanage. Higher levels improve its services, including healer buffs, meals, transport destinations, and shops, and reduce the cost of stat and skill resets. Check its current level and donation progress with Amadeus.
+</Callout>
+
+### Healing, storage, and resets
+
+<NpcCard name="Lucy Guille" image="images/npcs/lucy-guille.gif" width={37} height={92}>
+Heal and repair your equipment for free. Lucy also clears common status effects and stripped equipment. Speak to her for paid buffs.
+</NpcCard>
+
+<NpcCard name="Kafra Alysia" image="images/npcs/kafra-alysia.gif" width={38} height={94}>
+Save your respawn point, open all three storages, refill elixirs, and travel to other locations. Storage access is free.
+</NpcCard>
+
+<NpcCard name="Memory Fountain" image="images/npcs/memory-fountain.png" width={1290} height={1219}>
+Reset your stats and skills at the fountain beside the stairs. The reset cost decreases as the Orphanage levels up.
+</NpcCard>
+
+### Orphan support and dungeon travel
+
+<NpcCard name="Alfred, the Butler" image="images/npcs/alfred.gif" width={39} height={101}>
+Speak to Alfred at the **Orphan Support** counter in the main hall.
+</NpcCard>
+
+<NpcCard name="Skia Nerius" image="images/npcs/skia-nerius.gif" width={44} height={89}>
+Speak to Skia at the **Dungeon Caravan** counter for dungeon travel.
+</NpcCard>
+
+### Donations
+
+<NpcCard name="Amadeus Windsor" image="images/npcs/amadeus-windsor.gif" width={59} height={105}>
+Donate Zeny toward the Orphanage's next level and check its funding progress.
+</NpcCard>
+
+<NpcCard name="Mr Kim" image="images/npcs/screenshots/mr-kim.jpg" crop={{ x: 1540, y: 255, width: 126, height: 202, sourceWidth: 1904, sourceHeight: 1041 }}>
+Buy headgear with **donation points** at the **Cash Shop** counter.
+Mr Kim also provides **DEX Wardrobe** storage.
+</NpcCard>
+
+<NpcCard name="Mr Kim's Helper" image="images/npcs/mr-kims-helper.gif" width={46} height={89}>
+Try Mr Kim's headgear for **30 seconds** to preview its appearance before buying it with donation points. Find her beside him at the **Cash Shop** counter.
+</NpcCard>
+
+### Equipment services
+
+<NpcCard name="Ornstein" image="images/npcs/screenshots/ornstein.jpg" crop={{ x: 637, y: 451, width: 80, height: 191, sourceWidth: 1904, sourceHeight: 1041 }}>
+After changing jobs, bring an **Exchange Voucher** to Ornstein for starter equipment. Find him at the smithy's **Voucher Exchange** counter.
+</NpcCard>
+
+<NpcCard name="Horacio Alt-Eisen" image="images/npcs/horacio.gif" width={69} height={105}>
+Buy starting armor from Horacio in the smithy.
+</NpcCard>
+
+<NpcCard name="Helmut Alt-Eisen" image="images/npcs/helmut.gif" width={61} height={120}>
+Buy starting weapons from Helmut in the smithy.
+</NpcCard>
+
+<NpcCard name="Croc Alt-Eisen" image="images/npcs/screenshots/croc.jpg" crop={{ x: 629, y: 17, width: 130, height: 194, sourceWidth: 1904, sourceHeight: 1041 }}>
+Trade lower-tier refining materials for higher-tier materials.
+</NpcCard>
+
+<NpcCard name="Heimdall Alt-Eisen" image="images/npcs/heimdall.gif" width={74} height={117}>
+Refine equipment and Class Gems up to **+10** without destroying them. Find him in the smithy at the **Refining and Ores** counter.
+</NpcCard>
+
+<NpcCard name="Shadow Recycler" image="images/npcs/shadow-recycler.gif" width={51} height={100}>
+Recycle **Shadow sets** and **gems**, reroll gem options, or convert gems into dust. Find her at the **Shadow Recycler** counter in the smithy.
+</NpcCard>
+
+<NpcCard name="Shadow Assistant" image="images/npcs/shadow-assistant.gif" width={43} height={97}>
+Trade **Shadow Ores** for **Shadowdecon**, or exchange **Shadow Ore** for lower-tier refining materials. Find her in the smithy beside the Shadow Recycler.
+</NpcCard>
+
+<NpcCard name="Master of Cards" image="images/npcs/master-of-cards.gif" width={55} height={94}>
+Remove cards from your equipment. Look for the **Card Remover** counter upstairs.
+</NpcCard>
+
+### Kitchen and supplies
+
+<NpcCard name="Lily" image="images/npcs/lily.gif" width={36} height={95}>
+Buy tools and supplies from Lily at the kitchen's **Tool Dealer** counter.
+</NpcCard>
+
+<NpcCard name="Mary Cenia" image="images/npcs/mary-cenia.gif" width={45} height={104}>
+Buy stat meals at the kitchen's **Status Meals** counter. The meal bonuses improve as the Orphanage levels up.
+</NpcCard>
+
+<NpcCard name="Black Market" image="images/npcs/black-market.gif" width={58} height={100}>
+Browse the Black Market in the kitchen.
+</NpcCard>
+
+### Headgear and costumes
+
+<NpcCard name="Happy Girl" image="images/npcs/happy-girl.gif" width={55} height={93}>
+Browse headgear and costumes at the **Headgear/Costumes** counter.
+</NpcCard>
+
+<NpcCard name="Stylist Shalosh" image="images/npcs/stylist-shalosh.gif" width={54} height={94}>
+Visit the **Stylist Shalosh** counter upstairs to change your character's appearance.
+</NpcCard>
+
+### Achievements
+
+<NpcCard name="Great Collector" image="images/npcs/screenshots/great-collector.jpg" crop={{ x: 1323, y: 469, width: 82, height: 181, sourceWidth: 1904, sourceHeight: 1041 }}>
+Speak to the Great Collector at the **Achievements** counter upstairs.
+</NpcCard>
+
+## Choose your class
+
+Check the [Refuge class tree](https://rtmrefuge.pages.dev/classes.html) for class progression. Our <a href={guideHref('choosing-your-path')}>Choosing Your Path</a> guide is **WIP**. After completing your job change, bring your **Exchange Voucher** to **Ornstein** for starter equipment.
+
+## Find your next place to train
+
+The <a href={guideHref('leveling-foundations')}>Leveling Foundations</a> guide is **WIP**.

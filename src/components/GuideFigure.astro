@@ -1,0 +1,6 @@
+---
+import { withBase } from '../lib/paths';
+interface Props { src: string; alt: string; caption: string; source?: string; credit?: string }
+const { src, alt, caption, source, credit } = Astro.props;
+---
+<figure class="guide-figure"><img src={withBase(src)} alt={alt} loading="lazy" width="1000" height="420" /><figcaption><span>{caption}</span>{source && <a href={source} target="_blank" rel="noreferrer">{credit ?? 'Image source'} ↗</a>}</figcaption></figure>

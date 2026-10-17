@@ -1,0 +1,9 @@
+---
+import { withBase } from '../lib/paths';
+const paths = [
+  { name: 'Thief', image: 'thief.webp', description: 'The main branching path.', url: 'https://rtmrefuge.pages.dev/classes.html' },
+  { name: 'Assassin', image: 'assassin.webp', description: 'One road beyond Thief.', url: 'https://rtmrefuge.pages.dev/classes.html' },
+  { name: 'Rogue', image: 'rogue.webp', description: 'Another road beyond Thief.', url: 'https://rtmrefuge.pages.dev/classes.html' },
+];
+---
+<div class="class-paths">{paths.map(path => <a href={path.url} target="_blank" rel="noreferrer"><img src={withBase(`images/${path.image}`)} alt={`${path.name} character artwork`} width="100" height="110" loading="lazy" /><strong>{path.name}</strong><span>{path.description}</span><small>View class tree ↗</small></a>)}</div>

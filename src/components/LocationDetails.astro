@@ -1,0 +1,13 @@
+---
+import { locations } from '../data/locations';
+import SourceScreenshot from './SourceScreenshot.astro';
+interface Props { id: string }
+const location = locations.find(location => location.id === Astro.props.id);
+if (!location) throw new Error(`Unknown location ${Astro.props.id}`);
+---
+{location.screenshot && <SourceScreenshot number={location.screenshot} />}
+<dl class="location-details">
+  <dt>Monster levels</dt><dd>{location.monsterLevels}</dd>
+  <dt>How to get there</dt><dd>{location.access}</dd>
+  <dt>What to watch for</dt><dd>{location.notes}</dd>
+</dl>

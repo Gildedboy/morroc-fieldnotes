@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Shell from '../layouts/Shell.astro';
+import Footer from './Footer.astro';
+import { guideHref } from '../lib/paths';
+interface Props { guide: CollectionEntry<'guides'> }
+const { guide } = Astro.props;
+---
+<Shell title={guide.data.title} description="This guide is a work in progress." currentId={guide.id} noindex>
+  <div class="about-page">
+    <span class="wip-badge">WIP</span>
+    <h1>{guide.data.title}</h1>
+    <div class="prose">
+      <p>This guide is a work in progress.</p>
+      <p><a href={guideHref('new-player-guide')}>Read the New Player Guide →</a></p>
+    </div>
+    <Footer />
+  </div>
+</Shell>

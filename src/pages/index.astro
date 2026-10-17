@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Shell from '../layouts/Shell.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { guideHref, withBase, formatDate } from '../lib/paths';
+const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
+---
+<Shell title="A guide for the journey" description="A player's library of Return to Morroc Refuge guides. Clear routes, shared knowledge, and the original sources always within reach." library>
+  <div class="library-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><span>Fieldnotes</span><Icon name="chevron" size={12} /><span>The guide library</span></nav>
+    <section class="library-hero">
+      <img src={withBase('images/valley.webp')} alt="Mountain peaks and a green valley in New-Midgard" width="1000" height="600" fetchpriority="high" />
+      <div class="hero-shade"></div>
+      <div class="hero-content"><span class="hero-kicker"><span></span>RETURN TO MORROC: REFUGE</span><h1>A little direction.<br />A bigger adventure.</h1><p>Notes for finding your way through Morroc.<br />Collected, connected, and made easier to read.</p><a class="primary-button" href={guideHref('new-player-guide')}>Begin your journey<Icon name="arrow" size={18} /></a></div>
+      <span class="hero-corner">NEW-MIDGARD · FIELDNOTES 001</span>
+    </section>
+    <div class="library-intro"><div><span class="eyebrow">A SHARED WORLD. SHARED KNOWLEDGE.</span><h2>Your next step starts here.</h2></div><p>One place for the guides you keep coming back to, with a consistent format and a clear trail to the people who wrote them.</p></div>
+    <section class="guide-card-grid" aria-label="Available guides">{guides.map((g, i) => <a class="guide-card" href={guideHref(g.id)}><div class="card-top"><span class="card-icon"><Icon name={g.data.icon} size={23} /></span><span class="card-number">0{i + 1}</span></div><span class="eyebrow">{g.data.category}</span><h3>{g.data.title}</h3><p>{g.data.publication === 'wip' ? 'This guide is a work in progress.' : g.data.description}</p><div class="card-bottom"><span>{g.data.publication === 'wip' ? <span class="wip-badge">WIP</span> : `${g.data.readingMinutes} min read`}</span><Icon name="arrow" size={18} /></div></a>)}</section>
+    <section class="library-feature"><div><span class="eyebrow">A COMPANION, NOT ANOTHER WIKI</span><h2>The guide explains the journey.<br />The database has the details.</h2><p>Keep the live database close for items, skills, and monsters. Each fieldnote points back to its sources so you can go deeper.</p><a class="text-link" href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Open the Refuge database<Icon name="external" size={14} /></a></div><div class="feature-emblem" aria-hidden="true"><Icon name="book" size={75} /><span>KNOWLEDGE WORTH KEEPING</span></div></section>
+    <div class="library-status"><span><i></i>{guides.filter(guide => guide.data.publication === 'published').length} guide available · {guides.filter(guide => guide.data.publication === 'wip').length} WIP</span><span>Last editorial update · {formatDate('2026-10-17')}</span></div>
+    <Footer />
+  </div>
+</Shell>

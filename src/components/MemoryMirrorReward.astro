@@ -1,0 +1,14 @@
+---
+import SourceScreenshot from './SourceScreenshot.astro';
+import { withBase } from '../lib/paths';
+const databaseUrl = 'https://rtm-database.pages.dev/index.html?id=616';
+---
+<div class="mirror-reward-pair">
+  <SourceScreenshot number={8} />
+  <figure class="card-album-reward">
+    <a href={databaseUrl} target="_blank" rel="noreferrer" aria-label="My First Card Album in the Refuge database">
+      <img src={withBase('images/items/my-first-card-album.png')} alt="My First Card Album" width="75" height="100" loading="lazy" decoding="async" />
+    </a>
+    <figcaption><a href={databaseUrl} target="_blank" rel="noreferrer">My First Card Album ↗</a></figcaption>
+  </figure>
+</div>

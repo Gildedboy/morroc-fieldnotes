@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Brand from '../components/Brand.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Icon from '../components/Icon.astro';
+import { withBase } from '../lib/paths';
+interface Props { title: string; description: string; currentId?: string; library?: boolean; noindex?: boolean }
+const { title, description, currentId, library, noindex } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="theme-color" content="#101014" />
+    <meta property="og:title" content={`${title} · Morroc Fieldnotes`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />}
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <title>{title} · Morroc Fieldnotes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <button class="icon-button mobile-menu-button" aria-label="Open guide navigation" data-open-menu><Icon name="menu" /></button>
+      <Brand />
+      <span class="header-divider"></span><span class="header-context">RETURN TO MORROC: REFUGE</span>
+      <button class="search-trigger" data-open-search aria-label="Search" aria-haspopup="dialog"><Icon name="search" size={17} /><span>Search</span><kbd>Ctrl K</kbd></button>
+      <nav class="header-links" aria-label="External resources">
+        <a class="header-external" href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Main website<Icon name="external" size={13} /></a>
+        <a class="header-external" href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Refuge database<Icon name="external" size={13} /></a>
+      </nav>
+    </header>
+    <div class="site-grid">
+      <aside class="desktop-sidebar"><Sidebar currentId={currentId} library={library} /></aside>
+      <main id="main" tabindex="-1"><slot /></main>
+    </div>
+    <dialog id="mobile-menu" class="mobile-menu" aria-labelledby="menu-title">
+      <div class="dialog-heading"><strong id="menu-title">Your fieldnotes</strong><button class="icon-button" data-close-dialog aria-label="Close guide navigation"><Icon name="close" /></button></div>
+      <nav class="mobile-site-links" aria-label="External resources">
+        <a href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Main website<Icon name="external" size={13} /></a>
+        <a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Refuge database<Icon name="external" size={13} /></a>
+      </nav>
+      <Sidebar currentId={currentId} library={library} />
+    </dialog>
+    <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title" data-index-url={withBase('search.json')}>
+      <div class="dialog-heading"><strong id="search-title">Search</strong><button class="icon-button" data-close-dialog aria-label="Close search"><Icon name="close" /></button></div>
+      <div class="search-input-wrap"><Icon name="search" /><input id="guide-search" type="search" placeholder="Try tutorial, Thief, or leveling…" aria-label="Search guides" autocomplete="off" /></div>
+      <p class="search-status" role="status" aria-live="polite">Start typing to find a guide.</p>
+      <ul id="search-results" class="search-results" aria-label="Search results"></ul>
+      <div class="search-help"><span>↑ ↓ to explore · Enter to open</span><span><kbd>Esc</kbd> to close</span></div>
+    </dialog>
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>

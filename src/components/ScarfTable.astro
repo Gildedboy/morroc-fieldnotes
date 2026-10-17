@@ -1,0 +1,19 @@
+---
+const scarves = [
+  ['Be Safe', 'Safety Scarf', 'Red', 'HP +2%, HP +50'],
+  ['Be Calm', 'Calm Scarf', 'Blue', 'SP +2%, SP +10'],
+  ['Be Fast', 'Occult Scarf', 'Black', 'ASPD +2, Cast Time −10%'],
+  ['Be Smart', 'Smart Scarf', 'Light red', 'ACD −5%, Cast Time −5%, SP Cost −2%'],
+  ['Be Focused', 'Focus Scarf', 'Yellow', 'MATK +5, MATK +1%'],
+  ['Be Brave', 'Bravery Scarf', 'Green', 'ATK +3, ATK +1%'],
+  ['Be Quiet', 'Attentive Scarf', 'White', 'Critical Rate +3, Critical Damage +3%'],
+  ['Be Sad', 'Beloved Scarf', 'Pink', 'DEF +7, MDEF +3, Neutral Resistance +1%'],
+  ['Be Uncaring', 'Ragged Scarf [1]', 'Brown', 'All Stats −1; one card slot'],
+];
+---
+<div class="guide-table-wrap" role="region" aria-label="Scarf choices" tabindex="0">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Dialogue choice</th><th scope="col">Scarf</th><th scope="col">Color</th><th scope="col">Stats</th></tr></thead>
+    <tbody>{scarves.map(([choice, scarf, color, stats]) => <tr><td>{choice}</td><th scope="row">{scarf}</th><td>{color}</td><td>{stats}</td></tr>)}</tbody>
+  </table>
+</div>
