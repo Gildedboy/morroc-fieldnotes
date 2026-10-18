@@ -40,7 +40,7 @@ import Callout from '../Callout.astro';
   <li><SkillIcon icon="SN_SIGHT" /><strong>True Sight:</strong> grants +3 to all stats and +3 Hit and Critical per skill level. Keep it active to boost this STR/LUK build's damage and accuracy.</li>
   <li><SkillIcon icon="RK_IGNITIONBREAK" /><strong>Hellraiser:</strong> a Fire attack around you with a long cooldown. It activates <strong>Finisher Ready</strong>.</li>
   <li><SkillIcon icon="SA_FLAMELAUNCHER" /><strong>Burning Scythe:</strong> endows your weapon with Fire for its duration.</li>
-  <li><SkillIcon icon="LK_PARRYING" /><strong>Shadow Parry:</strong> blocks physical hits while using a scythe, with a brief pause after a successful block.</li>
+  <li><SkillIcon icon="LK_PARRYING" /><strong>Shadow Parry:</strong> keep it active to block physical hits while using a scythe, with a brief pause after a successful block.</li>
 </ul>
 <p>This guide follows the STR/LUK damage build. Dark Message and Dark Messenger are INT-build skills and are not covered here.</p>
 <h3>Early leveling (levels 1–100)</h3>
@@ -62,8 +62,8 @@ import Callout from '../Callout.astro';
   <li><SkillIcon icon="SN_SIGHT" />Max True Sight.</li>
   <li><SkillIcon icon="MG_SRECOVERY" />Max Increase SP Recovery.</li>
   <li><SkillIcon icon="LK_PARRYING" />Max Shadow Parry.</li>
-  <li><SkillIcon icon="SA_FLAMELAUNCHER" />Max Burning Scythe to endow your weapon with Fire; if you will not use it for that, spend those points leveling <SkillIcon icon="RK_IGNITIONBREAK" />Hellraiser instead.</li>
   <li><SkillIcon icon="LK_SPIRALPIERCE" />Max Scythe Reap.</li>
+  <li><SkillIcon icon="SA_FLAMELAUNCHER" />Max Burning Scythe to endow your weapon with Fire; if you will not use it for that, spend those points leveling <SkillIcon icon="RK_IGNITIONBREAK" />Hellraiser instead.</li>
 </ol>
 <figure class="trickster-build-image">
   <img src={withBase('images/classes/trickster-skill-tree.png')} alt="Basic Trickster skill tree shown in the leveling spreadsheet" width="562" height="403" loading="lazy" />
@@ -73,10 +73,10 @@ import Callout from '../Callout.astro';
 <h2 id="how-to-play">How to Play</h2>
 <ol>
   <li>Keep <SkillIcon icon="SN_SIGHT" />True Sight active for its stat, Hit, and Critical bonuses.</li>
+  <li>Keep <SkillIcon icon="LK_PARRYING" />Shadow Parry active to block physical hits while wielding a scythe.</li>
   <li>Use <SkillIcon icon="LK_SPIRALPIERCE" />Scythe Reap to activate <strong>Combo Ready</strong>, then follow with <SkillIcon icon="KN_PIERCE" />Sweeping Slash. Casting Sweeping Slash without <strong>Combo Ready</strong> reduces its damage.</li>
   <li><SkillIcon icon="RK_IGNITIONBREAK" />Hellraiser has a long cooldown, but activates <strong>Finisher Ready</strong>, letting Sweeping Slash hit three times instead of two.</li>
-  <li>Use life-leeching attacks to recover while dealing damage. Watch SP and cooldowns during longer fights.</li>
-  <li><SkillIcon icon="LK_PARRYING" />Use Shadow Parry to block physical attacks while wielding a scythe.</li>
+  <li>Use <SkillIcon icon="LK_SPIRALPIERCE" />Scythe Reap and <SkillIcon icon="KN_PIERCE" />Sweeping Slash to deal damage; your scythe's leech restores HP as those skills hit. Watch SP and cooldowns during longer fights.</li>
 </ol>
 
 <h2 id="progress-gear">Progress Gear</h2>
@@ -95,12 +95,15 @@ import Callout from '../Callout.astro';
     <button id="trickster-gear-tab-garment" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-garment" tabindex="-1">Garment</button>
     <button id="trickster-gear-tab-shoes" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-shoes" tabindex="-1">Shoes</button>
     <button id="trickster-gear-tab-accessories" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-accessories" tabindex="-1">Accessories</button>
+    <button id="trickster-gear-tab-shadow-sets" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-shadow-sets" tabindex="-1">Shadow Sets</button>
+    <button id="trickster-gear-tab-card-choices" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-card-choices" tabindex="-1">Card Choices</button>
   </div>
   <section id="trickster-gear-panel-weapon" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-weapon" tabindex="0">
     <ol>
       <li><a href="https://rtm-database.pages.dev/index.html?id=1502&amp;q=Black+Scythe&amp;show=items&amp;tab=items">Black Scythe</a> (Required Level 5, job-change reward) or <a href="https://rtm-database.pages.dev/index.html?id=1540&amp;q=Scythe+of+the+Orphan&amp;show=items&amp;tab=items">Scythe of the Orphan</a> (Required Level 5, Exchange Voucher).</li>
       <li><a href="https://rtm-database.pages.dev/index.html?id=1524&amp;q=Bone+Scythe&amp;show=items&amp;tab=items">Bone Scythe</a> (Required Level 10).</li>
       <li><a href="https://rtm-database.pages.dev/index.html?id=1521&amp;q=Blood+Reaver&amp;show=items&amp;tab=items">Blood Reaver</a> (Required Level 15).</li>
+      <li><a href="https://rtm-database.pages.dev/index.html?id=1542&amp;q=Steel+Reaper&amp;show=items&amp;tab=items">Steel Reaper</a> (Required Level 70).</li>
       <li><a href="https://rtm-database.pages.dev/index.html?id=1529&amp;q=Gargantua&amp;show=items&amp;tab=items">Gargantua</a> (Required Level 70) — the top scythe for a Trickster.</li>
     </ol>
     <p>Optional middle ground: <a href="https://rtm-database.pages.dev/index.html?id=1532&amp;q=Crescent+Demon&amp;show=items&amp;tab=items">Crescent Demon</a> (Required Level 40). Nice to have, not required.</p>
@@ -112,6 +115,8 @@ import Callout from '../Callout.astro';
   <section id="trickster-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-garment" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
   <section id="trickster-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shoes" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
   <section id="trickster-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-accessories" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shadow-sets" tabindex="0" hidden><p>No Shadow Set recommendation is listed yet.</p></section>
+  <section id="trickster-gear-panel-card-choices" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-card-choices" tabindex="0" hidden><p>No card recommendation is listed yet.</p></section>
 </div>
 
 <script>

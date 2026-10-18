@@ -75,7 +75,11 @@ test('Trickster gear tabs switch panels and support arrow-key navigation', async
   const topPanel = page.getByRole('tabpanel', { name: 'Top Headgear' });
 
   await expect(weapon).toHaveAttribute('aria-selected', 'true');
-  await expect(weaponPanel).toContainText('Gargantua — the top scythe for a Trickster');
+  await expect(weaponPanel).toContainText('Gargantua (Required Level 70) — the top scythe for a Trickster');
+  await expect(weaponPanel).toContainText('Steel Reaper (Required Level 70)');
+  await expect(weaponPanel.getByRole('link', { name: 'Steel Reaper' })).toHaveAttribute('href', /rtm-database\.pages\.dev\/index\.html\?id=1542/);
+  await expect(tabs.getByRole('tab', { name: 'Shadow Sets' })).toBeVisible();
+  await expect(tabs.getByRole('tab', { name: 'Card Choices' })).toBeVisible();
   await top.focus();
   await page.keyboard.press('ArrowRight');
   await expect(page.getByRole('tab', { name: 'Mid Headgear' })).toBeFocused();
