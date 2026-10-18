@@ -64,6 +64,15 @@ test('guide navigation works at each viewport without horizontal overflow', asyn
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
+test('renamed guide routes redirect old URLs and keep the class tree under Classes', async ({ page }) => {
+  await page.goto('guides/leveling-foundations/');
+  await expect(page).toHaveURL(/\/guides\/leveling-spots\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Leveling Spots');
+  await page.goto('guides/job-class-tree/');
+  await expect(page).toHaveURL(/\/classes\/$/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Job Class Tree');
+});
+
 test('article outline works and related links open the class tree', async ({ page }) => {
   await page.goto('guides/new-player-guide/');
   const desktop = (page.viewportSize()?.width ?? 1440) > 1050;

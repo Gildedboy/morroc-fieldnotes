@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('weapon labels identify jobs and Trickster opens its starter walkthrough', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   await expect(page.getByRole('button', { name: 'Mimic', exact: true })).toContainText('Codex');
   await expect(page.getByRole('button', { name: 'Illusionist', exact: true })).toContainText('Puppet');
   const trickster = page.getByRole('button', { name: 'Trickster', exact: true });
@@ -16,7 +16,7 @@ test('weapon labels identify jobs and Trickster opens its starter walkthrough', 
 });
 
 test('class branches expand by keyboard and link to their class guides', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   await expect(page.getByRole('button', { name: 'Orphan', exact: true })).toBeEnabled();
   await expect(page.getByRole('button', { name: 'Orphan', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.getByRole('complementary', { name: 'Article outline' })).toHaveCount(0);
@@ -49,7 +49,7 @@ test('class branches expand by keyboard and link to their class guides', async (
 test('class tree works without JavaScript and class assets load locally', async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto(`${baseURL}guides/job-class-tree/`);
+  await page.goto(`${baseURL}classes/`);
   await expect(page.locator('.class-branch')).toHaveCount(42);
   await page.getByRole('link', { name: 'Pit Boss', exact: true }).last().click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Pit Boss');
@@ -61,7 +61,7 @@ test('class tree works without JavaScript and class assets load locally', async 
 });
 
 test('ancestor selection preserves its branch and Orphan Back restores every choice', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   const orphan = page.getByRole('button', { name: 'Orphan', exact: true });
   const trickster = page.getByRole('button', { name: 'Trickster', exact: true });
   const revenant = page.getByRole('button', { name: 'Revenant', exact: true });
@@ -91,7 +91,7 @@ test('ancestor selection preserves its branch and Orphan Back restores every cho
 });
 
 test('rapid selection stays stable and closing class information never moves cards', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   const trickster = page.getByRole('button', { name: 'Trickster', exact: true });
   await trickster.evaluate(button => { for (let i=0; i<31; i++) (button as HTMLButtonElement).click(); });
   await expect(trickster).toHaveAttribute('aria-pressed', 'true');
@@ -119,7 +119,7 @@ test('rapid selection stays stable and closing class information never moves car
 });
 
 test('cards share dimensions and Orphan stays centered with Merchant at the far right', async ({ page }, testInfo) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   await expect(page.locator('[data-class-explorer]')).toHaveAttribute('data-ready', 'true');
   await expect(async () => {
     const geometry = await page.locator('[data-class-explorer]').evaluate(explorer => {
@@ -140,7 +140,7 @@ test('cards share dimensions and Orphan stays centered with Merchant at the far 
 });
 
 test('Merchant information stays beside its card without shifting the tree', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   const merchant = page.getByRole('button', { name: 'Merchant', exact: true });
   const options = page.locator('.class-root > .class-children > .class-row');
   const optionsPosition = () => options.evaluate(el => { const box=el.getBoundingClientRect(); return { x: box.x + scrollX, y: box.y + scrollY, width: box.width, height: box.height }; });
@@ -167,7 +167,7 @@ test('Merchant information stays beside its card without shifting the tree', asy
 });
 
 test('global sprite selection preserves the active branch and Merchant casting', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   await page.getByRole('button', { name: 'Trickster', exact: true }).click();
   await page.getByRole('radio', { name: 'Female', exact: true }).check();
   const explorer = page.locator('[data-class-explorer]');
@@ -184,7 +184,7 @@ test('global sprite selection preserves the active branch and Merchant casting',
 });
 
 test('selecting an endpoint keeps its card and connector horizontally stable', async ({ page }) => {
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   await page.getByRole('button', { name: 'Trickster', exact: true }).click();
   const revenant = page.getByRole('button', { name: 'Revenant', exact: true });
   await expect(revenant).toBeVisible();
@@ -204,10 +204,10 @@ test('initial card layout is identical before and after JavaScript initializes',
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: page.viewportSize()! });
   const staticPage = await context.newPage();
   const readLayout = () => Array.from(document.querySelectorAll<HTMLElement>('.class-card')).filter(card => card.getClientRects().length).map(card => { const rect = card.getBoundingClientRect(); return [card.getAttribute('aria-label'), rect.x + scrollX, rect.y + scrollY, rect.width, rect.height]; });
-  await staticPage.goto(`${baseURL}guides/job-class-tree/`);
+  await staticPage.goto(`${baseURL}classes/`);
   await staticPage.evaluate(() => document.fonts.ready);
   const before = await staticPage.evaluate(readLayout);
-  await page.goto('guides/job-class-tree/');
+  await page.goto('classes/');
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator('[data-class-explorer]')).toHaveAttribute('data-ready', 'true');
   expect(await page.evaluate(readLayout)).toEqual(before);

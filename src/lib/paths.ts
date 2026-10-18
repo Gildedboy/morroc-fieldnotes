@@ -3,6 +3,7 @@ export function withBase(path = ''): string {
 }
 
 export function guideHref(id: string): string {
+  if (id === 'job-class-tree') return withBase('classes/');
   return withBase(`guides/${id}/`);
 }
 

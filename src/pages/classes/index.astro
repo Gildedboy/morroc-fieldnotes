@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import GuidePage from '../../components/GuidePage.astro';
+
+const guides = await getCollection('guides');
+const guide = guides.find(entry => entry.id === 'job-class-tree');
+if (!guide) throw new Error('Missing Job Class Tree guide content');
+---
+<GuidePage guide={guide} />

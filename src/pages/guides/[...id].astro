@@ -4,7 +4,7 @@ import GuidePage from '../../components/GuidePage.astro';
 import WorkInProgress from '../../components/WorkInProgress.astro';
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
-  return guides.map(guide => ({ params: { id: guide.id }, props: { guide } }));
+  return guides.filter(guide => guide.id !== 'job-class-tree').map(guide => ({ params: { id: guide.id }, props: { guide } }));
 }
 const { guide } = Astro.props;
 ---
