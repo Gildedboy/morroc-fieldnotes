@@ -1,15 +1,23 @@
 ---
 import { sourceImages } from '../data/source-images';
 import { withBase } from '../lib/paths';
-interface Props { number: number; caption?: string; hideCaption?: boolean }
+interface ScreenshotImage { src: string; alt: string; width: number; height: number; caption?: string; crop?: { x: number; y: number; width: number; height: number } }
+interface Props { number?: number; image?: ScreenshotImage; caption?: string; hideCaption?: boolean }
 const { number, caption, hideCaption = false } = Astro.props;
-const image = sourceImages.find(image => image.number === number);
+const image: ScreenshotImage | undefined = Astro.props.image ?? sourceImages.find(image => image.number === number);
 if (!image) throw new Error(`Missing original guide screenshot ${number}`);
 const href = withBase(image.src);
+const crop = image.crop;
+const frameStyle = crop
+  ? `width: ${crop.width}px; aspect-ratio: ${crop.width} / ${crop.height}; position: relative;`
+  : `width: ${image.width}px;`;
+const imageStyle = crop
+  ? `position: absolute; width: ${image.width / crop.width * 100}%; max-width: none; height: auto; left: ${-crop.x / crop.width * 100}%; top: ${-crop.y / crop.height * 100}%;`
+  : undefined;
 ---
 <figure class="source-screenshot" data-source-image={number}>
-  <a class="screenshot-link" href={href} target="_blank" rel="noreferrer" aria-label={`Open full-size screenshot: ${image.alt}`} style={`width: ${image.width}px;`}>
-    <img src={href} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+  <a class="screenshot-link" href={href} target="_blank" rel="noreferrer" aria-label={`Open full-size screenshot: ${image.alt}`} style={frameStyle} data-cropped={crop ? 'true' : undefined}>
+    <img src={href} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" style={imageStyle} />
   </a>
   {!hideCaption && <figcaption>{(caption ?? image.caption) && <span>{caption ?? image.caption}</span>}<a href={href} target="_blank" rel="noreferrer">Open full size ↗</a></figcaption>}
 </figure>

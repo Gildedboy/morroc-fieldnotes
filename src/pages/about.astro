@@ -28,13 +28,15 @@ const classPages = jobClasses.filter(job => job.id !== 'orphan');
       <h2 id="guide-sources">Sources & acknowledgements</h2>
       {sourceGuides.map(guide => <section class="source-guide-entry" aria-labelledby={`source-guide-${guide.id}`}>
         <h3 id={`source-guide-${guide.id}`}><a href={guideHref(guide.id)}>{guide.data.title}</a></h3>
-        <p class="source-guide-date">Editorial update: {formatDate(guide.data.updated)}{guide.data.verified ? ` · In-game verified: ${formatDate(guide.data.verified)}` : ''}</p>
+        <p class="source-guide-date">Editorial update: {formatDate(guide.data.updated)} · In-game verification: {guide.data.verified ? formatDate(guide.data.verified) : 'not recorded'}</p>
+        <p>{guide.data.statusNote}</p>
         <ol class="source-list">{guide.data.sources.map(source => <li><div><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Icon name="external" size={13} /></a><span>By {source.author}</span></div><p>{source.note}</p><small>Original update: {source.sourceUpdated ?? 'Not specified'}</small></li>)}</ol>
       </section>)}
 
       <section class="source-guide-entry" aria-labelledby="class-guide-sources">
         <h3 id="class-guide-sources">Class guides</h3>
         <p class="source-guide-date">Class pages were reviewed against Refuge class references on October 17, 2026. Source update dates were not specified.</p>
+        <p>Trickster editorial update: October 18, 2026. Night Boots and Samurai Mask recommendations confirmed by the site owner; item levels, slots, and Samurai Mask’s Critical Rate bonus checked against the <a href="https://rtm-database.pages.dev/">Refuge item database</a>. Source update date unknown.</p>
         <ol class="source-list">
           {classPages.map(job => <li><div><a href={withBase(`classes/${job.id}/`)}>{job.name} guide</a><a href={`https://rtmrefuge.pages.dev/classes/${job.id}.html`} target="_blank" rel="noreferrer">Refuge — {job.name}<Icon name="external" size={13} /></a></div><span>By Return to Morroc: Refuge team</span></li>)}
           <li><div><a href="https://rtmrefuge.pages.dev/classes.html" target="_blank" rel="noreferrer">Refuge — Class tree<Icon name="external" size={13} /></a></div><span>By Return to Morroc: Refuge team</span><p>Class progression, role tags, sprites, and artwork.</p><small>Original update: Not specified</small></li>
@@ -48,6 +50,7 @@ const classPages = jobClasses.filter(job => job.id !== 'orphan');
       <h2>Artwork, type, and interface credits</h2>
       <p>The scenic illustrations and class portraits are sourced from the <a href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Refuge website</a>, which states its site content is free to copy. Third-party artwork remains the property of its respective owners. The New Player Guide includes eight original document images, with source attribution recorded above.</p>
       <p>Amarante and Atkinson Hyperlegible are distributed under the SIL Open Font License. Their license files are included alongside the local fonts. The Refuge mark is a local copy of the <a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">database website's header image</a>; the Fieldnotes wordmark and interface are created for this library.</p>
+      <p>The Weaver of Dreams uses the animated Baroness of Blood sprite (ID 2661) from the <a href="https://rtm-database.pages.dev/mvp-timer" target="_blank" rel="noreferrer">Refuge database</a>, identified by the site owner.</p>
       <p>Orphan skill icons come from the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge database</a>. Orphanage NPC sprites were matched against owner-provided screenshots using <a href="https://rune-nifelheim.com/npc/" target="_blank" rel="noreferrer">Rune Nifelheim</a> and <a href="https://ratemyragnarok.com/npcs/" target="_blank" rel="noreferrer">Rate My Ragnarok</a>, and rendered with <a href="https://github.com/adsonpleal/ragassets" target="_blank" rel="noreferrer">RagAssets</a>. Ragnarok Online artwork belongs to Gravity and its respective creators.</p>
     </div>
     <Footer />

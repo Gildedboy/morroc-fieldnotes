@@ -1,14 +1,147 @@
 ---
 title: Bifrost Mirror
-publication: wip
-description: Bifrost Mirror quest and unlock guide.
+publication: published
+description: Find the mirror shard and four eyes, then assemble the mirror in Dicastes Diel to unlock distortions.
 category: Quests & Unlocks
 icon: book
 order: 4
-updated: 2026-10-17
-status: needs-review
-statusNote: Requested by the owner. Sources and quest details have not yet been reviewed.
-readingMinutes: 1
-tags: [quests, unlocks, bifrost, mirror]
-sources: []
+updated: 2026-10-18
+verified: null
+status: source-reviewed
+statusNote: Quest sequence, eye locations, assembly order, fees, and rewards reviewed against Refuge Guides and Bahadur’s illustrated original-server walkthrough. The owner confirms that the Bifrost Mirror is account-bound and the quest only needs completing once per account. Screenshots retain their original frames. Source publication and editorial dates are distinct; no in-game verification date is recorded.
+readingMinutes: 6
+tags: [quests, unlocks, bifrost, mirror, shard, Vidar, Vali, Thor, Balder, Dicastes, eyes, Cold Angel Wings]
+related: [distortions, dungeons, new-player-guide]
+sources:
+  - title: Refuge — Bifrost Mirror Shard walkthrough
+    url: https://rtmrefuge.pages.dev/guides
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Refuge’s condensed walkthrough confirms the collection sequence, assembly order, eye fees, 475,000 Zeny total, and rewards. Site content is free to copy. Reviewed October 18, 2026. The walkthrough intentionally gives broad directions; map details are supplied by the illustrated reference.
+  - title: Necrópole Comercial — Bifrost Mirror Shard hidden quest
+    url: https://necropolecomercial.com/nc/guia-da-hide-quest-bifrost-mirror-shard/
+    author: Bahadur
+    sourceUpdated: null
+    note: Published October 23, 2023 for the original server; last revision unknown. Detailed route reference and fourteen selected instructional screenshots showing the five tombs, ferry, palace, elevators, four Masters, and costume reward. All rights reserved; no open reuse license is stated. English instructions are independently written from the quest facts. Original screenshots remain unaltered and credited here. Current Orphanage-to-city directions follow the site owner’s confirmed travel routes.
+  - title: Refuge — World and distortions
+    url: https://rtmrefuge.pages.dev/world
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Eye timeline functions and permanent distortion unlocks. The page preserves original-server material and identifies Refuge changes separately. Its character-bound mirror statement is superseded by the owner’s confirmation that the Refuge mirror is account-bound and the quest only needs completing once per account. Reviewed October 18, 2026.
 ---
+
+import Callout from '../../components/Callout.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import { bifrostQuestLocations as stops } from '../../data/locations';
+import { bifrostMirrorImages as images } from '../../data/bifrost-mirror-images';
+import { guideHref } from '../../lib/paths';
+
+## Prerequisites
+
+<Callout title="Before you start">
+
+- Have your **Orphan Badge** to use the Kafra travel routes below.
+- Set aside **475,000 Zeny** for adding the eyes, plus travel costs.
+- You only need to complete this quest **once per account**.
+</Callout>
+
+## 1) Find the mirror shard
+
+<p>{stops.shard.access}</p>
+
+Interact with **Bifrost Stone Shard** and choose **“Dig the thing out”** to collect the **Bifrost Mirror Shard**. Use the same option at the four eye tombs below. The red circles on the screenshots’ minimaps mark the tomb locations.
+
+<SourceScreenshot image={images.shard} />
+
+## 2) Collect the Eye of Vidar
+
+<p>{stops.vidar.access}</p>
+
+Dig up the **Eye of Vidar**. This eye opens travel to the past.
+
+<SourceScreenshot image={images.vidar} />
+
+## 3) Collect the Eye of Vali
+
+<p>{stops.vali.access}</p>
+
+Dig up the **Eye of Vali**. This eye opens travel to the future.
+
+<SourceScreenshot image={images.vali} />
+
+## 4) Collect the Eye of Thor
+
+<p>{stops.thor.access}</p>
+
+Dig up the **Eye of Thor**. This eye opens alternate timelines and deeper distortions.
+
+<SourceScreenshot image={images.thor} />
+
+## 5) Collect the Eye of Balder
+
+<p>{stops.balder.access}</p>
+
+Dig up the **Eye of Balder**. This eye opens paradoxes and end-of-the-world distortions.
+
+<SourceScreenshot image={images.balder} />
+
+## 6) Reach the Sages’ Study
+
+<p>{stops.study.access}</p>
+
+<SourceScreenshot image={images.ferry} />
+
+<SourceScreenshot image={images.palace} />
+
+Go past reception to the **Main Elevator** at the back. Choose **Main Corridor**.
+
+<SourceScreenshot image={images.mainElevator} />
+
+Head right along the corridor to the **Study Elevator**. Choose **Sage’s Study** to reach the four Masters.
+
+<SourceScreenshot image={images.studyElevator} />
+
+## 7) Add the eyes in order
+
+<Callout title="Add one eye at a time" tone="warning">
+Speak with the Masters in this order: **Vidar → Vali → Thor → Balder**. Each Master adds the matching eye to your mirror for the listed fee. Confirm the request to add the stone before moving to the next Master.
+</Callout>
+
+Keep the **Bifrost Mirror Shard** and all **four eyes** in your inventory while speaking with the Masters.
+
+<div class="guide-table-wrap" tabIndex={0} role="region" aria-label="Mirror assembly fees; scroll horizontally on narrow screens">
+  <table class="guide-table" aria-label="Bifrost Mirror assembly order and fees">
+    <thead><tr><th scope="col">Order</th><th scope="col">Bring</th><th scope="col">Speak with</th><th scope="col">Fee</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1</th><td>Eye of Vidar</td><td>Master of Vidar</td><td>25,000 Zeny</td></tr>
+      <tr><th scope="row">2</th><td>Eye of Vali</td><td>Master of Vali</td><td>50,000 Zeny</td></tr>
+      <tr><th scope="row">3</th><td>Eye of Thor</td><td>Master of Thor</td><td>100,000 Zeny</td></tr>
+      <tr><th scope="row">4</th><td>Eye of Balder</td><td>Master of Balder</td><td>300,000 Zeny</td></tr>
+      <tr><th scope="row">Total</th><td>All four eyes</td><td></td><td><strong>475,000 Zeny</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<SourceScreenshot image={images.master} />
+
+<SourceScreenshot image={images.masterVali} />
+
+<SourceScreenshot image={images.masterThor} />
+
+<SourceScreenshot image={images.masterBalder} />
+
+## 8) Rewards and distortion access
+
+<Callout title="Quest rewards" tone="tip">
+
+Adding the final eye grants:
+
+- The **Complete Mirror** achievement.
+- **Costume Cold Angel Wings**.
+- A completed mirror that opens distortions requiring any of the four eyes.
+
+</Callout>
+
+<SourceScreenshot image={images.reward} />
+
+See the <a href={guideHref('distortions')}>Distortions guide</a> for entrances, required mirror eyes, and special entry requirements.

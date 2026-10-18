@@ -38,6 +38,8 @@ Model character stage, class, technique, location, and resource assumptions sepa
 
 Run `npm run check` and `npm run build`. Run importer tests after extraction changes and browser tests after navigation/search/layout changes. Check source links, image attribution, keyboard controls, narrow layouts, and dates. Imports must never appear in `dist/`.
 
+Sources, acknowledgements, source/version caveats, and verification metadata belong on the About page, as requested by the owner. Keep source frontmatter on each guide so About can group credits by guide; do not add a Sources & Acknowledgements section to individual articles.
+
 The standard footer states that the source guides are publicly available and their material has been transferred into a consistent format. It preserves ownership and attribution and identifies editorial updates separately.
 
 Only published guide bodies appear in public HTML and search. WIP guides remain visible as labeled notices in the library, sidebar, and related links. Before publishing a draft, review its content and images, change its publication field, and rerun checks.

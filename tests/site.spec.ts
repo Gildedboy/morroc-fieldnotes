@@ -190,7 +190,7 @@ test('tutorial includes its eight uncropped source screenshots, steps, and scarf
 });
 
 test('draft guides expose only WIP notices and stay out of search', async ({ page, request }) => {
-  for (const id of ['dungeons', 'distortions', 'bifrost-mirror', 'blooming-rose-sandals', 'sun-headgears', 'celestial-tome']) {
+  for (const id of ['sun-headgears', 'celestial-tome']) {
     await page.goto(`guides/${id}/`);
     await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
@@ -200,6 +200,6 @@ test('draft guides expose only WIP notices and stay out of search', async ({ pag
   const response = await request.get('search.json');
   expect(response.ok()).toBe(true);
   const index = await response.json();
-  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['Job Class Tree', 'Leveling Spots', 'New Player Guide']);
+  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['Bifrost Mirror', 'Blooming Rose Sandals', 'Distortions', 'Dungeons', 'Job Class Tree', 'Leveling Spots', 'New Player Guide']);
   expect(JSON.stringify(index)).toContain('Leveling Spots');
 });

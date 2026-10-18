@@ -1,14 +1,253 @@
 ---
 title: Dungeons
-publication: wip
-description: Dungeon locations, entry requirements, and unlock steps.
+publication: published
+description: Dungeon entrances, travel routes, and difficulty ranks.
 category: Leveling
 icon: map
 order: 2.1
-updated: 2026-10-17
-status: needs-review
-statusNote: Requested by the owner. Dungeon locations, entry requirements, and unlock steps have not yet been reviewed.
-readingMinutes: 1
-tags: [dungeons, locations, access, unlocks]
-sources: []
+updated: 2026-10-18
+verified: null
+status: source-reviewed
+statusNote: Entrance routes and screenshots reviewed against the entrance spreadsheet, Refuge world page, and current place records. Rank labels use the original-server reference; no in-game verification date is recorded.
+readingMinutes: 14
+tags: [dungeons, locations, entrances, access, ranks, maps]
+related: [leveling-spots, distortions]
+sources:
+  - title: Low Res Dungeon Location Guide
+    url: https://docs.google.com/spreadsheets/d/1RJ_aT-3F3K8f3Q6gjNiOebnsKmBMF6t87sVa95RUz5Y/edit?gid=233624138
+    author: OG Community of the OG Server
+    sourceUpdated: null
+    note: Entrance directions and original screenshots. Community credit requested by the site owner. The introduction credits ElPato/Duck and thanks rimesrea for suggesting written routes. Source revision date and reuse terms are unspecified.
+  - title: Refuge — World
+    url: https://rtmrefuge.pages.dev/world
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Dungeon ranks and world context. The page preserves original-server wiki material and explicitly warns that Refuge has changed it. Site footer permits copying its content. Reviewed October 18, 2026.
+  - title: Refuge — Places
+    url: https://rtm-database.pages.dev/places
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current monster level ranges, map sequences, entrance NPCs, and mirror Master requirements. Reviewed October 18, 2026. Coordinates identify entrance positions; they do not require a navigation command.
 ---
+
+import EntranceDetails from '../../components/EntranceDetails.astro';
+import Callout from '../../components/Callout.astro';
+import DungeonRankWarning from '../../components/DungeonRankWarning.astro';
+
+<DungeonRankWarning />
+
+<Callout title="Follow the mouse pointer on the maps">
+Look at the mouse arrow in the map references: it points to the destination being shown. Use the accompanying gameplay screenshot and its top-right minimap to find the entrance within that map. Open the full-size image to see the pointer clearly.
+</Callout>
+
+## Upper Pyramid
+
+<EntranceDetails id="upper-pyramid" />
+
+## Pyramid Basement
+
+<EntranceDetails id="pyramid-basement" />
+
+## Insect Society Nest
+
+<EntranceDetails id="insect-society-nest" />
+
+## Payon Cave
+
+<EntranceDetails id="payon-cave" />
+
+## Prontera Culvert
+
+<EntranceDetails id="prontera-culvert" />
+
+## Morroc Sphinx
+
+<EntranceDetails id="morroc-sphinx" />
+
+## Geffen Cave
+
+<EntranceDetails id="geffen-cave" />
+
+## Beach Caves
+
+<EntranceDetails id="beach-caves" />
+
+## Sunken Ship
+
+<EntranceDetails id="sunken-ship" />
+
+## Byalan Island
+
+<EntranceDetails id="byalan-island" />
+
+## Noble’s Bathhouse
+
+<EntranceDetails id="nobles-bathhouse" />
+
+## Forest Maze
+
+<EntranceDetails id="forest-maze" />
+
+## Orc Dungeon
+
+<EntranceDetails id="orc-dungeon" />
+
+## Coal Mines
+
+<EntranceDetails id="coal-mines" />
+
+## Turtle Dungeon
+
+<EntranceDetails id="turtle-dungeon" />
+
+## Magma Dungeon
+
+<EntranceDetails id="magma-dungeon" />
+
+## Faceworm Nest
+
+<EntranceDetails id="faceworm-nest" />
+
+## Sunken Temple
+
+<EntranceDetails id="sunken-temple" />
+
+## Airship Crash Site
+
+<EntranceDetails id="airship-crash-site" />
+
+## Clock Tower
+
+<EntranceDetails id="clock-tower" />
+
+## Einbroch Mines (Einbech)
+
+<EntranceDetails id="einbroch-mines-einbech" />
+
+## Toy Factory
+
+<EntranceDetails id="toy-factory" />
+
+## Dragon Nest
+
+<EntranceDetails id="dragon-nest" />
+
+## Regenschirm Lab
+
+<EntranceDetails id="regenschirm-lab" />
+
+## Ayothaya Temple
+
+<EntranceDetails id="ayothaya-temple" />
+
+## Dewata Volcano
+
+<EntranceDetails id="dewata-volcano" />
+
+## Crystal Caves
+
+<EntranceDetails id="crystal-caves" />
+
+## Waterfall Caves
+
+<EntranceDetails id="waterfall-caves" />
+
+## Amatsu Dungeon
+
+<EntranceDetails id="amatsu-dungeon" />
+
+## Juperos Ruins
+
+<EntranceDetails id="juperos-ruins" />
+
+## Abandoned Hospital
+
+<EntranceDetails id="abandoned-hospital" />
+
+## Yggdrasil Tree
+
+<EntranceDetails id="yggdrasil-tree" />
+
+## Alchemist Fortress
+
+<EntranceDetails id="alchemist-fortress" />
+
+## Abyss Lake
+
+<EntranceDetails id="abyss-lake" />
+
+## Geffenia
+
+<EntranceDetails id="geffenia" />
+
+## Thanatos Tower
+
+<EntranceDetails id="thanatos-tower" />
+
+## Abandoned Kafra Warehouse
+
+<EntranceDetails id="abandoned-kafra-warehouse" />
+
+## Grey Forest
+
+<EntranceDetails id="grey-forest" />
+
+## Sky Garden
+
+<EntranceDetails id="sky-garden" />
+
+## Nameless Island and Cursed Monastery
+
+<EntranceDetails id="nameless-island-and-cursed-monastery" />
+
+## Ice Dungeon
+
+<EntranceDetails id="ice-dungeon" />
+
+## Kiel Hyre Factory
+
+<EntranceDetails id="kiel-hyre-factory" />
+
+## Glast Heim
+
+<EntranceDetails id="glast-heim" />
+
+## Rachel Sanctuary
+
+<EntranceDetails id="rachel-sanctuary" />
+
+## Observatorium Astrologika
+
+<EntranceDetails id="observatorium-astrologika" />
+
+## Odin Shrine
+
+<EntranceDetails id="odin-shrine" />
+
+## Verus Lost Sectors
+
+<EntranceDetails id="verus-lost-sectors" />
+
+## Opera House
+
+<EntranceDetails id="opera-house" />
+
+## Thor Volcano
+
+<EntranceDetails id="thor-volcano" />
+
+## Varmundt Mansion and Library
+
+<EntranceDetails id="varmundt-mansion-and-library" />
+
+## Death Castle
+
+<EntranceDetails id="death-castle" />
+
+## Regenschutz Secret Laboratory
+
+<EntranceDetails id="regenschutz-secret-laboratory" />
+
+## Lost Tomb of the King
+
+<EntranceDetails id="lost-tomb-of-the-king" />

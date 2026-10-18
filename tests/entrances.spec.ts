@@ -1,0 +1,54 @@
+import { test, expect } from '@playwright/test';
+
+test('dungeon navigation exposes ranks, entrance routes, and full-frame screenshots', async ({ page }) => {
+  await page.goto('./guides/dungeons/');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dungeons');
+  await expect(page.getByText('Check the rank before entering', { exact: true })).toBeVisible();
+  await expect(page.getByText('Thanatos Tower is Rank B', { exact: true })).toBeVisible();
+  const mobile = (page.viewportSize()?.width ?? 1440) < 1051;
+  if (mobile) await page.getByText('On this page', { exact: true }).click();
+  const outline = mobile ? page.locator('.mobile-outline') : page.getByRole('complementary', { name: 'Article outline' });
+  await outline.getByRole('link', { name: /Thanatos Tower/ }).click();
+  await expect(page).toHaveURL(/#thanatos-tower$/);
+  const tower = page.locator('[data-entrance="thanatos-tower"]');
+  await expect(tower).toContainText('Rank B');
+  await tower.getByText('Route and entrance NPCs', { exact: true }).click();
+  await expect(tower.getByRole('list')).toBeVisible();
+  const frame = tower.getByRole('img').first();
+  await expect(frame).toBeVisible();
+  await expect.poll(() => frame.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+  expect(await frame.evaluate((img: HTMLImageElement) => Math.abs(img.width / img.height - img.naturalWidth / img.naturalHeight))).toBeLessThan(0.01);
+  await tower.getByRole('link', { name: /Open full-size screenshot/ }).first().focus();
+  const popupPromise = page.waitForEvent('popup');
+  await page.keyboard.press('Enter');
+  const popup = await popupPromise;
+  await expect(popup).toHaveURL(/images\/entrances\/.+\.webp$/);
+  await popup.close();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('keyboard search finds an entrance NPC and opens its distortion requirements', async ({ page }) => {
+  await page.goto('./');
+  await page.keyboard.press('Control+k');
+  const search = page.getByRole('dialog', { name: 'Search', exact: true });
+  await page.getByRole('searchbox', { name: 'Search guides' }).fill('Decay Distortion');
+  await expect(search.getByRole('status')).toHaveText('1 guide found');
+  await page.keyboard.press('ArrowDown');
+  await expect(search.getByRole('link', { name: /Distortions/ })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Distortions');
+  const entrance = page.locator('[data-entrance="abyss-lakes-underground-hideout"]');
+  await expect(entrance.locator('.entrance-meta')).toContainText('Rank A');
+  await expect(entrance.locator('.entrance-meta')).toContainText('Mirror eye Eye of Balder');
+  await expect(page.locator('[data-entrance="morroc-castle-and-ritual-basement"] .entrance-meta')).toContainText('Eye of Thor');
+  await expect(entrance.getByRole('complementary')).toHaveCount(0);
+  await entrance.getByText('Route and entrance NPCs', { exact: true }).click();
+  await expect(entrance).toContainText('Master of Balder');
+  await expect(page.locator('[data-entrance="lokis-tomb"]').getByRole('complementary')).toContainText('1 Enriched Oridecon');
+  await expect(page.locator('[data-entrance="jormungands-lair"]').getByRole('complementary')).toContainText('Base Level 130');
+  await expect(page.locator('[data-entrance="old-payon"]').getByRole('complementary')).toHaveCount(0);
+  await expect(page.locator('[data-entrance]').getByRole('complementary')).toHaveCount(2);
+  await expect(entrance.getByRole('img')).toHaveCount(1);
+  await expect(page.getByRole('heading', { name: 'Sources & Acknowledgements' })).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

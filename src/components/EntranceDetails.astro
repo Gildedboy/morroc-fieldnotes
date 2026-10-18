@@ -1,0 +1,47 @@
+---
+import { dungeonEntrances, locations } from '../data/locations';
+import { guideHref, withBase } from '../lib/paths';
+import SourceScreenshot from './SourceScreenshot.astro';
+import Callout from './Callout.astro';
+interface Props { id: string }
+const entry = dungeonEntrances.find(entry => entry.id === Astro.props.id);
+if (!entry) throw new Error(`Unknown entrance ${Astro.props.id}`);
+const location = entry.locationId ? locations.find(location => location.id === entry.locationId) : undefined;
+if (entry.locationId && !location) throw new Error(`Unknown shared location ${entry.locationId}`);
+const levels = location?.monsterLevels ?? entry.monsterLevels;
+const extraRequirements = entry.extraRequirements ?? [];
+---
+<div class="entrance-details" data-entrance={entry.id}>
+  {(levels || entry.rank || entry.mirrorEye) && <p class="entrance-meta">{levels && <span>Monster Lv. <strong>{levels}</strong></span>}{entry.rank && <span>Rank <strong>{entry.rank}</strong></span>}{entry.mirrorEye && <span>Mirror eye <strong>Eye of {entry.mirrorEye}</strong></span>}</p>}
+  {location && <p>{location.access}</p>}
+  {entry.directions && entry.directions !== location?.access && <p>{entry.directions}</p>}
+  {extraRequirements.length > 0 && <Callout title="Entry requirements" tone="warning">
+    <ul class="entrance-requirements">
+      {extraRequirements.map(requirement => <li><strong>{requirement}</strong></li>)}
+    </ul>
+  </Callout>}
+  {entry.route && entry.route.length > 0 && <details class="entrance-route"><summary>Route and entrance NPCs</summary><ol>{entry.route.map(step => <li>{step}</li>)}</ol></details>}
+  {entry.notes && <p>{entry.notes}</p>}
+  {entry.places.length > 0 && <p class="entrance-database">Refuge database: {entry.places.map((place, i) => <>{i > 0 && ', '}<a href={`https://rtm-database.pages.dev/places?id=${encodeURIComponent(place.key)}`} target="_blank" rel="noreferrer">{place.label} ↗</a></>)}</p>}
+  {location && <p><a href={`${guideHref('leveling-spots')}#${entry.locationId}`}>Monsters and leveling notes →</a></p>}
+  <div class="entrance-screenshots">{entry.screenshots.map((image, index) => <SourceScreenshot image={image} caption={image.caption ?? `${entry.name} · Entrance reference ${index + 1}`} />)}</div>
+  {entry.screenshots.length === 0 && location?.screenshot && <SourceScreenshot number={location.screenshot} />}
+  {entry.screenshots.length === 0 && location?.image && <figure class="source-screenshot"><a class="screenshot-link" href={withBase(location.image.src)} target="_blank" rel="noreferrer"><img src={withBase(location.image.src)} alt={location.image.alt} loading="lazy" decoding="async" /></a></figure>}
+</div>
+<hr class="entrance-separator" />
+
+<style>
+  .entrance-details { padding-bottom: 32px; }
+  .entrance-separator { border: 0; border-top: 1px solid var(--line); margin: 0 0 36px; }
+  .entrance-meta { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 13px; }
+  .entrance-requirements { margin: 4px 0 0; padding-left: 20px; }
+  .entrance-requirements li:last-child { margin-bottom: 0; }
+  .entrance-route { margin: 16px 0; padding: 12px 16px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; }
+  .entrance-route summary { cursor: pointer; color: var(--text); }
+  .entrance-route li { overflow-wrap: anywhere; }
+  .entrance-database { font-size: 12px; }
+  .entrance-screenshots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .entrance-screenshots :global(.source-screenshot) { margin: 12px 0; min-width: 0; }
+  .entrance-screenshots :global(figcaption) { flex-wrap: wrap; gap: 4px 12px; }
+  @media (max-width: 760px) { .entrance-screenshots { grid-template-columns: minmax(0, 1fr); } }
+</style>

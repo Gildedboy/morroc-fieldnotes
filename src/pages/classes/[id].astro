@@ -12,7 +12,7 @@ interface Props { job: JobClass }
 const { job } = Astro.props;
 const isThief = job.id === 'thief';
 const isTrickster = job.id === 'trickster';
-const sections = isTrickster ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step'], ['sources', 'Sources & Acknowledgements']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
+const sections = isTrickster ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---

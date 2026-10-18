@@ -15,7 +15,7 @@ The New Player Guide is already available as the Getting Started example. Do not
 
 ## Orphanage guide
 
-- [x] Add the Weaver of Dreams' image to the new-player guide using the owner's screenshot when no exact sprite match is confirmed.
+- [x] Add the Weaver of Dreams image; the owner later identified the animated Baroness of Blood sprite in the Refuge database, which replaces the screenshot crop.
 - [ ] Confirm the Weaver of Dreams' precise location within the Orphanage and add directions.
 
 ## Guide library
@@ -32,17 +32,20 @@ The New Player Guide is already available as the Getting Started example. Do not
 ## Leveling, dungeons, and distortions
 
 - [ ] Complete and review Leveling Spots with level ranges and recommended spots. Preserve the existing archived route and screenshots as review material until the current Refuge route is authored.
-- [ ] Write and review Dungeons with locations, entry requirements, and unlock steps. Its separate link under Leveling is WIP.
-- [ ] Write and review Distortions with locations, entry requirements, and unlock steps. Its separate link under Leveling is WIP.
-- [ ] Organize Dungeons and Distortions as one page each, with a section per location. Use the right-hand article outline to jump to a specific dungeon or distortion. Link to these sections from relevant leveling spots, and keep reusable access information in `src/data/locations.ts`.
+- [x] Add Dungeons with the entrance spreadsheet’s 51 sections, both Pyramid routes, full-frame screenshots, current database routes, and a dungeon-rank warning.
+- [x] Add Distortions with the spreadsheet’s 24 sections plus Mad Drinker, screenshots, current mirror Master requirements, and source/version differences.
+- [x] Organize Dungeons and Distortions as one page each, with a section per location. Use the right-hand article outline to jump to a specific dungeon or distortion. Link to these sections from relevant leveling spots, and keep reusable access information in `src/data/locations.ts`.
 
 ## Quests & Unlocks
 
-- [ ] Write and review Bifrost Mirror. Its separate guide link is WIP.
-- [ ] Write and review Blooming Rose Sandals. Its separate guide link is WIP.
+- [x] Add the Bifrost Mirror quest with all five tombs, Dicastes Diel travel, elevators, four Master upgrades, fees, reward, and full-frame instructional screenshots.
+- [x] Add Blooming Rose Sandals with the current recipe, Rose Sage location, mansion access screenshots, numbered steps, and separate crafting/equipment requirements.
+- [x] Add the owner’s correct distortion, Rose Sage, repair dialogue, material requirements, and old/upgraded item screenshots (123–128).
 - [ ] Write and review Sun Headgears. Its separate guide link is WIP.
 - [ ] Write and review Celestial Tome. Its separate guide link is WIP. Use https://hatredguide.segasunset.workers.dev/ as a reference for the headgear requirements: the owner confirms that all 90 headgears are needed for the tome. Review the full list and acquisition details before authoring.
 
 ## External resources
 
 - [x] Add https://hatredguide.segasunset.workers.dev/ as the Hatred tracker & guide link alongside the main website and database links in the top-right header, mobile menu, and sidebar.
+
+- [ ] Verify dungeon entrances and rank labels in game; confirm missing current mirror requirements for Old Payon, Old Monastery, and Field of Fire. Recheck the spreadsheet’s Jormungand Base Level 130 entry requirement.

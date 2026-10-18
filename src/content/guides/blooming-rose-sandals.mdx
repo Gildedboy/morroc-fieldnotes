@@ -1,14 +1,115 @@
 ---
 title: Blooming Rose Sandals
-publication: wip
-description: Blooming Rose Sandals quest and unlock guide.
+publication: published
+description: Collect the crafting materials and visit Rose Sage in Varmundt’s Mansion to make Blooming Rose Sandals.
 category: Quests & Unlocks
 icon: book
 order: 5
-updated: 2026-10-17
-status: needs-review
-statusNote: Requested by the owner. Sources and quest details have not yet been reviewed.
-readingMinutes: 1
-tags: [quests, unlocks, blooming rose, sandals]
-sources: []
+updated: 2026-10-18
+verified: null
+status: source-reviewed
+statusNote: Owner screenshots show Old Rose Sandals, the correct Orphanage Distortion orb, Rose Sage, the repair dialogue, and the required 10 MVP Shards and 500 Distortion Shards. Drop sources, NPC location, and item properties were checked against Refuge records on October 18, 2026. The owner confirms that the base sandals must be refined to exactly +7 and that Old Rose Sandals have random roll options while Blooming Rose Sandals have fixed options. Screenshots confirm the materials and dialogue but do not record a completed exchange. Base Level 120 is the equipment requirement, not a confirmed crafting prerequisite.
+readingMinutes: 3
+tags: [quests, crafting, blooming rose, sandals, Rose Sage, Varmundt, Distortion Shard, MVP Shard, shoes]
+related: [bifrost-mirror, distortions, dungeons]
+sources:
+  - title: Refuge — Old Rose Sandals
+    url: https://rtm-database.pages.dev/index.html?id=22070
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Old Rose Sandals drop from Lost Traveler in Mansion Garden, Navigator in Mansion Hidden Garden, and Paradox Amdarais in Mansion Lost Area. The owner confirms this pair is needed for the upgrade to Blooming Rose Sandals. Reviewed October 18, 2026. Old Rose Sandals screenshot supplied by the owner (screenPRM123.jpg).
+  - title: Refuge — Blooming Rose Sandals
+    url: https://rtm-database.pages.dev/index.html?id=22071
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current item record and crafting recipe. Rose Sage is listed at Varmundt’s Mansion — Interior, top right. Requires 500 Distortion Shards and 10 MVP Shards. Equipment requires Base Level 120 and has one slot. Reviewed October 18, 2026. Owner screenshots 123–128 show the old and upgraded sandals, the correct Orphanage Distortion orb, Rose Sage’s Rose Sandals Repair label, dialogue choices, and material requirements. Owner-requested crops are displayed with full original images available through the image links. Vendor prices are not fixed quest costs. The owner confirms the old sandals must be exactly +7 and that the option bars shown on Blooming Rose Sandals are fixed bonuses rather than random rolls.
+  - title: Refuge — Distortion Shard
+    url: https://rtm-database.pages.dev/index.html?id=7360
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Monster drop sources and the separate 100-shard conversion into Distortion Essence. The sandals recipe requires Distortion Shards. Reviewed October 18, 2026.
+  - title: Refuge — MVP Shard
+    url: https://rtm-database.pages.dev/index.html?id=7615
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: MVP Shard acquisition includes MVP Prize Boxes. Reviewed October 18, 2026.
+  - title: Refuge — Gear and Varmundt quests
+    url: https://rtmrefuge.pages.dev/gear
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Confirms crafting Blooming Rose Sandals in Varmundt’s Mansion and traveling there by the Lighthalzen airship. The page preserves original-server reference material and permits copying site content. Reviewed October 18, 2026.
+
 ---
+
+import Callout from '../../components/Callout.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import { bloomingRoseSandalsLocation as location } from '../../data/locations';
+import { bloomingRoseSandalsImages as images } from '../../data/blooming-rose-sandals-images';
+import { guideHref } from '../../lib/paths';
+
+## Prerequisites
+
+<Callout title="Before you start">
+
+- Collect **500 Distortion Shards**.
+- Collect **10 MVP Shards**.
+- Bring **1 pair of Old Rose Sandals refined to exactly +7**.
+- Have your **Bifrost Mirror** for the distortion route.
+
+</Callout>
+
+## 1) Obtain and refine Old Rose Sandals
+
+Get **1 pair of <a href="https://rtm-database.pages.dev/index.html?id=22070" target="_blank" rel="noreferrer">Old Rose Sandals</a>** from one of these monsters:
+
+- **Lost Traveler** — <a href="https://rtm-database.pages.dev/places?id=mansion-garden" target="_blank" rel="noreferrer">Mansion Garden</a>.
+- **Navigator** — <a href="https://rtm-database.pages.dev/places?id=mansion-hidden-garden" target="_blank" rel="noreferrer">Mansion Hidden Garden</a>.
+- **Paradox Amdarais (MVP)** — <a href="https://rtm-database.pages.dev/places?id=mansion-lost-area" target="_blank" rel="noreferrer">Mansion Lost Area</a>.
+
+Refine the **Old Rose Sandals to exactly +7** before taking them to Rose Sage.
+
+<Callout title="Random rolls">
+Old Rose Sandals can have random roll options.
+</Callout>
+
+<SourceScreenshot image={images.oldSandals} />
+
+## 2) Collect the required materials
+
+Gather **500 <a href="https://rtm-database.pages.dev/index.html?id=7360" target="_blank" rel="noreferrer">Distortion Shards</a>** from monsters in <a href={guideHref('distortions')}>distortion dungeons</a>.
+
+Gather **10 <a href="https://rtm-database.pages.dev/index.html?id=7615" target="_blank" rel="noreferrer">MVP Shards</a>** from **MVP Prize Boxes** obtained from MVPs.
+
+## 3) Visit Rose Sage in Varmundt’s Mansion
+
+<p>{location.mirrorAccess} See the <a href={guideHref('bifrost-mirror')}>Bifrost Mirror guide</a> if you need to unlock the mirror route.</p>
+
+<SourceScreenshot image={images.orb} />
+
+Find **Rose Sage** in the **northeast part of Varmundt’s Mansion — Interior**. Look for the **Rose Sandals Repair** service label.
+
+<SourceScreenshot image={images.sage} />
+
+Speak with Rose Sage. Choose **“What do you need to fix them?”** to view the required materials.
+
+<SourceScreenshot image={images.dialogue} />
+
+<SourceScreenshot image={images.materials} />
+
+Choose **“Please, fix my Sandals!”** and hand over the materials.
+
+## 4) Rewards
+
+<Callout title="Crafting reward" tone="tip">
+
+- **Blooming Rose Sandals [1]**.
+- Blooming Rose Sandals will always have **fixed rolls**.
+- **Base Level 120** required to equip them.
+- **Movement Speed +10%** and **ASPD Limit +1**.
+- Refine bonuses activate when the matching base stat reaches **90**.
+
+</Callout>
+
+<SourceScreenshot image={images.reward} />
+
+Check the <a href="https://rtm-database.pages.dev/index.html?id=22071" target="_blank" rel="noreferrer">Blooming Rose Sandals database entry</a> for the full stat and refine bonuses.

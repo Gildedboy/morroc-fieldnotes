@@ -1,10 +1,11 @@
 ---
-import { locations } from '../data/locations';
+import { dungeonEntrances, locations } from '../data/locations';
 import { guideHref, withBase } from '../lib/paths';
 import SourceScreenshot from './SourceScreenshot.astro';
 interface Props { id: string }
 const location = locations.find(location => location.id === Astro.props.id);
 if (!location) throw new Error(`Unknown location ${Astro.props.id}`);
+const entrance = dungeonEntrances.find(entry => entry.locationId === location.id);
 const locationImages = [...(location.image ? [location.image] : []), ...(location.additionalImages ?? [])];
 const sourceScreenshotNumbers = [...(location.screenshot ? [location.screenshot] : []), ...(location.extraScreenshots ?? [])];
 ---
@@ -12,6 +13,7 @@ const sourceScreenshotNumbers = [...(location.screenshot ? [location.screenshot]
   <tbody>
     <tr><th scope="row">Monster levels</th><td>{location.monsterLevels}{location.expStartBaseLevel !== undefined && <span class="leveling-exp-start">EXP starts at Base Lv. {location.expStartBaseLevel}</span>}</td></tr>
     <tr><th scope="row">How to reach</th><td>{location.access}</td></tr>
+    {entrance && <tr><th scope="row">Entrance guide</th><td><a href={`${guideHref(entrance.kind)}#${entrance.id}`}>Entrance screenshots and {entrance.kind === 'distortions' ? 'mirror requirements' : 'dungeon details'} →</a></td></tr>}
     {(sourceScreenshotNumbers.length > 0 || locationImages.length > 0) && <tr><th scope="row">{sourceScreenshotNumbers.length + locationImages.length > 1 ? 'Location images' : 'Location image'}</th><td><div class="leveling-location-gallery">{locationImages.map(image => <figure class:list={['leveling-location-image', image.square && 'leveling-location-image--square']}><a href={withBase(image.src)} target="_blank" rel="noreferrer"><img src={withBase(image.src)} alt={image.alt} loading="lazy" decoding="async" /></a></figure>)}{sourceScreenshotNumbers.map(number => <SourceScreenshot number={number} hideCaption />)}</div></td></tr>}
     <tr><th scope="row">Monsters</th><td><ul class="leveling-monsters">{(location.monsters ?? ['Monster list not available.']).map(monster => <li>{monster}</li>)}</ul>{location.databasePlaces?.length && <p class="leveling-database-links">Refuge database: {location.databasePlaces.map((place, index) => <>{index > 0 && ', '}<a href={`https://rtm-database.pages.dev/places?q=${encodeURIComponent(place.query)}`} target="_blank" rel="noreferrer">{place.label} ↗</a></>)}</p>}</td></tr>
     <tr><th scope="row">Notes</th><td>{location.notes}{location.noteLinks?.map(link => <span class="leveling-note-link"> <a href={link.href.startsWith('http') ? link.href : guideHref(link.href)} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined}>{link.label}</a></span>)}</td></tr>

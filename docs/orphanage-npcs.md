@@ -26,7 +26,7 @@ Owner screenshots are in `C:\Users\Gilded\Downloads\Refuge\ScreenShot`, accessib
 | 058 | Master of Cards — Card Remover | `4_m_oilman`, 878 | Animated GIF and service text |
 | 059 | Stylist Shalosh | `4_f_shalosh`, 10041 | GIF and service text |
 | 060 | Great Collector — Achievements | No exact match; candidate 47 rejected | Original screenshot crop and service text |
-| 062 | Weaver of Dreams | No confirmed stock match after reviewing female and episode NPC sprites in the RMR catalog | Original screenshot crop and Dream Enchant service text |
+| 062 | Weaver of Dreams | Owner identifies Baroness of Blood, database monster ID 2661 | Original animated database GIF and Dream Enchant service text |
 
 Mr Kim and his helper provide donation-point services, per the owner's confirmation. Keep these separate from Amadeus's Zeny funding for Orphanage levels.
 Mr Kim also provides DEX Wardrobe storage, as confirmed by the owner.

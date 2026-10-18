@@ -1,14 +1,157 @@
 ---
 title: Distortions
-publication: wip
-description: Distortion locations, entry requirements, and unlock steps.
+publication: published
+description: Distortion entrances, special entry requirements, and travel routes.
 category: Leveling
 icon: map
 order: 2.2
-updated: 2026-10-17
-status: needs-review
-statusNote: Requested by the owner. Distortion locations, entry requirements, and unlock steps have not yet been reviewed.
-readingMinutes: 1
-tags: [distortions, locations, access, unlocks]
-sources: []
+updated: 2026-10-18
+verified: null
+status: source-reviewed
+statusNote: Entrance routes and screenshots reviewed against the entrance spreadsheet, Refuge world page, and current place records. Rank labels use the original-server reference; no in-game verification date is recorded.
+readingMinutes: 9
+tags: [distortions, locations, entrances, access, ranks, bifrost, mirror, eyes]
+related: [leveling-spots, dungeons, bifrost-mirror]
+sources:
+  - title: Necrópole Comercial — Distortion Dungeon Access Guide
+    url: https://necropolecomercial.com/nc/guia-de-acesso-para-as-distortion-dungeons/
+    author: Bahadur
+    sourceUpdated: null
+    note: Published October 31, 2023 for the original server. Confirms the one-time Enriched Oridecon payment to the Assassin for Loki’s entrance and supplies access directions. Reviewed October 18, 2026. Last revision date unknown; all rights reserved. Gameplay facts are paraphrased; no text or images reproduced.
+  - title: Low Res Dungeon Location Guide
+    url: https://docs.google.com/spreadsheets/d/1RJ_aT-3F3K8f3Q6gjNiOebnsKmBMF6t87sVa95RUz5Y/edit?gid=1488763682
+    author: OG Community of the OG Server
+    sourceUpdated: null
+    note: Entrance directions and original screenshots. Community credit requested by the site owner. The introduction credits ElPato/Duck and thanks rimesrea for suggesting written routes. Source revision date and reuse terms are unspecified.
+  - title: Refuge — World
+    url: https://rtmrefuge.pages.dev/world
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Dungeon ranks and world context. The page preserves original-server wiki material and explicitly warns that Refuge has changed it. Site footer permits copying its content. Reviewed October 18, 2026.
+  - title: Refuge — Places
+    url: https://rtm-database.pages.dev/places
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current monster level ranges, map sequences, entrance NPCs, and mirror Master requirements. Reviewed October 18, 2026. Coordinates identify entrance positions; they do not require a navigation command.
 ---
+
+import EntranceDetails from '../../components/EntranceDetails.astro';
+import Callout from '../../components/Callout.astro';
+import DungeonRankWarning from '../../components/DungeonRankWarning.astro';
+import { guideHref } from '../../lib/paths';
+
+<DungeonRankWarning />
+
+<Callout title="Follow the mouse pointer on the maps">
+Look at the mouse arrow in the map references: it points to the destination being shown. Use the accompanying gameplay screenshot and its top-right minimap to find the distortion orb within that map. Open the full-size image to see the pointer clearly.
+</Callout>
+
+## Before entering a distortion
+
+<Callout title="Before you enter">
+
+Bring a powered-up <strong><a href={guideHref('bifrost-mirror')}>Bifrost Mirror</a></strong>. Speak with the required Master in **Dicastes Diel (Sage’s Palace)** before using the corresponding distortion. The detailed routes include these mirror unlocks; warning boxes highlight extra conditions such as an item payment or a level requirement.
+
+The mirror’s Eyes correspond to **Vidar** (past), **Vali** (future), **Thor** (alternate timelines or deeper distortions), and **Balder** (paradoxes). Distortions disable teleportation and `/memo`; prepare before entering. Use the screenshots to find the orb and read its entry dialogue.
+
+</Callout>
+
+## Old Payon
+
+<EntranceDetails id="old-payon" />
+
+## Old Monastery
+
+<EntranceDetails id="old-monastery" />
+
+## Nightmare Clock Tower
+
+<EntranceDetails id="nightmare-clock-tower" />
+
+## Loki’s Tomb
+
+<EntranceDetails id="lokis-tomb" />
+
+## Einbroch Deadlands
+
+<EntranceDetails id="einbroch-deadlands" />
+
+## Geffenia Antitower
+
+<EntranceDetails id="geffenia-antitower" />
+
+## Morroc Town
+
+<EntranceDetails id="morroc-town" />
+
+## Morroc Castle and Ritual Basement
+
+<EntranceDetails id="morroc-castle-and-ritual-basement" />
+
+## Kiel Hyre University
+
+<EntranceDetails id="kiel-hyre-university" />
+
+## Abyss Lakes Underground Hideout
+
+<EntranceDetails id="abyss-lakes-underground-hideout" />
+
+## Ancient Shrine of Byalan
+
+<EntranceDetails id="ancient-shrine-of-byalan" />
+
+## Old Glast Heim
+
+<EntranceDetails id="old-glast-heim" />
+
+## Invaded Prontera
+
+<EntranceDetails id="invaded-prontera" />
+
+## Horror Toy Factory
+
+<EntranceDetails id="horror-toy-factory" />
+
+## Odin Temple
+
+<EntranceDetails id="odin-temple" />
+
+## Abyss Glast Heim
+
+<EntranceDetails id="abyss-glast-heim" />
+
+## Ancient Verus Laboratory
+
+<EntranceDetails id="ancient-verus-laboratory" />
+
+## Field of Fire
+
+<EntranceDetails id="field-of-fire" />
+
+## Divine Temple of Freya
+
+<EntranceDetails id="divine-temple-of-freya" />
+
+## Rachel Nightmare
+
+<EntranceDetails id="rachel-nightmare" />
+
+## Sograt Desert and Dimensional Rift
+
+<EntranceDetails id="sograt-desert-and-dimensional-rift" />
+
+## Thanatos Paradise
+
+<EntranceDetails id="thanatos-paradise" />
+
+## Jormungand’s Lair
+
+<EntranceDetails id="jormungands-lair" />
+
+## Abandoned Castle
+
+<EntranceDetails id="abandoned-castle" />
+
+## Mad Drinker
+
+<EntranceDetails id="mad-drinker" />
