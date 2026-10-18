@@ -117,6 +117,11 @@ test('Trickster gear tabs switch panels and support arrow-key navigation', async
   const shadowPanel = page.getByRole('tabpanel', { name: 'Shadow Sets' });
   await expect(shadowPanel).toContainText('Lost Attire');
   await expect(shadowPanel).not.toContainText('[0]');
+  const lostAttireLink = shadowPanel.getByRole('link', { name: 'Lost Attire Set' });
+  await expect(lostAttireLink).toHaveAttribute('href', /\?q=Lost\+Attire&show=items$/);
+  await expect(lostAttireLink).toHaveAttribute('target', '_blank');
+  await expect(shadowPanel.getByRole('link', { name: 'Legacy of Coins Set' })).toHaveAttribute('href', /\?q=Legacy\+of\+Coins&show=items$/);
+  await expect(shadowPanel.getByRole('link', { name: 'Bushido Set' })).toHaveAttribute('href', /\?q=Bushido&show=items$/);
 });
 
 test('essential reading and attribution work without JavaScript', async ({ browser, baseURL }) => {

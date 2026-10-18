@@ -3,6 +3,7 @@ import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import Callout from '../Callout.astro';
 const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/index.html?id=${id}&q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items&tab=items`;
+const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items`;
 ---
 <div class="trickster-portraits">
   <figure><img src={withBase('images/classes/trickster-portrait.webp')} alt="Male Trickster portrait from Refuge" width="782" height="760" loading="lazy" /><figcaption>Male Trickster</figcaption></figure>
@@ -182,9 +183,9 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
   </section>
   <section id="trickster-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shadow-sets" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shadow set pieces</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
-      <tr><td><strong>Lost Attire:</strong> <a href={itemHref(24689, 'Lost Attire Armor')}>Armor</a>, <a href={itemHref(24687, 'Lost Attire Gloves')}>Gloves</a>, <a href={itemHref(24690, 'Lost Attire Shoes')}>Shoes</a>, <a href={itemHref(24692, 'Lost Attire Pendant')}>Pendant</a></td><td>1</td><td></td></tr>
-      <tr><td><strong>Legacy of Coins:</strong> <a href={itemHref(24258, 'Legacy of Coins Armor')}>Armor</a>, <a href={itemHref(24259, 'Legacy of Coins Gloves')}>Gloves</a>, <a href={itemHref(24260, 'Legacy of Coins Shoes')}>Shoes</a>, <a href={itemHref(24261, 'Legacy of Coins Pendant')}>Pendant</a></td><td>10</td><td></td></tr>
-      <tr><td><strong>Bushido:</strong> <a href={itemHref(24387, 'Bushido Armor')}>Armor</a>, <a href={itemHref(24388, 'Bushido Gloves')}>Gloves</a>, <a href={itemHref(24389, 'Bushido Shoes')}>Shoes</a>, <a href={itemHref(24390, 'Bushido Pendant')}>Pendant</a></td><td>65</td><td></td></tr>
+      <tr><td><a href={itemSearchHref('Lost Attire')}>Lost Attire Set</a></td><td>1</td><td>Four pieces</td></tr>
+      <tr><td><a href={itemSearchHref('Legacy of Coins')}>Legacy of Coins Set</a></td><td>10</td><td>Four pieces</td></tr>
+      <tr><td><a href={itemSearchHref('Bushido')}>Bushido Set</a></td><td>65</td><td>Four pieces</td></tr>
     </tbody></table></div>
   </section>
   <section id="trickster-gear-panel-runes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-runes" tabindex="0" hidden>
