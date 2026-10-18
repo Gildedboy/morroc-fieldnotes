@@ -2,6 +2,7 @@
 import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import Callout from '../Callout.astro';
+const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/index.html?id=${id}&q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items&tab=items`;
 ---
 <div class="trickster-portraits">
   <figure><img src={withBase('images/classes/trickster-portrait.webp')} alt="Male Trickster portrait from Refuge" width="782" height="760" loading="lazy" /><figcaption>Male Trickster</figcaption></figure>
@@ -96,27 +97,86 @@ import Callout from '../Callout.astro';
     <button id="trickster-gear-tab-shoes" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-shoes" tabindex="-1">Shoes</button>
     <button id="trickster-gear-tab-accessories" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-accessories" tabindex="-1">Accessories</button>
     <button id="trickster-gear-tab-shadow-sets" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-shadow-sets" tabindex="-1">Shadow Sets</button>
-    <button id="trickster-gear-tab-card-choices" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-card-choices" tabindex="-1">Card Choices</button>
+    <button id="trickster-gear-tab-runes" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-runes" tabindex="-1">Runes</button>
+    <button id="trickster-gear-tab-manuals" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-manuals" tabindex="-1">Manuals</button>
   </div>
   <section id="trickster-gear-panel-weapon" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-weapon" tabindex="0">
     <ol>
-      <li><a href="https://rtm-database.pages.dev/index.html?id=1502&amp;q=Black+Scythe&amp;show=items&amp;tab=items">Black Scythe</a> (Required Level 5, job-change reward) or <a href="https://rtm-database.pages.dev/index.html?id=1540&amp;q=Scythe+of+the+Orphan&amp;show=items&amp;tab=items">Scythe of the Orphan</a> (Required Level 5, Exchange Voucher).</li>
-      <li><a href="https://rtm-database.pages.dev/index.html?id=1524&amp;q=Bone+Scythe&amp;show=items&amp;tab=items">Bone Scythe</a> (Required Level 10).</li>
-      <li><a href="https://rtm-database.pages.dev/index.html?id=1521&amp;q=Blood+Reaver&amp;show=items&amp;tab=items">Blood Reaver</a> (Required Level 15).</li>
-      <li><a href="https://rtm-database.pages.dev/index.html?id=1542&amp;q=Steel+Reaper&amp;show=items&amp;tab=items">Steel Reaper</a> (Required Level 70).</li>
-      <li><a href="https://rtm-database.pages.dev/index.html?id=1529&amp;q=Gargantua&amp;show=items&amp;tab=items">Gargantua</a> (Required Level 70) — the top scythe for a Trickster.</li>
+      <li><a href={itemHref(1501, 'Black Scythe')}>Black Scythe [1]</a> (Required Level 5, job-change reward) or <a href={itemHref(1540, 'Scythe of the Orphan')}>Scythe of the Orphan [0]</a> (Required Level 1, Exchange Voucher).</li>
+      <li><a href={itemHref(1524, 'Bone Scythe')}>Bone Scythe [2]</a> (Required Level 10).</li>
+      <li><a href={itemHref(1521, 'Blood Reaver')}>Blood Reaver [4]</a> (Required Level 15).</li>
+      <li><a href={itemHref(1542, 'Steel Reaper')}>Steel Reaper [0]</a> (Required Level 70).</li>
+      <li><a href={itemHref(1529, 'Gargantua')}>Gargantua [2]</a> (Required Level 70) — the top scythe for a Trickster.</li>
     </ol>
-    <p>Optional middle ground: <a href="https://rtm-database.pages.dev/index.html?id=1532&amp;q=Crescent+Demon&amp;show=items&amp;tab=items">Crescent Demon</a> (Required Level 40). Nice to have, not required.</p>
+    <p>Optional middle ground: <a href={itemHref(1532, 'Crescent Demon')}>Crescent Demon [1]</a> (Required Level 40). Nice to have, not required.</p>
   </section>
-  <section id="trickster-gear-panel-top" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-top" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-mid" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-mid" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-low" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-armor" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-garment" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shoes" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-accessories" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
-  <section id="trickster-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shadow-sets" tabindex="0" hidden><p>No Shadow Set recommendation is listed yet.</p></section>
-  <section id="trickster-gear-panel-card-choices" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-card-choices" tabindex="0" hidden><p>No card recommendation is listed yet.</p></section>
+  <section id="trickster-gear-panel-top" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-top" tabindex="0" hidden>
+    <ol>
+      <li><a href={itemHref(5591, 'Desert Prince')}>Desert Prince</a> (Required Level 5).</li>
+      <li><a href={itemHref(5969, 'Royal Pirate Hat')}>Royal Pirate Hat</a> or <a href={itemHref(5019, 'Corsair')}>Corsair</a> (Required Level 10).</li>
+      <li><a href={itemHref(2299, 'Orc Helm')}>Orc Helm</a> (Required Level 30; Orc Set).</li>
+      <li><a href={itemHref(5873, 'Crimson Wings Helm')}>Crimson Wings Helm</a> (Required Level 50; no card slot).</li>
+    </ol>
+    <p><strong>Card:</strong> <a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</p>
+  </section>
+  <section id="trickster-gear-panel-mid" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-mid" tabindex="0" hidden>
+    <p><a href={itemHref(5074, 'Angel Wing Ears')}>Angel Wing Ears</a> or <a href={itemHref(5068, 'Evil Wing Ears')}>Evil Wing Ears</a> (Required Level 10).</p>
+    <p><strong>Card:</strong> <a href={itemHref(13571, 'Veins Ghoul Card')}>Veins Ghoul Card</a>, if affordable from the Market.</p>
+  </section>
+  <section id="trickster-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-low" tabindex="0" hidden>
+    <p><a href={itemHref(31877, 'Bravery Scarf')}>Bravery Scarf</a>, <a href={itemHref(31882, 'Calm Scarf')}>Calm Scarf</a>, or <a href={itemHref(5305, 'Pirate Dagger')}>Pirate Dagger</a> for the Pirate Set (Required Level 0).</p>
+    <p><strong>Card:</strong> none for this stage; this slot changes with Rose and Food in Mouth on Revenant.</p>
+  </section>
+  <section id="trickster-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-armor" tabindex="0" hidden>
+    <ol>
+      <li><a href={itemHref(15368, 'Orphan Clothes')}>Orphan Clothes</a> (Required Level 1).</li>
+      <li><a href={itemHref(2812, 'Scarlet Suit')}>Scarlet Suit</a> (Required Level 10).</li>
+      <li><a href={itemHref(15000, 'Orc Armor')}>Orc Armor</a> (Required Level 30; Orc Set).</li>
+      <li><a href={itemHref(15448, 'Bullhorn Armor')}>Bullhorn Armor</a> (Required Level 40).</li>
+    </ol>
+    <p><strong>Card:</strong> <a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</p>
+  </section>
+  <section id="trickster-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-garment" tabindex="0" hidden>
+    <ol>
+      <li><a href={itemHref(15366, 'Orphan Cape')}>Orphan Cape</a> (Required Level 1).</li>
+      <li><a href={itemHref(2811, 'Scarlet Cape')}>Scarlet Cape</a> (Required Level 10).</li>
+      <li><a href={itemHref(2542, 'Dracula Manteau')}>Dracula Manteau</a> (Required Level 15; nice to have, no card slot).</li>
+      <li><a href={itemHref(15452, 'Bullhorn Manteau')}>Bullhorn Manteau</a> (Required Level 40).</li>
+    </ol>
+    <p><strong>Cards:</strong> <a href={itemHref(4086, 'Soldier Skeleton Card')}>Soldier Skeleton Card</a> or <a href={itemHref(4172, 'The Paper Card')}>The Paper Card</a>.</p>
+  </section>
+  <section id="trickster-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shoes" tabindex="0" hidden>
+    <ol>
+      <li><a href={itemHref(15367, 'Orphan Shoes')}>Orphan Shoes</a> (Required Level 1).</li>
+      <li><a href={itemHref(2813, 'Scarlet Shoes')}>Scarlet Shoes</a> (Required Level 10).</li>
+      <li><a href={itemHref(15450, 'Bullhorn Shoes')}>Bullhorn Shoes</a> (Required Level 40).</li>
+    </ol>
+    <p><strong>Cards:</strong> start with <a href={itemHref(4212, 'Bongun Card')}>Bongun</a> and <a href={itemHref(4090, 'Munak Card')}>Munak</a>; later use <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> and <a href={itemHref(4104, 'Requiem Card')}>Requiem</a> together. <a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a> is an option for later.</p>
+  </section>
+  <section id="trickster-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-accessories" tabindex="0" hidden>
+    <ol>
+      <li><a href={itemHref(32242, 'Old Tomb Ring')}>Old Tomb Ring</a> (Required Level 10).</li>
+      <li><a href={itemHref(2715, 'Orc Ring')}>Orc Ring</a> (Required Level 30; Orc Set).</li>
+      <li><a href={itemHref(15454, 'Bullhorn Ring')}>Bullhorn Ring</a> (Required Level 40).</li>
+    </ol>
+    <p><strong>Cards:</strong> <a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a> or <a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a>, if affordable; <a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> is another option if affordable.</p>
+  </section>
+  <section id="trickster-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shadow-sets" tabindex="0" hidden>
+    <ul>
+      <li><strong>Lost Attire</strong> (Required Level 1): <a href={itemHref(24689, 'Lost Attire Armor')}>Armor</a>, <a href={itemHref(24687, 'Lost Attire Gloves')}>Gloves</a>, <a href={itemHref(24690, 'Lost Attire Shoes')}>Shoes</a>, and <a href={itemHref(24692, 'Lost Attire Pendant')}>Pendant</a>.</li>
+      <li><strong>Legacy of Coins</strong> (Required Level 10): <a href={itemHref(24258, 'Legacy of Coins Armor')}>Armor</a>, <a href={itemHref(24259, 'Legacy of Coins Gloves')}>Gloves</a>, <a href={itemHref(24260, 'Legacy of Coins Shoes')}>Shoes</a>, and <a href={itemHref(24261, 'Legacy of Coins Pendant')}>Pendant</a>.</li>
+      <li><strong>Bushido</strong> (Required Level 65): <a href={itemHref(24387, 'Bushido Armor')}>Armor</a>, <a href={itemHref(24388, 'Bushido Gloves')}>Gloves</a>, <a href={itemHref(24389, 'Bushido Shoes')}>Shoes</a>, and <a href={itemHref(24390, 'Bushido Pendant')}>Pendant</a>.</li>
+    </ul>
+  </section>
+  <section id="trickster-gear-panel-runes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-runes" tabindex="0" hidden>
+    <ul>
+      <li><a href={itemHref(24108, 'Soul Rune of Orphans')}>Soul Rune of Orphans</a> (Required Level 10).</li>
+      <li><a href={itemHref(24182, 'Anima Rune of Restoration')}>Anima Rune of Restoration</a> (Required Level 15; First Rune Coffer).</li>
+    </ul>
+  </section>
+  <section id="trickster-gear-panel-manuals" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-manuals" tabindex="0" hidden>
+    <p><a href={itemHref(24035, 'Vanish Manual')}>Vanish Manual</a> (Required Level 10; sold at the Black Market).</p>
+  </section>
 </div>
 
 <script>

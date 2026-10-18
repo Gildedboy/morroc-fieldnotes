@@ -68,6 +68,8 @@ test('article outline works and related links open the class tree', async ({ pag
 
 test('Trickster gear tabs switch panels and support arrow-key navigation', async ({ page }) => {
   await page.goto('./classes/trickster/');
+  await expect(page.locator('.job-tags')).toHaveCount(0);
+  await expect(page.locator('.job-heading-weapon')).toHaveCount(0);
   const tabs = page.getByRole('tablist', { name: 'Trickster gear slots' });
   const weapon = tabs.getByRole('tab', { name: 'Weapon' });
   const top = tabs.getByRole('tab', { name: 'Top Headgear' });
@@ -75,11 +77,12 @@ test('Trickster gear tabs switch panels and support arrow-key navigation', async
   const topPanel = page.getByRole('tabpanel', { name: 'Top Headgear' });
 
   await expect(weapon).toHaveAttribute('aria-selected', 'true');
-  await expect(weaponPanel).toContainText('Gargantua (Required Level 70) — the top scythe for a Trickster');
-  await expect(weaponPanel).toContainText('Steel Reaper (Required Level 70)');
+  await expect(weaponPanel).toContainText('Gargantua [2] (Required Level 70) — the top scythe for a Trickster');
+  await expect(weaponPanel).toContainText('Steel Reaper [0] (Required Level 70)');
   await expect(weaponPanel.getByRole('link', { name: 'Steel Reaper' })).toHaveAttribute('href', /rtm-database\.pages\.dev\/index\.html\?id=1542/);
+  await expect(tabs.getByRole('tab', { name: 'Runes' })).toBeVisible();
+  await expect(tabs.getByRole('tab', { name: 'Manuals' })).toBeVisible();
   await expect(tabs.getByRole('tab', { name: 'Shadow Sets' })).toBeVisible();
-  await expect(tabs.getByRole('tab', { name: 'Card Choices' })).toBeVisible();
   await top.focus();
   await page.keyboard.press('ArrowRight');
   await expect(page.getByRole('tab', { name: 'Mid Headgear' })).toBeFocused();
@@ -87,7 +90,8 @@ test('Trickster gear tabs switch panels and support arrow-key navigation', async
   await page.keyboard.press('ArrowLeft');
   await expect(top).toBeFocused();
   await expect(topPanel).toBeVisible();
-  await expect(topPanel).toContainText('No item recommendation is listed for this slot yet.');
+  await expect(topPanel).toContainText('Desert Prince (Required Level 5)');
+  await expect(topPanel).toContainText('Baphomet Jr. Card');
 });
 
 test('essential reading and attribution work without JavaScript', async ({ browser, baseURL }) => {
