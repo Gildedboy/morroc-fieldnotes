@@ -25,7 +25,10 @@ import Callout from '../Callout.astro';
       <figure><img src={withBase('images/classes/trickster-job-change-serin.png')} alt="Trickster Serin in the crypt" width="160" height="230" loading="lazy" /><figcaption>Trickster Serin</figcaption></figure>
     </li>
   </ol>
-  <p>Reward: the Trickster job and a <strong>Black Scythe</strong>.</p>
+  <div class="trickster-quest-reward">
+    <p><strong>Reward:</strong> the Trickster job and a <strong>Black Scythe</strong>.</p>
+    <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase('images/classes/trickster-attacking-still.webp')} /><img src={withBase('images/classes/trickster-attacking.webp')} alt="Trickster attacking" width="140" height="140" loading="lazy" /></picture>
+  </div>
 </Callout>
 
 <h2 id="core-gameplay">Core Gameplay & Skills</h2>
