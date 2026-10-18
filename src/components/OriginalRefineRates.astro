@@ -1,0 +1,9 @@
+---
+import { originalRefineRates } from '../data/refine-rates';
+---
+<div class="guide-table-wrap" tabindex="0" role="region" aria-label="Original-server refining success rates; scroll horizontally">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Target</th><th scope="col">Weapon Lv. 1</th><th scope="col">Weapon Lv. 2</th><th scope="col">Weapon Lv. 3</th><th scope="col">Weapon Lv. 4</th><th scope="col">Armour</th><th scope="col">Shadow</th><th scope="col">Old runes / Dragon Orbs</th></tr></thead>
+    <tbody>{originalRefineRates.map(row => <tr><th scope="row">+{row.target}</th>{[...row.weapons, row.armour, row.shadow, row.orbs].map(chance => <td>{chance}</td>)}</tr>)}</tbody>
+  </table>
+</div>

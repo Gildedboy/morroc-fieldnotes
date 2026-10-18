@@ -193,17 +193,15 @@ test('tutorial includes its eight uncropped source screenshots, steps, and scarf
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test('draft guides expose only WIP notices and stay out of search', async ({ page, request }) => {
-  for (const id of ['celestial-tome']) {
+test('published equipment guides appear in the library and search', async ({ page, request }) => {
+  for (const id of ['refine-guide', 'random-rolls', 'dream-enchants']) {
     await page.goto(`guides/${id}/`);
-    await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
-    await expect(page.locator('[data-article], .source-screenshot, .location-details, .class-paths')).toHaveCount(0);
-    await expect(page.getByRole('link', { name: 'Read the New Player Guide' })).toHaveAttribute('href', /guides\/new-player-guide\/$/);
+    await expect(page.getByText('This guide is a work in progress.', { exact: true })).toHaveCount(0);
+    await expect(page.locator('[data-article]')).toBeVisible();
   }
   const response = await request.get('search.json');
   expect(response.ok()).toBe(true);
   const index = await response.json();
-  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['Astrologika Moon and Sun Headgears', 'Bifrost Mirror', 'Blooming Rose Sandals', 'Distortions', 'Dungeons', 'Job Class Tree', 'Leveling Spots', 'New Player Guide']);
+  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['ASPD & Element Table', 'Astrologika Moon and Sun Headgears', 'Bifrost Mirror', 'Blooming Rose Sandals', 'Celestial Tome', 'Distortions', 'Dream Enchants', 'Dungeons', 'Job Class Tree', 'Leveling Spots', 'New Player Guide', 'Random Rolls', 'Refine Guide']);
   expect(JSON.stringify(index)).toContain('Leveling Spots');
 });

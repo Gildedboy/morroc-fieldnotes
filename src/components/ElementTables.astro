@@ -1,0 +1,25 @@
+---
+import { elementNames, elementTables } from '../data/elements';
+---
+{elementTables.map((table, index) => <section aria-labelledby={`element-levels-${index}`}>
+  <h3 id={`element-levels-${index}`}>{table.label}</h3>
+  <p>Scroll horizontally to see all defending elements.</p>
+  <div class="guide-table-wrap" tabindex="0" role="region" aria-label={`${table.label} damage table; scroll horizontally`}>
+    <table class="guide-table element-table">
+      <caption>Rows: attacking element. Columns: defending element. Values: damage dealt.</caption>
+      <thead><tr><th scope="col">Attack ↓ / Defend →</th>{elementNames.map(name => <th scope="col">{name}</th>)}</tr></thead>
+      <tbody>{table.values.map((row, rowIndex) => <tr>
+        <th scope="row">{elementNames[rowIndex]}</th>
+        {row.map(value => <td class:list={{ advantage: value > 100, penalty: value < 100 }}>{value}%</td>)}
+      </tr>)}</tbody>
+    </table>
+  </div>
+</section>)}
+<style>
+  .element-table { min-width: 880px; }
+  .element-table caption { padding: 12px 14px; text-align: left; color: var(--muted); }
+  .element-table th, .element-table td { white-space: nowrap; padding: 10px; }
+  .element-table tbody th { position: sticky; left: 0; background: var(--panel); }
+  .element-table .advantage { color: #a8d5a2; }
+  .element-table .penalty { color: #e6aaa2; }
+</style>

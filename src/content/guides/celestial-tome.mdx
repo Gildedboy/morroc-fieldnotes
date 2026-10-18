@@ -1,14 +1,106 @@
 ---
 title: Celestial Tome
-publication: wip
-description: Celestial Tome quest and unlock guide.
+publication: published
+description: Complete all 90 HATred quests, craft the three great Tomes, and follow Chaos and Iris’s story to obtain Celestial Tome.
 category: Quests & Unlocks
 icon: book
 order: 7
-updated: 2026-10-17
-status: needs-review
-statusNote: Requested by the owner. Sources and quest details have not yet been reviewed.
-readingMinutes: 1
-tags: [quests, unlocks, celestial, tome]
-sources: []
+updated: 2026-10-18
+verified: null
+status: source-reviewed
+statusNote: Quest sequence and recipes reviewed against Pitaya’s Celestial Tome tab and segasunset’s HATred data on October 18, 2026. Owner screenshots 129–131 show Vali Sage, Vidar Sage, and Thor Sage inside the cottage; the owner confirms the cottage terminology and assigns Inferno to Vali, Paradiso to Vidar, and Purgatorio to Thor. Refuge’s gear reference confirms the southern Varmundt crafting location and all 90 HATred quests. Current item records confirm the account-bound Celestial Tome and Base Level 130 equipment requirement. Exact Coffin coordinates and full in-game turn-in are not recorded. Older manual drop lists are not presented as exhaustive current sources.
+readingMinutes: 5
+tags: [quests, crafting, Celestial Tome, HATred, Chaos, Iris, Inferno, Purgatorio, Paradiso, Death Castle]
+related: [bifrost-mirror, distortions, dungeons, blooming-rose-sandals]
+sources:
+  - title: Pitaya — Celestial Tome Guide
+    url: https://docs.google.com/spreadsheets/d/1VXeW7JAKgn26ljPFa8ygWujwqXlkexOBUYtUk2s_Fg8/edit?gid=2052741816
+    author: Pitaya
+    sourceUpdated: null
+    note: Three prerequisite Tome recipes, final Celestial Tome materials, quest dialogue sequence, and one crafting minimap. Workbook credits Jellopy, Bossfight Cafe Guild, Grimoire, Drachnid, PND Panda, Reave, Impaler, and Zephyro. It invites personal progression copies; no general reuse license is specified. Source imported at the owner’s request and retained locally. Reviewed October 18, 2026.
+  - title: HATred Quest Tracker — Celestial Tomes
+    url: https://hatredguide.segasunset.workers.dev/
+    author: segasunset
+    sourceUpdated: null
+    note: Reviewed the full 90-entry HATred catalogue and four Tome records on October 18, 2026. Tome recipes and storyline agree with Pitaya’s sheet. The site attributes its data to the community spreadsheet and server HATred Dude NPC scripts. No general reuse license is specified. Guide instructions are independently worded; the tracker’s code and progress system are not incorporated.
+  - title: Refuge — Gear and Varmundt quests
+    url: https://rtmrefuge.pages.dev/gear
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Confirms crafting the three great Tomes in the south of Varmundt Mansion, completing all 90 HATred quests for Celestial Tome, and account binding. The older reference calls the building a cafeteria; the owner identifies it as the cottage and supplied screenshots 129–131 showing Vali Sage, Vidar Sage, and Thor Sage inside. NPC viewports preserve original pixels and full-size links. The page preserves original-server reference material and permits copying site content. Reviewed October 18, 2026.
+  - title: Refuge — Celestial Tome
+    url: https://rtm-database.pages.dev/index.html?id=24236
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current reward effects, account binding, and Base Level 130 equipment requirement. The unaltered 75 × 100 item artwork is copied from the database’s assets/icons/art/24236.png. Item and manual IDs and material acquisition records checked October 18, 2026. The three precursor Tome records have no current crafting recipe field; recipe quantities come from the two quest references. No in-game verification date is asserted.
 ---
+
+import Callout from '../../components/Callout.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import TomeRecipes from '../../components/TomeRecipes.astro';
+import { celestialTomeLocations as locations, bloomingRoseSandalsLocation } from '../../data/locations';
+import { guideHref } from '../../lib/paths';
+
+## Prerequisites
+
+<Callout title="Before you start, you will need">
+
+- Complete **all 90 HATred quests**.
+- Prepare **Inferno Tome**, **Purgatorio Tome**, and **Paradiso Tome** using the recipes below.
+- Collect **500 <a href="https://rtm-database.pages.dev/index.html?id=7361" target="_blank" rel="noreferrer">Distortion Essence</a>**, **25 Jewel Shadowdecon**, **25 Growth Shadow Coffers**, and **10 MVP Shards** for the final exchange.
+- Bring your **Bifrost Mirror** for the distortion routes.
+
+</Callout>
+
+## 1) Complete all 90 HATred quests
+
+Finish the full collection of **90 HATred quests**. Use the <a href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer">HATred guide</a> for each headgear’s materials, NPC location, and minimap.
+
+## 2) Craft the three great Tomes
+
+<p>{bloomingRoseSandalsLocation.mirrorAccess} {locations.crafting}</p>
+
+<SourceScreenshot image={{ src: 'images/celestial-tome/tome-crafting-minimap.png', width: 130, height: 123, alt: 'Minimap supplied beside the three great Tome recipes in Pitaya’s spreadsheet', caption: 'Tome crafting location reference' }} />
+
+Each Tome needs its listed manuals and jewels, plus **1,000 <a href="https://rtm-database.pages.dev/index.html?id=7360" target="_blank" rel="noreferrer">Distortion Shards</a>** and **100 <a href="https://rtm-database.pages.dev/index.html?id=7361" target="_blank" rel="noreferrer">Distortion Essence</a>**. Open a manual’s database entry for its monster drops.
+
+<TomeRecipes />
+
+## 3) Speak with Chaos and Iris
+
+<p>{locations.payon} Follow the <a href={`${guideHref('distortions')}#old-payon`}>Old Payon entrance route</a> through Sunken Temple to reach the distortion.</p>
+
+## 4) Enter the Coffin’s room
+
+<p>Follow the <a href={`${guideHref('dungeons')}#death-castle`}>Death Castle route</a>. {locations.coffin}</p>
+
+Speak with **Balder** inside and **select every available dialogue option** to hear the full story.
+
+## 5) Return to Iris
+
+<p>{locations.iris} Follow the conversation and choose <strong>yes</strong>.</p>
+
+## 6) Hand over the final materials
+
+Return to **Death’s Castle** and interact with the **Coffin** again. Speak with **Balder** and hand over:
+
+- **1 Inferno Tome**.
+- **1 Purgatorio Tome**.
+- **1 Paradiso Tome**.
+- **500 <a href="https://rtm-database.pages.dev/index.html?id=7361" target="_blank" rel="noreferrer">Distortion Essence</a>**.
+- **25 <a href="https://rtm-database.pages.dev/index.html?id=23080" target="_blank" rel="noreferrer">Jewel Shadowdecon</a>**.
+- **25 <a href="https://rtm-database.pages.dev/index.html?id=14735" target="_blank" rel="noreferrer">Growth Shadow Coffers</a>**.
+- **10 <a href="https://rtm-database.pages.dev/index.html?id=7615" target="_blank" rel="noreferrer">MVP Shards</a>**.
+
+## 7) Rewards
+
+<SourceScreenshot image={{ src: 'images/celestial-tome/celestial-tome.png', width: 75, height: 100, alt: 'Celestial Tome item artwork from the Refuge database' }} hideCaption />
+
+<Callout title="Quest reward" tone="tip">
+
+- **<a href="https://rtm-database.pages.dev/index.html?id=24236" target="_blank" rel="noreferrer">Celestial Tome</a>** from **Balder** — account-bound.
+- **Base Level 130** required to equip it.
+- **All Stats +2**, **Movement Speed +5%**, **HIT +15**, and **Total HIT +5%**.
+- Healing and movement skill bonuses, including **Coluceo Heal Lv. 2**, **Resurrection Lv. 4**, and **Convenio Lv. 1**.
+
+</Callout>

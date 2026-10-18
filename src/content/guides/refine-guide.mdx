@@ -1,15 +1,104 @@
 ---
 title: Refine Guide
-publication: wip
-description: Equipment refinement guide.
+publication: published
+description: Choose refining ores, visit Heimdall, and improve equipment up to +10 without destroying it.
 category: Getting Started
 icon: compass
-order: 1.1
+order: 1.15
 updated: 2026-10-18
-status: needs-review
-statusNote: Requested by the owner. Refining materials, NPCs, and rules have not yet been added.
-readingMinutes: 1
+status: source-reviewed
+statusNote: Guide reviewed against Refuge’s Gear page, current refining material descriptions, Patch 19/20, and owner screenshots 134–139 on October 18, 2026. The current page confirms maximum +10 and no destruction on failure. Material descriptions confirm target tiers and double-price downgrade protection. Archived success-rate and Zeny-cost tables are not presented as current prices. No completed refining attempt is recorded.
+readingMinutes: 4
 tags: [refining, equipment, beginner]
-related: [new-player-guide]
-sources: []
+related: [new-player-guide, random-rolls, dream-enchants]
+sources:
+  - title: Refuge — Refining
+    url: https://rtmrefuge.pages.dev/gear#refine
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Maximum +10, no item destruction, downgrade rules, and material families. The page separates original-server wiki material from Refuge changes and permits copying site content. Reviewed October 18, 2026. The archived success chances and exact Zeny table were not copied as current rates.
+  - title: Refuge Database — Refining materials
+    url: https://rtm-database.pages.dev/index.html?id=6241
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current Oridecon, Elunium, HD, Enriched, Jewel, Bradium, and Shadowdecon descriptions confirm material tiers and double-price downgrade protection. Owner screenshots screenPRM134.jpg and screenPRM135.jpg show Croc Alt-Eisen’s exchange dialogue in the smithy; original pixels and full-size image are preserved. Reviewed October 18, 2026.
+  - title: Refuge — Class Gem refinement patches
+    url: https://rtm-database.pages.dev/patches#patch-19
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Patch 19 introduces separate Class Gem materials, normal and protected attempts, and no destruction. Patch 20 reduces +4–6 costs to 50 Distortion Essence normally or 200 protected. Owner confirms Shards for +1–3 followed by Essence. These rules supersede the older Bradium/rune association for current Class Gems. Owner screenshots 136–139 show the refining interface; 139 confirms 100 Shards normal or 500 protected specifically for +2 to +3. The owner supplied the Patch 19 material progression and failure rules. the displayed 0% before a complete attempt selection does not confirm numerical rates. Original-server success rates are explicitly labeled in the guide and are not current Class Gem probabilities. Reviewed October 18, 2026.
 ---
+
+import Callout from '../../components/Callout.astro';
+import NpcCard from '../../components/NpcCard.astro';
+import CrocExchange from '../../components/CrocExchange.astro';
+import ShadowAssistantExchange from '../../components/ShadowAssistantExchange.astro';
+import RefiningMaterials from '../../components/RefiningMaterials.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import ClassGemRefining from '../../components/ClassGemRefining.astro';
+import OriginalRefineRates from '../../components/OriginalRefineRates.astro';
+
+## Before you refine
+
+<Callout title="Refining rules">
+
+- The maximum refine level is **+10**.
+- A failed attempt **does not destroy the item**. It can lower its refine level by **1**.
+- Higher-tier ores can protect against downgrades on lower tiers, at **twice the Zeny cost**.
+
+</Callout>
+
+## 1) Visit Heimdall Alt-Eisen to start refining
+
+<NpcCard name="Heimdall Alt-Eisen" image="images/npcs/heimdall.gif" width={74} height={117}>
+Find Heimdall in the **Orphanage smithy**, at the **Refining and Ores** service. Bring the equipment, matching ore, and Zeny.
+</NpcCard>
+
+Drag the item from your inventory into the refining window, then select a refining material. The window displays the success chance and Zeny fee for the attempt.
+
+<SourceScreenshot image={{ src: 'images/refining/refining-136.jpg', width: 1904, height: 1041, alt: 'Refining window with Moonlight Dagger selected and material choices above it', crop: { x: 816, y: 346, width: 270, height: 350 } }} />
+
+## 2) Choose the correct material
+
+The columns show the refine level you are trying to reach.
+
+<RefiningMaterials />
+
+### Class Gems
+
+**Class Gems** have their own material requirements:
+
+- **Normal:** failure loses one refine level, down to +0.
+- **Protected:** failure keeps the refine level. It costs more materials and Zeny, with the **same success chance**.
+
+<ClassGemRefining />
+
+<SourceScreenshot image={{ src: 'images/refining/class-gem-refining.jpg', width: 1904, height: 1041, alt: 'Class Gem refining window with Normal and Protected choices', crop: { x: 816, y: 346, width: 270, height: 350 } }} />
+
+## 3) Trade lower-tier refining materials for higher tiers
+
+### Croc Alt-Eisen
+
+Speak with **Croc Alt-Eisen** in the **Orphanage smithy** to exchange lower-tier refining materials for higher-tier ones.
+
+<CrocExchange />
+
+### Shadow Assistant
+
+Trade <a href="https://rtm-database.pages.dev/index.html?id=25728" target="_blank" rel="noreferrer">Shadow Ore</a> with the **Shadow Assistant** in the smithy for **Jewel Shadowdecon**, **Elunium**, or **Oridecon**.
+
+<ShadowAssistantExchange />
+
+## 4) Use downgrade protection
+
+To prevent weapon or armour downgrades, use **HD ores for +1–+3**, **Enriched ores for +4–+6**, or **Jewels for +7–+9**. Protected attempts cost **twice as much Zeny**.
+
+**Jewel Bradium** and **Jewel Shadowdecon** can protect their matching items from downgrading through **+9**.
+
+<Callout title="Protection does not guarantee success">
+A protected attempt can still fail. The protection prevents the downgrade.
+</Callout>
+
+## Success rates (info from Original Server)
+
+<OriginalRefineRates />

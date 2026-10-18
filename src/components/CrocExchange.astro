@@ -1,0 +1,11 @@
+---
+import SourceScreenshot from './SourceScreenshot.astro';
+---
+<div class="croc-exchange">
+  <SourceScreenshot image={{ src: 'images/refining/croc-npc.jpg', width: 1904, height: 1041, alt: 'Croc Alt-Eisen in the Orphanage smithy, with his name visible', crop: { x: 1025, y: 200, width: 140, height: 190 } }} />
+  <SourceScreenshot image={{ src: 'images/refining/croc-exchanges.jpg', width: 1904, height: 1041, alt: 'Croc’s refining material exchange ratios and ore selection menu', crop: { x: 748, y: 243, width: 288, height: 302 } }} />
+</div>
+<style>
+  .croc-exchange { display: flex; flex-wrap: wrap; align-items: start; gap: 24px; margin: 24px 0; }
+  .croc-exchange :global(.source-screenshot) { margin: 0; max-width: 100%; }
+</style>

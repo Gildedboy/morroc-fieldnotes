@@ -1,5 +1,9 @@
 # Website development to-do
 
+- [x] Remove Refine Guide’s WIP at the owner’s request. Included in the owner-authorized publication batch.
+- [x] Remove Random Rolls’ WIP at the owner’s request. Its single comparison table includes Shadow equipment and distinguishes monster-drop and coffer stat rolls. Included in the owner-authorized publication batch.
+- [x] Remove Dream Enchants’ WIP and publish the accumulated changes at the owner’s request. Includes all 20 enchants and owner-confirmed Weaver services from screenshots 132–133.
+
 Track upcoming work across the entire Morroc Fieldnotes website here. Add new requests as they are agreed, and mark items complete after they are implemented in the site. Requested edits to existing pages should be applied to the development site immediately.
 
 ## Priorities and first feedback milestone
@@ -42,7 +46,7 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Add Blooming Rose Sandals with the current recipe, Rose Sage location, mansion access screenshots, numbered steps, and separate crafting/equipment requirements.
 - [x] Add the owner’s correct distortion, Rose Sage, repair dialogue, material requirements, and old/upgraded item screenshots (123–128).
 - [x] Publish Astrologika Moon and Sun Headgears with the owner’s approval: bookshelf/telescope sequence, Serpens recipe, exactly +9 requirement, nine observer coordinates, and nineteen instructional images.
-- [ ] Write and review Celestial Tome. Its separate guide link is WIP. Use https://hatredguide.segasunset.workers.dev/ as a reference for the headgear requirements: the owner confirms that all 90 headgears are needed for the tome. Review the full list and acquisition details before authoring.
+- [x] Complete Celestial Tome and remove WIP at the owner’s request. Guide includes all 90 HATred quests as a requirement, three prerequisite Tome recipes, Chaos/Iris/Coffin storyline, final exchange, and account-bound reward. Full HATred catalogue and acquisition records reviewed; links lead to its individual headgear instructions. The Tome tab supplies one crafting minimap; owner photos show the three sages and the database supplies the reward artwork. Exact Coffin coordinates remain unavailable.
 
 ## External resources
 

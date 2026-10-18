@@ -38,6 +38,8 @@ dialog{color:var(--text);background:#17151d;border:1px solid #47374f;border-radi
 .source-screenshot figcaption a { white-space: nowrap; text-decoration: none; }
 .guide-table-wrap { max-width: 100%; overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 5px; }
 .guide-table { border-collapse: collapse; width: 100%; min-width: 600px; font-size: 12px; line-height: 1.7; }
+.guide-table.aspd-table { min-width: 0; }
+.aspd-table th:first-child { width: 55%; }
 .guide-table th, .guide-table td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .guide-table thead { background: #251e2f; color: #d5bce9; }
 .guide-table tbody th { font-weight: 400; color: var(--text); }

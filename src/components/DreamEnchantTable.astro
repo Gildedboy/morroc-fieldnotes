@@ -1,0 +1,12 @@
+---
+import { dreamEnchants } from '../data/equipment-systems';
+---
+<div class="guide-table-wrap" tabindex="0" role="region" aria-label="All 20 Dream Enchants; scroll horizontally">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Enchant</th><th scope="col">Base bonus</th><th scope="col">At refine +10</th><th scope="col">Additional effect</th></tr></thead>
+    <tbody>{dreamEnchants.map(enchant => <tr>
+      <th scope="row"><a href={`https://rtm-database.pages.dev/index.html?id=${enchant.id}`} target="_blank" rel="noreferrer">{enchant.name}</a></th>
+      <td>{enchant.base}</td><td>{enchant.refine10}</td><td>{enchant.extra || '—'}</td>
+    </tr>)}</tbody>
+  </table>
+</div>

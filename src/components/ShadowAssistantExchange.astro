@@ -1,0 +1,12 @@
+---
+import SourceScreenshot from './SourceScreenshot.astro';
+---
+<div class="shadow-exchange">
+  <SourceScreenshot image={{ src: 'images/refining/shadow-assistant.jpg', width: 1904, height: 1041, alt: 'Shadow Assistant in the Orphanage smithy with her name visible', crop: { x: 1150, y: 350, width: 140, height: 180 } }} />
+  <SourceScreenshot image={{ src: 'images/refining/shadow-assistant-jewel.jpg', width: 1904, height: 1041, alt: 'Shadow Assistant dialogue offering one Jewel Shadowdecon for 250 Shadow Ore', crop: { x: 1183, y: 560, width: 285, height: 183 } }} />
+  <SourceScreenshot image={{ src: 'images/refining/shadow-assistant-menu.jpg', width: 1904, height: 1041, alt: 'Shadow Assistant dialogue offering Elunium or Oridecon for 10 Shadow Ore, with the exchange menu', crop: { x: 1183, y: 560, width: 285, height: 302 } }} />
+</div>
+<style>
+  .shadow-exchange { display: flex; flex-wrap: wrap; align-items: start; gap: 24px; margin: 24px 0; }
+  .shadow-exchange :global(.source-screenshot) { margin: 0; max-width: 100%; }
+</style>

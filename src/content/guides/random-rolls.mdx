@@ -1,15 +1,47 @@
 ---
 title: Random Rolls
-publication: wip
-description: Guide to equipment random rolls.
+publication: published
+description: Possible random roll options by equipment type and option line.
 category: Getting Started
 icon: compass
 order: 1.2
 updated: 2026-10-18
-status: needs-review
-statusNote: Requested by the owner. Roll options, costs, and reroll rules have not yet been added.
-readingMinutes: 1
+status: source-reviewed
+statusNote: Uses the current server-derived option pools on Refuge’s Gear page, reviewed October 18, 2026. Refuge explicitly has no random-option reroll orbs and no weapon rarity system. Revolvers receive bow-type options through the Judge’s Quartermaster. Presented as an option reference table at the owner’s request. No in-game calibration is recorded.
+readingMinutes: 4
 tags: [random rolls, equipment, beginner]
-related: [new-player-guide]
-sources: []
+related: [refine-guide, dream-enchants, blooming-rose-sandals]
+sources:
+  - title: Refuge — Random options
+    url: https://rtmrefuge.pages.dev/gear#random-options
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current option pools for 21 gear categories, one option per available line, no reroll orbs, no weapon rarity, and the Quartermaster’s revolver calibration exception. The page describes these pools as read from the server and permits copying site content. Reviewed October 18, 2026.
+  - title: Refuge Database — Random Options
+    url: https://rtm-database.pages.dev/codex#random-options
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Confirms drop-time options and no rerolling. Reviewed October 18, 2026.
+  - title: Refuge Database — Shadow sets
+    url: https://rtm-database.pages.dev/sets
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Shadow coffer descriptions confirm a +1 to +3 bonus to one stat. The owner clarifies that monster-dropped Shadow equipment rolls +1, while coffers can also roll +2 or +3. Reviewed October 18, 2026.
+  - title: Refuge Database — Test patches
+    url: https://rtm-database.pages.dev/patches
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: The September 2, 2026 Legend changes explicitly add ATK +3% while in Frenzy to Shadow set rolls. This is an example, not a complete skill-option pool. The reviewed current references do not establish the full pool or its option-line order. Reviewed October 18, 2026.
+
 ---
+
+import Callout from '../../components/Callout.astro';
+import RandomOptionPools from '../../components/RandomOptionPools.astro';
+
+<Callout title="Random roll options">
+Dropped gear has **random roll options**. Gear bought from NPCs has **no random rolls**. Some quest items may have **fixed rolls**.
+</Callout>
+
+## Random roll options table
+
+<RandomOptionPools />

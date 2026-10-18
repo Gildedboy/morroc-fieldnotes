@@ -606,7 +606,7 @@ export const jobClasses: JobClass[] = [
     "idleStill": "images/classes/prowler-idle-still.webp",
     "sitting": "images/classes/prowler-sitting.webp",
     "sittingStill": "images/classes/prowler-sitting-still.webp",
-    "strengths": "High burst damage, amazing damage negation, small and tight skill kit.",
+    "strengths": "Good consistent damage, amazing damage negation, small and tight skill kit.",
     "weaknesses": "High SP Cost, vulnerable to unavoidable damage, restricted left hand slot.",
     "attacking": "images/classes/prowler-attacking.webp",
     "attackingStill": "images/classes/prowler-attacking-still.webp",

@@ -1,0 +1,16 @@
+---
+const equipment = [
+  { name: 'Weapons', ores: [['Oridecon', 984], ['HD Oridecon', 6240], ['Enriched Oridecon', 6292], ['Jewel Oridecon', 6906]] },
+  { name: 'Armour', ores: [['Elunium', 985], ['HD Elunium', 6241], ['Enriched Elunium', 6291], ['Jewel Elunium', 6290]] },
+] as const;
+---
+<div class="guide-table-wrap" tabindex="0" role="region" aria-label="Equipment refining ores by target level; scroll horizontally">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Equipment</th><th scope="col">+1–+3</th><th scope="col">+4–+6</th><th scope="col">+7–+9</th><th scope="col">+10</th></tr></thead>
+    <tbody>
+      {equipment.map(row => <tr><th scope="row">{row.name}</th>{row.ores.map(([name, id]) => <td><a href={`https://rtm-database.pages.dev/index.html?id=${id}`} target="_blank" rel="noreferrer">{name}</a></td>)}</tr>)}
+      <tr><th scope="row">Shadow equipment</th><td colspan="3"><a href="https://rtm-database.pages.dev/index.html?id=25729" target="_blank" rel="noreferrer">Shadowdecon</a> (+1–+9)</td><td><a href="https://rtm-database.pages.dev/index.html?id=23080" target="_blank" rel="noreferrer">Jewel Shadowdecon</a></td></tr>
+      <tr><th scope="row">Dragon Orbs</th><td colspan="3"><a href="https://rtm-database.pages.dev/index.html?id=6224" target="_blank" rel="noreferrer">Bradium</a> (+1–+9)</td><td><a href="https://rtm-database.pages.dev/index.html?id=6226" target="_blank" rel="noreferrer">Jewel Bradium</a></td></tr>
+    </tbody>
+  </table>
+</div>

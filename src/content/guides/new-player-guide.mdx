@@ -5,13 +5,13 @@ description: An illustrated walkthrough from character creation through the tuto
 category: Getting Started
 icon: compass
 order: 1
-updated: 2026-10-17
+updated: 2026-10-18
 verified: null
 status: source-reviewed
 statusNote: The tutorial instructions, reward details, scarf table, and eight original screenshots are presented here from the source guide. The source has not been updated for Refuge. Refuge skill changes are identified separately; the walkthrough has not yet been verified in game.
-readingMinutes: 7
-tags: [orphan, beginner, tutorial, first character, scarf, heal, hiding]
-related: [job-class-tree, leveling-spots]
+readingMinutes: 8
+tags: [orphan, beginner, tutorial, first character, scarf, heal, hiding, dying, death, shadow, codex]
+related: [aspd-elements, job-class-tree, leveling-spots]
 sources:
   - title: The New Orphan’s Guide To Morroc
     url: https://docs.google.com/document/d/1KVRrnLTCRxi_ou5hQrZS7mDr-W2aBcUD2uZKclWuyyo/edit
@@ -38,6 +38,16 @@ sources:
     url: https://rtm-database.pages.dev/skills.html
     author: Return to Morroc Refuge team
     note: Current descriptions of Increase Agility, Area Loot, and Morroc's Mark, including durations and cooldowns.
+  - title: Refuge — Dying and the Shadow system
+    url: https://rtmrefuge.pages.dev/mechanics#death
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Dungeon deaths create Shadows, each hit deals one damage to a Shadow, defeating them can revive the last player who died, and explosions scale with remaining HP. The Nightmare in Amatsu base-level loss is explicitly marked as a Refuge change; the remaining Shadow rules are preserved from the original-server wiki. Reviewed October 18, 2026; not verified in game. Site content is free to copy.
+  - title: Refuge Database — Codex
+    url: https://rtm-database.pages.dev/codex
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Glossary covering combat states, stats, gear terms, timings, elements, and limits. Linked as a reference for unfamiliar keywords. Reviewed October 18, 2026.
 ---
 
 import Callout from '../../components/Callout.astro';
@@ -59,6 +69,10 @@ Gryph's September 6 notice says the original guide has not been updated for Refu
 ## Start with the tutorial
 
 Completing the tutorial is highly encouraged to gain your first levels and receive a scarf.
+
+<Callout title="Game terms" tone="tip">
+Use the <a href="https://rtm-database.pages.dev/codex" target="_blank" rel="noreferrer">Codex</a> to look up unfamiliar keywords in skills, equipment, and guides, including **Combo Ready**, **After Cast Delay**, **ASPD**, **HIT**, and **FLEE**.
+</Callout>
 
 ## Wake up as an Orphan
 
@@ -152,6 +166,20 @@ Use the Memory Mirror to reset your stats before **Base Level 15**. If you keep 
   - Grants **all stats +10%** and **movement speed +50%** for **10 seconds**.
   - Cooldown: **60 minutes**.
 
+## Dying and Shadows
+
+When you die **inside a dungeon**, a **Shadow** appears. Its behaviour depends on the dungeon’s rank, and it can start casting **Self-Destruct** when someone approaches.
+
+- Each hit deals **1 damage** to a Shadow. Defeat it before it explodes.
+- Defeating the Shadows can revive the **last player who died on that map** with partial HP and SP. If several deaths have created multiple Shadows, all must be defeated.
+- An explosion deals **100 damage per remaining Shadow HP** in an area. Keep clear if you cannot finish it in time.
+
+If you return to your save point, speak with **Lucy Guille** in the Orphanage to heal and repair your equipment before heading back.
+
+<Callout title="Nightmare in Amatsu" tone="warning">
+Dying in **Nightmare in Amatsu** costs **one Base Level**.
+</Callout>
+
 ## Make the Orphanage your home
 
 Return to the Orphanage to heal, repair your equipment, use storage, and travel to other locations.
@@ -218,7 +246,7 @@ Buy starting armor from Horacio in the smithy.
 Buy starting weapons from Helmut in the smithy.
 </NpcCard>
 
-<NpcCard name="Croc Alt-Eisen" image="images/npcs/screenshots/croc.jpg" crop={{ x: 629, y: 17, width: 130, height: 194, sourceWidth: 1904, sourceHeight: 1041 }}>
+<NpcCard name="Croc Alt-Eisen" image="images/refining/croc-npc.jpg" crop={{ x: 1025, y: 200, width: 140, height: 190, sourceWidth: 1904, sourceHeight: 1041 }}>
 Trade lower-tier refining materials for higher-tier materials.
 </NpcCard>
 
@@ -231,7 +259,7 @@ Recycle **Shadow sets** and **gems**, reroll gem options, or convert gems into d
 </NpcCard>
 
 <NpcCard name="Shadow Assistant" image="images/npcs/shadow-assistant.gif" width={43} height={97}>
-Trade **Shadow Ores** for **Shadowdecon**, or exchange **Shadow Ore** for lower-tier refining materials. Find her in the smithy beside the Shadow Recycler.
+Trade **Shadow Ore** for **Jewel Shadowdecon**, **Elunium**, or **Oridecon**. Find her in the smithy beside the Shadow Recycler.
 </NpcCard>
 
 <NpcCard name="Weaver of Dreams" image="images/npcs/weaver-of-dreams.gif" width={101} height={117}>

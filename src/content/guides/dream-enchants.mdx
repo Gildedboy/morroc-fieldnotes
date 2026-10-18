@@ -1,15 +1,88 @@
 ---
 title: Dream Enchants
-publication: wip
-description: Guide to Dream Enchants.
+publication: published
+description: Gather Dream Shards, choose a Weaver service, and compare all 20 Dream Enchants.
 category: Getting Started
 icon: compass
 order: 1.3
 updated: 2026-10-18
-status: needs-review
-statusNote: Requested by the owner. Enchant options, requirements, and NPC steps have not yet been added.
-readingMinutes: 1
+status: source-reviewed
+statusNote: Reviewed October 18, 2026. Owner screenshots 132–133 confirm random enchant for 100 Dream Shards, chosen guaranteed enchant for 2,000 Dream Shards, and removal for 500 Distortion Shards or 100 Distortion Essence. Current server-derived table supplies all 20 enchant bonuses; the database confirms Dream Pouch’s 100-Essence exchange. Screenshots confirm service offers, not a completed enchant. No old numerical success formula is asserted as current.
+readingMinutes: 5
 tags: [dream enchants, equipment, beginner]
-related: [new-player-guide]
-sources: []
+related: [refine-guide, random-rolls, new-player-guide]
+sources:
+  - title: Refuge — Dream enchantments
+    url: https://rtmrefuge.pages.dev/gear#enchants
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Current server-derived list of 20 Dream Enchants, base and +10 effects, and the corrected names Dream of Skill and Nightmare Piercer. Older wiki costs and success formula are separate from this list. Site content is free to copy. Reviewed October 18, 2026. Owner screenshots screenPRM132.jpg and screenPRM133.jpg confirm the current prices and the additional chosen-result service; image 133 is displayed in a native viewport with the original frame linked.
+  - title: Refuge Database — Dream Pouch
+    url: https://rtm-database.pages.dev/index.html?id=7365
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Dream Box in Varmundt’s Orphanage exchanges 100 Distortion Essence for a Dream Pouch. Current Dream Shard and individual enchant records also reviewed October 18, 2026. The Weaver uses the owner-identified Baroness of Blood sprite from the database, as in the New Player Guide.
 ---
+
+import Callout from '../../components/Callout.astro';
+import NpcCard from '../../components/NpcCard.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import DreamEnchantTable from '../../components/DreamEnchantTable.astro';
+import { guideHref } from '../../lib/paths';
+
+## Prerequisites
+
+<Callout title="Before you start, you will need">
+
+- Equipment whose description allows a **Dream Enchant**.
+- **100 Dream Shards** for a random enchant, or **2,000 Dream Shards** to choose the result with guaranteed success.
+- To remove an existing enchant: **500 Distortion Shards** or **100 Distortion Essence**.
+
+</Callout>
+
+## 1) Choose eligible equipment
+
+Read the equipment description for Dream Enchant availability. This system applies to eligible gear, including some Sky Garden rewards, Rachel distortion gear, and Judge weapons.
+
+The random enchant’s **success chance depends on the item’s refine level**. At **+10**, Dream Enchants unlock the additional effects shown in the table below.
+
+## 2) Gather Dream Shards
+
+Bring **<a href="https://rtm-database.pages.dev/index.html?id=7364" target="_blank" rel="noreferrer">Dream Shards</a>** to pay for the enchantment. You can obtain them from **<a href="https://rtm-database.pages.dev/index.html?id=7365" target="_blank" rel="noreferrer">Dream Pouches</a>**.
+
+The **Dream Box** in the Orphanage exchanges **100 <a href="https://rtm-database.pages.dev/index.html?id=7361" target="_blank" rel="noreferrer">Distortion Essence</a>** for **1 Dream Pouch**. Open the pouch to receive Dream Shards.
+
+## 3) Speak with the Weaver of Dreams
+
+<NpcCard name="Weaver of Dreams" image="images/npcs/weaver-of-dreams.gif" width={101} height={117}>
+Find the Weaver in the **Orphanage** and select the service you want.
+</NpcCard>
+
+<div class="guide-table-wrap" tabindex="0" role="region" aria-label="Weaver service prices">
+<table class="guide-table">
+  <thead><tr><th scope="col">Service</th><th scope="col">Cost</th><th scope="col">Result</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Enchant</th><td>100 Dream Shards</td><td>Random result; success chance depends on refine.</td></tr>
+    <tr><th scope="row">Guaranteed Enchant — choose result</th><td>2,000 Dream Shards</td><td>You choose the enchant; 100% success.</td></tr>
+    <tr><th scope="row">Remove Enchant</th><td>500 Distortion Shards <strong>or</strong> 100 Distortion Essence</td><td>Removes the existing Dream Enchant. Choose which material to pay.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<SourceScreenshot image={{ src: 'images/dream-enchants/weaver-133.jpg', width: 1904, height: 1041, alt: 'Weaver dialogue and choices showing random, guaranteed, and removal service costs', crop: { x: 195, y: 450, width: 285, height: 305 } }} />
+
+## 4) Apply or remove the enchant
+
+Choose **Enchant** for a random result, or **Guaranteed Enchant — choose result** to select the bonus you want. Select the eligible item and confirm the exchange.
+
+To replace an existing enchant, use **Remove Enchant**, choose one of its two payment options, then enchant the item again.
+
+<Callout title="Dream Enchants and random rolls">
+Removing a Dream Enchant does not reroll the equipment’s <a href={guideHref('random-rolls')}>random options</a>.
+</Callout>
+
+## 5) Compare the enchant bonuses
+
+The **At refine +10** column shows the extra effect unlocked when the enchanted equipment reaches +10. Check any base-stat condition in the last column as well.
+
+<DreamEnchantTable />

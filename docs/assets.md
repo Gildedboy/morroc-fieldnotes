@@ -1,5 +1,23 @@
 # Asset provenance
 
+## Equipment systems
+
+Owner screenshots 140–143 add the Shadow Assistant and her ore exchanges. Originals remain in ignored imports, with unchanged JPEGs in `public/images/refining/`. Native viewports display 140 for the named NPC, 141 for the Jewel Shadowdecon price, and 143 for the lower-tier ore offer and full menu. Layout matches Croc’s grouped images and wraps on narrow screens.
+
+Owner screenshot 139 is archived in ignored imports and copied unchanged to `public/images/refining/class-gem-refining.jpg`. Its native viewport shows the Class Gem UI, normal/protected choices, and the +2 to +3 material requirements. The full original frame remains linked.
+
+Owner screenshots 136–138 show the refining window. Originals are archived in `imports/equipment-systems/`; the guide uses a native viewport from 136 to show the selected item and material choices. The UI’s displayed 0% is not used to infer rates.
+
+Owner screenshots 134–135 replace the earlier 122 reference in `public/images/refining/`: `croc-npc.jpg` identifies Croc and `croc-exchanges.jpg` shows his clearer dialogue and menu. Native CSS viewports preserve the originals and full-size links. The New Player Guide also uses the new Croc portrait. Owner screenshots 132–133 are archived in ignored `imports/equipment-systems/` and copied unaltered to `public/images/dream-enchants/`. The Dream guide displays only 133, showing prices and menu in a native viewport with the original frame linked. NPC sprites reuse credited Heimdall and Weaver assets. Random Rolls reuses owner screenshot 123 and the existing Old Rose Sandals viewport.
+
+## Celestial Tome crafting minimap
+
+The reward illustration `public/images/celestial-tome/celestial-tome.png` is the unaltered 75 × 100 PNG from `https://rtm-database.pages.dev/assets/icons/art/24236.png`, downloaded at the owner’s request. Credit remains in the guide’s database source entry; game artwork belongs to its respective owner.
+
+Owner screenshots 129–131 add Vali Sage, Vidar Sage, and Thor Sage inside the cottage. Unaltered JPEGs are stored in `public/images/celestial-tome/` and archived in ignored `imports/celestial-tome/owner-screenshots/`. Native CSS crop metadata in `src/data/celestial-tome-images.ts` isolates each NPC and name; full original frames remain linked. These are owner-provided images, separate from the spreadsheet’s minimap.
+
+`public/images/celestial-tome/tome-crafting-minimap.png` is the original 130 × 123 PNG embedded beside the first Tome recipe in Pitaya’s Celestial Tome spreadsheet tab. The owner supplied the workbook for guide integration. It is displayed without cropping or color changes through `SourceScreenshot`, with its full-size link. The workbook and extracted manifest remain in ignored imports. No general reuse license or source revision date is stated; source credits remain in guide frontmatter. No additional NPC or dialogue screenshots were present in that tab.
+
 ## Astrologika quest screenshots
 
 `public/images/sun-headgears/quest-01.png`–`quest-19.png` are unaltered instructional images from Pitaya’s Sun Headgear Guide spreadsheet, tab 636686625. The owner supplied the source for integrating this quest. The original workbook, extraction manifest, and images remain in ignored `imports/astrologika-headgears/`; metadata and alt text are in `src/data/sun-headgears-images.ts`. Images show the bookshelf, telescopes, Stone, Frozen Tides, Serpens tooltip, and nine observer minimaps. Source update date and general reuse license are unspecified; the workbook invites personal progression copies. Attribution is retained in guide frontmatter for About. The owner approved publication of the illustrated guide on October 18, 2026.

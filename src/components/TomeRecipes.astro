@@ -1,0 +1,28 @@
+---
+import { prerequisiteTomes } from '../data/celestial-tome';
+import SourceScreenshot from './SourceScreenshot.astro';
+import { celestialTomeImages } from '../data/celestial-tome-images';
+---
+{prerequisiteTomes.map(tome => <section aria-labelledby={`tome-${tome.id}`}>
+  <h3 id={`tome-${tome.id}`}><a href={`https://rtm-database.pages.dev/index.html?id=${tome.id}`} target="_blank" rel="noreferrer">{tome.name}</a></h3>
+  <div class="tome-recipe-layout">
+  <div>
+  <p>Speak with <strong>{tome.sage}</strong> and bring:</p>
+  <ul>
+    {tome.manuals.map(manual => <li>1 <a href={`https://rtm-database.pages.dev/index.html?id=${manual.id}`} target="_blank" rel="noreferrer">{manual.name}</a></li>)}
+    <li>{tome.jewelQuantity} <a href={`https://rtm-database.pages.dev/index.html?id=${tome.jewelId}`} target="_blank" rel="noreferrer">{tome.jewel}</a></li>
+  </ul>
+  </div>
+  <div class="tome-sage"><SourceScreenshot image={celestialTomeImages[tome.imageKey]} hideCaption /></div>
+  </div>
+</section>)}
+
+<style>
+  .tome-recipe-layout { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 24px; align-items: start; margin: 20px 0; }
+  .tome-recipe-layout p { margin-top: 0; }
+  .tome-sage :global(.source-screenshot) { margin: 0; }
+  @media (max-width: 600px) {
+    .tome-recipe-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .tome-sage { width: 150px; max-width: 100%; }
+  }
+</style>

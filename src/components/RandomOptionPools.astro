@@ -1,0 +1,20 @@
+---
+import { randomOptionPools } from '../data/equipment-systems';
+---
+<div class="guide-table-wrap option-pools" tabindex="0" role="region" aria-label="Random roll options by equipment type; scroll horizontally">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Equipment</th>{[1, 2, 3, 4].map(line => <th scope="col">Line {line}</th>)}</tr></thead>
+    <tbody>{randomOptionPools.map(pool => <tr>
+      <th scope="row">{pool.gear}{pool.gear === 'Revolvers' && <small>Calibrated by the Judge’s Quartermaster.</small>}</th>
+      {[0, 1, 2, 3].map(index => <td>{pool.lines[index] ? <ul>{pool.lines[index].map(option => <li>{option}</li>)}</ul> : '—'}</td>)}
+    </tr>)}</tbody>
+  </table>
+</div>
+<style>
+  .option-pools table { min-width: 760px; table-layout: fixed; }
+  .option-pools th:first-child { width: 130px; }
+  .option-pools tbody th { position: sticky; left: 0; background: var(--panel); }
+  .option-pools ul { margin: 0; padding-left: 14px; }
+  .option-pools li { margin: 0 0 6px; }
+  .option-pools small { display: block; margin-top: 8px; color: var(--muted); font-size: 10px; }
+</style>

@@ -3186,6 +3186,14 @@ export const bloomingRoseSandalsLocation = {
   mirrorAccess: 'With the Bifrost Mirror unlocked, use the Orphanage Distortion orb in the hallway near Merchant Guild to reach Varmundt’s Mansion.',
 };
 
+// Pitaya’s Tome walkthrough and Refuge’s Varmundt crafting reference.
+export const celestialTomeLocations = {
+  crafting: 'Enter the cottage on the south side of Varmundt’s Mansion. The sages inside craft Inferno Tome, Purgatorio Tome, and Paradiso Tome.',
+  payon: 'In Old Payon (Payon Distortion), speak with Chaos and Iris.',
+  coffin: 'At Death’s Castle, interact with the Coffin to enter a small room.',
+  iris: 'Return to the Orphanage and speak with Iris in the Blacksmith Room.',
+};
+
 // Observer coordinates: Pitaya’s Sun Headgear Guide; recipes checked against Refuge item records.
 export const sunHeadgearObservers = [
   {
