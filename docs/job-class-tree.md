@@ -51,4 +51,4 @@ Initial grid placement is server-rendered and controlled by CSS container querie
 - `src/pages/classes/[id].astro` renders class pages with a right-hand outline and narrow-screen outline.
 - The Job Class Tree itself uses the full article width without a right-hand or mobile "On this page" outline. Individual class articles retain their outlines.
 - Class artwork is local under `public/images/classes/`; asset evidence is recorded in `docs/assets.md`. Raw reference HTML and a full URL manifest remain in ignored `imports/refuge-classes/`.
-- Retain `choosing-your-path` as the existing guide ID and URL to preserve links. The public title is Job Class Tree.
+- Use `job-class-tree` as the guide ID and public URL, matching its title. Redirect the former `/guides/choosing-your-path/` address to `/guides/job-class-tree/` to preserve existing links.

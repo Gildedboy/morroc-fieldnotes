@@ -14,10 +14,10 @@ const sections = isThief ? [['overview', 'Overview'], ['job-change', 'Become a T
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
-<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId="choosing-your-path" noindex={!isThief}>
+<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId="job-class-tree" noindex={!isThief}>
   <div class="article-grid">
     <div class="article-column">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={guideHref('choosing-your-path')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={guideHref('job-class-tree')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
       <header class="article-header job-class-header">
         <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase(job.idleStill)} /><img src={withBase(job.idle)} alt={`${job.name} animated sprite`} width="112" height="112" /></picture>
 <div>{!isThief && <span class="wip-badge">WIP</span>}<h1>{job.name}</h1><div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div></div>
@@ -38,7 +38,7 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
         </>}
         <h2 id="next-jobs">{isThief ? 'Next jobs' : 'Job progression'}</h2>
         {nextJobs.length ? <ul class="job-next-links">{nextJobs.map(next => <li><a href={withBase(`classes/${next.id}/`)}>{next.name} <span class="wip-badge">WIP</span> →</a></li>)}</ul> : <p>This class does not lead to another job in Refuge's current class tree.</p>}
-        <p><a href={guideHref('choosing-your-path')}>← Back to the Job Class Tree</a></p>
+        <p><a href={guideHref('job-class-tree')}>← Back to the Job Class Tree</a></p>
       </article>
       <section id="sources" class="sources-section">
         <h2>Sources & acknowledgements</h2>

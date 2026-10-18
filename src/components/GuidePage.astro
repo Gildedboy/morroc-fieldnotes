@@ -7,7 +7,7 @@ import { formatDate, guideHref, withBase } from '../lib/paths';
 interface Props { guide: CollectionEntry<'guides'> }
 const { guide } = Astro.props;
 const { data } = guide;
-const isClassTree = guide.id === 'choosing-your-path';
+const isClassTree = guide.id === 'job-class-tree';
 const { Content, headings } = await render(guide);
 const outline = headings.filter(h => h.depth === 2);
 const allGuides = await getCollection('guides');
