@@ -66,6 +66,26 @@ test('article outline works and related links open the class tree', async ({ pag
   await expect(page.locator('.class-explorer')).toBeVisible();
 });
 
+test('Trickster gear tabs switch panels and support arrow-key navigation', async ({ page }) => {
+  await page.goto('./classes/trickster/');
+  const tabs = page.getByRole('tablist', { name: 'Trickster gear slots' });
+  const weapon = tabs.getByRole('tab', { name: 'Weapon' });
+  const top = tabs.getByRole('tab', { name: 'Top Headgear' });
+  const weaponPanel = page.getByRole('tabpanel', { name: 'Weapon' });
+  const topPanel = page.getByRole('tabpanel', { name: 'Top Headgear' });
+
+  await expect(weapon).toHaveAttribute('aria-selected', 'true');
+  await expect(weaponPanel).toContainText('Gargantua — the top scythe for a Trickster');
+  await top.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('tab', { name: 'Mid Headgear' })).toBeFocused();
+  await expect(topPanel).toBeHidden();
+  await page.keyboard.press('ArrowLeft');
+  await expect(top).toBeFocused();
+  await expect(topPanel).toBeVisible();
+  await expect(topPanel).toContainText('No item recommendation is listed for this slot yet.');
+});
+
 test('essential reading and attribution work without JavaScript', async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();

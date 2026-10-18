@@ -85,12 +85,64 @@ import Callout from '../Callout.astro';
     <p>Do not stop leveling to chase perfect random rolls or wait for a specific piece of gear. Keep using the best equipment you have and continue progressing; better items and rolls will come eventually. If a piece can carry you through the mid-to-late game, this guide will say so.</p>
   </Callout>
 </div>
-<ol>
-  <li><strong>Starting scythe:</strong> use the <strong>Black Scythe</strong> from Serin's job-change quest, or bring your Exchange Voucher to Ornstein in the smithy for a <strong>Scythe of the Orphan</strong>.</li>
-  <li><strong>Continue upgrading:</strong> move to a <strong>Bone Scythe</strong>, then a <strong>Blood Reaver</strong>.</li>
-  <li><strong>Endgame goal:</strong> work toward <strong>Gargantua</strong>, the top scythe for a Trickster.</li>
-</ol>
-<p><strong>Crescent Demon</strong> is a useful middle-ground option along the way, but it is a nice-to-have upgrade, not a required step.</p>
+<div class="gear-tabs" data-gear-tabs>
+  <div class="gear-tab-list" role="tablist" aria-label="Trickster gear slots">
+    <button id="trickster-gear-tab-weapon" class="gear-tab" type="button" role="tab" aria-selected="true" aria-controls="trickster-gear-panel-weapon" tabindex="0">Weapon</button>
+    <button id="trickster-gear-tab-top" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-top" tabindex="-1">Top Headgear</button>
+    <button id="trickster-gear-tab-mid" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-mid" tabindex="-1">Mid Headgear</button>
+    <button id="trickster-gear-tab-low" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-low" tabindex="-1">Low Headgear</button>
+    <button id="trickster-gear-tab-armor" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-armor" tabindex="-1">Armor</button>
+    <button id="trickster-gear-tab-garment" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-garment" tabindex="-1">Garment</button>
+    <button id="trickster-gear-tab-shoes" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-shoes" tabindex="-1">Shoes</button>
+    <button id="trickster-gear-tab-accessories" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="trickster-gear-panel-accessories" tabindex="-1">Accessories</button>
+  </div>
+  <section id="trickster-gear-panel-weapon" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-weapon" tabindex="0">
+    <ol>
+      <li><a href="https://rtm-database.pages.dev/index.html?id=1502&amp;q=Black+Scythe&amp;show=items&amp;tab=items">Black Scythe</a> (job-change reward) or <a href="https://rtm-database.pages.dev/index.html?id=1540&amp;q=Scythe+of+the+Orphan&amp;show=items&amp;tab=items">Scythe of the Orphan</a> (Exchange Voucher).</li>
+      <li><a href="https://rtm-database.pages.dev/index.html?id=1524&amp;q=Bone+Scythe&amp;show=items&amp;tab=items">Bone Scythe</a>.</li>
+      <li><a href="https://rtm-database.pages.dev/index.html?id=1521&amp;q=Blood+Reaver&amp;show=items&amp;tab=items">Blood Reaver</a>.</li>
+      <li><a href="https://rtm-database.pages.dev/index.html?id=1529&amp;q=Gargantua&amp;show=items&amp;tab=items">Gargantua</a> — the top scythe for a Trickster.</li>
+    </ol>
+    <p>Optional middle ground: <a href="https://rtm-database.pages.dev/index.html?id=1532&amp;q=Crescent+Demon&amp;show=items&amp;tab=items">Crescent Demon</a>. Nice to have, not required.</p>
+  </section>
+  <section id="trickster-gear-panel-top" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-top" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-mid" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-mid" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-low" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-armor" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-garment" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shoes" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+  <section id="trickster-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-accessories" tabindex="0" hidden><p>No item recommendation is listed for this slot yet.</p></section>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gear-tabs]').forEach((tabGroup) => {
+    const tabs = Array.from(tabGroup.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const activate = (tab: HTMLButtonElement, focus = false) => {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+        const panel = tabGroup.querySelector<HTMLElement>(`#${item.getAttribute('aria-controls')}`);
+        if (panel) panel.hidden = !selected;
+      });
+      if (focus) tab.focus();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', (event) => {
+        let nextIndex = index;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activate(tabs[nextIndex], true);
+      });
+    });
+  });
+</script>
 
 <h2 id="next-step">Next Step</h2>
 <p>Reach <strong>Trickster Job Level 70</strong> to advance to <a href={withBase('classes/revenant/')}>Revenant</a>. Its job-change walkthrough is WIP.</p>
