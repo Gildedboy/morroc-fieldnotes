@@ -110,4 +110,4 @@ The component displays icons at 24 × 24. PNGs that are 26 × 26 retain their so
 
 ## Trickster leveling screenshots
 
-`public/images/classes/trickster-skill-tree.png` (562 × 403) and `revenant-skill-tree.png` (560 × 401) are unmodified, full-frame copies of the Basic Trickster and Revenant skill-tree screenshots embedded in Phawkes' leveling spreadsheet. They appear in the Trickster guide beside the matching progression sections. The spreadsheet credits suggestions from Sparda, Arumakan, Kim, Kharon, and knoxzera; its date and image reuse terms are unspecified. The images remain credited to their source and rights holders.
+`public/images/classes/trickster-skill-tree.png` (562 × 403) is an unmodified, full-frame copy of the Basic Trickster skill-tree screenshot embedded in Phawkes' leveling spreadsheet. It appears in the Trickster guide beside the early skill allocation. The spreadsheet credits suggestions from Sparda, Arumakan, Kim, Kharon, and knoxzera; its date and image reuse terms are unspecified. The image remains credited to its source and rights holders. The separate Revenant skill-tree image is reserved for its own guide.
