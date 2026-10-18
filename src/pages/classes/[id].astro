@@ -47,7 +47,7 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
       <section id="sources" class="sources-section">
         <h2>Sources & acknowledgements</h2>
         <p class="source-note">Reviewed against the Refuge website on October 17, 2026. Not independently verified in game. Source update date unknown. Artwork belongs to its respective owners.</p>
-        <ul class="source-list"><li><a href={`https://rtmrefuge.pages.dev/classes/${job.id}.html`} target="_blank" rel="noreferrer">Refuge — {job.name} ↗</a></li><li><a href="https://rtmrefuge.pages.dev/classes.html" target="_blank" rel="noreferrer">Refuge — Class tree ↗</a></li></ul>
+        <ul class="source-list"><li><a href={`https://rtmrefuge.pages.dev/classes/${job.id}.html`} target="_blank" rel="noreferrer">Refuge — {job.name} ↗</a></li><li><a href="https://rtmrefuge.pages.dev/classes.html" target="_blank" rel="noreferrer">Refuge — Class tree ↗</a></li>{isTrickster && <li><div><a href="https://docs.google.com/spreadsheets/d/1Z_9RXyn390tUyyvndG04YOMMVHmy3f0kksOx5mH3is0/edit?gid=109244848#gid=109244848" target="_blank" rel="noreferrer">Trickster leveling spreadsheet ↗</a><span>By Phawkes, with suggestions from Sparda, Arumakan, Kim, Kharon, and knoxzera</span></div><p>Early stat and skill allocation recommendations. Source date and reuse terms are not stated.</p><small>Source update: Not specified</small></li>}</ul>
       </section>
       <Footer />
     </div>

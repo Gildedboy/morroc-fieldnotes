@@ -1,43 +1,79 @@
 ---
 import { withBase } from '../../lib/paths';
+import SkillIcon from '../SkillIcon.astro';
+import Callout from '../Callout.astro';
 ---
 <div class="trickster-portraits">
   <figure><img src={withBase('images/classes/trickster-portrait.webp')} alt="Male Trickster portrait from Refuge" width="782" height="760" loading="lazy" /><figcaption>Male Trickster</figcaption></figure>
-  <figure><img src={withBase('images/classes/trickster-female-portrait.webp')} alt="Female Trickster portrait from Refuge" width="782" height="760" loading="lazy" /><figcaption>Female Trickster</figcaption></figure>
+  <figure><img src={withBase('images/classes/trickster-female-portrait.webp')} alt="Female Trickster portrait from Refuge" width="677" height="760" loading="lazy" /><figcaption>Female Trickster</figcaption></figure>
 </div>
 
 <h2 id="job-change">Job Change Quest</h2>
-<ol>
-  <li>Reach <strong>Orphan Job Level 10</strong>.</li>
-  <li>Speak to <strong>Lorelei Sorin</strong> in the Orphanage at <strong>va_orpha 376, 129</strong>. Choose the cold-hearted answer to earn her trust.</li>
-  <li>Touch the wisp in the same room at <strong>va_orpha 391, 133</strong> to enter the hidden chamber.</li>
-  <li>Find <strong>Serin</strong> in the crypt at <strong>que_trck01 197, 198</strong> and win her number-guessing game.</li>
-</ol>
-<p>You become a Trickster and receive Serin's scythe. Bring your Exchange Voucher to Ornstein in the smithy for starter equipment.</p>
+<Callout title="Speak with Lorelei Sorin in the Orphanage">
+  <p>Requirement: <strong>Orphan Job Level 10</strong>. Start at <strong>va_orpha 376, 129</strong>.</p>
+  <ol>
+    <li>Choose the cold-hearted answer to earn Lorelei's trust.</li>
+    <li>Touch the wisp in the same room at <strong>va_orpha 391, 133</strong> to enter the hidden chamber.</li>
+    <li>Find <strong>Serin</strong> in the crypt at <strong>que_trck01 197, 198</strong> and win her number-guessing game.</li>
+  </ol>
+  <p>Reward: the Trickster job and a <strong>Black Scythe</strong>.</p>
+</Callout>
 
 <h2 id="core-gameplay">Core Gameplay & Skills</h2>
 <p>Trickster deals close-range damage with scythes, critical attacks, Fire skills, and life leech. Its defensive skills help sustain longer fights, while low defenses, high SP costs, and cooldowns need attention.</p>
 <p>Equip a <strong>scythe</strong>. STR and LUK are the class's listed main stats. Use short attack rotations and life leech to sustain yourself, while watching your SP and cooldowns.</p>
 <ul>
-  <li><strong>Scythe Reap and Sweeping Slash:</strong> close-range attacks that can critically hit. Sweeping Slash loses damage outside combos.</li>
-  <li><strong>Hellraiser:</strong> a Fire attack around you that activates Finisher Ready. Refuge allows it before maximum skill level; Sweeping Slash hits three times during this window.</li>
-  <li><strong>Burning Scythe:</strong> changes your weapon to Fire. Check the enemy's element before using it.</li>
-  <li><strong>Shadow Parry:</strong> blocks physical hits while using a scythe, with a brief pause after a successful block.</li>
-  <li><strong>Mirror Image:</strong> reflects eligible targeted magic, but increases incoming physical damage. Boss magic cannot be reflected.</li>
+  <li><SkillIcon icon="LK_SPIRALPIERCE" /><strong>Scythe Reap:</strong> a multi-hit scythe attack that can critically hit.</li>
+  <li><SkillIcon icon="KN_PIERCE" /><strong>Sweeping Slash:</strong> a close-range attack that can critically hit; its damage is reduced outside combos and it hits three times during Finisher Ready.</li>
+  <li><SkillIcon icon="RK_IGNITIONBREAK" /><strong>Hellraiser:</strong> a Fire attack around you that activates Finisher Ready.</li>
+  <li><SkillIcon icon="SA_FLAMELAUNCHER" /><strong>Burning Scythe:</strong> endows your weapon with Fire for its duration.</li>
+  <li><SkillIcon icon="LK_PARRYING" /><strong>Shadow Parry:</strong> blocks physical hits while using a scythe, with a brief pause after a successful block.</li>
+  <li><SkillIcon icon="SL_KAITE" /><strong>Mirror Image:</strong> reflects eligible targeted magic, but increases incoming physical damage. Boss magic cannot be reflected.</li>
 </ul>
-<p>Check costs and prerequisites in the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge skills database ↗</a>. Equipment, leveling routes, and a tested skill build still need review.</p>
+<p>Check current costs and prerequisites in the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge skills database ↗</a>. The linked early allocation and skill-tree screenshots are community references, not independently tested recommendations.</p>
+
+<h3>Early leveling (levels 1–100)</h3>
+<p>The <a href="https://docs.google.com/spreadsheets/d/1Z_9RXyn390tUyyvndG04YOMMVHmy3f0kksOx5mH3is0/edit?gid=109244848#gid=109244848" target="_blank" rel="noreferrer">Trickster leveling spreadsheet</a> lists these stat targets in order of importance:</p>
+<ol class="trickster-stat-order">
+  <li>49 STR/LUK</li>
+  <li>20 VIT/INT</li>
+  <li>70 STR/LUK</li>
+  <li>40 VIT/INT</li>
+  <li>90 LUK</li>
+</ol>
+<p>The sheet uses slash notation for paired stats but does not explain how to split points between them; treat these as its target values, not a specific point-by-point allocation.</p>
+<p>It lists this skill order for Trickster:</p>
+<ol class="trickster-skill-order">
+  <li><SkillIcon icon="LK_SPIRALPIERCE" />Unlock Scythe Reap and <SkillIcon icon="KN_PIERCE" />Sweeping Slash.</li>
+  <li><SkillIcon icon="PR_MACEMASTERY" />Max Scythe Mastery.</li>
+  <li><SkillIcon icon="MG_SRECOVERY" />Raise Increase SP Recovery to level 5.</li>
+  <li><SkillIcon icon="KN_PIERCE" />Max Sweeping Slash.</li>
+  <li><SkillIcon icon="SN_SIGHT" />Max True Sight.</li>
+  <li><SkillIcon icon="MG_SRECOVERY" />Max Increase SP Recovery.</li>
+  <li><SkillIcon icon="LK_PARRYING" />Max Shadow Parry.</li>
+  <li><SkillIcon icon="SA_FLAMELAUNCHER" />Max Burning Scythe to endow your weapon with Fire; if you will not use it for that, spend those points leveling <SkillIcon icon="RK_IGNITIONBREAK" />Hellraiser instead.</li>
+  <li><SkillIcon icon="LK_SPIRALPIERCE" />Max Scythe Reap.</li>
+</ol>
+<figure class="trickster-build-image">
+  <img src={withBase('images/classes/trickster-skill-tree.png')} alt="Basic Trickster skill tree shown in the leveling spreadsheet" width="562" height="403" loading="lazy" />
+  <figcaption>Basic Trickster skill tree from the <a href="https://docs.google.com/spreadsheets/d/1Z_9RXyn390tUyyvndG04YOMMVHmy3f0kksOx5mH3is0/edit?gid=109244848#gid=109244848" target="_blank" rel="noreferrer">leveling spreadsheet</a>.</figcaption>
+</figure>
 
 <h2 id="how-to-play">How to Play</h2>
 <ol>
   <li>Fight with a scythe and use close-range attacks to build your combos.</li>
-  <li>Use Hellraiser to activate Finisher Ready, then follow with Sweeping Slash to take advantage of its three-hit combo effect.</li>
+  <li><SkillIcon icon="RK_IGNITIONBREAK" />Use Hellraiser to activate Finisher Ready, then follow with <SkillIcon icon="KN_PIERCE" />Sweeping Slash to take advantage of its three-hit combo effect.</li>
   <li>Use life-leeching attacks to recover while dealing damage. Watch SP and cooldowns during longer fights.</li>
-  <li>Use Shadow Parry against physical attacks. Mirror Image can reflect eligible magic, but makes physical hits much more dangerous while active.</li>
+  <li><SkillIcon icon="LK_PARRYING" />Use Shadow Parry against physical attacks. <SkillIcon icon="SL_KAITE" />Mirror Image can reflect eligible magic, but makes physical hits much more dangerous while active.</li>
 </ol>
 <p>This is a starting overview, not a tested skill rotation. Check skill costs and effects in the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge skills database ↗</a>.</p>
 
 <h2 id="progress-gear">Progress Gear</h2>
-<p>Gear milestones and recommended equipment are still being reviewed. For now, use the scythe received from Serin and bring your Exchange Voucher to Ornstein for starter equipment.</p>
+<p>Serin rewards the job change with a <strong>Black Scythe</strong>. Bring your Exchange Voucher to Ornstein in the smithy to receive a <strong>Scythe of the Orphan</strong>. Further gear milestones and recommendations are still being reviewed.</p>
 
 <h2 id="next-step">Next Step</h2>
 <p>Reach <strong>Trickster Job Level 70</strong> to advance to <a href={withBase('classes/revenant/')}>Revenant</a>. Its job-change walkthrough is WIP.</p>
+<figure class="trickster-build-image">
+  <img src={withBase('images/classes/revenant-skill-tree.png')} alt="Revenant skill tree shown in the leveling spreadsheet" width="560" height="401" loading="lazy" />
+  <figcaption>Revenant skill tree from the <a href="https://docs.google.com/spreadsheets/d/1Z_9RXyn390tUyyvndG04YOMMVHmy3f0kksOx5mH3is0/edit?gid=109244848#gid=109244848" target="_blank" rel="noreferrer">leveling spreadsheet</a> for reference after the next job change.</figcaption>
+</figure>

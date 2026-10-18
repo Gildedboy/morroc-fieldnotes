@@ -89,3 +89,25 @@ The seven icons in `public/images/skills/` were downloaded unmodified from `http
 | Morroc's Mark | `ALL_FULL_THROTTLE` |
 
 Area Loot's icon is 26 × 26; the other six are 24 × 24. All display at 24 × 24 beside the existing skill bullet labels. Artwork remains credited to the Refuge team and original rights holders.
+
+## Trickster skill icons
+
+These icons were downloaded unmodified from the Refuge database at `https://rtm-database.pages.dev/assets/skills/{ICON}.png` on 2026-10-18. Handles come from the `icon` field in `assets/data/db-skills.json` for Trickster skills.
+
+| Skill | Icon handle |
+| --- | --- |
+| Burning Scythe | `SA_FLAMELAUNCHER` |
+| Hellraiser | `RK_IGNITIONBREAK` |
+| Increase SP Recovery | `MG_SRECOVERY` |
+| Mirror Image | `SL_KAITE` |
+| Scythe Mastery | `PR_MACEMASTERY` |
+| Scythe Reap | `LK_SPIRALPIERCE` |
+| Shadow Parry | `LK_PARRYING` |
+| Sweeping Slash | `KN_PIERCE` |
+| True Sight | `SN_SIGHT` |
+
+The component displays icons at 24 × 24. PNGs that are 26 × 26 retain their source files and aspect ratio.
+
+## Trickster leveling screenshots
+
+`public/images/classes/trickster-skill-tree.png` (562 × 403) and `revenant-skill-tree.png` (560 × 401) are unmodified, full-frame copies of the Basic Trickster and Revenant skill-tree screenshots embedded in Phawkes' leveling spreadsheet. They appear in the Trickster guide beside the matching progression sections. The spreadsheet credits suggestions from Sparda, Arumakan, Kim, Kharon, and knoxzera; its date and image reuse terms are unspecified. The images remain credited to their source and rights holders.
