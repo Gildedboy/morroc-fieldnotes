@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('library opens the first guide and credits its sources', async ({ page }, testInfo) => {
+test('library opens a guide with an update date and links to the source index', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400 && response.url().startsWith('http://127.0.0.1')) errors.push(`${response.status()} ${response.url()}`); });
@@ -9,9 +9,17 @@ test('library opens the first guide and credits its sources', async ({ page }, t
   await page.screenshot({ path: testInfo.outputPath('library.png'), fullPage: true });
   await page.getByRole('link', { name: 'Begin your journey' }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('New Player Guide');
+  await expect(page.getByRole('heading', { name: 'Sources & acknowledgements' })).toHaveCount(0);
+  await expect(page.getByText('Sources reviewed', { exact: true })).toHaveCount(0);
+  await expect(page.locator('.article-meta')).toContainText('Updated');
+  await expect(page.locator('.site-footer')).toContainText('Sources & credits page');
+  await page.goto('./about/');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Good knowledge deserves');
   await expect(page.getByRole('heading', { name: 'Sources & acknowledgements' })).toBeVisible();
-  await expect(page.getByText('Not yet verified', { exact: true })).toBeVisible();
-  await expect(page.locator('.site-footer')).toContainText('The source guides are publicly available.');
+  await expect(page.getByRole('heading', { name: 'New Player Guide' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Phawkes — Trickster leveling reference/ })).toBeVisible();
+  const related = await page.locator('.related-section').evaluate(node => node.compareDocumentPosition(document.querySelector('#guide-sources')!) & Node.DOCUMENT_POSITION_FOLLOWING);
+  expect(related).toBeTruthy();
   await page.screenshot({ path: testInfo.outputPath('guide.png'), fullPage: true });
   expect(errors).toEqual([]);
 });
@@ -68,6 +76,8 @@ test('article outline works and related links open the class tree', async ({ pag
 
 test('Trickster gear tabs switch panels and support arrow-key navigation', async ({ page }) => {
   await page.goto('./classes/trickster/');
+  await expect(page.getByRole('heading', { name: 'Sources & acknowledgements' })).toHaveCount(0);
+  await expect(page.getByText('Sources reviewed', { exact: true })).toHaveCount(0);
   await expect(page.locator('.job-tags')).toHaveCount(0);
   await expect(page.locator('.job-heading-weapon')).toHaveCount(0);
   const tabs = page.getByRole('tablist', { name: 'Trickster gear slots' });

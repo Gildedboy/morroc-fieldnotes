@@ -1,14 +1,55 @@
 ---
+import { getCollection } from 'astro:content';
 import Shell from '../layouts/Shell.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { formatDate, guideHref, withBase } from '../lib/paths';
+import { jobClasses } from '../data/job-classes';
+
+const allGuides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
+const sourceGuides = allGuides.filter(guide => guide.data.sources.length > 0);
+const classPages = jobClasses.filter(job => job.id !== 'orphan');
 ---
-<Shell title="Sources & credits" description="How Return to Morroc: Refuge Fieldnotes credits public source guides and separates source material from editorial updates.">
-  <div class="about-page"><span class="eyebrow">ABOUT THE FIELDNOTES</span><h1>Good knowledge deserves<br />a clear trail home.</h1><div class="prose">
-    <p>Return to Morroc: Refuge Fieldnotes is an independent personal guide library. It brings publicly available guide material into a common reading format. It is not the server's official website.</p>
-    <h2>Credit stays with the creators</h2><p>Every guide lists its source links and original authors. The first community reference is <a href="https://docs.google.com/document/d/1KVRrnLTCRxi_ou5hQrZS7mDr-W2aBcUD2uZKclWuyyo/edit">The New Orphan’s Guide To Morroc</a>, by Gryph, with the introduction and framework by Agent Q. Its full contributor acknowledgements remain in the original.</p>
-    <h2>Dates mean different things</h2><p>An editorial update records a change to this page. Source review means the cited material was checked. In-game verification is recorded separately and is not implied by either date.</p>
-    <h2>Artwork and type</h2><p>The scenic illustrations and class portraits are sourced from the <a href="https://rtmrefuge.pages.dev/">Refuge website</a>, which states its site content is free to copy. Third-party artwork remains the property of its respective owners. The New Player Guide includes eight original document images, with source attribution beside the instructions.</p><p>Amarante and Atkinson Hyperlegible are distributed under the SIL Open Font License. Their license files are included alongside the local fonts. The Refuge mark is a local copy of the <a href="https://rtm-database.pages.dev/">database website's header image</a>; the Fieldnotes wordmark and interface are created for this library.</p>
-    <p>Orphan skill icons come from the <a href="https://rtm-database.pages.dev/skills.html">Refuge database</a>. Orphanage NPC sprites were matched against owner-provided screenshots using <a href="https://rune-nifelheim.com/npc/">Rune Nifelheim</a> and <a href="https://ratemyragnarok.com/npcs/">Rate My Ragnarok</a>, and rendered with <a href="https://github.com/adsonpleal/ragassets">RagAssets</a>. Ragnarok Online artwork belongs to Gravity and its respective creators.</p>
-    <h2>A small beginning</h2><p>The New Player Guide, Job Class Tree, and Thief class guide are available. Other class guides, Leveling Spots, Dungeons, Distortions, and quest guides are works in progress.</p>
-  </div><Footer /></div>
+<Shell title="Sources & credits" description="Source links, authors, acknowledgements, and project credits for Return to Morroc: Refuge Fieldnotes." currentId="about">
+  <div class="about-page">
+    <span class="eyebrow">SOURCES & ACKNOWLEDGEMENTS</span>
+    <h1>Good knowledge deserves<br />a clear trail home.</h1>
+    <div class="prose">
+      <p>Return to Morroc: Refuge Fieldnotes is an independent personal guide library. It brings publicly available guide material into a common reading format. It is not the server's official website.</p>
+      <p>Source links, authors, and acknowledgements for every guide are collected here. Each source entry is grouped with the guide that uses it.</p>
+
+      <section class="related-section" aria-labelledby="keep-exploring-heading">
+        <span class="eyebrow" id="keep-exploring-heading">KEEP EXPLORING</span>
+        <div class="related-grid">
+          {sourceGuides.map(guide => <a href={guideHref(guide.id)}><Icon name={guide.data.icon} size={22} /><div><small>{guide.data.category}</small><strong>{guide.data.title}</strong></div><Icon name="arrow" size={19} /></a>)}
+        </div>
+      </section>
+
+      <h2 id="guide-sources">Sources & acknowledgements</h2>
+      {sourceGuides.map(guide => <section class="source-guide-entry" aria-labelledby={`source-guide-${guide.id}`}>
+        <h3 id={`source-guide-${guide.id}`}><a href={guideHref(guide.id)}>{guide.data.title}</a></h3>
+        <p class="source-guide-date">Editorial update: {formatDate(guide.data.updated)}{guide.data.verified ? ` · In-game verified: ${formatDate(guide.data.verified)}` : ''}</p>
+        <ol class="source-list">{guide.data.sources.map(source => <li><div><a href={source.url} target="_blank" rel="noreferrer">{source.title}<Icon name="external" size={13} /></a><span>By {source.author}</span></div><p>{source.note}</p><small>Original update: {source.sourceUpdated ?? 'Not specified'}</small></li>)}</ol>
+      </section>)}
+
+      <section class="source-guide-entry" aria-labelledby="class-guide-sources">
+        <h3 id="class-guide-sources">Class guides</h3>
+        <p class="source-guide-date">Class pages were reviewed against Refuge class references on October 17, 2026. Source update dates were not specified.</p>
+        <ol class="source-list">
+          {classPages.map(job => <li><div><a href={withBase(`classes/${job.id}/`)}>{job.name} guide</a><a href={`https://rtmrefuge.pages.dev/classes/${job.id}.html`} target="_blank" rel="noreferrer">Refuge — {job.name}<Icon name="external" size={13} /></a></div><span>By Return to Morroc: Refuge team</span></li>)}
+          <li><div><a href="https://rtmrefuge.pages.dev/classes.html" target="_blank" rel="noreferrer">Refuge — Class tree<Icon name="external" size={13} /></a></div><span>By Return to Morroc: Refuge team</span><p>Class progression, role tags, sprites, and artwork.</p><small>Original update: Not specified</small></li>
+          <li><div><a href="https://docs.google.com/spreadsheets/d/1Z_9RXyn390tUyyvndG04YOMMVHmy3f0kksOx5mH3is0/edit?gid=109244848#gid=109244848" target="_blank" rel="noreferrer">Phawkes — Trickster leveling reference<Icon name="external" size={13} /></a><span>Skill and stat suggestions credited to Sparda, Arumakan, Kim, Kharon, and knoxzera.</span></div><p>Early-game stat allocation and skill-tree reference.</p><small>Original update: Not specified</small></li>
+        </ol>
+      </section>
+
+      <h2>Dates and verification</h2>
+      <p>An editorial update records a change to a guide. Source update dates are shown separately when available. In-game verification dates appear only when recorded.</p>
+
+      <h2>Artwork, type, and interface credits</h2>
+      <p>The scenic illustrations and class portraits are sourced from the <a href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Refuge website</a>, which states its site content is free to copy. Third-party artwork remains the property of its respective owners. The New Player Guide includes eight original document images, with source attribution recorded above.</p>
+      <p>Amarante and Atkinson Hyperlegible are distributed under the SIL Open Font License. Their license files are included alongside the local fonts. The Refuge mark is a local copy of the <a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">database website's header image</a>; the Fieldnotes wordmark and interface are created for this library.</p>
+      <p>Orphan skill icons come from the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge database</a>. Orphanage NPC sprites were matched against owner-provided screenshots using <a href="https://rune-nifelheim.com/npc/" target="_blank" rel="noreferrer">Rune Nifelheim</a> and <a href="https://ratemyragnarok.com/npcs/" target="_blank" rel="noreferrer">Rate My Ragnarok</a>, and rendered with <a href="https://github.com/adsonpleal/ragassets" target="_blank" rel="noreferrer">RagAssets</a>. Ragnarok Online artwork belongs to Gravity and its respective creators.</p>
+    </div>
+    <Footer />
+  </div>
 </Shell>

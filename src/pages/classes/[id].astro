@@ -12,7 +12,7 @@ interface Props { job: JobClass }
 const { job } = Astro.props;
 const isThief = job.id === 'thief';
 const isTrickster = job.id === 'trickster';
-const sections = isTrickster ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step'], ['sources', 'Sources']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs'], ['sources', 'Sources']] : [['overview', 'Overview'], ['next-jobs', 'Job progression'], ['sources', 'Sources']];
+const sections = isTrickster ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
@@ -44,11 +44,6 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
         </>}
         <p><a href={guideHref('job-class-tree')}>← Back to the Job Class Tree</a></p>
       </article>
-      <section id="sources" class="sources-section">
-        <h2>Sources & acknowledgements</h2>
-        <p class="source-note">Reviewed against the Refuge website on October 17, 2026. Not independently verified in game. Source update date unknown. Artwork belongs to its respective owners.</p>
-        <ul class="source-list"><li><a href={`https://rtmrefuge.pages.dev/classes/${job.id}.html`} target="_blank" rel="noreferrer">Refuge — {job.name} ↗</a></li><li><a href="https://rtmrefuge.pages.dev/classes.html" target="_blank" rel="noreferrer">Refuge — Class tree ↗</a></li>{isTrickster && <li><div><strong>Phawkes — Trickster leveling spreadsheet</strong><span>Suggestions credited to Sparda, Arumakan, Kim, Kharon, and knoxzera</span></div><p>Early stat and skill allocation recommendations; its basic Trickster skill-tree screenshot appears above. Source date and reuse terms are not stated.</p><small>Source update: Not specified</small></li>}</ul>
-      </section>
       <Footer />
     </div>
     <aside class="article-outline" aria-label="Article outline"><div class="outline-sticky"><p class="eyebrow">ON THIS PAGE</p><nav>{sections.map(([id,title]) => <a href={`#${id}`}>{title}</a>)}</nav></div></aside>
