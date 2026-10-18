@@ -18,6 +18,7 @@ const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-casting-s
       <span class="class-card-face">
         <span class="class-card-heading">
           <strong class="class-card-name">{job.name}</strong>
+          <span class="class-card-weapon" title={job.weapons}>{job.weaponLabel ?? (job.weapons === 'None' ? 'No weapon' : job.weapons)}</span>
           <span class="class-card-tags">{tags.map(tag => <span>{tag}</span>)}{!root && job.id !== 'merchant' && <span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span>}</span>
         </span>
         <span class="class-card-body">
@@ -34,7 +35,7 @@ const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-casting-s
     </button>
     {!root && <aside class="class-guide-panel" aria-label={`${job.name} guide`} hidden>
       <button type="button" class="class-info-close" aria-label="Close class details">×</button>
-      <strong>{job.name}</strong><p><span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span></p>
+      <strong>{job.name}</strong><span class="class-detail-weapon"> · {job.weaponLabel ?? job.weapons}</span><p><span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span></p>
       <dl class="class-verdict"><div class="class-strengths"><dt>Strengths</dt><dd>{job.strengths ?? 'Not listed in the Refuge class guide.'}</dd></div><div class="class-weaknesses"><dt>Weaknesses</dt><dd>{job.weaknesses ?? 'Not listed in the Refuge class guide.'}</dd></div></dl>
       <a href={withBase(`classes/${job.id}/`)}>{job.id === 'thief' ? 'Read the Thief guide' : `${job.name} guide`} {job.id !== 'thief' && <span class="wip-badge">WIP</span>} →</a>
     </aside>}

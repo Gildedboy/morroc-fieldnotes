@@ -1,5 +1,5 @@
 .article-grid.class-tree-layout{grid-template-columns:minmax(0,1fr);gap:0}
-.class-explorer{container:class-tree / inline-size;--class-card-width:min(210px,max(78px,calc((100cqw - 60px)/3)));--class-name-size:20px;--class-card-height:270px;--root-columns:3;--root-grid-width:calc(3 * var(--class-card-width) + 24px);position:relative;margin:28px 0;min-height:440px;overflow-anchor:none}
+.class-explorer{container:class-tree / inline-size;--class-card-width:min(210px,max(78px,calc((100cqw - 60px)/3)));--class-name-size:20px;--class-card-height:294px;--root-columns:3;--root-grid-width:calc(3 * var(--class-card-width) + 24px);position:relative;margin:28px 0;min-height:440px;overflow-anchor:none}
 .class-sprite-selector{position:absolute;z-index:2;left:calc(50% - var(--root-grid-width)/2 + var(--class-card-width)/2);top:calc(var(--class-card-height)/2);transform:translate(-50%,-50%);display:flex;align-items:center;gap:0;padding:0;overflow:hidden;border:1px solid #514460;border-radius:999px;background:var(--panel);width:max-content}
 .class-sprite-selector label{position:relative;cursor:pointer}
 .class-sprite-divider{display:block;align-self:stretch;flex:0 0 1px;background:#62556e;pointer-events:none}
@@ -21,17 +21,18 @@
 .class-branch.is-open{width:100%}
 .class-branch.is-suppressed{display:none}
 .class-card-wrap{position:relative;width:100%}
-.class-card{display:block;box-sizing:border-box;width:var(--class-card-width);height:270px;max-width:100%;margin:auto;border:1px solid #514460;border-radius:7px;background:linear-gradient(155deg,#292132,#17151e);padding:12px;box-shadow:0 8px 25px #0004;color:var(--text);font:inherit;text-align:left;cursor:pointer}
+.class-card{display:block;box-sizing:border-box;width:var(--class-card-width);height:294px;max-width:100%;margin:auto;border:1px solid #514460;border-radius:7px;background:linear-gradient(155deg,#292132,#17151e);padding:12px;box-shadow:0 8px 25px #0004;color:var(--text);font:inherit;text-align:left;cursor:pointer}
 .class-card:hover{border-color:var(--accent)}
 .class-card:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .is-open>.class-card-wrap>.class-card{border-color:#cfabfa;background:linear-gradient(155deg,#493355,#2c2038);box-shadow:0 0 0 1px #b98ce1,0 0 24px #a97cde30}
 .class-card-face{position:relative;display:block}
-.class-card-heading{position:relative;display:block;height:100px}
+.class-card-heading{position:relative;display:block;height:124px}
 .class-card-name{font-family:var(--display);font-size:var(--class-name-size);font-weight:400;display:block;margin:0 0 8px;height:26px;line-height:26px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.class-card-weapon{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:10px;line-height:13px;color:var(--muted);height:26px;overflow-wrap:anywhere}
 .class-card-body{display:flex;align-items:center;justify-content:center;height:140px;position:relative}
 .class-sprite-frame{position:relative;display:block;width:140px;max-width:100%;height:140px;flex-shrink:0}
 .class-sprite-frame img{position:absolute;inset:0;width:100%;height:140px;object-fit:contain}
-.class-card-tags{position:absolute;right:0;top:30px;display:flex;flex-direction:row;flex-wrap:wrap;gap:4px;justify-content:flex-end;align-items:flex-start;z-index:1;max-width:100%}
+.class-card-tags{position:absolute;right:0;top:62px;display:flex;flex-direction:row;flex-wrap:wrap;gap:4px;justify-content:flex-end;align-items:flex-start;z-index:1;max-width:100%}
 .class-card-tags>span{font-size:9px;line-height:1.3;background:#33273f;border:1px solid #5d476e;border-radius:4px;padding:3px 6px;text-align:right}
 .class-idle,.class-attacking{visibility:hidden}.class-sitting{visibility:visible}
 .is-attacking>.class-card-wrap>.class-card .class-attacking{visibility:visible}
@@ -65,3 +66,5 @@
 @container class-tree (min-width:1098px){.class-explorer>.class-row,.class-sprite-selector{--root-columns:5;--root-grid-width:calc(5 * var(--class-card-width) + 48px)}.class-root>.class-children>.class-row>[data-class-id="thief"]{order:2}.class-root>.class-children>.class-row>[data-class-id="jester"]{order:1}}
 @container class-tree (max-width:479px){.class-card-name{font-size:13px}}
 @media(max-width:760px){.class-explorer{--class-card-height:294px}}
+
+@container class-tree (max-width:659px){.class-card-tags>span{padding:2px 4px;font-size:8px}}

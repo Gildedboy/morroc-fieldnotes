@@ -52,3 +52,4 @@ Initial grid placement is server-rendered and controlled by CSS container querie
 - The Job Class Tree itself uses the full article width without a right-hand or mobile "On this page" outline. Individual class articles retain their outlines.
 - Class artwork is local under `public/images/classes/`; asset evidence is recorded in `docs/assets.md`. Raw reference HTML and a full URL manifest remain in ignored `imports/refuge-classes/`.
 - Use `job-class-tree` as the guide ID and public URL, matching its title. Redirect the former `/guides/choosing-your-path/` address to `/guides/job-class-tree/` to preserve existing links.
+- Show weapon labels directly beside/below job names in the cards, detail panels, and class-page headers. Keep card dimensions and sprite space stable. Display Puppet for Illusionist and Codex for Mimic; retain full source equipment data separately. Trickster now has a WIP starter guide with job-change steps and core combat guidance.

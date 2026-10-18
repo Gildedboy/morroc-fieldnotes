@@ -1,5 +1,20 @@
 import { expect, test } from '@playwright/test';
 
+test('weapon labels identify jobs and Trickster opens its starter walkthrough', async ({ page }) => {
+  await page.goto('guides/job-class-tree/');
+  await expect(page.getByRole('button', { name: 'Mimic', exact: true })).toContainText('Codex');
+  await expect(page.getByRole('button', { name: 'Illusionist', exact: true })).toContainText('Puppet');
+  const trickster = page.getByRole('button', { name: 'Trickster', exact: true });
+  await expect(trickster).toContainText('Scythes');
+  await trickster.click();
+  await page.getByRole('link', { name: 'Trickster guide' }).click();
+  await expect(page.getByRole('heading', { name: 'Become a Trickster' })).toBeVisible();
+  await expect(page.locator('[data-article]')).toContainText('Lorelei Sorin');
+  await expect(page.locator('[data-article]')).toContainText('que_trck01 197, 198');
+  await expect(page.getByRole('heading', { name: 'Become a Revenant' })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
 test('class branches expand by keyboard and link to their class guides', async ({ page }) => {
   await page.goto('guides/job-class-tree/');
   await expect(page.getByRole('button', { name: 'Orphan', exact: true })).toBeEnabled();

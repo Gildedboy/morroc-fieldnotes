@@ -6,6 +6,7 @@ export interface JobClass {
   roles: string[];
   difficulty: string;
   weapons: string;
+  weaponLabel?: string;
   stage: string;
   attacking: string;
   attackingStill: string;
@@ -217,6 +218,7 @@ export const jobClasses: JobClass[] = [
     ],
     "difficulty": "hard",
     "weapons": "Codex and Cantrips",
+    "weaponLabel": "Codex",
     "stage": "first",
     "sprite": "images/classes/mimic-sprite.webp",
     "face": "images/classes/mimic-face.webp",
@@ -286,6 +288,7 @@ export const jobClasses: JobClass[] = [
     ],
     "difficulty": "moderate",
     "weapons": "Spears, Wyrm Spears, limited Daggers and Swords",
+    "weaponLabel": "Spears",
     "stage": "first",
     "sprite": "images/classes/raider-sprite.webp",
     "face": "images/classes/raider-face.webp",
@@ -452,6 +455,7 @@ export const jobClasses: JobClass[] = [
     ],
     "difficulty": "expert",
     "weapons": "Illusion Gloves",
+    "weaponLabel": "Puppet",
     "stage": "expert",
     "sprite": "images/classes/illusionist-sprite.webp",
     "face": "images/classes/illusionist-face.webp",
@@ -485,6 +489,7 @@ export const jobClasses: JobClass[] = [
     ],
     "difficulty": "expert",
     "weapons": "Swords, Knight Swords (2-handed, very rare)",
+    "weaponLabel": "Swords",
     "stage": "expert",
     "sprite": "images/classes/dark-knight-sprite.webp",
     "face": "images/classes/dark-knight-face.webp",

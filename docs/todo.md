@@ -25,6 +25,10 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Give each class a local page except Orphan, which links to the New Player Guide. Thief is the first reviewed guide; the remaining class guides are WIP.
 - [x] Review class tags against Refuge, including Bouncer and Pit Boss. Game facts and source caveats are recorded in `docs/game-reference.md`.
 
+- [x] Add weapon labels to job names, including Puppet for Illusionist and Codex for Mimic.
+- [x] Start the Trickster guide with sourced job-change steps and a core combat overview.
+- [ ] Complete Trickster equipment, leveling, and skill-build sections with supporting sources and in-game review.
+
 ## Leveling, dungeons, and distortions
 
 - [ ] Complete and review Leveling Spots with level ranges and recommended spots. Preserve the existing archived route and screenshots as review material until the current Refuge route is authored.

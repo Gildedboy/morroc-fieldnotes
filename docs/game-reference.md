@@ -55,6 +55,9 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 
 ## Other owner-confirmed facts
 
+- Display a weapon label alongside each job name. Mimic's main weapon is Codex (Refuge lists Codex and Cantrips, with Codex in its Available Weapons section). Illusionist's requested label is Puppet; keep the source equipment field as Illusion Gloves, since the puppet is its combat companion rather than its equipped weapon.
+- Trickster starter guide: Orphan Job Level 10; Lorelei Sorin at `va_orpha 376,129`; choose the cold-hearted response, touch the wisp at `va_orpha 391,133`, and win Serin's number game at `que_trck01 197,198`. Rewards: Trickster and Serin's scythe. Advances to Revenant at Trickster Job Level 70. Source: https://rtmrefuge.pages.dev/classes/trickster, reviewed October 17, 2026; source date unknown, not verified in game. The source footer permits copying site content. Draft covers job change and basic combat; equipment, leveling, and a tested build remain pending.
+
 - The New Player Guide serves as the Orphan guide; Orphan does not need a separate class page.
 - All 90 headgears in https://hatredguide.segasunset.workers.dev/ are needed for Celestial Tome, per the owner. Acquisition details still need source review.
 - Orphanage services and NPC evidence are tracked in `docs/orphanage-npcs.md`.
