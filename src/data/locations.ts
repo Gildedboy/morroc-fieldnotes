@@ -89,6 +89,14 @@ export const locations: LevelingLocation[] = [
     databasePlaces: [{ label: 'Sunken Ship', query: 'sunken ship' }],
   },
   {
+    id: 'comodo-swamp', name: 'Comodo Swamp (Zenhai Marsh)', monsterLevels: '46–50', expStartBaseLevel: 31,
+    monsters: ['Alligator Lv. 46', 'Grove Lv. 47', 'Galapago Lv. 48', 'Mutant Dragonoid Lv. 50'],
+    access: 'From the Orphanage, use Kafra Allysia to warp to Comodo. Travel east through Papuchicha Forest (cmd_fild01) to reach Zenhai Marsh (cmd_fild03), where you can find Galapagos.',
+    notes: 'The database lists this Comodo swamp map as Zenhai Marsh. Alligators are the most numerous monsters here.',
+    image: { src: 'images/locations/comodo-swamp-monsters.svg', alt: 'Two Alligators and a Galapago among the grass and palms of Comodo Swamp', square: true },
+    databasePlaces: [{ label: 'Zenhai Marsh', query: 'zenhai-marsh' }],
+  },
+  {
     id: 'orc-village', name: 'Orc Village and West Orc Village', monsterLevels: '47–55', expStartBaseLevel: 32,
     monsters: ['Orc Lady Lv. 47', 'Orc Warrior Lv. 48', 'Orc Baby Lv. 50', 'Orc Archer Lv. 52', 'High Orc Lv. 54', 'Fallen Orc Hero Lv. 55 (MVP)'],
     access: 'From the Orphanage, use Skia Nerius’s Dungeon Caravan to warp to Orc Village. West Orc Village is one map west.',
@@ -222,5 +230,21 @@ export const locations: LevelingLocation[] = [
     databasePlaces: [{ label: 'Mansion Library', query: 'mansion library' }],
     screenshot: 23,
     extraScreenshots: [24, 25, 26],
+  },
+  {
+    id: "mad-drinker", name: "Mad Drinker", monsterLevels: "125–135", expStartBaseLevel: 110,
+    monsters: ["Bartender Lv. 125", "Buckethead Lv. 127", "Bruised Drunkard Lv. 129", "Tired Maid Lv. 131", "Desperate Maid Lv. 133", "Moldy Man Lv. 134", "Strange Love Lv. 135 (MVP)"],
+    access: "In the Orphanage kitchen, enter the Mad Drinker Distortion at va_orpha 389,180.",
+    notes: "The entry record requires Master of Balder. Strange Love is the MVP in this distortion.",
+    image: { src: 'images/locations/mad-drinker-monsters.svg', alt: 'Three Mad Drinker mobs in a stone-floored room beside wooden shelves', square: true },
+    databasePlaces: [{"label": "Mad Drinker", "query": "mad-drinker-distortion"}],
+  },
+  {
+    id: "death-castle", name: "Death Castle", monsterLevels: "135–140", expStartBaseLevel: 120,
+    monsters: ["Haunting Guise Lv. 135", "Guillotine Lv. 137", "Death Ruri Lv. 138", "Great Shadow Lv. 139", "Lord of Death Lv. 140 (MVP)"],
+    access: "From the Orphanage, use Kafra Allysia to warp to Umbala, then use Umbala’s Kafra to warp to Nifflheim. Travel west through Valley of Niflheim and Skellington to reach Death Castle Entrance. Speak with Strange Soul at nif_cas01 30,125 to enter the Grandhall.",
+    notes: "Lord of Death is the MVP in the Grandhall.",
+    image: { src: 'images/locations/death-castle-monsters.svg', alt: 'Two Death Castle mobs on purple cobblestones', square: true },
+    databasePlaces: [{"label": "Death Castle Entrance", "query": "death-castle-entrance"}, {"label": "Death Castle Grandhall", "query": "death-castle-grandhall"}],
   },
 ];

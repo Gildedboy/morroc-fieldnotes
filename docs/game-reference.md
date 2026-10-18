@@ -90,3 +90,13 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - The New Player Guide serves as the Orphan guide; Orphan does not need a separate class page.
 - All 90 headgears in https://hatredguide.segasunset.workers.dev/ are needed for Celestial Tome, per the owner. Acquisition details still need source review.
 - Orphanage services and NPC evidence are tracked in `docs/orphanage-npcs.md`.
+
+## Owner additions — October 18, 2026
+
+- Trickster: Night Boots are nice to have, not mandatory; Samurai Mask is a good upgrade. Refuge item records list Night Boots [1] (16135) at level 20 and Samurai Mask [0] (5767, lower headgear) at level 50 with +20% total Critical Rate.
+- Mad Drinker: Lv. 125–135; entry is the Mad Drinker Distortion in the Orphanage kitchen at 389,180, with Master of Balder listed as its requirement. Strange Love is the MVP.
+- Death Castle: Entrance and Grandhall, Lv. 135–140. Travel west from Nifflheim → Valley of Niflheim → Skellington → Entrance; Strange Soul at nif_cas01 30,125 enters the Grandhall. Lord of Death is the MVP. Database records reviewed October 18, 2026; source update dates unknown.
+- Comodo Swamp is mapped to Zenhai Marsh (cmd_fild03), Lv. 46–50, via Comodo and Papuchicha Forest (cmd_fild01). The owner confirms traveling east from Comodo for Galapagos; the database names the swamp Zenhai Marsh. Monsters: Alligator 46, Grove 47, Galapago 48, Mutant Dragonoid 50.
+- Death Castle images: owner screenshots `screenPRM109.jpg`–`screenPRM114.jpg`; the leveling entry displays one 600 × 600 crop of 114, showing two mobs and nearby terrain without the player or HUD. Its SVG viewport preserves original screenshot pixels and colors. Originals are archived in ignored `imports/death-castle/`.
+- Mad Drinker images: owner screenshots `screenPRM115.jpg`–`screenPRM118.jpg`; 115 shows the distortion orb in the Orphanage kitchen. The leveling entry uses one 500 × 500 crop of 117 showing three mobs without the player or HUD. Originals are archived in ignored `imports/mad-drinker/`.
+- Comodo Swamp images: owner screenshots `screenPRM119.jpg`–`screenPRM121.jpg`; the leveling entry uses one 480 × 480 crop of 120 showing two Alligators and a Galapago without the player or HUD. Originals are archived in ignored `imports/comodo-swamp/`.

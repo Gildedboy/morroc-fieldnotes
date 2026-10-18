@@ -112,3 +112,15 @@ The component displays icons at 24 × 24. PNGs that are 26 × 26 retain their so
 `public/images/classes/trickster-skill-tree.png` (562 × 403) is an unmodified, full-frame copy of the Basic Trickster skill-tree screenshot embedded in Phawkes' leveling spreadsheet. It appears in the Trickster guide beside the early skill allocation. The spreadsheet credits suggestions from Sparda, Arumakan, Kim, Kharon, and knoxzera; its date and image reuse terms are unspecified. The image remains credited to its source and rights holders. The separate Revenant skill-tree image is reserved for its own guide.
 
 The owner's Refuge game screenshots `screenPRM063.jpg`, `screenPRM064.jpg`, and `screenPRM065.jpg` are 1904 × 1041 JPEGs from `C:\Users\Gilded\Downloads\Refuge\ScreenShot`. Unchanged originals are retained in ignored `imports/trickster-job-change/`. Public copies are tightly cropped PNGs showing only Lorelei Sorin (140 × 150), the Wisp (90 × 100), and Trickster Serin (160 × 230), respectively. The job-change callout displays only these NPC crops; the full game screens are not published.
+
+## Death Castle screenshots
+
+Owner-supplied Refuge gameplay screenshots `screenPRM109.jpg`–`screenPRM114.jpg` were reviewed on October 18, 2026. Unchanged originals are retained in ignored `imports/death-castle/`. The Leveling Spots entry uses a single crop of `screenPRM114.jpg` as `public/images/locations/death-castle-monsters.svg`. Its SVG viewport crops the embedded original JPEG at (1200,250), 600 × 600, without changing its pixels or colors. Only two mobs and nearby terrain are visible; the player and HUD are excluded. The full-size link opens the same crop. Game artwork remains the property of its respective rights holders.
+
+## Mad Drinker screenshots
+
+Owner-supplied Refuge gameplay screenshots `screenPRM115.jpg`–`screenPRM118.jpg` were reviewed on October 18, 2026. Unchanged originals are retained in ignored `imports/mad-drinker/`. The Leveling Spots entry uses one square crop of `screenPRM117.jpg` in `public/images/locations/mad-drinker-monsters.svg`. Its SVG viewport crops the embedded original JPEG at (1400,370), 500 × 500, preserving original pixels and colors. It shows three mobs and nearby terrain without the player or HUD. The full-size link opens the same crop. Game artwork remains the property of its respective rights holders.
+
+## Comodo Swamp screenshots
+
+Owner-supplied Refuge gameplay screenshots `screenPRM119.jpg`–`screenPRM121.jpg` were reviewed on October 18, 2026. Unchanged originals are retained in ignored `imports/comodo-swamp/`. The Leveling Spots entry uses one square crop of `screenPRM120.jpg` in `public/images/locations/comodo-swamp-monsters.svg`. Its SVG viewport crops the embedded original JPEG at (980,550), 480 × 480, preserving original pixels and colors. It shows two Alligators and a Galapago with nearby terrain, excluding the player and HUD. The full-size link opens the same crop. Game artwork remains the property of its respective rights holders.
