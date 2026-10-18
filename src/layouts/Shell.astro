@@ -30,9 +30,9 @@ const { title, description, currentId, library, noindex } = Astro.props;
       <Brand />
       <button class="search-trigger" data-open-search aria-label="Search" aria-haspopup="dialog"><Icon name="search" size={17} /><span>Search</span><kbd>Ctrl K</kbd></button>
       <nav class="header-links" aria-label="External resources">
-        <a class="header-external" href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Main website<Icon name="external" size={13} /></a>
+        <a class="header-external" href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Refuge website<Icon name="external" size={13} /></a>
         <a class="header-external" href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Refuge database<Icon name="external" size={13} /></a>
-        <a class="header-external" href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer">Hatred tracker & guide<Icon name="external" size={13} /></a>
+        <a class="header-external" href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer">HATred tracker & guide<Icon name="external" size={13} /></a>
       </nav>
     </header>
     <div class="site-grid">
@@ -42,9 +42,9 @@ const { title, description, currentId, library, noindex } = Astro.props;
     <dialog id="mobile-menu" class="mobile-menu" aria-labelledby="menu-title">
       <div class="dialog-heading"><strong id="menu-title">Your fieldnotes</strong><button class="icon-button" data-close-dialog aria-label="Close guide navigation"><Icon name="close" /></button></div>
       <nav class="mobile-site-links" aria-label="External resources">
-        <a href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Main website<Icon name="external" size={13} /></a>
+        <a href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer">Refuge website<Icon name="external" size={13} /></a>
         <a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Refuge database<Icon name="external" size={13} /></a>
-        <a href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer">Hatred tracker & guide<Icon name="external" size={13} /></a>
+        <a href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer">HATred tracker & guide<Icon name="external" size={13} /></a>
       </nav>
       <Sidebar currentId={currentId} library={library} />
     </dialog>

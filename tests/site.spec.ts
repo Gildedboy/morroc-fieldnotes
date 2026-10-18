@@ -161,8 +161,12 @@ test('header and mobile menu expose the requested website and database links', a
   if ((page.viewportSize()?.width ?? 1440) < 761) {
     await page.getByRole('button', { name: 'Open guide navigation' }).click();
   }
-  const links = page.getByRole('navigation', { name: 'External resources' });
-  await expect(links.getByRole('link', { name: 'Main website' })).toHaveAttribute('href', 'https://rtmrefuge.pages.dev/');
+  const links = page.getByRole('navigation', { name: 'External resources' }).filter({ visible: true });
+  await expect(links.getByRole('link').first()).toHaveAttribute('href', 'https://rtmrefuge.pages.dev/');
+  await expect(links.getByRole('link', { name: 'HATred tracker & guide' })).toHaveAttribute('href', 'https://hatredguide.segasunset.workers.dev/');
+  const resources = page.locator('.sidebar-resources:visible');
+  await expect(resources.locator('a').first()).toHaveAttribute('href', 'https://rtmrefuge.pages.dev/');
+  await expect(links.getByRole('link', { name: 'Refuge website' })).toHaveAttribute('href', 'https://rtmrefuge.pages.dev/');
   await expect(links.getByRole('link', { name: 'Refuge database' })).toHaveAttribute('href', 'https://rtm-database.pages.dev/');
 });
 
