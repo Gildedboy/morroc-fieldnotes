@@ -3,4 +3,4 @@
 .job-heading-weapon{display:inline-block;font-family:var(--body);font-size:14px;font-weight:400;line-height:1.5;color:var(--muted);vertical-align:middle}.job-next-links small{color:var(--muted);font-size:11px}.job-class-header>div{min-width:0}.job-class-header h1{overflow-wrap:anywhere}
 .job-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 14px}.job-title .job-heading-weapon{margin-bottom:16px}
 
-.trickster-portrait{max-width:520px;margin:24px auto 36px;text-align:center}.trickster-portrait img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:8px}.trickster-portrait figcaption{margin-top:8px;color:var(--muted);font-size:11px}
+.trickster-portraits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:8px auto 30px;max-width:700px}.trickster-portraits figure{margin:0;text-align:center}.trickster-portraits img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border-radius:8px}.trickster-portraits figcaption{margin-top:8px;color:var(--muted);font-size:11px}@media(max-width:480px){.trickster-portraits{gap:8px}.trickster-portraits img{max-height:300px}}

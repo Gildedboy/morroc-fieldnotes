@@ -10,6 +10,8 @@ Merchant's selected pose instead uses `merchant-casting.webp` and `merchant-cast
 
 `public/images/classes/trickster-portrait.webp` is the unmodified male Trickster portrait from https://rtmrefuge.pages.dev/assets/img/portraits/trickster-male.webp?v=bcd2dd73, added to the Trickster guide. The artwork belongs to its respective owner.
 
+`public/images/classes/trickster-female-portrait.webp` is the unmodified female Trickster portrait from https://rtmrefuge.pages.dev/assets/img/portraits/trickster-female.webp?v=6b77c7d5. Both portraits appear together beside each other at the start of the Trickster guide.
+
 The global Male/Female selector uses local female idle, sitting, and attacking WebPs and their reduced-motion stills for all 42 classes, downloaded unmodified from each Refuge class page's female `data-anim` metadata. Merchant uses female casting instead of attacking. Files follow `{class-id}-female-{pose}[-still].webp`; exact versioned source URLs are recorded in `imports/refuge-classes/asset-manifest.json`. Male assets remain as previously recorded.
 
 Downloaded on 2026-10-17. Files are served locally; no runtime image hotlinking.

@@ -12,11 +12,11 @@ interface Props { job: JobClass }
 const { job } = Astro.props;
 const isThief = job.id === 'thief';
 const isTrickster = job.id === 'trickster';
-const sections = isThief || isTrickster ? [['overview', 'Overview'], ['job-change', `Become a ${job.name}`], ['combat', 'Weapons and skills'], ['next-jobs', isTrickster ? 'Become a Revenant' : 'Next jobs'], ['sources', 'Sources']] : [['overview', 'Overview'], ['next-jobs', 'Job progression'], ['sources', 'Sources']];
+const sections = isTrickster ? [['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step'], ['sources', 'Sources']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs'], ['sources', 'Sources']] : [['overview', 'Overview'], ['next-jobs', 'Job progression'], ['sources', 'Sources']];
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
-<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId="job-class-tree" noindex={!isThief}>
+<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={isTrickster ? 'trickster' : 'job-class-tree'} noindex={!isThief}>
   <div class="article-grid">
     <div class="article-column">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={guideHref('job-class-tree')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
@@ -26,9 +26,8 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
       </header>
       <details class="mobile-outline"><summary>On this page</summary><ul>{sections.map(([id, title]) => <li><a href={`#${id}`}>{title}</a></li>)}</ul></details>
       <article class="prose" data-article>
-        <h2 id="overview">Overview</h2>
+        {!isTrickster && <h2 id="overview">Overview</h2>}
         {!isThief && !isTrickster && <p>This class guide is a work in progress. The overview and progression below have been reviewed against the Refuge website.</p>}
-        {isTrickster && <><p>Trickster fights at close range with scythes, critical attacks, and life leech. Its defensive skills help sustain longer fights, but low defenses, heavy SP use, and several cooldowns demand care.</p><p>This starter guide covers the job change and core skills. The build and equipment sections remain WIP.</p></>}
         {isThief && <><img class="job-splash" src={withBase(job.portrait!)} alt="Thief splash artwork from Refuge" width="759" height="760" loading="lazy" /><p>Thief is a flexible first job with physical attacks, bows, and elemental magic. Try its weapons and skills before choosing a more specialized path. Its maximum Job Level is 50.</p><p>Double Attack comes from the dagger you equip rather than a learnable Thief skill.</p></>}
         <dl class="job-facts"><div><dt>Weapons</dt><dd>{job.weapons}</dd></div><div><dt>Difficulty</dt><dd>{difficultyLabels[job.difficulty]}</dd></div><div><dt>Previous job</dt><dd>{parents.map(parent => <a href={parent.id === 'orphan' ? guideHref('new-player-guide') : withBase(`classes/${parent.id}/`)}>{parent.name}</a>)}</dd></div></dl>
         {isThief && <>
