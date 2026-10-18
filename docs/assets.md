@@ -111,3 +111,5 @@ The component displays icons at 24 × 24. PNGs that are 26 × 26 retain their so
 ## Trickster leveling screenshots
 
 `public/images/classes/trickster-skill-tree.png` (562 × 403) is an unmodified, full-frame copy of the Basic Trickster skill-tree screenshot embedded in Phawkes' leveling spreadsheet. It appears in the Trickster guide beside the early skill allocation. The spreadsheet credits suggestions from Sparda, Arumakan, Kim, Kharon, and knoxzera; its date and image reuse terms are unspecified. The image remains credited to its source and rights holders. The separate Revenant skill-tree image is reserved for its own guide.
+
+The owner's Refuge game screenshots `screenPRM063.jpg`, `screenPRM064.jpg`, and `screenPRM065.jpg` are 1904 × 1041 JPEGs from `C:\Users\Gilded\Downloads\Refuge\ScreenShot`. Unchanged originals are retained in ignored `imports/trickster-job-change/`. Public copies are tightly cropped PNGs showing only Lorelei Sorin (140 × 150), the Wisp (90 × 100), and Trickster Serin (160 × 230), respectively. The job-change callout displays only these NPC crops; the full game screens are not published.
