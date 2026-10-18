@@ -1,0 +1,47 @@
+---
+import { jobClasses, roleLabels, difficultyLabels, type JobClass } from '../data/job-classes';
+import { withBase } from '../lib/paths';
+interface Props { job: JobClass; root?: boolean; position?: number }
+const { job, root = false, position } = Astro.props;
+const children = job.children.filter(id => id !== 'merchant').map(id => jobClasses.find(entry => entry.id === id)!);
+if (root) {
+  const thief = children.splice(children.findIndex(child => child.id === 'thief'), 1)[0];
+  children.splice(1, 0, thief);
+}
+const tags = job.id === 'orphan' ? ['Start here'] : job.id === 'merchant' ? ['Vendor only'] : job.roles.slice(0, 3).map(role => roleLabels[role]);
+const selectedPose = job.id === 'merchant' ? 'images/classes/merchant-casting.webp' : job.attacking;
+const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-casting-still.webp' : job.attackingStill;
+---
+<div class:list={['class-branch', { 'class-root': root, 'is-open': root, 'is-attacking': root }]} data-class-id={job.id} style={position !== undefined ? `--job-order:${position}` : undefined}>
+  <div class="class-card-wrap">
+    <button type="button" class="class-card" aria-label={job.name} aria-pressed={root ? 'true' : 'false'} aria-expanded={root ? 'true' : 'false'} aria-controls={`class-options-${job.id}`}>
+      <span class="class-card-face">
+        <span class="class-card-heading">
+          <strong class="class-card-name">{job.name}</strong>
+          <span class="class-card-tags">{tags.map(tag => <span>{tag}</span>)}{!root && job.id !== 'merchant' && <span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span>}</span>
+        </span>
+        <span class="class-card-body">
+          <span class="class-sprite-frame">
+            <img class="class-motion-sprite class-sitting" src={withBase(job.sitting)} data-male={withBase(job.sitting)} data-female={withBase(job.female.sitting)} alt="" width="140" height="140" loading={root ? 'eager' : 'lazy'} />
+            <img class="class-motion-sprite class-idle" src={withBase(job.idle)} data-male={withBase(job.idle)} data-female={withBase(job.female.idle)} alt="" width="140" height="140" loading={root ? 'eager' : 'lazy'} />
+            <img class="class-still-sprite class-sitting" src={withBase(job.sittingStill)} data-male={withBase(job.sittingStill)} data-female={withBase(job.female.sittingStill)} alt="" width="140" height="140" loading="lazy" />
+            <img class="class-still-sprite class-idle" src={withBase(job.idleStill)} data-male={withBase(job.idleStill)} data-female={withBase(job.female.idleStill)} alt="" width="140" height="140" loading="lazy" />
+            <img class="class-motion-sprite class-attacking" src={withBase(selectedPose)} data-male={withBase(selectedPose)} data-female={withBase(job.female.selected)} alt="" width="140" height="140" loading="lazy" />
+            <img class="class-still-sprite class-attacking" src={withBase(selectedStill)} data-male={withBase(selectedStill)} data-female={withBase(job.female.selectedStill)} alt="" width="140" height="140" loading="lazy" />
+          </span>
+        </span>
+      </span>
+    </button>
+    {!root && <aside class="class-guide-panel" aria-label={`${job.name} guide`} hidden>
+      <button type="button" class="class-info-close" aria-label="Close class details">×</button>
+      <strong>{job.name}</strong><p><span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span></p>
+      <dl class="class-verdict"><div class="class-strengths"><dt>Strengths</dt><dd>{job.strengths ?? 'Not listed in the Refuge class guide.'}</dd></div><div class="class-weaknesses"><dt>Weaknesses</dt><dd>{job.weaknesses ?? 'Not listed in the Refuge class guide.'}</dd></div></dl>
+      <a href={withBase(`classes/${job.id}/`)}>{job.id === 'thief' ? 'Read the Thief guide' : `${job.name} guide`} {job.id !== 'thief' && <span class="wip-badge">WIP</span>} →</a>
+    </aside>}
+    {root && <div class="merchant-route"><Astro.self job={jobClasses.find(entry => entry.id === 'merchant')!} /></div>}
+    {root && <button type="button" class="class-root-back" hidden><span aria-hidden="true">←</span> Back</button>}
+  </div>
+  <div class:list={['class-children', { 'class-leaf-panel': children.length === 0 }]} id={`class-options-${job.id}`} hidden={!root}>
+    {children.length > 0 && <div class="class-row" role="group" aria-label={`Jobs after ${job.name}`}>{children.map((child, index) => <Astro.self job={child} position={root ? index : undefined} />)}</div>}
+  </div>
+</div>

@@ -1,0 +1,217 @@
+---
+import ClassCard from './ClassCard.astro';
+import { jobClasses } from '../data/job-classes';
+import { withBase } from '../lib/paths';
+import '../styles/class-explorer.css';
+---
+<div class="class-explorer" data-class-explorer data-sprite-gender="male">
+  <div class="class-sprite-selector" role="radiogroup" aria-label="Sprite appearance">
+    <label title="Male sprites"><input type="radio" name="class-sprite-gender" value="male" aria-label="Male" checked /><span aria-hidden="true">♂</span></label>
+    <span class="class-sprite-divider" aria-hidden="true"></span>
+    <label title="Female sprites"><input type="radio" name="class-sprite-gender" value="female" aria-label="Female" /><span aria-hidden="true">♀</span></label>
+  </div>
+  <svg class="class-connections" aria-label="Selected job progression and Merchant requirements" role="img"></svg>
+  <div class="class-row"><ClassCard job={jobClasses.find(job => job.id === 'orphan')!} root /></div>
+  <div class="class-info-layer"></div>
+</div>
+<noscript><p>Open a class guide:</p><ul>{jobClasses.filter(job => job.id !== 'orphan').map(job => <li><a href={withBase(`classes/${job.id}/`)}>{job.name}</a></li>)}</ul></noscript>
+<script>
+  function initializeClassExplorer() {
+    document.querySelectorAll<HTMLElement>('[data-class-explorer]').forEach(explorer => {
+      if (explorer.dataset.ready) return;
+      explorer.dataset.ready = 'true';
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      let spriteRevision = 0;
+      explorer.querySelectorAll<HTMLInputElement>('input[name="class-sprite-gender"]').forEach(input => {
+        input.addEventListener('change', async () => {
+          if (!input.checked) return;
+          const revision = ++spriteRevision;
+          const gender = input.value === 'female' ? 'female' : 'male';
+          const images = Array.from(explorer.querySelectorAll<HTMLImageElement>('.class-sprite-frame img'));
+          const visible = images.filter(img => img.getClientRects().length && getComputedStyle(img).visibility === 'visible' && getComputedStyle(img).display !== 'none');
+          await Promise.all(visible.map(async img => {
+            const preload = new Image();
+            preload.src = img.dataset[gender]!;
+            await preload.decode().catch(() => undefined);
+          }));
+          if (revision !== spriteRevision) return;
+          images.forEach(img => { const src = img.dataset[gender]!; if (img.getAttribute('src') !== src) img.src = src; });
+          explorer.dataset.spriteGender = gender;
+        });
+      });
+      const branches = Array.from(explorer.querySelectorAll<HTMLElement>('.class-branch'));
+      const infoPanels = new Map<HTMLElement, HTMLElement>();
+      const infoLayer = explorer.querySelector<HTMLElement>(".class-info-layer")!;
+      for (const branch of branches) {
+        const info = branch.querySelector<HTMLElement>(":scope > .class-card-wrap > .class-guide-panel");
+        if (info) {
+          infoPanels.set(branch, info);
+          infoLayer.append(info);
+          info.querySelector<HTMLButtonElement>(".class-info-close")!.addEventListener("click", () => {
+            info.hidden = true;
+            branch.querySelector<HTMLButtonElement>(":scope > .class-card-wrap > .class-card")!.focus({ preventScroll: true });
+          });
+        }
+      }
+      const card = (branch: HTMLElement) => branch.querySelector<HTMLButtonElement>(':scope > .class-card-wrap > .class-card')!;
+      const panel = (branch: HTMLElement) => branch.querySelector<HTMLElement>(':scope > .class-children')!;
+      function positionInfoPanels() {
+        const viewportWidth = document.documentElement.clientWidth;
+        const headerBottom = document.querySelector('.site-header')!.getBoundingClientRect().bottom;
+        for (const [branch, info] of infoPanels) {
+          if (info.hidden) continue;
+          const anchor = card(branch).getBoundingClientRect();
+          const rightSpace = viewportWidth - anchor.right - 24;
+          const leftSpace = anchor.left - 24;
+          const placeRight = rightSpace >= 200 || rightSpace >= leftSpace;
+          const available = placeRight ? rightSpace : leftSpace;
+          const width = Math.min(300, Math.max(110, available));
+          info.style.width = `${width}px`;
+          info.style.left = `${Math.max(12, placeRight ? anchor.right + 12 : anchor.left - width - 12)}px`;
+          info.style.top = `${Math.max(headerBottom + 12, Math.min(anchor.top, innerHeight - info.offsetHeight - 12))}px`;
+          info.dataset.placement = placeRight ? 'right' : 'left';
+        }
+      }
+      const svg = explorer.querySelector<SVGSVGElement>('.class-connections')!;
+      const svgNamespace = 'http://www.w3.org/2000/svg';
+      function drawConnections() {
+        positionInfoPanels();
+        const bounds = explorer.getBoundingClientRect();
+        svg.setAttribute('viewBox', `0 0 ${bounds.width} ${bounds.height}`);
+        svg.style.height = `${bounds.height}px`;
+        svg.replaceChildren();
+        for (const branch of branches) {
+          if (branch.classList.contains('class-root') || !branch.getClientRects().length) continue;
+          const parent = branch.parentElement!.closest<HTMLElement>('.class-branch');
+          if (!parent) continue;
+          const merchant = branch.dataset.classId === 'merchant';
+          if (!merchant && parent.classList.contains('class-root') && !branch.classList.contains('is-open')) continue;
+          const from = card(parent).getBoundingClientRect();
+          const to = card(branch).getBoundingClientRect();
+          const path = document.createElementNS(svgNamespace, 'path');
+          const x1 = (from.left + from.right) / 2 - bounds.left + (merchant ? card(parent).offsetWidth / 2 : 0);
+          const y1 = from.top - bounds.top + (merchant ? card(parent).offsetHeight / 2 : card(parent).offsetHeight);
+          const x2 = (to.left + to.right) / 2 - bounds.left - (merchant ? card(branch).offsetWidth / 2 : 0);
+          const y2 = to.top - bounds.top + (merchant ? card(branch).offsetHeight / 2 : 0);
+          path.dataset.parentClass = parent.dataset.classId;
+          path.dataset.childClass = branch.dataset.classId;
+          path.setAttribute('d', merchant ? `M ${x1} ${y1} H ${x2}` : `M ${x1} ${y1} V ${(y1+y2)/2} H ${x2} V ${y2}`);
+          svg.append(path);
+          if (merchant) {
+            const label = document.createElementNS(svgNamespace, 'text');
+            label.setAttribute('x', String((x1+x2)/2));
+            label.setAttribute('y', String(y1+18));
+            label.setAttribute('class', 'merchant-line-label');
+            label.setAttribute('aria-label', 'Requires Orphan, Base Level 1, Job Level 1');
+            const requirements = bounds.width < 500 ? ['Requires', 'Orphan', 'Base Lv 1', 'Job Lv 1'] : ['Requires Orphan', 'Base Level 1', 'Job Level 1'];
+            for (const [index, line] of requirements.entries()) {
+              const span = document.createElementNS(svgNamespace, 'tspan');
+              span.setAttribute('x', String((x1+x2)/2));
+              span.setAttribute('dy', index ? '16' : '0');
+              span.textContent = line;
+              label.append(span);
+            }
+            svg.append(label);
+          }
+        }
+      }
+      let connectionFrame = 0;
+      function animateConnections() {
+        cancelAnimationFrame(connectionFrame);
+        const until = performance.now() + (reducedMotion.matches ? 0 : 420);
+        const frame = () => { drawConnections(); if (performance.now() < until) connectionFrame = requestAnimationFrame(frame); };
+        frame();
+      }
+      function refreshSelection() {
+        for (const branch of branches) {
+          const open = branch.classList.contains('is-open');
+          const pathSelected = Boolean(branch.querySelector(':scope > .class-children > .class-row > .is-open'));
+          const merchantSelected = Boolean(branch.querySelector(':scope > .class-card-wrap > .merchant-route > .is-open'));
+          const childSelected = pathSelected || merchantSelected;
+          branch.classList.toggle('is-attacking', open && !childSelected);
+          const info = infoPanels.get(branch);
+          if (info) info.hidden = !open || childSelected;
+          const back = branch.querySelector<HTMLButtonElement>(':scope > .class-card-wrap > .class-root-back');
+          if (back) back.hidden = !childSelected;
+          const merchantRoute = branch.querySelector<HTMLElement>(':scope > .class-card-wrap > .merchant-route');
+          if (merchantRoute) merchantRoute.hidden = pathSelected;
+          if (branch.classList.contains('class-root')) panel(branch).hidden = merchantSelected;
+        }
+        positionInfoPanels();
+      }
+      function resetBranch(branch: HTMLElement) {
+        branch.classList.remove('is-open', 'is-standing', 'is-attacking');
+        card(branch).setAttribute('aria-pressed', 'false');
+        card(branch).setAttribute('aria-expanded', 'false');
+        panel(branch).hidden = true;
+        panel(branch).classList.remove('is-leaving');
+        branch.querySelectorAll<HTMLElement>('.is-open').forEach(resetBranch);
+        branch.querySelectorAll<HTMLElement>('.is-suppressed').forEach(el => { el.classList.remove('is-suppressed'); el.inert = false; });
+      }
+      for (const branch of branches) {
+        card(branch).addEventListener('click', () => {
+          const row = branch.parentElement!;
+          const positions = new Map<HTMLElement, DOMRect>();
+          for (const sibling of Array.from(row.children)) {
+            if (!(sibling instanceof HTMLElement) || sibling.classList.contains('is-suppressed')) continue;
+            const wrap = sibling.querySelector<HTMLElement>(':scope > .class-card-wrap')!;
+            positions.set(wrap, card(sibling).getBoundingClientRect());
+          }
+          explorer.querySelectorAll<HTMLElement>('.class-card-wrap').forEach(wrap => wrap.getAnimations().forEach(animation => animation.cancel()));
+          const root = branch.classList.contains('class-root');
+          const hasSelectedDescendant = Boolean(branch.querySelector('.is-open'));
+          const opening = !branch.classList.contains('is-open');
+          const keepOpen = root || hasSelectedDescendant;
+          if (opening && !root) {
+            const merchant = explorer.querySelector<HTMLElement>('[data-class-id="merchant"]')!;
+            if (branch !== merchant && merchant.classList.contains('is-open')) resetBranch(merchant);
+          }
+          if (opening) {
+            branch.classList.add('is-open');
+            panel(branch).hidden = false;
+            panel(branch).classList.remove('is-leaving');
+          } else if (keepOpen) {
+            branch.querySelectorAll<HTMLElement>('.is-open').forEach(resetBranch);
+            branch.querySelectorAll<HTMLElement>('.is-suppressed').forEach(el => { el.classList.remove('is-suppressed'); el.inert = false; });
+          } else {
+            branch.classList.remove('is-open');
+            branch.querySelectorAll<HTMLElement>('.is-open').forEach(resetBranch);
+            branch.querySelectorAll<HTMLElement>('.is-suppressed').forEach(el => { el.classList.remove('is-suppressed'); el.inert = false; });
+            panel(branch).hidden = true;
+          }
+          card(branch).setAttribute('aria-pressed', String(opening || keepOpen));
+          card(branch).setAttribute('aria-expanded', String(opening || keepOpen));
+          for (const sibling of Array.from(branch.parentElement!.children)) {
+            if (!(sibling instanceof HTMLElement) || sibling === branch) continue;
+            sibling.classList.toggle('is-suppressed', opening || keepOpen);
+            sibling.inert = opening || keepOpen;
+          }
+          refreshSelection();
+          if (!reducedMotion.matches) {
+            for (const sibling of Array.from(row.children)) {
+              if (!(sibling instanceof HTMLElement) || sibling.classList.contains('is-suppressed')) continue;
+              const wrap = sibling.querySelector<HTMLElement>(':scope > .class-card-wrap')!;
+              const before = positions.get(wrap);
+              const after = card(sibling).getBoundingClientRect();
+              wrap.getAnimations().forEach(animation => animation.cancel());
+              if (before) wrap.animate([{ transform: `translate(${before.left - after.left}px, ${before.top - after.top}px)` }, { transform: 'translate(0, 0)' }], { duration: 180, easing: 'cubic-bezier(.2,.7,.2,1)' });
+              else wrap.animate([{ transform: 'translateX(-25px)' }, { transform: 'translateX(0)' }], { duration: 180, easing: 'ease-out' });
+            }
+          }
+          animateConnections();
+        });
+      }
+      const root = explorer.querySelector<HTMLElement>('.class-root')!;
+      const back = root.querySelector<HTMLButtonElement>(':scope > .class-card-wrap > .class-root-back')!;
+      back.addEventListener('click', () => { card(root).click(); card(root).focus({ preventScroll: true }); });
+      refreshSelection();
+      const connectionObserver = new ResizeObserver(() => requestAnimationFrame(drawConnections));
+      branches.forEach(branch => connectionObserver.observe(branch));
+      connectionObserver.observe(explorer);
+      drawConnections();
+      window.addEventListener('scroll', positionInfoPanels, { passive: true, capture: true });
+    });
+  }
+  initializeClassExplorer();
+  document.addEventListener('astro:page-load', initializeClassExplorer);
+</script>

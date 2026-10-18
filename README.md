@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open the URL printed by Astro. Only the New Player Guide is published. Choosing Your Path and Leveling Foundations display WIP notices; their draft bodies remain in the content files and are excluded from the public pages and search index. The New Player Guide includes its eight original screenshots, scarf table, starter skills, and Orphanage NPC services.
+Open the URL printed by Astro. The New Player Guide and Job Class Tree are published, with Thief as the first reviewed class guide. Other class guides and the leveling, dungeon, distortion, and quest guides remain WIP. The New Player Guide includes its eight original screenshots, scarf table, starter skills, and Orphanage NPC services. Game facts are documented in `docs/game-reference.md`; class-tree implementation decisions are in `docs/job-class-tree.md`.
 
 ```sh
 npm run check
@@ -36,6 +36,7 @@ Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to use an existing Chromium installati
 - `scripts/import-source.ts`: public webpage, Google Doc, and selectable-text PDF extraction.
 - `imports/`: ignored editorial workspace; never deployed or automatically published.
 - `docs/content-workflow.md`: ingestion and attribution procedure.
+- `docs/todo.md`: upcoming development work across the website.
 - `AGENTS.md`: product constraints and task-dependent model/effort recommendations.
 
 ## Hosting

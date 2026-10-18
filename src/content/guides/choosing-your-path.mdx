@@ -1,41 +1,25 @@
 ---
-title: Choosing Your Path
-publication: wip
-description: Class progression from Orphan through Thief, Assassin, and Rogue.
+title: Job Class Tree
+publication: published
+description: Explore Refuge's job classes, follow each branch, and open a class guide.
 category: Classes & Builds
 icon: sword
 order: 3
 updated: 2026-10-17
 status: source-reviewed
-statusNote: Progression relationships were reviewed against Refuge's class page. This introduction does not prescribe skill builds or leveling routes.
-readingMinutes: 2
-tags: [classes, thief, assassin, rogue, magic, build, progression, orphan]
+statusNote: Class relationships, role tags, and artwork were reviewed against Refuge's class tree on October 17, 2026. Not independently verified in game. Individual guides marked WIP are unfinished. Merchant is included under Orphan because its parent field and the visible single-stage section agree, although the source's Orphan child list omits it.
+readingMinutes: 4
+tags: [classes, job tree, progression, bouncer, pit boss, thief]
 related: [new-player-guide, leveling-foundations]
 sources:
   - title: Refuge — Classes
     url: https://rtmrefuge.pages.dev/classes.html
     author: Return to Morroc Refuge team
-    note: Current class relationships and class artwork. Follow the full tree for paths outside this introductory example.
+    note: Class progression, role tags, sprites, and artwork. Site content is free to copy; game artwork belongs to its respective owners.
 ---
 
-import ClassPaths from '../../components/ClassPaths.astro';
-import Callout from '../../components/Callout.astro';
-import { guideHref } from '../../lib/paths';
+import ClassExplorer from "../../components/ClassExplorer.astro";
 
-## Every path begins with an Orphan
+## Explore the class tree
 
-Every character starts as an Orphan. Thief branches into several classes, including Assassin and Rogue.
-
-<ClassPaths />
-
-<Callout title="Follow the complete tree" tone="tip">
-Use the [Refuge class tree](https://rtmrefuge.pages.dev/classes.html) for all available paths and the [skills database](https://rtm-database.pages.dev/skills.html) for current skill descriptions.
-</Callout>
-
-## Check build requirements
-
-Check the skills and equipment a build requires. Two builds for the same class can use different attacks and need different gear.
-
-## Choose a leveling area
-
-See <a href={guideHref('leveling-foundations')}>Leveling Foundations</a> for monster levels, travel directions, and enemy attacks to watch for.
+<ClassExplorer />

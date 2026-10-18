@@ -1,5 +1,15 @@
 # Asset provenance
 
+## Job class artwork
+
+Files under `public/images/classes/` are unmodified local copies from Refuge, reviewed and downloaded on 2026-10-17. Each class's animated idle and sitting WebP and reduced-motion stills come from its class page's `data-anim` metadata under `https://rtmrefuge.pages.dev/assets/img/anim/`. Initial `{class-id}-sprite.webp` and `{class-id}-face.webp` copies were downloaded from the tree but are superseded in the UI by animated sprites. `thief-portrait.webp` comes from `assets/img/portraits/thief-male.webp`. Exact source URLs, including version queries, are preserved in ignored `imports/refuge-classes/asset-manifest.json`; source HTML is alongside it. There are four pose assets per class, plus the original 85 reference assets. The Refuge footer says site content is free to copy; game artwork remains with its respective owners. No broader license is asserted. Echoes artwork is not used.
+
+Animated attacking sprites and their still versions were subsequently copied from the same `data-anim` metadata for all 42 classes, at the owner's request. Selected classes use these attacking poses; the manifest records the exact source URLs.
+
+Merchant's selected pose instead uses `merchant-casting.webp` and `merchant-casting-still.webp`, copied unmodified from its Refuge class page's male casting-pose metadata at the owner's request. Exact URLs are in the same manifest.
+
+The global Male/Female selector uses local female idle, sitting, and attacking WebPs and their reduced-motion stills for all 42 classes, downloaded unmodified from each Refuge class page's female `data-anim` metadata. Merchant uses female casting instead of attacking. Files follow `{class-id}-female-{pose}[-still].webp`; exact versioned source URLs are recorded in `imports/refuge-classes/asset-manifest.json`. Male assets remain as previously recorded.
+
 Downloaded on 2026-10-17. Files are served locally; no runtime image hotlinking.
 
 | Local file | Source |
@@ -31,7 +41,7 @@ Happy Girl was matched visually against the owner's `screenPRM041.jpg` screensho
 
 `public/images/npcs/happy-girl.gif` is the unmodified transparent idle GIF downloaded from https://assets.latam-tools.com.br/gif?job=717&action=0 on 2026-10-17. It contains 32 frames on a 55 × 93 canvas and loops every 1600 ms. Renderer source: https://github.com/adsonpleal/ragassets. Ragnarok artwork belongs to its respective owners; no ownership or broader reuse license is asserted.
 
-The owner's screenshots `screenPRM039.jpg` and `screenPRM040.jpg` identify **Mr Kim** and **Mr Kim's Helper** at the Cash Shop counter. Both handle donation points, as confirmed by the owner. Mr Kim's exact sprite remains unresolved; candidate downloads remain in ignored `imports/npc-sprites/` and are not published.
+The owner's screenshots `screenPRM039.jpg` and `screenPRM040.jpg` identify **Mr Kim** and **Mr Kim's Helper** beside the Cash Shop service label. Both handle donation points, as confirmed by the owner. Mr Kim's exact sprite remains unresolved; candidate downloads remain in ignored `imports/npc-sprites/` and are not published.
 
 All published NPC GIFs below were downloaded unmodified from `https://assets.latam-tools.com.br/gif?job=ID&action=0`, substituting the recorded numeric ID. Matches were checked against the owner's screenshots. See `docs/orphanage-npcs.md` for the full inventory. Rune Nifelheim's catalog at https://rune-nifelheim.com/npc/ was also reviewed; https://rune-nifelheim.com/db/mob/img/717.gif independently matches Happy Girl.
 
@@ -55,6 +65,8 @@ Additional unmodified RagAssets idle GIFs use the same URL pattern: `horacio.gif
 `lily.gif` (74, 36 × 95, 1 frame), `alfred.gif` (10057, 39 × 101, 1 frame), and `skia-nerius.gif` (10116, 44 × 89, 1 frame) are also unmodified RagAssets idle GIFs from the same URL pattern. They were visually matched against the owner's screenshots 061, 044, and 046 respectively. Their service labels are visible in those screenshots. `public/images/npcs/screenshots/mr-kim.jpg` is an unchanged copy of screenshot 039; its display is clipped to Mr Kim with the same `NpcCard` CSS crop used for the other unmatched NPCs, at the owner's request.
 
 `public/images/npcs/screenshots/ornstein.jpg`, `croc.jpg`, and `great-collector.jpg` are unchanged copies of the owner's screenshots 048, 049, and 060 respectively. `NpcCard` clips their display to the actual NPC with CSS; the underlying screenshots are not repainted or altered. Sprite candidates that did not match were rejected.
+
+`public/images/npcs/screenshots/weaver-of-dreams.jpg` is an unchanged copy of the owner's `screenPRM062.jpg`, integrated at the owner's request. The blonde hair, ornate headdress, and layered dress did not match the female and episode NPC sprites reviewed at https://ratemyragnarok.com/npcs/. No exact stock match is asserted. `NpcCard` displays the NPC using a CSS crop at x=571, y=347, width=189, height=224 on the original 1904 × 1041 screenshot. The Dream Enchant service was confirmed by the owner.
 
 `public/images/npcs/memory-fountain.png` is an imagegen-assisted transparent extraction from the owner's screenshot 042, requested by the owner. It is an edited screenshot reference, not a recovered original game asset or a pixel-identical crop. The built-in tool was used with this prompt: extract only the Memory Fountain left of the stairs (approximately x 465–615, y 389–582), preserve its shape, color, texture, perspective, and game appearance; exclude room, UI labels, speech bubble, characters, stairs and railing; use a tight transparent background without redesign or added objects. The original result is retained at `/home/gilded/.codex/generated_images/01a14ba2-09de-70f1-a1a0-52d622a12086/exec-94db24d6-a668-477f-b9fa-4c8be59e9135.png`; the project copy is 1290 × 1219 with alpha transparency.
 

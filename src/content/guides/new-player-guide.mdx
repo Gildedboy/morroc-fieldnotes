@@ -46,7 +46,7 @@ import ScarfTable from '../../components/ScarfTable.astro';
 import MemoryMirrorReward from '../../components/MemoryMirrorReward.astro';
 import NpcCard from '../../components/NpcCard.astro';
 import SkillIcon from '../../components/SkillIcon.astro';
-import { guideHref } from '../../lib/paths';
+import { guideHref, withBase } from '../../lib/paths';
 
 <Callout title="Install the game">
 If you have not installed the game yet, follow the [server's joining instructions](https://rtmrefuge.pages.dev/join.html). Then return here to begin the tutorial.
@@ -154,7 +154,7 @@ Use the Memory Mirror to reset your stats before **Base Level 15**. If you keep 
 
 ## Make the Orphanage your home
 
-Return to the Orphanage to heal, repair your equipment, and access storage and transport.
+Return to the Orphanage to heal, repair your equipment, use storage, and travel to other locations.
 
 <Callout title="Help the Orphanage grow">
 Donate Zeny to **Amadeus Windsor** to help level up the Orphanage. Higher levels improve its services, including healer buffs, meals, transport destinations, and shops, and reduce the cost of stat and skill resets. Check its current level and donation progress with Amadeus.
@@ -177,7 +177,7 @@ Reset your stats and skills at the fountain beside the stairs. The reset cost de
 ### Orphan support and dungeon travel
 
 <NpcCard name="Alfred, the Butler" image="images/npcs/alfred.gif" width={39} height={101}>
-At the **Orphan Support** counter in the main hall, Alfred can:
+Speak to Alfred in the main hall. He can:
 
 - Hatch eggs.
 - Change the visibility of pets, summons, headgear, and garments.
@@ -186,7 +186,7 @@ At the **Orphan Support** counter in the main hall, Alfred can:
 </NpcCard>
 
 <NpcCard name="Skia Nerius" image="images/npcs/skia-nerius.gif" width={44} height={89}>
-Speak to Skia at the **Dungeon Caravan** counter for dungeon travel.
+Speak to Skia in the main hall for dungeon travel.
 </NpcCard>
 
 ### Donations
@@ -196,18 +196,18 @@ Donate Zeny toward the Orphanage's next level and check its funding progress.
 </NpcCard>
 
 <NpcCard name="Mr Kim" image="images/npcs/screenshots/mr-kim.jpg" crop={{ x: 1540, y: 255, width: 126, height: 202, sourceWidth: 1904, sourceHeight: 1041 }}>
-Buy headgear with **donation points** at the **Cash Shop** counter.
+Buy headgear with **donation points** from Mr Kim.
 Mr Kim also provides **DEX Wardrobe** storage.
 </NpcCard>
 
 <NpcCard name="Mr Kim's Helper" image="images/npcs/mr-kims-helper.gif" width={46} height={89}>
-Try Mr Kim's headgear for **30 seconds** to preview its appearance before buying it with donation points. Find her beside him at the **Cash Shop** counter.
+Try Mr Kim's headgear for **30 seconds** to preview its appearance before buying it with donation points. Find her next to him.
 </NpcCard>
 
 ### Equipment services
 
 <NpcCard name="Ornstein" image="images/npcs/screenshots/ornstein.jpg" crop={{ x: 637, y: 451, width: 80, height: 191, sourceWidth: 1904, sourceHeight: 1041 }}>
-After changing jobs, bring an **Exchange Voucher** to Ornstein for starter equipment. Find him at the smithy's **Voucher Exchange** counter.
+After changing jobs, bring an **Exchange Voucher** to Ornstein in the smithy for starter equipment.
 </NpcCard>
 
 <NpcCard name="Horacio Alt-Eisen" image="images/npcs/horacio.gif" width={69} height={105}>
@@ -223,55 +223,59 @@ Trade lower-tier refining materials for higher-tier materials.
 </NpcCard>
 
 <NpcCard name="Heimdall Alt-Eisen" image="images/npcs/heimdall.gif" width={74} height={117}>
-Refine equipment and Class Gems up to **+10** without destroying them. Find him in the smithy at the **Refining and Ores** counter.
+Refine equipment and Class Gems up to **+10** without destroying them. Find him in the smithy.
 </NpcCard>
 
 <NpcCard name="Shadow Recycler" image="images/npcs/shadow-recycler.gif" width={51} height={100}>
-Recycle **Shadow sets** and **gems**, reroll gem options, or convert gems into dust. Find her at the **Shadow Recycler** counter in the smithy.
+Recycle **Shadow sets** and **gems**, reroll gem options, or convert gems into dust. Find her in the smithy.
 </NpcCard>
 
 <NpcCard name="Shadow Assistant" image="images/npcs/shadow-assistant.gif" width={43} height={97}>
 Trade **Shadow Ores** for **Shadowdecon**, or exchange **Shadow Ore** for lower-tier refining materials. Find her in the smithy beside the Shadow Recycler.
 </NpcCard>
 
+<NpcCard name="Weaver of Dreams" image="images/npcs/screenshots/weaver-of-dreams.jpg" crop={{ x: 571, y: 347, width: 189, height: 224, sourceWidth: 1904, sourceHeight: 1041 }}>
+Add Dream Enchants to your equipment.
+</NpcCard>
+
 <NpcCard name="Master of Cards" image="images/npcs/master-of-cards.gif" width={55} height={94}>
-Remove cards from your equipment. Look for the **Card Remover** counter upstairs.
+Remove cards from your equipment. Find the Master of Cards upstairs.
 </NpcCard>
 
 ### Kitchen and supplies
 
 <NpcCard name="Lily" image="images/npcs/lily.gif" width={36} height={95}>
-Buy tools and supplies from Lily at the kitchen's **Tool Dealer** counter.
+Buy tools and supplies from Lily in the kitchen.
 </NpcCard>
 
 <NpcCard name="Mary Cenia" image="images/npcs/mary-cenia.gif" width={45} height={104}>
-Buy stat meals at the kitchen's **Status Meals** counter. The meal bonuses improve as the Orphanage levels up.
+Buy stat meals from Mary Cenia in the kitchen. The meal bonuses improve as the Orphanage levels up.
 </NpcCard>
 
 <NpcCard name="Black Market" image="images/npcs/black-market.gif" width={58} height={100}>
-Browse the Black Market in the kitchen.
+Buy manuals and job consumables, including **Shadow Orbs**, from the Black Market in the kitchen.
 </NpcCard>
 
 ### Headgear and costumes
 
 <NpcCard name="Happy Girl" image="images/npcs/happy-girl.gif" width={55} height={93}>
-Browse headgear and costumes at the **Headgear/Costumes** counter.
+Browse headgear and costumes with Happy Girl.
 </NpcCard>
 
 <NpcCard name="Stylist Shalosh" image="images/npcs/stylist-shalosh.gif" width={54} height={94}>
-Visit the **Stylist Shalosh** counter upstairs to change your character's appearance.
+Speak to Stylist Shalosh upstairs to change your character's appearance.
 </NpcCard>
 
 ### Achievements
 
 <NpcCard name="Great Collector" image="images/npcs/screenshots/great-collector.jpg" crop={{ x: 1323, y: 469, width: 82, height: 181, sourceWidth: 1904, sourceHeight: 1041 }}>
-Speak to the Great Collector at the **Achievements** counter upstairs.
+Speak to the Great Collector upstairs about achievements.
 </NpcCard>
 
 ## Choose your class
 
-Check the [Refuge class tree](https://rtmrefuge.pages.dev/classes.html) for class progression. Our <a href={guideHref('choosing-your-path')}>Choosing Your Path</a> guide is **WIP**. After completing your job change, bring your **Exchange Voucher** to **Ornstein** for starter equipment.
+Explore the <a href={guideHref('choosing-your-path')}>Job Class Tree</a> for class progression and the <a href={withBase('classes/thief/')}>Thief guide</a> for its job change. After completing your job change, bring your **Exchange Voucher** to **Ornstein** for starter equipment.
 
 ## Find your next place to train
 
-The <a href={guideHref('leveling-foundations')}>Leveling Foundations</a> guide is **WIP**.
+The <a href={guideHref('leveling-foundations')}>Leveling Spots</a> guide is **WIP**.

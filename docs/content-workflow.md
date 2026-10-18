@@ -26,6 +26,8 @@ Selectable-text PDFs keep text per page and extracted links. Scanned/empty pages
 
 Each guide declares publication (`published` or `wip`, default `wip`), title, description, category, icon, order, updated, status, statusNote, readingMinutes, tags, and sources. `verified` is null until actual in-game confirmation. `updated` refers to our editorial work, not the source's last edit.
 
+WIP placeholders may declare `sources: []` while references are pending. Published guides must include at least one source; the content schema enforces this requirement.
+
 Use second-level headings for the generated outline. Reuse `Callout`, `GuideFigure`, and shared location components. Keep internal navigation base-path aware with `guideHref()` / `withBase()`.
 
 Use `SourceScreenshot` for original instructional images. It preserves the full frame, natural dimensions, readable colors, and a full-size image link. `GuideFigure` is for decorative landscape imagery and crops to fit; it must not be used for dialogue screenshots or item tooltips. The initial source's 26 images are explicitly mapped to their tutorial and leveling sections.

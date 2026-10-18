@@ -7,8 +7,8 @@ const { currentId, library } = Astro.props;
 const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
 const categories = [
   { name: 'Getting Started', icon: 'compass' },
-  { name: 'Leveling', icon: 'map' },
   { name: 'Classes & Builds', icon: 'sword' },
+  { name: 'Leveling', icon: 'map' },
   { name: 'Quests & Unlocks', icon: 'book' },
 ];
 ---
@@ -19,7 +19,7 @@ const categories = [
   {categories.map(category => {
     const entries = guides.filter(g => g.data.category === category.name);
     return <div class="nav-group">
-      <p class="nav-group-title"><Icon name={category.icon} size={17} />{category.name}<span>{entries.length.toString().padStart(2, '0')}</span></p>
+      <p class="nav-group-title"><Icon name={category.icon} size={17} />{category.name}</p>
       {entries.length > 0 ? <ul>{entries.map(g => <li><a class:list={['guide-nav-link', { active: currentId === g.id }]} href={guideHref(g.id)} aria-current={currentId === g.id ? 'page' : undefined}>{g.data.title}{g.data.publication === 'wip' ? <span class="wip-badge">WIP</span> : <Icon name="chevron" size={13} />}</a></li>)}</ul> : <p class="nav-empty">WIP</p>}
     </div>;
   })}
@@ -27,6 +27,7 @@ const categories = [
     <p class="eyebrow">KEEP WITHIN REACH</p>
     <a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer"><Icon name="book" size={17} />Game database<Icon name="external" size={13} /></a>
     <a href="https://rtmrefuge.pages.dev/" target="_blank" rel="noreferrer"><Icon name="compass" size={17} />Refuge website<Icon name="external" size={13} /></a>
+    <a href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer"><Icon name="book" size={17} />Hatred tracker & guide<Icon name="external" size={13} /></a>
     <div class="sidebar-note"><span class="tiny-star">✦</span><p>For the journey,<br />not just the destination.</p></div>
   </div>
 </nav>

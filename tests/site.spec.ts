@@ -46,14 +46,14 @@ test('guide navigation works at each viewport without horizontal overflow', asyn
     await page.getByRole('button', { name: 'Open guide navigation' }).click();
     await expect(page.getByRole('dialog', { name: 'Your fieldnotes' })).toBeVisible();
   }
-  await page.getByRole('navigation', { name: 'Guide library' }).getByRole('link', { name: /Leveling Foundations/ }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Leveling Foundations');
+  await page.getByRole('navigation', { name: 'Guide library' }).getByRole('link', { name: /Leveling Spots/ }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Leveling Spots');
   await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
   await expect(page.locator('[data-article]')).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test('article outline works and related drafts show WIP notices', async ({ page }) => {
+test('article outline works and related links open the class tree', async ({ page }) => {
   await page.goto('guides/new-player-guide/');
   const desktop = (page.viewportSize()?.width ?? 1440) > 1050;
   if (!desktop) await page.getByText('On this page', { exact: true }).click();
@@ -61,10 +61,9 @@ test('article outline works and related drafts show WIP notices', async ({ page 
   await outline.getByRole('link', { name: /Know your starting tools/ }).click();
   await expect(page).toHaveURL(/#know-your-starting-tools$/);
   await expect(page.getByRole('heading', { name: 'Know your starting tools' })).toBeInViewport();
-  await page.locator('.related-grid').getByRole('link', { name: /Choosing Your Path/ }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Choosing Your Path');
-  await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
-  await expect(page.locator('.class-paths')).toHaveCount(0);
+  await page.locator('.related-grid').getByRole('link', { name: /Job Class Tree/ }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Job Class Tree');
+  await expect(page.locator('.class-explorer')).toBeVisible();
 });
 
 test('essential reading and attribution work without JavaScript', async ({ browser, baseURL }) => {
@@ -111,7 +110,7 @@ test('tutorial includes its eight uncropped source screenshots, steps, and scarf
 });
 
 test('draft guides expose only WIP notices and stay out of search', async ({ page, request }) => {
-  for (const id of ['leveling-foundations', 'choosing-your-path']) {
+  for (const id of ['leveling-foundations', 'dungeons', 'distortions', 'bifrost-mirror', 'blooming-rose-sandals', 'sun-headgears', 'celestial-tome']) {
     await page.goto(`guides/${id}/`);
     await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
@@ -121,6 +120,6 @@ test('draft guides expose only WIP notices and stay out of search', async ({ pag
   const response = await request.get('search.json');
   expect(response.ok()).toBe(true);
   const index = await response.json();
-  expect(index.map((entry: { title: string }) => entry.title)).toEqual(['New Player Guide']);
+  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['Job Class Tree', 'New Player Guide']);
   expect(JSON.stringify(index)).not.toContain('Pyramid Basement');
 });

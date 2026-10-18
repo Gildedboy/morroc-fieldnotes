@@ -7,6 +7,7 @@ import { formatDate, guideHref, withBase } from '../lib/paths';
 interface Props { guide: CollectionEntry<'guides'> }
 const { guide } = Astro.props;
 const { data } = guide;
+const isClassTree = guide.id === 'choosing-your-path';
 const { Content, headings } = await render(guide);
 const outline = headings.filter(h => h.depth === 2);
 const allGuides = await getCollection('guides');
@@ -15,7 +16,7 @@ const statusLabels = { 'source-reviewed': 'Sources reviewed', 'needs-review': 'L
 ---
 <Shell title={data.title} description={data.description} currentId={guide.id}>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
-  <div class="article-grid">
+  <div class:list={['article-grid', { 'class-tree-layout': isClassTree }]}>
     <div class="article-column">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={withBase()}>Fieldnotes</a><Icon name="chevron" size={12} /><span>{data.category}</span></nav>
       <header class="article-header">
@@ -24,7 +25,7 @@ const statusLabels = { 'source-reviewed': 'Sources reviewed', 'needs-review': 'L
         <p class="article-description">{data.description}</p>
         <div class="article-meta"><span><Icon name="clock" size={15} />{data.readingMinutes} min read</span><span><Icon name="calendar" size={15} />Updated <time datetime={data.updated.toISOString()}>{formatDate(data.updated)}</time></span><span class:list={['status-badge', data.status]}><i></i>{statusLabels[data.status]}</span></div>
       </header>
-      <details class="mobile-outline"><summary>On this page</summary><ul>{outline.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></details>
+      {!isClassTree && <details class="mobile-outline"><summary>On this page</summary><ul>{outline.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></details>}
       <article class="prose" data-article><Content /></article>
       <section class="sources-section" id="sources" aria-labelledby="sources-heading">
         <div class="section-heading"><span class="eyebrow">THE PEOPLE BEHIND THE KNOWLEDGE</span><h2 id="sources-heading">Sources & acknowledgements</h2></div>
@@ -35,6 +36,6 @@ const statusLabels = { 'source-reviewed': 'Sources reviewed', 'needs-review': 'L
       {related.length > 0 && <section class="related-section"><span class="eyebrow">KEEP EXPLORING</span><div class="related-grid">{related.map(g => <a href={guideHref(g.id)}><Icon name={g.data.icon} size={22} /><div><small>{g.data.publication === 'wip' ? 'WIP' : g.data.category}</small><strong>{g.data.title}</strong></div><Icon name="arrow" size={19} /></a>)}</div></section>}
       <Footer />
     </div>
-    <aside class="article-outline" aria-label="Article outline"><div class="outline-sticky"><p class="eyebrow">ON THIS PAGE</p><nav>{outline.map((h, i) => <a href={`#${h.slug}`} data-outline-link><span>{(i + 1).toString().padStart(2, '0')}</span>{h.text}</a>)}<a href="#sources" data-outline-link><span>↗</span>Sources & credits</a></nav><div class="outline-note"><Icon name="book" size={21} /><p>A number looks different?<br /><a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Check the live database ↗</a></p></div><a class="back-top" href="#main">Back to top ↑</a></div></aside>
+    {!isClassTree && <aside class="article-outline" aria-label="Article outline"><div class="outline-sticky"><p class="eyebrow">ON THIS PAGE</p><nav>{outline.map((h, i) => <a href={`#${h.slug}`} data-outline-link><span>{(i + 1).toString().padStart(2, '0')}</span>{h.text}</a>)}<a href="#sources" data-outline-link><span>↗</span>Sources & credits</a></nav><div class="outline-note"><Icon name="book" size={21} /><p>A number looks different?<br /><a href="https://rtm-database.pages.dev/" target="_blank" rel="noreferrer">Check the live database ↗</a></p></div><a class="back-top" href="#main">Back to top ↑</a></div></aside>}
   </div>
 </Shell>

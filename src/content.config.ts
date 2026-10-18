@@ -21,7 +21,15 @@ const guides = defineCollection({
     sources: z.array(z.object({
       title: z.string(), url: z.url(), author: z.string(),
       note: z.string(), sourceUpdated: z.string().nullable().default(null),
-    })).min(1),
+    })),
+  }).superRefine((guide, context) => {
+    if (guide.publication === 'published' && guide.sources.length === 0) {
+      context.addIssue({
+        code: 'custom',
+        path: ['sources'],
+        message: 'Published guides must include at least one source.',
+      });
+    }
   }),
 });
 
