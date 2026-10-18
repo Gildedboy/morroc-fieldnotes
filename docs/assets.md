@@ -99,14 +99,13 @@ These icons were downloaded unmodified from the Refuge database at `https://rtm-
 | Burning Scythe | `SA_FLAMELAUNCHER` |
 | Hellraiser | `RK_IGNITIONBREAK` |
 | Increase SP Recovery | `MG_SRECOVERY` |
-| Mirror Image | `SL_KAITE` |
 | Scythe Mastery | `PR_MACEMASTERY` |
 | Scythe Reap | `LK_SPIRALPIERCE` |
 | Shadow Parry | `LK_PARRYING` |
 | Sweeping Slash | `KN_PIERCE` |
 | True Sight | `SN_SIGHT` |
 
-The component displays icons at 24 × 24. PNGs that are 26 × 26 retain their source files and aspect ratio.
+The component displays icons at 24 × 24. PNGs that are 26 × 26 retain their source files and aspect ratio. Dark Message and Dark Messenger are INT-build skills and are outside the STR/LUK Trickster guide.
 
 ## Trickster leveling screenshots
 
