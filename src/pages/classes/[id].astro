@@ -12,7 +12,7 @@ interface Props { job: JobClass }
 const { job } = Astro.props;
 const isThief = job.id === 'thief';
 const isTrickster = job.id === 'trickster';
-const sections = isTrickster ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
+const sections = isTrickster ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
@@ -22,7 +22,7 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={guideHref('job-class-tree')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
       <header class="article-header job-class-header">
         <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase(job.idleStill)} /><img src={withBase(job.idle)} alt={`${job.name} animated sprite`} width="112" height="112" /></picture>
-<div>{!isThief && <span class="wip-badge">WIP</span>}<div class="job-title"><h1>{job.name}</h1>{!isTrickster && <span class="job-heading-weapon">{job.weaponLabel ?? job.weapons}</span>}</div>{!isTrickster && <div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div>}</div>
+<div>{!isThief && !isTrickster && <span class="wip-badge">WIP</span>}<div class="job-title"><h1>{job.name}</h1>{!isTrickster && <span class="job-heading-weapon">{job.weaponLabel ?? job.weapons}</span>}</div>{!isTrickster && <div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div>}</div>
       </header>
       <details class="mobile-outline"><summary>On this page</summary><ul>{sections.map(([id, title]) => <li><a href={`#${id}`}>{title}</a></li>)}</ul></details>
       <article class="prose" data-article>

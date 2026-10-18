@@ -12,7 +12,7 @@ Owner screenshots are in `C:\Users\Gilded\Downloads\Refuge\ScreenShot`, accessib
 | 044 | Alfred, the Butler — Orphan Support | `4_m_oldscholar`, 10057 | GIF and Orphan Support service text |
 | 045 | Lucy Guille — Healer Lucy | `4_f_acolyte`, 641 | GIF and service text |
 | 046 | Skia Nerius — Dungeon Caravan | `4_ep16_skia`, 10116 | GIF and dungeon travel service |
-| 047 | Kafra Alysia — Kafra Services | `4_f_khellisia`, 894 | GIF and service text |
+| 047 | Kafra Allysia — Kafra Services | `4_f_khellisia`, 894 | GIF and service text |
 | 048 | Ornstein — Voucher Exchange | No exact match; candidate 807 rejected | Original screenshot crop and service text |
 | 049 | Horacio Alt-Eisen | `1_m_smith`, 63 | GIF and starting armor service |
 | 050 | Helmut Alt-Eisen | `1_m_hof`, 52 | GIF and starting weapons service |

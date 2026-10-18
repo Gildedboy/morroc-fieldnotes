@@ -1,41 +1,41 @@
 ---
 title: Leveling Spots
-publication: wip
-description: Level ranges and recommended leveling spots.
+publication: published
+description: Monster level ranges, routes, screenshots, and notes for leveling locations.
 category: Leveling
 icon: map
 order: 2
-updated: 2026-10-17
-status: needs-review
-statusNote: All fourteen locations and eighteen accompanying images from the original document are included below. Monster levels and directions are labeled as source-version information, not independently verified current Refuge data.
-readingMinutes: 12
+updated: 2026-10-18
+status: source-reviewed
+statusNote: Monster levels and listed monsters were checked against Refuge place records. Opera House records are listed as nif_dun01 and nif_dun02.
+readingMinutes: 8
 tags: [leveling, maps, pyramid, payon, culvert, training, experience, farming]
 related: [new-player-guide, job-class-tree]
 sources:
   - title: The New Orphan’s Guide To Morroc
     url: https://docs.google.com/document/d/1KVRrnLTCRxi_ou5hQrZS7mDr-W2aBcUD2uZKclWuyyo/edit
     author: Gryph, with the introduction and framework by Agent Q
-    note: Original leveling locations, access information, and eighteen screenshots. Gryph states the document has not been updated for Refuge. Numbers below are preserved as legacy reference values.
+    note: Original leveling locations, access information, monster levels, and screenshots. The author notes that the guide has not been updated for Refuge.
     sourceUpdated: September 6 notice; year unspecified
-  - title: Refuge — World and Dungeons
-    url: https://rtmrefuge.pages.dev/world.html
+  - title: Refuge — Mechanics
+    url: https://rtmrefuge.pages.dev/mechanics
     author: Return to Morroc Refuge team
-    note: Current world-map reference. Individual locations and access should be checked against the database.
+    note: Refuge's monster-level experience rules.
 ---
 
-import Callout from '../../components/Callout.astro';
 import SourceScreenshot from '../../components/SourceScreenshot.astro';
 import LocationDetails from '../../components/LocationDetails.astro';
+import Callout from '../../components/Callout.astro';
 
-## Leveling route
-
-<Callout title="Source-version leveling route" tone="warning">
-The source author states that the guide has not been updated for Refuge. The levels, travel directions, and combat notes below belong to that version. Compare them with the [places database](https://rtm-database.pages.dev/places.html) and [leveling tool](https://rtm-database.pages.dev/leveling.html) when planning your current route.
+<Callout title="Save a memo point" tone="tip">
+Use `/memo` before hard-to-reach areas and outside dungeons. Fields are usually easy to return to unless entry is restricted.
 </Callout>
 
-Choose an area that suits your skills and equipment. Different builds can train on the same map using different attacks.
+## Choose monsters by level
 
-<SourceScreenshot number={9} />
+Refuge gives full EXP for monsters from **3 levels below through 5 levels above** your Base Level. Monsters **6–15 levels above** give increased EXP, up to 120% at +15; monsters **4–9 levels below** give reduced EXP. Monsters **16 or more levels above** or **10 or more levels below** give only 1% EXP. See [Refuge’s experience rules](https://rtm-database.pages.dev/leveling).
+
+The ranges below are **monster levels**, not recommended character levels. “EXP starts” uses the lowest monster level: subtract 15 to find the first Base Level where that monster is outside the 1% EXP penalty, with Base Lv. 1 as the minimum. The ranges use current Refuge monster records, including MVPs where listed. See [Refuge’s place and monster records](https://rtm-database.pages.dev/places).
 
 ## Pyramid Basement
 
@@ -45,9 +45,17 @@ Choose an area that suits your skills and equipment. Different builds can train 
 
 <LocationDetails id="payon-caves" />
 
+## Upper Pyramid
+
+<LocationDetails id="upper-pyramid" />
+
 ## Prontera Culvert
 
 <LocationDetails id="prontera-culvert" />
+
+## Horn
+
+<LocationDetails id="horn" />
 
 ## Morroc Fields
 
@@ -57,6 +65,10 @@ Choose an area that suits your skills and equipment. Different builds can train 
 
 <LocationDetails id="geffen-fields" />
 
+## Sunken Ship
+
+<LocationDetails id="sunken-ship" />
+
 ## Orc Village and West Orc Village
 
 <LocationDetails id="orc-village" />
@@ -65,9 +77,17 @@ Choose an area that suits your skills and equipment. Different builds can train 
 
 <LocationDetails id="frontier-fields" />
 
+## Faceworm Forests and Dark Nest
+
+<LocationDetails id="faceworm" />
+
 ## Toy Factory
 
 <LocationDetails id="toy-factory" />
+
+## Leaf Cats
+
+<LocationDetails id="leaf-cats" />
 
 ## Amatsu Field
 
@@ -81,6 +101,14 @@ Choose an area that suits your skills and equipment. Different builds can train 
 
 <LocationDetails id="kafra-warehouse" />
 
+## Rachel Sanctuary
+
+<LocationDetails id="rachel-sanctuary" />
+
+## Sky Garden
+
+<LocationDetails id="sky-garden" />
+
 ## Old Glast Heim
 
 <LocationDetails id="old-glast-heim" />
@@ -89,16 +117,10 @@ Choose an area that suits your skills and equipment. Different builds can train 
 
 <LocationDetails id="thor-volcano" />
 
-## Varmundt Mansion
+## Opera House
+
+<LocationDetails id="opera-house" />
+
+## Varmundt Library
 
 <LocationDetails id="varmundt-mansion" />
-
-### Find the library
-
-Enter the building shown below, follow the portals, and interact with the dresser to enter the library.
-
-<SourceScreenshot number={24} />
-
-<SourceScreenshot number={25} />
-
-<SourceScreenshot number={26} />

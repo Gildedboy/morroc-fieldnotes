@@ -3,5 +3,5 @@ import { locations } from '../data/locations';
 import Icon from './Icon.astro';
 ---
 <div class="location-list">
-  {locations.map((location, i) => <div class="location-row"><span class="step-number">0{i + 1}</span><div><strong>{location.name}</strong><p>{location.description}</p></div><Icon name="map" size={19} /></div>)}
+  {locations.map((location, i) => <div class="location-row"><span class="step-number">0{i + 1}</span><div><strong>{location.name}</strong><p>Monster levels: {location.monsterLevels}</p></div><Icon name="map" size={19} /></div>)}
 </div>

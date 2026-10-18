@@ -48,7 +48,7 @@ test('search handles no results and restores focus when dismissed', async ({ pag
   await expect(trigger).toBeFocused();
 });
 
-test('guide navigation works at each viewport without horizontal overflow', async ({ page }) => {
+test('guide navigation works at each viewport without horizontal overflow', async ({ page }, testInfo) => {
   await page.goto('./');
   if ((page.viewportSize()?.width ?? 1440) < 761) {
     await page.getByRole('button', { name: 'Open guide navigation' }).click();
@@ -56,8 +56,11 @@ test('guide navigation works at each viewport without horizontal overflow', asyn
   }
   await page.getByRole('navigation', { name: 'Guide library' }).getByRole('link', { name: /Leveling Spots/ }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Leveling Spots');
-  await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
-  await expect(page.locator('[data-article]')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Choose monsters by level' })).toBeVisible();
+  await expect(page.locator('.source-screenshot')).toHaveCount(17);
+  await expect(page.getByText('Monsters 16 or more levels above', { exact: false })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Pyramid Basement' })).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('leveling-spots.png') });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -178,7 +181,7 @@ test('tutorial includes its eight uncropped source screenshots, steps, and scarf
 });
 
 test('draft guides expose only WIP notices and stay out of search', async ({ page, request }) => {
-  for (const id of ['leveling-foundations', 'dungeons', 'distortions', 'bifrost-mirror', 'blooming-rose-sandals', 'sun-headgears', 'celestial-tome']) {
+  for (const id of ['dungeons', 'distortions', 'bifrost-mirror', 'blooming-rose-sandals', 'sun-headgears', 'celestial-tome']) {
     await page.goto(`guides/${id}/`);
     await expect(page.getByText('This guide is a work in progress.', { exact: true })).toBeVisible();
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
@@ -188,6 +191,6 @@ test('draft guides expose only WIP notices and stay out of search', async ({ pag
   const response = await request.get('search.json');
   expect(response.ok()).toBe(true);
   const index = await response.json();
-  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['Job Class Tree', 'New Player Guide']);
-  expect(JSON.stringify(index)).not.toContain('Pyramid Basement');
+  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['Job Class Tree', 'Leveling Spots', 'New Player Guide']);
+  expect(JSON.stringify(index)).toContain('Leveling Spots');
 });

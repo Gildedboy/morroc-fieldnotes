@@ -190,15 +190,15 @@ export const sourceImages: SourceImage[] = [
     "src": "images/new-orphan/image-023.png",
     "width": 420,
     "height": 340,
-    "alt": "Varmundt Mansion screenshot from the original leveling guide",
-    "caption": "Varmundt Mansion."
+    "alt": "Varmundt Library screenshot from the original leveling guide",
+    "caption": "Varmundt Library."
   },
   {
     "number": 24,
     "src": "images/new-orphan/image-024.png",
     "width": 132,
     "height": 133,
-    "alt": "Minimap showing the first building on the Varmundt Mansion library route",
+    "alt": "Minimap showing the first building on the Varmundt Library route",
     "caption": "Enter the building in the upper-right area."
   },
   {
@@ -206,7 +206,7 @@ export const sourceImages: SourceImage[] = [
     "src": "images/new-orphan/image-025.png",
     "width": 134,
     "height": 132,
-    "alt": "Minimap showing the next location on the Varmundt Mansion library route",
+    "alt": "Minimap showing the next location on the Varmundt Library route",
     "caption": "Continue through the portals to this location."
   },
   {
@@ -214,7 +214,7 @@ export const sourceImages: SourceImage[] = [
     "src": "images/new-orphan/image-026.png",
     "width": 463,
     "height": 507,
-    "alt": "Dresser interaction used to enter Varmundt Mansion library",
+    "alt": "Dresser interaction used to enter the Varmundt Library",
     "caption": "Interact with the dresser and confirm to enter the library."
   }
 ];

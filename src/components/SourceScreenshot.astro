@@ -1,8 +1,8 @@
 ---
 import { sourceImages } from '../data/source-images';
 import { withBase } from '../lib/paths';
-interface Props { number: number; caption?: string }
-const { number, caption } = Astro.props;
+interface Props { number: number; caption?: string; hideCaption?: boolean }
+const { number, caption, hideCaption = false } = Astro.props;
 const image = sourceImages.find(image => image.number === number);
 if (!image) throw new Error(`Missing original guide screenshot ${number}`);
 const href = withBase(image.src);
@@ -11,6 +11,5 @@ const href = withBase(image.src);
   <a class="screenshot-link" href={href} target="_blank" rel="noreferrer" aria-label={`Open full-size screenshot: ${image.alt}`} style={`width: ${image.width}px;`}>
     <img src={href} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
   </a>
-  <figcaption>{(caption ?? image.caption) && <span>{caption ?? image.caption}</span>}<a href={href} target="_blank" rel="noreferrer">Open full size ↗</a></figcaption>
-  <small class="screenshot-credit">From The New Orphan’s Guide To Morroc · Gryph / Agent Q{number === 9 && ' · Community message by [ADM]Ornstein'}</small>
+  {!hideCaption && <figcaption>{(caption ?? image.caption) && <span>{caption ?? image.caption}</span>}<a href={href} target="_blank" rel="noreferrer">Open full size ↗</a></figcaption>}
 </figure>

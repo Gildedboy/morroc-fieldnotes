@@ -36,7 +36,6 @@ dialog{color:var(--text);background:#17151d;border:1px solid #47374f;border-radi
 .source-screenshot img { width: 100%; max-width: 100%; height: auto; object-fit: contain; filter: none; }
 .source-screenshot figcaption { display: flex; justify-content: space-between; gap: 15px; margin-top: 12px; font-size: 11px; line-height: 1.6; color: var(--muted); }
 .source-screenshot figcaption a { white-space: nowrap; text-decoration: none; }
-.screenshot-credit { display: block; font-size: 9px; line-height: 1.6; margin-top: 5px; color: var(--dim); }
 .guide-table-wrap { max-width: 100%; overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 5px; }
 .guide-table { border-collapse: collapse; width: 100%; min-width: 600px; font-size: 12px; line-height: 1.7; }
 .guide-table th, .guide-table td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
@@ -45,9 +44,31 @@ dialog{color:var(--text);background:#17151d;border:1px solid #47374f;border-radi
 .guide-table tbody tr:nth-child(even) { background: var(--panel); }
 .guide-table tbody tr:last-child > * { border-bottom: 0; }
 .outline-sticky { max-height: calc(100dvh - 135px); overflow-y: auto; scrollbar-width: thin; }
-.location-details { margin: 15px 0; }
-.location-details dt { font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .1em; margin-top: 12px; }
-.location-details dd { margin: 5px 0 0; }
+.leveling-table { width: 100%; border-collapse: collapse; margin: 15px 0 30px; border: 1px solid var(--line); font-size: 12px; line-height: 1.75; }
+.leveling-table th, .leveling-table td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.leveling-table th { width: 155px; color: #d5bce9; font-weight: 400; background: #251e2f; }
+.leveling-table tr:last-child > * { border-bottom: 0; }
+.leveling-table .source-screenshot { margin: 2px 0; }
+.leveling-table .source-screenshot figcaption { font-size: 10px; }
+.leveling-location-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; align-items: start; gap: 14px; }
+.leveling-location-gallery .source-screenshot { width: 100%; max-width: 100%; margin: 2px 0; }
+.leveling-location-gallery .source-screenshot .screenshot-link { max-width: 100%; }
+.leveling-location-images { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; }
+.leveling-location-image { width: fit-content; max-width: 100%; margin: 2px 0; }
+.leveling-location-image a { display: block; width: fit-content; max-width: 100%; }
+.leveling-location-image img { display: block; width: auto; max-width: min(100%, 480px); height: auto; border: 1px solid var(--line); }
+.leveling-location-image--square { margin: 2px 0; }
+.leveling-location-image--square a { width: min(100%, 420px); aspect-ratio: 1; overflow: hidden; }
+.leveling-location-image--square img { width: 100%; max-width: none; height: 100%; object-fit: cover; object-position: 28% center; }
+.leveling-location-image--square figcaption { text-align: center; }
+.leveling-location-image figcaption { margin-top: 4px; color: var(--muted); font-size: 10px; }
+.leveling-database-links { margin: 8px 0 0; font-size: 11px; }
+.leveling-database-links a { color: var(--accent); }
+.leveling-database-links a:hover { text-decoration: underline; }
+.leveling-exp-start { display: block; margin-top: 4px; font-size: 10px; color: var(--muted); }
+.leveling-monsters { margin: 0 0 8px; padding-left: 18px; }
+.leveling-monsters li { margin: 0; }
+@media (max-width: 560px) { .leveling-table th, .leveling-table td { padding: 10px; } .leveling-table th { width: 115px; } .leveling-location-gallery { grid-template-columns: 1fr; } }
 .mirror-reward-pair { display: grid; grid-template-columns: minmax(0, 277px) minmax(0, 170px); align-items: center; justify-content: center; gap: 32px; margin: 24px 0 34px; }
 .mirror-reward-pair .source-screenshot { min-width: 0; margin: 0; }
 .card-album-reward { min-width: 0; margin: 0; padding: 22px 14px; border: 1px solid #44394f; border-radius: 5px; background: var(--panel); text-align: center; }
