@@ -41,7 +41,7 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Add the Bifrost Mirror quest with all five tombs, Dicastes Diel travel, elevators, four Master upgrades, fees, reward, and full-frame instructional screenshots.
 - [x] Add Blooming Rose Sandals with the current recipe, Rose Sage location, mansion access screenshots, numbered steps, and separate crafting/equipment requirements.
 - [x] Add the owner’s correct distortion, Rose Sage, repair dialogue, material requirements, and old/upgraded item screenshots (123–128).
-- [ ] Write and review Sun Headgears. Its separate guide link is WIP.
+- [x] Publish Astrologika Moon and Sun Headgears with the owner’s approval: bookshelf/telescope sequence, Serpens recipe, exactly +9 requirement, nine observer coordinates, and nineteen instructional images.
 - [ ] Write and review Celestial Tome. Its separate guide link is WIP. Use https://hatredguide.segasunset.workers.dev/ as a reference for the headgear requirements: the owner confirms that all 90 headgears are needed for the tome. Review the full list and acquisition details before authoring.
 
 ## External resources

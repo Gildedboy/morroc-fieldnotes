@@ -13,12 +13,13 @@ const outline = headings.filter(h => h.depth === 2);
 const allGuides = await getCollection('guides');
 const related = data.related.map(id => allGuides.find(g => g.id === id)).filter((g): g is CollectionEntry<'guides'> => Boolean(g));
 ---
-<Shell title={data.title} description={data.description} currentId={guide.id}>
+<Shell title={data.title} description={data.description} currentId={guide.id} noindex={data.publication === 'wip'}>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
   <div class:list={['article-grid', { 'class-tree-layout': isClassTree }]}>
     <div class="article-column">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={withBase()}>Fieldnotes</a><Icon name="chevron" size={12} /><span>{data.category}</span></nav>
       <header class="article-header">
+        {data.publication === 'wip' && <span class="wip-badge">WIP · Local draft preview</span>}
         <span class="category-label"><Icon name={data.icon} size={14} />{data.category}</span>
         <h1>{data.title}</h1>
         <p class="article-description">{data.description}</p>

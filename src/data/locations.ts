@@ -3185,3 +3185,88 @@ export const bloomingRoseSandalsLocation = {
   access: 'From the Orphanage, use Kafra Allysia to travel to Lighthalzen, then take the airship to Varmundt’s Mansion. Enter the mansion and look for Rose Sage in the northeast part of the interior.',
   mirrorAccess: 'With the Bifrost Mirror unlocked, use the Orphanage Distortion orb in the hallway near Merchant Guild to reach Varmundt’s Mansion.',
 };
+
+// Observer coordinates: Pitaya’s Sun Headgear Guide; recipes checked against Refuge item records.
+export const sunHeadgearObservers = [
+  {
+    "name": "Apus",
+    "map": "cmd_fild07",
+    "coordinates": "55,268",
+    "area": "Beacon Island Pharos",
+    "moonId": 31214,
+    "sunId": 31215,
+    "imageKey": "apus"
+  },
+  {
+    "name": "Auriga",
+    "map": "odin_tem02",
+    "coordinates": "307,74",
+    "area": "Odin Shrine F2",
+    "moonId": 31218,
+    "sunId": 31219,
+    "imageKey": "auriga"
+  },
+  {
+    "name": "Caelum",
+    "map": "moscovia",
+    "coordinates": "113,119",
+    "area": "Moscovia",
+    "moonId": 31212,
+    "sunId": 31213,
+    "imageKey": "caelum"
+  },
+  {
+    "name": "Cygnus",
+    "map": "lhz_fild01",
+    "coordinates": "256,243",
+    "area": "Lighthalzen Field F1",
+    "moonId": 31216,
+    "sunId": 31217,
+    "imageKey": "cygnus"
+  },
+  {
+    "name": "Fornax",
+    "map": "ma_fild02",
+    "coordinates": "247,318",
+    "area": "Forest",
+    "moonId": 31226,
+    "sunId": 31227,
+    "imageKey": "fornax"
+  },
+  {
+    "name": "Lacerta",
+    "map": "ra_fild12",
+    "coordinates": "363,123",
+    "area": "Ida Plane",
+    "moonId": 31222,
+    "sunId": 31223,
+    "imageKey": "lacerta"
+  },
+  {
+    "name": "Orion",
+    "map": "ayothaya",
+    "coordinates": "112,253",
+    "area": "Ayothaya",
+    "moonId": 31210,
+    "sunId": 31211,
+    "imageKey": "orion"
+  },
+  {
+    "name": "Scutum",
+    "map": "gef_fild06",
+    "coordinates": "64,159",
+    "area": "Geffen Field F6",
+    "moonId": 31224,
+    "sunId": 31225,
+    "imageKey": "scutum"
+  },
+  {
+    "name": "Volan",
+    "map": "pay_fild11",
+    "coordinates": "100,154",
+    "area": "Payon Forest F11",
+    "moonId": 31220,
+    "sunId": 31221,
+    "imageKey": "volan"
+  }
+] as const;

@@ -1,14 +1,112 @@
 ---
-title: Sun Headgears
-publication: wip
-description: Sun Headgears quest and unlock guide.
+title: Astrologika Moon and Sun Headgears
+publication: published
+description: Find the Serpens stones in Observatorium Astrologika and upgrade a +9 Moon headgear at its matching observer.
 category: Quests & Unlocks
 icon: book
 order: 6
-updated: 2026-10-17
-status: needs-review
-statusNote: Requested by the owner. Sources and quest details have not yet been reviewed.
-readingMinutes: 1
-tags: [quests, unlocks, sun, headgears]
-sources: []
+updated: 2026-10-18
+verified: null
+status: source-reviewed
+statusNote: Walkthrough adapted from Pitaya’s Sun Headgear Guide and cross-checked against the Refuge item database on October 18, 2026. Current recipes confirm exactly +9 Moon headgear, 25 Jewel Elunium, and Sun of Serpens. Observer coordinates and bookshelf/telescope sequence come from the spreadsheet; no completed in-game exchange is recorded. Published with the owner’s approval.
+readingMinutes: 5
+tags: [quests, crafting, Astrologika, Moon Headgears, Sun Headgears, Serpens, observers]
+related: [dungeons, celestial-tome]
+sources:
+  - title: Pitaya — Sun Headgear Guide
+    url: https://docs.google.com/spreadsheets/d/1VXeW7JAKgn26ljPFa8ygWujwqXlkexOBUYtUk2s_Fg8/edit?gid=636686625
+    author: Pitaya
+    sourceUpdated: null
+    note: Quest sequence, observer coordinates, and nineteen instructional images from the Sun Headgear Guide tab. The workbook credits Jellopy, Bossfight Cafe Guild, Grimoire, Drachnid, PND Panda, Reave, Impaler, and Zephyro. It invites readers to copy the spreadsheet for personal progression; no general reuse license is specified. Imported at the owner’s request; originals and workbook retained locally for review. Editorial review October 18, 2026.
+  - title: Refuge — Sun of Serpens
+    url: https://rtm-database.pages.dev/index.html?id=25501
+    author: Return to Morroc Refuge team
+    sourceUpdated: null
+    note: Frozen Tides recipe, character-bound Serpens stones, and all nine Sun headgear recipes checked against current item records on October 18, 2026. Moon headgears drop from Moon Guardian in Observatorium Study; Sun headgears require exactly +9 matching Moon headgear, 25 Jewel Elunium, and 1 Sun of Serpens. Equipment levels are distinct from quest prerequisites.
 ---
+
+import Callout from '../../components/Callout.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import SunHeadgearObservers from '../../components/SunHeadgearObservers.astro';
+import { sunHeadgearImages as images } from '../../data/sun-headgears-images';
+import { dungeonEntrances } from '../../data/locations';
+import { guideHref } from '../../lib/paths';
+
+## Prerequisites
+
+<Callout title="Before you start, you will need">
+
+- Bring the **matching Moon headgear refined to exactly +9**.
+- Collect **25 Jewel Elunium** for the headgear upgrade.
+- Collect **15 Jewel Bradium**, **1,000 Star Pieces**, and **100 Galactic Dust** for Sun of Serpens.
+- Complete the Serpens steps on the character that will craft the headgear: **Moon of Serpens and Sun of Serpens are character-bound**.
+
+</Callout>
+
+## 1) Get your Moon headgear and materials
+
+<p>{dungeonEntrances.find(entrance => entrance.id === 'observatorium-astrologika')?.directions} See <a href={`${guideHref('dungeons')}#observatorium-astrologika`}>Observatorium Astrologika’s entrance</a> for the route and screenshots.</p>
+
+Defeat **<a href="https://rtm-database.pages.dev/index.html?tab=mobs&id=2668" target="_blank" rel="noreferrer">Moon Guardian</a>** in **Observatorium Study**, the first floor of Observatorium Astrologika, to obtain a <a href="https://rtm-database.pages.dev/?q=of+the+moon" target="_blank" rel="noreferrer">Moon headgear</a>. Choose the one you want to upgrade and refine it to **exactly +9**.
+
+Collect **<a href="https://rtm-database.pages.dev/index.html?id=6468" target="_blank" rel="noreferrer">Star Pieces</a>** and **<a href="https://rtm-database.pages.dev/index.html?id=6467" target="_blank" rel="noreferrer">Galactic Dust</a>** from the other monsters in the observatorium. You will also need **15 <a href="https://rtm-database.pages.dev/index.html?id=6226" target="_blank" rel="noreferrer">Jewel Bradium</a>** to craft Sun of Serpens.
+
+## 2) Read the bookshelf
+
+On the **first floor**, interact with the **Bookshelf** on the east side to begin the quest.
+
+<SourceScreenshot image={images.bookshelf} />
+<SourceScreenshot image={images.bookshelfMap} />
+
+## 3) Visit both telescopes
+
+Go to the **second floor**, Observatorium Window, and interact with the **Low-Range Telescope**. The red circle on the minimap marks its location.
+
+<SourceScreenshot image={images.lowTelescope} />
+<SourceScreenshot image={images.lowTelescopeMap} />
+
+Continue to the **third floor**, Observatorium Frozen Tide, and interact with the **High-Range Telescope** at the end of the floor.
+
+<SourceScreenshot image={images.highTelescope} />
+<SourceScreenshot image={images.highTelescopeMap} />
+
+## 4) Collect Moon of Serpens
+
+<p>{dungeonEntrances.find(entrance => entrance.id === 'airship-crash-site')?.route?.[0]} Follow the <a href={`${guideHref('dungeons')}#airship-crash-site`}>Airship Crash Site route</a> and enter <strong>Crash Site Cave</strong> (<code>resc_dun02</code>).</p>
+
+Find the **Stone** near the **north edge** of the cave. Interact with it to receive **Moon of Serpens**.
+
+<SourceScreenshot image={images.stone} />
+<SourceScreenshot image={images.stoneMap} />
+
+## 5) Craft Sun of Serpens
+
+Return to the **third floor of Observatorium Astrologika** and speak with **Frozen Tides**. Hand over:
+
+- **1 Moon of Serpens**.
+- **15 Jewel Bradium**.
+- **1,000 Star Pieces**.
+- **100 Galactic Dust**.
+
+You receive **Sun of Serpens**.
+
+<SourceScreenshot image={images.frozenTides} />
+<SourceScreenshot image={images.serpens} />
+
+## 6) Visit the matching observer
+
+Take your **exactly +9 Moon headgear**, **25 <a href="https://rtm-database.pages.dev/index.html?id=6290" target="_blank" rel="noreferrer">Jewel Elunium</a>**, and **1 <a href="https://rtm-database.pages.dev/index.html?id=25501" target="_blank" rel="noreferrer">Sun of Serpens</a>** to its matching observer.
+
+Use the coordinates and the white player arrow on each minimap to locate the observer.
+
+<SunHeadgearObservers />
+
+## 7) Rewards
+
+<Callout title="Crafting reward" tone="tip">
+
+- The **<a href="https://rtm-database.pages.dev/?q=of+the+sun" target="_blank" rel="noreferrer">Sun headgear</a>** matching your chosen Moon headgear.
+- **Two card slots**.
+- **Base Level 110** required to equip the Sun headgear.
+
+</Callout>

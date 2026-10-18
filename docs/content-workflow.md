@@ -43,3 +43,5 @@ Sources, acknowledgements, source/version caveats, and verification metadata bel
 The standard footer states that the source guides are publicly available and their material has been transferred into a consistent format. It preserves ownership and attribution and identifies editorial updates separately.
 
 Only published guide bodies appear in public HTML and search. WIP guides remain visible as labeled notices in the library, sidebar, and related links. Before publishing a draft, review its content and images, change its publication field, and rerun checks.
+
+In development, authored WIP bodies display at their usual guide URL with a “WIP · Local draft preview” badge and noindex metadata. Production builds retain the WIP notice. Drafts remain excluded from search in both environments.

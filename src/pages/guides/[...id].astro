@@ -7,5 +7,6 @@ export async function getStaticPaths() {
   return guides.filter(guide => guide.id !== 'job-class-tree').map(guide => ({ params: { id: guide.id }, props: { guide } }));
 }
 const { guide } = Astro.props;
+const showDraft = import.meta.env.DEV && Boolean(guide.body?.trim());
 ---
-{guide.data.publication === 'published' ? <GuidePage guide={guide} /> : <WorkInProgress guide={guide} />}
+{guide.data.publication === 'published' || showDraft ? <GuidePage guide={guide} /> : <WorkInProgress guide={guide} />}

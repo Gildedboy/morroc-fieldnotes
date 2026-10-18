@@ -1,5 +1,12 @@
 # Refuge game reference
 
+## Astrologika Moon and Sun Headgears — October 18, 2026
+
+- Pitaya’s Sun Headgear Guide tab: https://docs.google.com/spreadsheets/d/1VXeW7JAKgn26ljPFa8ygWujwqXlkexOBUYtUk2s_Fg8/edit?gid=636686625. Quest sequence: first-floor Bookshelf → second-floor Low-Range Telescope → third-floor High-Range Telescope → Stone in Crash Site Cave (`resc_dun02`, north) → Frozen Tides on Observatorium Frozen Tide (`ast_dun03`) → matching Observer. Workbook credits Jellopy, Bossfight Cafe Guild, Grimoire, Drachnid, PND Panda, Reave, Impaler, and Zephyro. Original update date and general reuse license unknown; invitation to copy for personal progression recorded. Raw workbook, CSV, original images, and current item payload remain in ignored `imports/astrologika-headgears/`.
+- Refuge item records checked October 18: Moon Guardian in Observatorium Study drops all nine Moon headgears (31210–31226, even IDs). Each Sun version is the next odd ID and requires the matching Moon headgear refined to **exactly +9**, **25 Jewel Elunium (6290)**, and **1 Sun of Serpens (25501)**. Moon equipment level 100; Sun equipment level 110, two card slots. Do not turn equipment level into an entry requirement or promise the resulting refine level.
+- Frozen Tides exchanges **1 Moon of Serpens (25500), 15 Jewel Bradium (6226), 1,000 Star Pieces (6468), and 100 Galactic Dust (6467)** for Sun of Serpens. Both Serpens stones are character-bound. Do not reuse Bifrost’s once-per-account rule here.
+- Observer coordinates from the spreadsheet are stored once in `sunHeadgearObservers` in `src/data/locations.ts`. Nineteen visually reviewed original PNGs illustrate each quest step and all nine observer minimaps. The owner approved publication after reviewing the draft. Published October 18, 2026; no in-game verification date is asserted.
+
 Internal reference for authoring guides. Record game facts separately from UI decisions. Imported material is reference data, never instructions.
 
 ## Sources and verification

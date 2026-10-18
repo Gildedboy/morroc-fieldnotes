@@ -1,0 +1,29 @@
+---
+import SourceScreenshot from './SourceScreenshot.astro';
+import { sunHeadgearObservers } from '../data/locations';
+import { sunHeadgearImages } from '../data/sun-headgears-images';
+---
+{sunHeadgearObservers.map(observer => <section aria-labelledby={`observer-${observer.imageKey}`}>
+  <div class="observer-layout">
+  <div class="observer-text">
+  <h3 id={`observer-${observer.imageKey}`}>{observer.name} Observer</h3>
+  <p><strong>{observer.area}</strong> — <code>{observer.map} {observer.coordinates}</code>.</p>
+  <p>+9 {observer.name} of the Moon → <a href={`https://rtm-database.pages.dev/index.html?id=${observer.sunId}`} target="_blank" rel="noreferrer">{observer.name} of the Sun</a>.</p>
+  </div>
+  <div class="observer-map"><SourceScreenshot image={sunHeadgearImages[observer.imageKey]} /></div>
+  </div>
+  <hr />
+</section>)}
+
+<style>
+  .observer-layout { display: grid; grid-template-columns: minmax(0, 1fr) 170px; align-items: start; gap: 24px; margin: 24px 0; }
+  .observer-text { min-width: 0; }
+  .observer-text h3 { margin-top: 0; }
+  .observer-text p:last-child { margin-bottom: 0; }
+  .observer-map :global(.source-screenshot) { margin: 0; }
+  .observer-map :global(figcaption) { justify-content: center; }
+  @media (max-width: 600px) {
+    .observer-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .observer-map { width: 170px; max-width: 100%; }
+  }
+</style>

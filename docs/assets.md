@@ -1,5 +1,9 @@
 # Asset provenance
 
+## Astrologika quest screenshots
+
+`public/images/sun-headgears/quest-01.png`–`quest-19.png` are unaltered instructional images from Pitaya’s Sun Headgear Guide spreadsheet, tab 636686625. The owner supplied the source for integrating this quest. The original workbook, extraction manifest, and images remain in ignored `imports/astrologika-headgears/`; metadata and alt text are in `src/data/sun-headgears-images.ts`. Images show the bookshelf, telescopes, Stone, Frozen Tides, Serpens tooltip, and nine observer minimaps. Source update date and general reuse license are unspecified; the workbook invites personal progression copies. Attribution is retained in guide frontmatter for About. The owner approved publication of the illustrated guide on October 18, 2026.
+
 ## Job class artwork
 
 Files under `public/images/classes/` are unmodified local copies from Refuge, reviewed and downloaded on 2026-10-17. Each class's animated idle and sitting WebP and reduced-motion stills come from its class page's `data-anim` metadata under `https://rtmrefuge.pages.dev/assets/img/anim/`. Initial `{class-id}-sprite.webp` and `{class-id}-face.webp` copies were downloaded from the tree but are superseded in the UI by animated sprites. `thief-portrait.webp` comes from `assets/img/portraits/thief-male.webp`. Exact source URLs, including version queries, are preserved in ignored `imports/refuge-classes/asset-manifest.json`; source HTML is alongside it. There are four pose assets per class, plus the original 85 reference assets. The Refuge footer says site content is free to copy; game artwork remains with its respective owners. No broader license is asserted. Echoes artwork is not used.
