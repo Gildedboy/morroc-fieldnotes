@@ -33,6 +33,7 @@ Choose effort for the task, not for the entire project. Reassess when moving fro
 
 - Read `docs/game-reference.md` when authoring game content. It records reviewed class progression, source caveats, and owner-confirmed facts; update it when new game facts are established. Use `docs/todo.md` for priorities and future work.
 - Read `docs/job-class-tree.md` before changing class-tree presentation or class pages.
+- Use `docs/class-guide-template.md` and the Trickster guide as the structural template when creating future class guides. Keep the section order and presentation consistent, while researching and writing class-specific content independently.
 - All code, comments, documentation, and product text are in English. Conversation with the owner may be Spanish.
 - Write guide instructions directly: what to do, where to go, and what happens. Avoid filler, motivational slogans, future-feature promises, and repeated phrases such as "the source associates", "the source describes", or "the guide suggests". Keep attribution and version caveats in the source block and credits; preserve specific uncertainty where facts actually conflict.
 - Do not add AI/process caveats, generic disclaimers, or self-referential commentary to public guide copy. Do not call content "untested," "community references," or "not independently verified" unless the owner explicitly asks to include that wording. Keep required source credits and verification metadata in the Sources & Acknowledgements block.
