@@ -77,9 +77,13 @@ test('Trickster gear tabs switch panels and support arrow-key navigation', async
   const topPanel = page.getByRole('tabpanel', { name: 'Top Headgear' });
 
   await expect(weapon).toHaveAttribute('aria-selected', 'true');
-  await expect(weaponPanel).toContainText('Gargantua [2] (Required Level 70) — the top scythe for a Trickster');
-  await expect(weaponPanel).toContainText('Steel Reaper [0] (Required Level 70)');
-  await expect(weaponPanel.getByRole('link', { name: 'Steel Reaper' })).toHaveAttribute('href', /rtm-database\.pages\.dev\/index\.html\?id=1542/);
+  await expect(weaponPanel).toContainText('Gargantua [2]');
+  await expect(weaponPanel).toContainText('Steel Reaper [0]');
+  await expect(weaponPanel.getByRole('link', { name: 'Steel Reaper [0]' })).toHaveAttribute('href', /rtm-database\.pages\.dev\/index\.html\?id=1542/);
+  await expect(weaponPanel.getByRole('link', { name: 'Soldier Skeleton Card' })).toHaveAttribute('target', '_blank');
+  await expect(page.getByRole('heading', { name: 'Strengths' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Weaknesses' })).toHaveCount(0);
+  await expect(page.locator('#core-gameplay')).not.toContainText('Equip a scythe');
   await expect(tabs.getByRole('tab', { name: 'Runes' })).toBeVisible();
   await expect(tabs.getByRole('tab', { name: 'Manuals' })).toBeVisible();
   await expect(tabs.getByRole('tab', { name: 'Shadow Sets' })).toBeVisible();
@@ -90,8 +94,29 @@ test('Trickster gear tabs switch panels and support arrow-key navigation', async
   await page.keyboard.press('ArrowLeft');
   await expect(top).toBeFocused();
   await expect(topPanel).toBeVisible();
-  await expect(topPanel).toContainText('Desert Prince (Required Level 5)');
+  await expect(topPanel).toContainText('Desert Prince [1]');
+  await expect(topPanel).toContainText('Crimson Wings Helm [0]');
   await expect(topPanel).toContainText('Baphomet Jr. Card');
+
+  const low = tabs.getByRole('tab', { name: 'Low Headgear' });
+  await low.click();
+  const lowPanel = page.getByRole('tabpanel', { name: 'Low Headgear' });
+  await expect(lowPanel).toContainText('Pirate Dagger [0]');
+  await expect(lowPanel).toContainText('Baphomet Shadow may be an option later');
+
+  await tabs.getByRole('tab', { name: 'Garment' }).click();
+  const garmentPanel = page.getByRole('tabpanel', { name: 'Garment' });
+  await expect(garmentPanel).toContainText('Zerom');
+  await expect(garmentPanel).toContainText('Bongun');
+
+  await tabs.getByRole('tab', { name: 'Shoes' }).click();
+  const shoesPanel = page.getByRole('tabpanel', { name: 'Shoes' });
+  await expect(shoesPanel).toContainText('Requiem');
+
+  await tabs.getByRole('tab', { name: 'Shadow Sets' }).click();
+  const shadowPanel = page.getByRole('tabpanel', { name: 'Shadow Sets' });
+  await expect(shadowPanel).toContainText('Lost Attire');
+  await expect(shadowPanel).not.toContainText('[0]');
 });
 
 test('essential reading and attribution work without JavaScript', async ({ browser, baseURL }) => {

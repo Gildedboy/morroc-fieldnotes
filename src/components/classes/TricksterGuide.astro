@@ -10,11 +10,7 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
 </div>
 
 <h2 id="overview">Overview</h2>
-<p>Trickster is a short-range, high-damage scythe job from Niflheim. It combines quick attack rotations, critical hits, Fire skills, and life leech. Leech and defensive buffs help it sustain through longer fights, but low defenses, high SP costs, cooldowns, and limited offensive elements demand careful timing.</p>
-<div>
-  <div><h3>Strengths</h3><p>Strong sustained damage, life leech, and defensive tools for staying in the fight.</p></div>
-  <div><h3>Weaknesses</h3><p>High SP use, several cooldowns to manage, and below-average defenses at close range.</p></div>
-</div>
+<p>Trickster is a short-range, high-damage scythe job from Niflheim, combining quick attack rotations, critical hits, Fire skills, and life leech.</p>
 <p>Refuge's class page notes that Hellraiser enables <strong>Finisher Ready</strong> without requiring level 10, and Sweeping Slash gains a third hit while that state is active.</p>
 
 <h2 id="job-change">Job Change Quest</h2>
@@ -41,8 +37,6 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
 </Callout>
 
 <h2 id="core-gameplay">Core Gameplay & Skills</h2>
-<p>Trickster deals close-range damage with scythes, critical attacks, Fire skills, and life leech. Its defensive skills help sustain longer fights, while low defenses, high SP costs, and cooldowns need attention.</p>
-<p>Equip a <strong>scythe</strong>. STR and LUK are the class's listed main stats. Use short attack rotations and life leech to sustain yourself, while watching your SP and cooldowns.</p>
 <ul>
   <li><SkillIcon icon="LK_SPIRALPIERCE" /><strong>Scythe Reap:</strong> the opener for Trickster's main combo. It deals multiple hits and grants <strong>Combo Ready</strong>.</li>
   <li><SkillIcon icon="KN_PIERCE" /><strong>Sweeping Slash:</strong> cast it after Scythe Reap while <strong>Combo Ready</strong> is active. Without it, Sweeping Slash deals reduced damage.</li>
@@ -126,7 +120,7 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
       <tr><td><a href={itemHref(5591, 'Desert Prince')}>Desert Prince [1]</a></td><td>5</td><td></td></tr>
       <tr><td><a href={itemHref(5969, 'Royal Pirate Hat')}>Royal Pirate Hat [1]</a> or <a href={itemHref(5019, 'Corsair')}>Corsair [1]</a></td><td>10</td><td>Pirate Set with Pirate Dagger</td></tr>
       <tr><td><a href={itemHref(2299, 'Orc Helm')}>Orc Helm [1]</a></td><td>30</td><td>Orc Set</td></tr>
-      <tr><td><a href={itemHref(5873, 'Crimson Wings Helm')}>Crimson Wings Helm [1]</a></td><td>50</td><td></td></tr>
+      <tr><td><a href={itemHref(5873, 'Crimson Wings Helm')}>Crimson Wings Helm [0]</a></td><td>50</td><td></td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
     <p><strong>Card:</strong> <a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</p>
@@ -143,17 +137,17 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Low headgear / set option</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
       <tr><td><a href={itemHref(31877, 'Bravery Scarf')}>Bravery Scarf [0]</a></td><td>0</td><td></td></tr>
       <tr><td><a href={itemHref(31882, 'Calm Scarf')}>Calm Scarf [0]</a></td><td>0</td><td></td></tr>
-      <tr><td><a href={itemHref(5305, 'Pirate Dagger')}>Pirate Dagger [0]</a></td><td>0</td><td>Weapon used for the Pirate Set</td></tr>
+      <tr><td><a href={itemHref(5305, 'Pirate Dagger')}>Pirate Dagger [0]</a></td><td>0</td><td>Pirate Set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> none for this stage; this slot changes with Rose and Food in Mouth on Revenant.</p>
+    <p><strong>Card:</strong> none for now. Baphomet Shadow may be an option later.</p>
   </section>
   <section id="trickster-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-armor" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Armor</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
       <tr><td><a href={itemHref(15368, 'Orphan Clothes')}>Orphan Clothes [1]</a></td><td>1</td><td></td></tr>
       <tr><td><a href={itemHref(2812, 'Scarlet Suit')}>Scarlet Suit [1]</a></td><td>10</td><td>Scarlet Set</td></tr>
       <tr><td><a href={itemHref(15000, 'Orc Armor')}>Orc Armor [1]</a></td><td>30</td><td>Orc Set</td></tr>
-      <tr><td><a href={itemHref(15448, 'Bullhorn Armor')}>Bullhorn Armor [1]</a></td><td>40</td><td></td></tr>
+      <tr><td><a href={itemHref(15448, 'Bullhorn Armor')}>Bullhorn Armor [1]</a></td><td>40</td><td>Slotted Bullhorn Set: armor, garment, shoes, and ring</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
     <p><strong>Card:</strong> <a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</p>
@@ -163,32 +157,34 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
       <tr><td><a href={itemHref(15366, 'Orphan Cape')}>Orphan Cape [1]</a></td><td>1</td><td></td></tr>
       <tr><td><a href={itemHref(2811, 'Scarlet Cape')}>Scarlet Cape [1]</a></td><td>10</td><td>Scarlet Set</td></tr>
       <tr><td><a href={itemHref(2542, 'Dracula Manteau')}>Dracula Manteau [0]</a></td><td>15</td><td>Nice to have</td></tr>
-      <tr><td><a href={itemHref(15452, 'Bullhorn Manteau')}>Bullhorn Manteau [1]</a></td><td>40</td><td></td></tr>
+      <tr><td><a href={itemHref(15452, 'Bullhorn Manteau')}>Bullhorn Manteau [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Cards:</strong> <a href={itemHref(4212, 'Bongun Card')}>Bongun</a> and <a href={itemHref(4090, 'Munak Card')}>Munak</a> can go in shoes or garment; <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> goes in garment. The <a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a> is another garment option.</p>
   </section>
   <section id="trickster-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shoes" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shoes</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
       <tr><td><a href={itemHref(15367, 'Orphan Shoes')}>Orphan Shoes [1]</a></td><td>1</td><td></td></tr>
       <tr><td><a href={itemHref(2813, 'Scarlet Shoes')}>Scarlet Shoes [1]</a></td><td>10</td><td>Scarlet Set</td></tr>
-      <tr><td><a href={itemHref(15450, 'Bullhorn Shoes')}>Bullhorn Shoes [1]</a></td><td>40</td><td></td></tr>
+      <tr><td><a href={itemHref(15450, 'Bullhorn Shoes')}>Bullhorn Shoes [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> start with <a href={itemHref(4212, 'Bongun Card')}>Bongun</a> and <a href={itemHref(4090, 'Munak Card')}>Munak</a>; later use <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> and <a href={itemHref(4104, 'Requiem Card')}>Requiem</a> together. <a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a> is an option for later.</p>
+    <p><strong>Cards:</strong> <a href={itemHref(4212, 'Bongun Card')}>Bongun</a> and <a href={itemHref(4090, 'Munak Card')}>Munak</a> can go in shoes or garment. <a href={itemHref(4104, 'Requiem Card')}>Requiem</a> goes in shoes; pair it later with <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> in garment.</p>
   </section>
   <section id="trickster-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-accessories" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Accessory</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
       <tr><td><a href={itemHref(32242, 'Old Tomb Ring')}>Old Tomb Ring [1]</a></td><td>10</td><td></td></tr>
       <tr><td><a href={itemHref(2715, 'Orc Ring')}>Orc Ring [1]</a></td><td>30</td><td>Orc Set</td></tr>
-      <tr><td><a href={itemHref(15454, 'Bullhorn Ring')}>Bullhorn Ring [1]</a></td><td>40</td><td></td></tr>
+      <tr><td><a href={itemHref(15454, 'Bullhorn Ring')}>Bullhorn Ring [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
     <p><strong>Cards:</strong> <a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a> or <a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a>, if affordable; <a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> is another option if affordable.</p>
   </section>
   <section id="trickster-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shadow-sets" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shadow set pieces</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
-      <tr><td><strong>Lost Attire:</strong> <a href={itemHref(24689, 'Lost Attire Armor')}>Armor [0]</a>, <a href={itemHref(24687, 'Lost Attire Gloves')}>Gloves [0]</a>, <a href={itemHref(24690, 'Lost Attire Shoes')}>Shoes [0]</a>, <a href={itemHref(24692, 'Lost Attire Pendant')}>Pendant [0]</a></td><td>1</td><td></td></tr>
-      <tr><td><strong>Legacy of Coins:</strong> <a href={itemHref(24258, 'Legacy of Coins Armor')}>Armor [0]</a>, <a href={itemHref(24259, 'Legacy of Coins Gloves')}>Gloves [0]</a>, <a href={itemHref(24260, 'Legacy of Coins Shoes')}>Shoes [0]</a>, <a href={itemHref(24261, 'Legacy of Coins Pendant')}>Pendant [0]</a></td><td>10</td><td></td></tr>
-      <tr><td><strong>Bushido:</strong> <a href={itemHref(24387, 'Bushido Armor')}>Armor [0]</a>, <a href={itemHref(24388, 'Bushido Gloves')}>Gloves [0]</a>, <a href={itemHref(24389, 'Bushido Shoes')}>Shoes [0]</a>, <a href={itemHref(24390, 'Bushido Pendant')}>Pendant [0]</a></td><td>65</td><td></td></tr>
+      <tr><td><strong>Lost Attire:</strong> <a href={itemHref(24689, 'Lost Attire Armor')}>Armor</a>, <a href={itemHref(24687, 'Lost Attire Gloves')}>Gloves</a>, <a href={itemHref(24690, 'Lost Attire Shoes')}>Shoes</a>, <a href={itemHref(24692, 'Lost Attire Pendant')}>Pendant</a></td><td>1</td><td></td></tr>
+      <tr><td><strong>Legacy of Coins:</strong> <a href={itemHref(24258, 'Legacy of Coins Armor')}>Armor</a>, <a href={itemHref(24259, 'Legacy of Coins Gloves')}>Gloves</a>, <a href={itemHref(24260, 'Legacy of Coins Shoes')}>Shoes</a>, <a href={itemHref(24261, 'Legacy of Coins Pendant')}>Pendant</a></td><td>10</td><td></td></tr>
+      <tr><td><strong>Bushido:</strong> <a href={itemHref(24387, 'Bushido Armor')}>Armor</a>, <a href={itemHref(24388, 'Bushido Gloves')}>Gloves</a>, <a href={itemHref(24389, 'Bushido Shoes')}>Shoes</a>, <a href={itemHref(24390, 'Bushido Pendant')}>Pendant</a></td><td>65</td><td></td></tr>
     </tbody></table></div>
   </section>
   <section id="trickster-gear-panel-runes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-runes" tabindex="0" hidden>
@@ -204,6 +200,10 @@ const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/i
 
 <script>
   document.querySelectorAll<HTMLElement>('[data-gear-tabs]').forEach((tabGroup) => {
+    tabGroup.querySelectorAll<HTMLAnchorElement>('a[href^="https://rtm-database.pages.dev/"]').forEach((link) => {
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+    });
     const tabs = Array.from(tabGroup.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
     const activate = (tab: HTMLButtonElement, focus = false) => {
       tabs.forEach((item) => {
