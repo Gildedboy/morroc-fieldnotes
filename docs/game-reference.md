@@ -11,7 +11,7 @@ Internal reference for authoring guides. Record game facts separately from UI de
 
 ## Class progression
 
-Every character begins as an Orphan and can change into Thief. Thief is centered among Orphan's job options; visual placement does not change progression.
+Every character begins as an Orphan. The player chooses their job and progression path from Orphan's available options; the New Player Guide must not direct everyone into Thief. Thief is centered among Orphan's job options; visual placement does not change progression.
 
 | Path | Progression |
 | --- | --- |
