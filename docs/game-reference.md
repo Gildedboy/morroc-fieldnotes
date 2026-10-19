@@ -264,3 +264,5 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Owner adds Megingjard to Revenant accessories; current database spelling is Megingjard, required level 100, zero slots.
 
 - Owner corrects Revenant Shadow equipment: Red Velvet does not exist in current Refuge; remove it. Unknown Tech is the current best-in-slot set. Current item records list Armor, Boots, Pendant, and Shield at required level 100.
+
+- Owner approves removing Revenant’s WIP and publishing the guide on October 19, 2026. Remove WIP labels from the guide, sidebar, and class-tree info link, and allow indexing. Source-reviewed status remains; no in-game verification date is asserted.

@@ -18,7 +18,7 @@ const sections = isTrickster || isRevenant ? [['overview', 'Overview'], ['job-ch
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
-<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={isRevenant ? 'revenant' : isTrickster ? 'trickster' : 'job-class-tree'} noindex={!isThief}>
+<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={isRevenant ? 'revenant' : isTrickster ? 'trickster' : 'job-class-tree'} noindex={!isThief && !isRevenant}>
   <div class="article-grid">
     <div class="article-column">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={withBase('classes/')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
