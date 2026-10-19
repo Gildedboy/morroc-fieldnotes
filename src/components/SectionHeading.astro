@@ -1,0 +1,5 @@
+---
+interface Props { id?: string }
+const { id } = Astro.props;
+---
+<h2 id={id}><slot />{id && <a class="section-permalink" href={`#${id}`} aria-label={`Link to this section: ${id.replaceAll('-', ' ')}`}>#</a>}</h2>

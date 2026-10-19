@@ -61,3 +61,5 @@ The New Player Guide is already available as the Getting Started example. Do not
 
 - [x] Add Amatsu Seals Unlock as a WIP entry under Getting Started.
 - [ ] Author Amatsu Seals Unlock from supporting quest sources and screenshots.
+
+- [x] Add shareable # links beside dungeon and distortion headings; direct fragment URLs jump to the selected location.

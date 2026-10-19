@@ -98,3 +98,7 @@ dialog{color:var(--text);background:#17151d;border:1px solid #47374f;border-radi
   .source-screenshot { break-inside: avoid; }
   .source-screenshot img { max-height: 600px; }
 }
+
+.prose .section-permalink{display:inline-block;margin-left:.45em;padding:0 .15em;color:var(--muted);font-family:var(--body);font-size:.7em;text-decoration:none}.prose .section-permalink:hover,.prose .section-permalink:focus-visible{color:var(--accent)}
+
+.prose .section-permalink{opacity:0}.prose h2:hover .section-permalink,.prose .section-permalink:focus-visible{opacity:1}
