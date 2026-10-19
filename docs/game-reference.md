@@ -202,3 +202,65 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Owner-confirmed sandal details: **Old Rose Sandals have random roll options; Blooming Rose Sandals do not**. The base pair must be **exactly +7**, not a minimum threshold. Show both in the walkthrough; treat the Blooming option bars as fixed bonuses, not random rolls. Owner-requested screenshot crops isolate the old tooltip (including its roll bars), upgraded tooltip and fixed option bars, correct distortion orb, Rose Sage/service label, repair choices, and material dialogue. Native CSS viewports preserve the original JPEG pixels and full-size links.
 
 - Owner clarification: display the option bars on the Blooming Rose Sandals screenshot as well. Those bonuses are **fixed options**, unlike Old Rose Sandals’ random rolls. The reward viewport includes the complete item tooltip and option panel.
+
+## Revenant guide — October 19, 2026
+
+- Owner confirms final-job guides cover obtaining the job through Base Level 130; most jobs evolve around Base Level 99 onward. Beyond 130, most locations require specific equipment and setups; a prominent scope notice sets that boundary. Actual job requirements remain distinct: Revenant requires Trickster Job Level 70.
+- Reviewed Refuge's Revenant page and the complete Phawkes workbook (StatsSkills Guide, Gears Guide, How to Combo). Previous local exports contained only the stats/skills tab. Full workbook and text extractions remain in ignored `imports/phawkes-full.xlsx` and related files. Source revision and reuse terms unspecified; owner requested guide integration. Credits: Phawkes; Sparda, Arumakan, Kim, Kharon, knoxzera (suggestions); Trueduck (gear template). No in-game verification recorded.
+- Local WIP Revenant guide follows the class template, using the original full-frame skill-tree image, stat targets, allocation order, combo sequences, and selected gear suggestions. Refuge Changes is a named Overview callout shared by job guides. Refuge source permits copying site content; its Revenant mechanics were transcribed by another community before the original wiki went offline.
+
+- Owner prioritizes Darkside Shadow and Vampire Mark as Revenant buffs, and High Jump as utility. Include them in Core Gameplay and the buff maintenance sequence; keep the spreadsheet’s original allocation order distinct.
+
+- Owner confirms the Revenant job-change egg’s pet grants leech. Include this benefit in the reward description; no numerical leech value was supplied.
+
+- Owner questions the Reaper pet’s stun effect. Remove that claim from the guide despite the Refuge class page mentioning it; leech remains owner-confirmed.
+
+- Owner classifies Underworld Rainstorm as Revenant’s final damage spell: present it with Reaping Slash and Roaring Overslash in core gameplay. Haunting Slice, Phantom Slice, and High Jump belong under utility. This supersedes the earlier convenience grouping for Rainstorm.
+
+- Owner emphasizes investing in DEX after learning Darkside Shadow for its physical skill damage scaling. No target DEX value is specified; include this alongside the spreadsheet’s STR/LUK/VIT targets.
+
+- Owner requests a stat-allocation callout: spreadsheet allocations are examples, subject to each player's build, equipment, and survival needs. DEX improves physical skill damage when Darkside Shadow is learned and active. Owner’s personal Base Level 131 example is 99 STR / 90 LUK / 90 DEX / 10 VIT / 17 INT, with possible VIT removal under consideration; this is context, not a prescribed allocation or a reason to extend the guide beyond 130.
+
+- Owner replaces Revenant’s level-based stat table with before/after Darkside Shadow examples. Before: carry forward Trickster’s 70 STR / 90 LUK foundation, splitting support points between VIT and INT, without requiring DEX. After learning and using Darkside Shadow: 99 STR / 90 LUK / 90 DEX / 10 VIT / 17 INT. Treat both as examples rather than mandatory allocations; shifting to lower VIT/INT requires reallocation. This supersedes the earlier decision to retain the personal allocation only as context.
+
+- Owner revises the post-Darkside Shadow example at Base Level 130 to **99 STR / 90 LUK / 90 DEX / 25 INT**, removing the 10 VIT entry. This supersedes the earlier 10 VIT / 17 INT example.
+
+- Owner explains the lower-VIT example: at higher levels of Ominous Presence and Darkside Shadow, reliance on the overheal shield can allow moving points out of VIT. Present this as an option, not a universal recommendation.
+
+- Owner supersedes Phawkes’ older Revenant allocation for the Base Level 130 guide: unlock Roaring Overslash, max the buffs/passives (Advanced Scythe Mastery, Ominous Presence, Darkside Shadow, Vampire Mark), then max Roaring Overslash. Remaining points are choices between unlocking Phantom Slice, Haunting Slice, High Jump, Underworld Rainstorm, or maxing Reaping Slash; do not prescribe maxing Haunting/Phantom or imply level 150 skill points are available. Remove Phawkes’ outdated skill-tree screenshot from the guide.
+
+- Skill points come from **Job Level**, not Base Level. Base Level 130 defines the guide’s content scope, not an exact skill-point budget. Do not infer available skill points from Base Level. Keep each max-skill priority as its own numbered step, matching Trickster.
+
+- Owner supplies new Trickster and Revenant skill-tree screenshots for local development. Display both full-frame as allocation examples, replacing the older Trickster spreadsheet screenshot. Do not infer Job Level or a universal skill build from the images.
+
+- Owner confirms Haunting Slice autocasts Scythe Reap, granting Combo Ready and allowing the regular Reaping Slash / Roaring Overslash combo after closing the gap. Use this explanation instead of the older spreadsheet’s fixed gap-closing sequence.
+
+- Owner supplies a quick Revenant rotation: Combo Ready enabler (Haunting Slice, Scythe Reap, or Sweeping Slash) → Reaping Slash → Hellraiser → Reaping Slash → Sweeping Slash → Roaring Overslash. Include it under How to Play with skill icons.
+
+- Owner clarifies Haunting Slice’s Scythe Reap trigger: 100% success at maximum Haunting Slice level. Remove Haunting Slice from the main quick-rotation opener choices and explain it as an alternative that must trigger Scythe Reap to grant Combo Ready. This qualifies the earlier unconditional autocast wording.
+
+- Owner confirms Ominous Lament as the current best-in-slot Revenant scythe and requests removing Abyss Wanderer Card from its weapon recommendations.
+
+- Owner identifies Volan of the Sun as current best-in-slot Revenant top headgear and adds Dream of Kings Card to top-headgear recommendations. Local item snapshot confirms Volan of the Sun (31221), required level 110, two card slots.
+
+- Owner adds Veins Ghoul Card to Revenant mid-headgear cards and identifies Eye of Hearts as current best-in-slot mid headgear. Dandelion Eyepatch is useful with a Roaring Overslash damage % roll. Local snapshot: Eye of Hearts (5930), level 125, one slot.
+
+- Owner removes Magician Hat from Revenant recommendations and prioritizes Darkness Helm as an upgrade after the job change.
+
+- Owner marks Asgard Blessing and Stormwalker Fin as optional upgrades in the Revenant guide.
+
+- Owner adds optional Toast in Mouth and Donut in Mouth, marks Mystic Blue Rose optional for SP regeneration, and identifies Flaming Weaver as best-in-slot Revenant low headgear. Adds Voice of Sorrow Card. Local item snapshot confirms Toast/Donut level 100 with one slot each; Flaming Weaver level 125 with two slots.
+
+- Owner adds Dry Goblin Card and Genesis Bright Armor / Genesis Raid Cloth as possible best-in-slot Revenant Holy armor choices; marks Fate and Power Dragon Plate as upgrades after the job change and removes Excellion Suit. Current Refuge item payload reviewed October 19, 2026 (`imports/revenant-items-current.json`) confirms White Knight Armor is Holy, Khalitzburg Knight Armor is Dark, and both Genesis pieces are Holy, level 130 with one slot and knockback immunity.
+
+- Owner provides the direct Revenant Discord discussion thread: https://discord.com/channels/1500898812942745602/1545533508515143833. Use it in the final help section instead of the general server invite.
+
+- Owner adds Apocalypse Scale Mail and Apocalypse Occult Suit as possible best-in-slot Revenant choices when Dark armor is needed. Current item records confirm both are Dark element, required level 130, with one slot.
+
+- Owner recommends pairing Revenant’s Metal Boots MK I with Strange Metal Ring for the set bonus and adds Blooming Rose Sandals as a possible best-in-slot shoe choice. Current item records confirm the Metal set and sandals level 120 with one slot.
+
+- Owner updates Revenant accessories: pair Strange Metal Ring with Metal Boots MK I; add Sage Ring (current record: level 100, three slots). Remove Silent Ronin, Echio, and Wormtail cards; add Doomfist Card.
+
+- Owner adds Megingjard to Revenant accessories; current database spelling is Megingjard, required level 100, zero slots.
+
+- Owner corrects Revenant Shadow equipment: Red Velvet does not exist in current Refuge; remove it. Unknown Tech is the current best-in-slot set. Current item records list Armor, Boots, Pendant, and Shield at required level 100.

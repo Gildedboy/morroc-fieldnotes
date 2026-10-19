@@ -696,7 +696,7 @@ export const jobClasses: JobClass[] = [
       "physical"
     ],
     "difficulty": "moderate",
-    "weapons": "Scythe",
+    "weapons": "Scythes",
     "stage": "final",
     "sprite": "images/classes/revenant-sprite.webp",
     "face": "images/classes/revenant-face.webp",

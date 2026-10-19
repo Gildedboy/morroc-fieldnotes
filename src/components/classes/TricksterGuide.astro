@@ -1,7 +1,10 @@
 ---
 import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
+import SourceScreenshot from '../SourceScreenshot.astro';
 import Callout from '../Callout.astro';
+import GearTabBehavior from './GearTabBehavior.astro';
+import ProgressGearNotice from './ProgressGearNotice.astro';
 const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/index.html?id=${id}&q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items&tab=items`;
 const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items`;
 ---
@@ -12,7 +15,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 
 <h2 id="overview">Overview</h2>
 <p>Trickster is a short-range, high-damage scythe job from Niflheim, combining quick attack rotations, critical hits, Fire skills, and life leech.</p>
-<p>Refuge's class page notes that Hellraiser enables <strong>Finisher Ready</strong> without requiring level 10, and Sweeping Slash gains a third hit while that state is active.</p>
+<Callout title="Refuge Changes"><p>Hellraiser enables <strong>Finisher Ready</strong> without requiring level 10. Sweeping Slash gains a third hit while that state is active.</p></Callout>
 
 <h2 id="job-change">Job Change Quest</h2>
 <Callout title="Requirement">
@@ -69,10 +72,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
   <li><SkillIcon icon="LK_SPIRALPIERCE" />Max Scythe Reap.</li>
   <li><SkillIcon icon="SA_FLAMELAUNCHER" />Max Burning Scythe to endow your weapon with Fire; if you will not use it for that, spend those points leveling <SkillIcon icon="RK_IGNITIONBREAK" />Hellraiser instead.</li>
 </ol>
-<figure class="trickster-build-image">
-  <img src={withBase('images/classes/trickster-skill-tree.png')} alt="Basic Trickster skill tree" width="562" height="403" loading="lazy" />
-  <figcaption>Basic Trickster skill tree.</figcaption>
-</figure>
+<SourceScreenshot image={{ src: 'images/classes/trickster-owner-skill-tree.png', width: 555, height: 395, alt: 'Trickster skill tree supplied by the site owner', caption: 'Trickster skill-tree example.' }} />
 
 <h2 id="how-to-play">How to Play</h2>
 <ol>
@@ -87,11 +87,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 <p>See the <a href={withBase('guides/leveling-spots/')}>Leveling Spots</a> guide for monster ranges, routes, and location notes.</p>
 
 <h2 id="progress-gear">Progress Gear</h2>
-<div class="trickster-gear-note">
-  <Callout title="Keep leveling — gear upgrades come over time" tone="warning">
-    <p>Do not stop leveling to chase perfect random rolls or wait for a specific piece of gear. Keep using the best equipment you have and continue progressing; better items and rolls will come eventually. If a piece can carry you through the mid-to-late game, this guide will say so.</p>
-  </Callout>
-</div>
+<ProgressGearNotice />
 <div class="gear-tabs" data-gear-tabs>
   <div class="gear-tab-list" role="tablist" aria-label="Trickster gear slots">
     <button id="trickster-gear-tab-weapon" class="gear-tab" type="button" role="tab" aria-selected="true" aria-controls="trickster-gear-panel-weapon" tabindex="0">Weapon</button>
@@ -204,39 +200,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
   </section>
 </div>
 
-<script>
-  document.querySelectorAll<HTMLElement>('[data-gear-tabs]').forEach((tabGroup) => {
-    tabGroup.querySelectorAll<HTMLAnchorElement>('a[href^="https://rtm-database.pages.dev/"]').forEach((link) => {
-      link.target = '_blank';
-      link.rel = 'noreferrer';
-    });
-    const tabs = Array.from(tabGroup.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
-    const activate = (tab: HTMLButtonElement, focus = false) => {
-      tabs.forEach((item) => {
-        const selected = item === tab;
-        item.setAttribute('aria-selected', String(selected));
-        item.tabIndex = selected ? 0 : -1;
-        const panel = tabGroup.querySelector<HTMLElement>(`#${item.getAttribute('aria-controls')}`);
-        if (panel) panel.hidden = !selected;
-      });
-      if (focus) tab.focus();
-    };
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => activate(tab));
-      tab.addEventListener('keydown', (event) => {
-        let nextIndex = index;
-        if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-        else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-        else if (event.key === 'Home') nextIndex = 0;
-        else if (event.key === 'End') nextIndex = tabs.length - 1;
-        else return;
-        event.preventDefault();
-        activate(tabs[nextIndex], true);
-      });
-    });
-  });
-</script>
+<GearTabBehavior />
 
 <h2 id="next-step">Next Step</h2>
 <p>Reach <strong>Trickster Job Level 70</strong> to advance to <a href={withBase('classes/revenant/')}>Revenant</a>.</p>

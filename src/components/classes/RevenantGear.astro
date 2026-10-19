@@ -1,0 +1,505 @@
+---
+import GearTabBehavior from './GearTabBehavior.astro';
+const groups = [
+  {
+    "title": "Weapon",
+    "items": [
+      {
+        "name": "Gargantua",
+        "slots": "2",
+        "level": "70",
+        "note": "Supports Sweeping Slash."
+      },
+      {
+        "name": "Pesta",
+        "slots": "1",
+        "level": "100",
+        "note": "Leech-focused option; disables direct healing. No random options."
+      },
+      {
+        "name": "Ominous Lament",
+        "slots": "2",
+        "level": "110",
+        "note": "Current best-in-slot scythe. Supports Reaping Slash and Roaring Overslash."
+      }
+    ],
+    "note": "Gargantua supports Sweeping Slash. Pesta emphasizes leech but disables direct healing. Ominous Lament supports Reaping Slash and Roaring Overslash.",
+    "cards": [
+      "Soldier Skeleton Card",
+      "Gremlin Card",
+      "The Paper Card",
+      "Baroness of Sorrow Card"
+    ],
+    "id": "weapon"
+  },
+  {
+    "title": "Top Headgear",
+    "items": [
+      {
+        "name": "Royal Pirate Hat",
+        "slots": "1",
+        "level": "10",
+        "note": ""
+      },
+      {
+        "name": "Darkness Helm",
+        "slots": "1",
+        "level": "80",
+        "note": "A priority upgrade after changing to Revenant."
+      },
+      {
+        "name": "Volan of the Sun",
+        "slots": "2",
+        "level": "110",
+        "note": "Current best-in-slot top headgear."
+      }
+    ],
+    "cards": [
+      "Baphomet Jr. Card",
+      "Dream of Kings Card"
+    ],
+    "id": "top-headgear"
+  },
+  {
+    "title": "Mid Headgear",
+    "items": [
+      {
+        "name": "Evil Wing Ears",
+        "slots": "1",
+        "level": "10",
+        "note": ""
+      },
+      {
+        "name": "Dandelion Eyepatch",
+        "slots": "1",
+        "level": "95",
+        "note": "Useful with a Roaring Overslash damage % roll."
+      },
+      {
+        "name": "Asgard Blessing",
+        "slots": "1",
+        "level": "110",
+        "note": "Optional upgrade."
+      },
+      {
+        "name": "Stormwalker Fin",
+        "slots": "1",
+        "level": "100",
+        "note": "Optional upgrade."
+      },
+      {
+        "name": "Eye of Hearts",
+        "slots": "1",
+        "level": "125",
+        "note": "Current best-in-slot mid headgear."
+      }
+    ],
+    "cards": [
+      "Baphomet Card",
+      "Idun Avatar Card",
+      "Veins Ghoul Card"
+    ],
+    "id": "mid-headgear"
+  },
+  {
+    "title": "Low Headgear",
+    "items": [
+      {
+        "name": "Bravery Scarf",
+        "slots": "0",
+        "level": "1",
+        "note": ""
+      },
+      {
+        "name": "Samurai Mask",
+        "slots": "0",
+        "level": "50",
+        "note": ""
+      },
+      {
+        "name": "Mystic Blue Rose",
+        "slots": "1",
+        "level": "80",
+        "note": "Optional upgrade if you need SP regeneration."
+      },
+      {
+        "name": "Toast in Mouth",
+        "slots": "1",
+        "level": "100",
+        "note": "Optional upgrade."
+      },
+      {
+        "name": "Donut in Mouth",
+        "slots": "1",
+        "level": "100",
+        "note": "Optional upgrade."
+      },
+      {
+        "name": "Flaming Weaver",
+        "slots": "2",
+        "level": "125",
+        "note": "Current best-in-slot low headgear."
+      }
+    ],
+    "cards": [
+      "Baphomet’s Shadow Card",
+      "Mind Vessel Card",
+      "Voice of Sorrow Card"
+    ],
+    "id": "low-headgear"
+  },
+  {
+    "title": "Armor",
+    "items": [
+      {
+        "name": "Eastern Sky Armor",
+        "slots": "1",
+        "level": "50",
+        "note": ""
+      },
+      {
+        "name": "Fate Dragon Plate",
+        "slots": "1",
+        "level": "80",
+        "note": "Upgrade after changing to Revenant; LUK-focused option."
+      },
+      {
+        "name": "Power Dragon Plate",
+        "slots": "1",
+        "level": "80",
+        "note": "Upgrade after changing to Revenant; STR-focused option."
+      },
+      {
+        "name": "White Knight Armor",
+        "slots": "1",
+        "level": "90",
+        "note": "Holy-element armor."
+      },
+      {
+        "name": "Khalitzburg Knight Armor",
+        "slots": "1",
+        "level": "90",
+        "note": "Dark-element armor."
+      },
+      {
+        "name": "Opera Gown",
+        "slots": "1",
+        "level": "100",
+        "note": "Situational armor against knockback."
+      },
+      {
+        "name": "Diabolus Armor",
+        "slots": "2",
+        "level": "130",
+        "note": ""
+      },
+      {
+        "name": "Genesis Bright Armor",
+        "slots": "1",
+        "level": "130",
+        "note": "Possible best-in-slot choice when Holy armor is needed. Knockback immunity; HP-focused."
+      },
+      {
+        "name": "Genesis Raid Cloth",
+        "slots": "1",
+        "level": "130",
+        "note": "Possible best-in-slot choice when Holy armor is needed. Knockback immunity; HP and SP per refine."
+      },
+      {
+        "name": "Apocalypse Scale Mail",
+        "slots": "1",
+        "level": "130",
+        "note": "Possible best-in-slot choice when Dark armor is needed. HP-focused."
+      },
+      {
+        "name": "Apocalypse Occult Suit",
+        "slots": "1",
+        "level": "130",
+        "note": "Possible best-in-slot choice when Dark armor is needed. HP and SP per refine."
+      }
+    ],
+    "note": "Opera Gown is a situational choice against knockback. Choose armor element to suit the encounter.",
+    "cards": [
+      "Minorous Card",
+      "Succubus Card",
+      "Alice Card",
+      "Ruby Golem Card",
+      "Dry Goblin Card"
+    ],
+    "id": "armor"
+  },
+  {
+    "title": "Garment",
+    "items": [
+      {
+        "name": "Clean Towel",
+        "slots": "1",
+        "level": "40",
+        "note": ""
+      },
+      {
+        "name": "Ivory Muffler",
+        "slots": "1",
+        "level": "60",
+        "note": ""
+      },
+      {
+        "name": "Paradox Muffler",
+        "slots": "2",
+        "level": "100",
+        "note": ""
+      },
+      {
+        "name": "Asprika",
+        "slots": "0",
+        "level": "100",
+        "note": ""
+      },
+      {
+        "name": "Temporal Manteau",
+        "slots": "1",
+        "level": "100",
+        "note": "Set with Temporal Boots."
+      },
+      {
+        "name": "Mercury Cape",
+        "slots": "2",
+        "level": "130",
+        "note": ""
+      },
+      {
+        "name": "Neptune Cape",
+        "slots": "2",
+        "level": "130",
+        "note": ""
+      },
+      {
+        "name": "Surt Shawl",
+        "slots": "1",
+        "level": "130",
+        "note": ""
+      }
+    ],
+    "note": "Temporal Manteau pairs with Temporal Boots. Mercury and Neptune emphasize STR and LUK respectively.",
+    "cards": [
+      "Zerom Card",
+      "Sif Avatar Card",
+      "Devilring Card",
+      "Karakasa Card"
+    ],
+    "id": "garment"
+  },
+  {
+    "title": "Shoes",
+    "items": [
+      {
+        "name": "Temporal STR Boots",
+        "slots": "1",
+        "level": "90",
+        "note": ""
+      },
+      {
+        "name": "Temporal LUK Boots",
+        "slots": "1",
+        "level": "90",
+        "note": ""
+      },
+      {
+        "name": "Metal Boots MK I",
+        "slots": "1",
+        "level": "90",
+        "note": "Better when paired with Strange Metal Ring for the set bonus."
+      },
+      {
+        "name": "Paradox Shoes",
+        "slots": "2",
+        "level": "100",
+        "note": ""
+      },
+      {
+        "name": "Blooming Rose Sandals",
+        "slots": "1",
+        "level": "120",
+        "note": "Possible best-in-slot choice."
+      },
+      {
+        "name": "Emperium Boots",
+        "slots": "1",
+        "level": "130",
+        "note": ""
+      }
+    ],
+    "cards": [
+      "Requiem Card",
+      "Faceworm Card",
+      "Empathy Card",
+      "Sleipnir Avatar Card",
+      "Moonlight Flower Card"
+    ],
+    "id": "shoes"
+  },
+  {
+    "title": "Accessories",
+    "items": [
+      {
+        "name": "Old Tomb Ring",
+        "slots": "1",
+        "level": "10",
+        "note": ""
+      },
+      {
+        "name": "Vesper Core 03",
+        "slots": "1",
+        "level": "65",
+        "note": "Set with Vesper Gear 03."
+      },
+      {
+        "name": "Vesper Gear 03",
+        "slots": "1",
+        "level": "65",
+        "note": "Set with Vesper Core 03."
+      },
+      {
+        "name": "Strange Metal Ring",
+        "slots": "2",
+        "level": "90",
+        "note": "Better when paired with Metal Boots MK I for the set bonus."
+      },
+      {
+        "name": "Draupnir",
+        "slots": "0",
+        "level": "100",
+        "note": ""
+      },
+      {
+        "name": "Silver Moon",
+        "slots": "1",
+        "level": "105",
+        "note": "Set with Golden Moon."
+      },
+      {
+        "name": "Golden Moon",
+        "slots": "1",
+        "level": "105",
+        "note": "Set with Silver Moon."
+      },
+      {
+        "name": "Sage Ring",
+        "slots": "3",
+        "level": "100",
+        "note": ""
+      },
+      {
+        "name": "Megingjard",
+        "slots": "0",
+        "level": "100",
+        "note": ""
+      },
+      {
+        "name": "Ring of Naght Sieger",
+        "slots": "2",
+        "level": "130",
+        "note": ""
+      }
+    ],
+    "note": "Vesper Core and Gear form a set; Silver Moon and Golden Moon form another. Revenant Ebel Card is an alternative use for the job-change egg.",
+    "cards": [
+      "Pest Sandworm Card",
+      "Revenant Ebel Card",
+      "Abyss Raydric Card",
+      "Doomfist Card"
+    ],
+    "id": "accessories"
+  },
+  {
+    "title": "Shadow Sets",
+    "items": [
+      {
+        "name": "Legacy of Coins",
+        "slots": null,
+        "level": "10",
+        "note": ""
+      },
+      {
+        "name": "Life Essence",
+        "slots": null,
+        "level": "40",
+        "note": ""
+      },
+      {
+        "name": "Bushido",
+        "slots": null,
+        "level": "65",
+        "note": ""
+      },
+      {
+        "name": "Unknown Tech",
+        "slots": null,
+        "level": "100",
+        "note": "Current best-in-slot Shadow set."
+      }
+    ],
+    "note": "Choose a full set for its bonuses. Shadow equipment does not use card slots.",
+    "cards": [],
+    "id": "shadow-sets"
+  },
+  {
+    "title": "Runes",
+    "items": [
+      {
+        "name": "Anima Rune of Restoration",
+        "slots": null,
+        "level": null,
+        "note": "Use if HP/SP regeneration is needed."
+      },
+      {
+        "name": "Wunjo Rune of Comfort",
+        "slots": null,
+        "level": null,
+        "note": ""
+      },
+      {
+        "name": "Berkano Rune of Birth",
+        "slots": null,
+        "level": null,
+        "note": "Leveling option."
+      },
+      {
+        "name": "Berkano Rune of Beginning",
+        "slots": null,
+        "level": null,
+        "note": "Leveling option."
+      },
+      {
+        "name": "Fehu Rune of Farming",
+        "slots": null,
+        "level": null,
+        "note": "Drop-rate option; reduces experience gained."
+      },
+      {
+        "name": "Othila Rune of Blood",
+        "slots": null,
+        "level": null,
+        "note": "Supports Reaping Slash."
+      }
+    ],
+    "note": "Berkano options serve leveling; Fehu trades experience for drops. Othila supports Reaping Slash.",
+    "cards": [],
+    "id": "runes"
+  }
+];
+const href = (name: string) => `https://rtm-database.pages.dev/?q=${encodeURIComponent(name)}&show=items`;
+---
+<div class="gear-tabs" data-gear-tabs>
+  <div class="gear-tab-list" role="tablist" aria-label="Revenant gear slots">
+    {groups.map((group, index) => <button id={`revenant-gear-tab-${group.id}`} class="gear-tab" type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`revenant-gear-panel-${group.id}`} tabindex={index === 0 ? 0 : -1}>{group.title}</button>)}
+  </div>
+  {groups.map((group, index) => <section id={`revenant-gear-panel-${group.id}`} class="gear-panel" role="tabpanel" aria-labelledby={`revenant-gear-tab-${group.id}`} tabindex="0" hidden={index !== 0}>
+    <div class="gear-table-wrap"><table class="gear-table">
+      <thead><tr><th scope="col">{group.title}</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+      <tbody>{group.items.map(item => <tr><td><a href={href(item.name)} target="_blank" rel="noreferrer">{item.name}{item.slots !== null && ` [${item.slots}]`}</a></td><td>{item.level ?? '—'}</td><td>{item.note}</td></tr>)}</tbody>
+    </table></div>
+    {group.cards.length > 0 && <><hr class="gear-card-divider" /><p><strong>Cards:</strong> {group.cards.map((name, cardIndex) => <Fragment>{cardIndex > 0 && ' · '}<a href={href(name)} target="_blank" rel="noreferrer">{name}</a></Fragment>)}</p></>}
+  </section>)}
+</div>
+<GearTabBehavior />

@@ -17,7 +17,7 @@ test('library opens a guide with an update date and links to the source index', 
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Good knowledge deserves');
   await expect(page.getByRole('heading', { name: 'Sources & acknowledgements' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'New Player Guide' })).toBeVisible();
-  await expect(page.getByRole('link', { name: /Phawkes — Trickster leveling reference/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Phawkes — Trickster and Revenant reference/ })).toBeVisible();
   const related = await page.locator('.related-section').evaluate(node => node.compareDocumentPosition(document.querySelector('#guide-sources')!) & Node.DOCUMENT_POSITION_FOLLOWING);
   expect(related).toBeTruthy();
   await page.screenshot({ path: testInfo.outputPath('guide.png'), fullPage: true });

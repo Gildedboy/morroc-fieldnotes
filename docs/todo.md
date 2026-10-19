@@ -53,3 +53,11 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Add https://hatredguide.segasunset.workers.dev/ as the Hatred tracker & guide link alongside the main website and database links in the top-right header, mobile menu, and sidebar.
 
 - [ ] Verify dungeon entrances and rank labels in game; confirm missing current mirror requirements for Old Payon, Old Monastery, and Field of Fire. Recheck the spreadsheet’s Jormungand Base Level 130 entry requirement.
+
+- [x] Start Revenant’s local WIP guide using the full Phawkes workbook and Refuge class reference.
+- [ ] Review Revenant gear details and job-change screenshots with the owner before publication.
+
+- [x] Add Refuge Build Planner to sidebar, desktop header, mobile resources, and Revenant Next Steps.
+
+- [x] Add Amatsu Seals Unlock as a WIP entry under Getting Started.
+- [ ] Author Amatsu Seals Unlock from supporting quest sources and screenshots.
