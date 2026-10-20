@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import { jobClasses, type JobClass } from '../data/job-classes';
+import { withBase } from '../lib/paths';
+interface Props { job: JobClass; currentId?: string }
+const { job, currentId } = Astro.props;
+const children = job.children.map(id => jobClasses.find(entry => entry.id === id)!)
+  .sort((a, b) => Number(b.children.length > 0) - Number(a.children.length > 0));
+const containsCurrent = (entry: JobClass): boolean => entry.id === currentId || entry.children.some(id => containsCurrent(jobClasses.find(candidate => candidate.id === id)!));
+const ready = ['trickster', 'revenant'].includes(job.id);
+---
+<li class:list={['job-nav-item', { 'job-nav-final': job.stage === 'final' }]}>
+  {children.length ? <details class="job-nav-branch" open={containsCurrent(job)}>
+    <summary aria-label={`${job.name} jobs`}>
+      <Icon name="chevron" size={13} />
+      <a class:list={['job-nav-link', { active: currentId === job.id }]} href={withBase(`classes/${job.id}/`)} aria-current={currentId === job.id ? 'page' : undefined}><span class="job-nav-name">{job.stage === 'final' && <span class="job-nav-final-mark" role="img" aria-label="Final job" title="Final job">◆</span>}{job.name}</span><span class="job-nav-link-end">{!ready && <span class="wip-badge">WIP</span>}<span class="job-nav-guide-arrow" aria-hidden="true">→</span></span></a>
+    </summary>
+    <ul>{children.map(child => <Astro.self job={child} currentId={currentId} />)}</ul>
+  </details> : <a class:list={['job-nav-link', 'job-nav-leaf', { active: currentId === job.id }]} href={withBase(`classes/${job.id}/`)} aria-current={currentId === job.id ? 'page' : undefined}><span class="job-nav-name">{job.stage === 'final' && <span class="job-nav-final-mark" role="img" aria-label="Final job" title="Final job">◆</span>}{job.name}</span><span class="job-nav-link-end">{!ready && <span class="wip-badge">WIP</span>}<span class="job-nav-guide-arrow" aria-hidden="true">→</span></span></a>}
+</li>

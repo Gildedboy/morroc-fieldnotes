@@ -63,3 +63,8 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Author Amatsu Seals Unlock from owner screenshots 145–155, route map, enemy counts, and EXP reward confirmation. Owner approved publication and upload on October 19, 2026.
 
 - [x] Add shareable # links beside dungeon and distortion headings; direct fragment URLs jump to the selected location.
+
+## Vagabond and Legend
+
+- [x] Start local WIP guides with job-change steps, skill descriptions, combat instructions, and shared leveling links. Production keeps the existing WIP notices.
+- [ ] Add owner-reviewed job-change screenshots, skill allocations, and equipment progression for both classes; review Legend progression through Base Level 130 before publication.

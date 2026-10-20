@@ -3,6 +3,8 @@ import Shell from '../../layouts/Shell.astro';
 import Footer from '../../components/Footer.astro';
 import RevenantGuide from '../../components/classes/RevenantGuide.astro';
 import TricksterGuide from '../../components/classes/TricksterGuide.astro';
+import VagabondGuide from '../../components/classes/VagabondGuide.astro';
+import LegendGuide from '../../components/classes/LegendGuide.astro';
 import '../../styles/job-tree.css';
 import { jobClasses, roleLabels, difficultyLabels, type JobClass } from '../../data/job-classes';
 import { guideHref, withBase } from '../../lib/paths';
@@ -14,22 +16,25 @@ const { job } = Astro.props;
 const isThief = job.id === 'thief';
 const isTrickster = job.id === 'trickster';
 const isRevenant = job.id === 'revenant';
-const sections = isTrickster || isRevenant ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', isRevenant ? 'Next Steps' : 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
+const isDraftPreview = import.meta.env.DEV && ['vagabond', 'legend'].includes(job.id);
+const hasGuide = isTrickster || isRevenant || isDraftPreview;
+const sections = hasGuide ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', isRevenant || job.id === 'legend' ? 'Next Steps' : 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
-<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={isRevenant ? 'revenant' : isTrickster ? 'trickster' : 'job-class-tree'} noindex={!isThief && !isRevenant}>
+<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={job.id} noindex={!isRevenant}>
   <div class="article-grid">
     <div class="article-column">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={withBase('classes/')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
       <header class="article-header job-class-header">
         <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase(job.idleStill)} /><img src={withBase(job.idle)} alt={`${job.name} animated sprite`} width="112" height="112" /></picture>
-<div>{!isThief && !isTrickster && !isRevenant && <span class="wip-badge">WIP</span>}<div class="job-title"><h1>{job.name}</h1>{!isTrickster && <span class="job-heading-weapon">{job.weaponLabel ?? job.weapons}</span>}</div>{!isTrickster && <div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div>}</div>
+<div>{!isTrickster && !isRevenant && <span class="wip-badge">WIP</span>}<div class="job-title"><h1>{job.name}</h1>{!isTrickster && <span class="job-heading-weapon">{job.weaponLabel ?? job.weapons}</span>}</div>{!isTrickster && <div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div>}</div>
       </header>
       <details class="mobile-outline"><summary>On this page</summary><ul>{sections.map(([id, title]) => <li><a href={`#${id}`}>{title}</a></li>)}</ul></details>
       <article class="prose" data-article>
-        {!isTrickster && !isRevenant && <h2 id="overview">Overview</h2>}
-        {!isThief && !isTrickster && !isRevenant && <p>This class guide is a work in progress. The overview and progression below have been reviewed against the Refuge website.</p>}
+        {isDraftPreview && <p class="wip-badge">WIP · Local draft preview</p>}
+        {!hasGuide && <h2 id="overview">Overview</h2>}
+        {!isThief && !hasGuide && <p>This class guide is a work in progress. The overview and progression below have been reviewed against the Refuge website.</p>}
         {isThief && <><img class="job-splash" src={withBase(job.portrait!)} alt="Thief splash artwork from Refuge" width="759" height="760" loading="lazy" /><p>Thief is a flexible first job with physical attacks, bows, and elemental magic. Try its weapons and skills before choosing a more specialized path. Its maximum Job Level is 50.</p><p>Double Attack comes from the dagger you equip rather than a learnable Thief skill.</p></>}
         <dl class="job-facts"><div><dt>Weapons</dt><dd>{job.weapons}</dd></div><div><dt>Difficulty</dt><dd>{difficultyLabels[job.difficulty]}</dd></div><div><dt>Previous job</dt><dd>{parents.map(parent => <a href={parent.id === 'orphan' ? guideHref('new-player-guide') : withBase(`classes/${parent.id}/`)}>{parent.name}</a>)}</dd></div></dl>
         {isThief && <>
@@ -40,7 +45,7 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
           <ul><li><strong>Daggers and swords:</strong> use Back Stab for single targets, or Rolling Cutter and Cross Ripper Slasher for spinning attacks and their follow-up.</li><li><strong>Bows:</strong> use Double Strafe and Arrow Shower for ranged attacks. Carry arrows.</li><li><strong>Magic:</strong> Flaming Petals, Freezing Spear, and Wind Blade build elemental focus. Auto Spell lets normal attacks trigger learned spells.</li><li><strong>Poison:</strong> Envenom inflicts Poison, Enchant Poison changes your weapon's element, and Detoxify removes Poison.</li></ul>
           <p>These are options to explore, not a prescribed skill build. Check current costs, prerequisites, and damage in the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge skills database ↗</a>.</p>
         </>}
-        {isTrickster ? <TricksterGuide /> : isRevenant ? <RevenantGuide /> : <>
+        {isTrickster ? <TricksterGuide /> : isRevenant ? <RevenantGuide /> : isDraftPreview ? (job.id === 'vagabond' ? <VagabondGuide /> : <LegendGuide />) : <>
           <h2 id="next-jobs">{isThief ? 'Next jobs' : 'Job progression'}</h2>
           {nextJobs.length ? <ul class="job-next-links">{nextJobs.map(next => <li><a href={withBase(`classes/${next.id}/`)}>{next.name} <small>{next.weaponLabel ?? next.weapons}</small><span class="wip-badge">WIP</span> →</a></li>)}</ul> : <p>This class does not lead to another job in Refuge's current class tree.</p>}
         </>}

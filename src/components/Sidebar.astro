@@ -1,9 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
 import Icon from './Icon.astro';
+import JobNavBranch from './JobNavBranch.astro';
+import { jobClasses } from '../data/job-classes';
 import { guideHref, withBase } from '../lib/paths';
 interface Props { currentId?: string; library?: boolean }
 const { currentId, library } = Astro.props;
+const firstJobs = jobClasses.filter(job => job.parents.includes('orphan')).sort((a, b) => {
+  const priority = (job: typeof a) => job.id === 'thief' ? 0 : job.id === 'merchant' ? 3 : job.children.length ? 1 : 2;
+  return priority(a) - priority(b);
+});
+const inJobs = currentId === 'job-class-tree' || jobClasses.some(job => job.id === currentId);
 const guides = (await getCollection('guides')).sort((a, b) => a.data.order - b.data.order);
 const categories = [
   { name: 'Getting Started', icon: 'compass' },
@@ -20,7 +27,13 @@ const categories = [
     const entries = guides.filter(g => g.data.category === category.name);
     return <div class="nav-group">
       <p class="nav-group-title"><Icon name={category.icon} size={17} />{category.name}</p>
-      {entries.length > 0 ? <ul>{entries.map(g => <Fragment><li><a class:list={['guide-nav-link', { active: currentId === g.id }]} href={guideHref(g.id)} aria-current={currentId === g.id ? 'page' : undefined}>{g.data.title}{g.data.publication === 'wip' && <span class="wip-badge">WIP</span>}</a></li>{g.id === 'job-class-tree' && <li><a class:list={['guide-nav-link', 'guide-nav-sub-link', { active: currentId === 'trickster' }]} href={withBase('classes/trickster/')} aria-current={currentId === 'trickster' ? 'page' : undefined}>Trickster</a></li>}{g.id === 'job-class-tree' && <li><a class:list={['guide-nav-link', 'guide-nav-sub-link', { active: currentId === 'revenant' }]} href={withBase('classes/revenant/')} aria-current={currentId === 'revenant' ? 'page' : undefined}>Revenant</a></li>}</Fragment>)}</ul> : <p class="nav-empty">WIP</p>}
+      {entries.length > 0 ? <ul>{entries.map(g => g.id === 'job-class-tree' ? <li>
+        <a class:list={['guide-nav-link', { active: currentId === g.id }]} href={guideHref(g.id)} aria-current={currentId === g.id ? 'page' : undefined}>Class Tree</a>
+        <details class="job-nav-root" open={inJobs}>
+          <summary><Icon name="chevron" size={13} />Job Guides</summary>
+          <ul class="job-nav-tree">{firstJobs.map(job => <JobNavBranch job={job} currentId={currentId} />)}</ul>
+        </details>
+      </li> : <li><a class:list={['guide-nav-link', { active: currentId === g.id }]} href={guideHref(g.id)} aria-current={currentId === g.id ? 'page' : undefined}>{g.data.title}{g.data.publication === 'wip' && <span class="wip-badge">WIP</span>}</a></li>)}</ul> : <p class="nav-empty">WIP</p>}
     </div>;
   })}
   <div class="sidebar-resources">

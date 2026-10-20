@@ -1,5 +1,9 @@
 # Refuge game reference
 
+## Trickster mid headgear — October 20, 2026
+
+- Owner adds Soldier Andre Card to Trickster’s mid-headgear recommendations alongside Veins Ghoul Card. The retained Refuge item snapshot identifies Soldier Andre Card as item 4059.
+
 ## Equipment systems — October 18, 2026
 
 - Owner now authorizes upload of the accumulated changes and removal of Dream Enchants’ WIP. Refine Guide, Random Rolls, and Dream Enchants are all published with source-reviewed status. This supersedes the earlier local-only instruction.
@@ -291,3 +295,31 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 ## Dungeon route presentation — October 19, 2026
 
 - Dungeon entries with a route display that route once, without repeating shared access text or legacy directions above it. Unique entrance positions, final interactions, and library access are folded into the route. Sky Garden’s Umbala approach and Varmundt’s mirror approach remain separate alternatives. All dungeon entries use a Route box; shared access directions supply the route when no step list exists. Forest Maze’s route follows the current place record: Skia Nerius → Forest Maze → Prontera Field F1 → Labyrinth Forest. Distortion access display is unchanged.
+
+## Howard’s refining materials — October 19, 2026
+
+- Owner confirms **Howard sells ores**, with **more materials unlocked at higher Orphanage levels**. Added to the Refine Guide’s material acquisition section. Exact stock and unlock levels were not supplied; do not invent them.
+
+- Owner screenshot **157** shows Howard’s current shop: Oridecon/Elunium **1,000 Zeny each**, HD Oridecon/HD Elunium **5,000 each**, Enriched Oridecon/Enriched Elunium **15,000 each**. It does not establish unlock thresholds or the complete stock at every Orphanage level. Display only the shop item window in the guide.
+
+## Vagabond and Legend drafts — October 20, 2026
+
+- Started from retained Refuge class HTML and public class pages. Vagabond requires Orphan Base Level 15 / Job Level 10; Jobless Orphan is at va_orpha 17,18. The explicit prerequisite is zero Zeny; prose also says “carrying nothing”, leaving the inventory requirement ambiguous. Preserve that distinction until owner confirmation.
+- Legend requires Vagabond Job Level 70: Wandering Vagabond (dicast_out 106,168), Mysterious Man (snow_fild05 239,55), six Heart of Power seals, Legendary Zack. No Base Level requirement is established.
+- Skill descriptions and prerequisites follow Refuge; inherited class prose is not in-game verification. Frenzy disables Harness Speed and blocks direct healing/items; Harness Speed is removed by equipment changes. No prescribed stat/skill allocation, gear progression, or level-130 skill-point budget is established. Drafts render only in development.
+
+## Thief publication status — October 20, 2026
+
+- Owner confirms Thief is WIP. Show its badge in the sidebar, class-tree guide link, and class-page header, with noindex metadata. Preserve its existing starter content.
+
+## Final-job classification — October 20, 2026
+
+- Owner confirms Prowler, Shadowseer, Jester, Ronin, Mimic, and Judge are final jobs. Mark them as final in the shared roster; their position in progression and their existing difficulty remain unchanged.
+
+- Owner also confirms Peacekeeper, Illusionist, and Dark Knight as final jobs. Merchant is technically final but remains visually unchanged as a non-combat vendor job, per owner instruction.
+
+## Starter Weapon Voucher — October 20, 2026
+
+- Owner screenshots 2026-10-20 145231/145312/145327/145359 and screenPRM159 establish the starter weapon sequence: Achievement Challenges trophy button → Character → completed A Path Ahead… → claim reward → Achievement Reward Mail from GM → retrieve Weapon Voucher using the attachment down-arrow → Ornstein by the forge in the Orphanage smithy. Owner confirms this sequence. The tooltip’s current name is Weapon Voucher; earlier guide text called it Exchange Voucher. Do not infer mail expiry, job-specific weapon selections, or repeatability from these screenshots. Whole-guide in-game verification remains unset.
+
+- Owner confirms the mail feature also lets players send and receive items, Zeny, or both with other players. Added a brief callout beside the voucher walkthrough’s mail step.

@@ -181,3 +181,21 @@ At the owner’s request, Amatsu screenshots now use native SourceScreenshot cro
 Amatsu enemy GIFs were downloaded unmodified from `https://rtm-database.pages.dev/assets/sprites/{ID}.gif` on October 19, 2026: The Paper (1375), Corrupted Shinobi (1401, labeled Shinobi in the owner’s encounter list), Antique Firelock (1403), Miyabi Doll (1404), Tengu (1405), and Silent Ronin (2254). IDs were matched to the current database `assets/data/db-mobs.json` records and sprites visually reviewed. Local copies live in `public/images/amatsu-seals/enemies/` and appear with counts and database links in each seal’s section. Refuge permits copying site content; game artwork remains with its respective rights holders.
 
 Amatsu screenshot `screenPRM156.jpg` is archived in `imports/amatsu-seals/` and copied unchanged to `public/images/amatsu-seals/server-buff.jpg`. Its display viewport isolates the right-side Seal of Amatsu icon and full buff tooltip, including the remaining timer, server-wide EXP bonus, and Amatsu SS weakening.
+
+## Howard’s ore shop
+
+Owner screenshot `screenPRM157.jpg`, reviewed October 19, 2026, is archived unchanged in `imports/equipment-systems/owner-screenshots/` and copied to `public/images/refining/howard-shop.jpg`. SourceScreenshot displays only the Shop Items window at (0, 390), 280 × 312; the buying panel and gameplay are excluded. The original full frame remains available through the full-size link.
+
+## Vagabond and Legend skill icons — October 20, 2026
+
+Added the original PNG skill icons referenced by Refuge’s Vagabond and Legend pages to `public/images/skills/`: LK_BERSERK, AL_PNEUMA, SM_SWORD, MC_INCCARRY, SM_RECOVERY, TF_MISS, MO_DODGE, RK_ENCHANTBLADE, KN_TWOHANDQUICKEN, MG_SAFETYWALL, GN_TRAINING_SWORD, KO_LEFT, KO_RIGHT, AM_LEARNINGPOTION, SA_ADVANCEDBOOK, and SM_TWOHAND. Source: `https://rtmrefuge.pages.dev/assets/img/skills/{icon}.png`. MG_SRECOVERY was already local. Refuge permits copying site content; original game artwork belongs to its rights holders.
+
+Vagabond and Legend use Refuge’s full-frame male/female portraits at the start of their drafts, downloaded from `assets/img/portraits/{class}-{gender}.webp`. Local names: `{class}-{gender}-portrait.webp`. Dimensions: Vagabond male 450 × 760, female 436 × 760; Legend male 738 × 760, female 504 × 760. Same site-copy permission and original rights attribution apply.
+
+## Weapon Voucher walkthrough — October 20, 2026
+
+Owner supplied four PNG close-ups in Windows OneDrive Imágenes/Capturas de pantalla (2026-10-20 145231, 145312, 145327, 145359) and screenPRM159.jpg in Downloads/Refuge/ScreenShot. Originals are archived in ignored `imports/weapon-voucher/`. Identical public copies in `public/images/weapon-voucher/` show the achievement button (249 × 129), claim reward (332 × 408), reward mail (304 × 60), full-frame attachment retrieval (1904 × 1041), and voucher tooltip (276 × 243). All use SourceScreenshot with original frames, colors, and full-size links. Integrated locally at the owner’s request; no open license is asserted and game artwork remains with its rights holders. screenPRM158 is unrelated and is not imported.
+
+At the owner’s request, the fourth Weapon Voucher screenshot displays only the reward message and attachment controls using a SourceScreenshot viewport at (751, 260), 302 × 402. Its full-frame original remains unchanged and available through the full-size link.
+
+The owner’s additional PNG `Captura de pantalla 2026-10-20 145903.png` (225 × 134) shows the Mail envelope with its red N notification after claiming the reward. Archived in `imports/weapon-voucher/` and copied unchanged as `public/images/weapon-voucher/mail-button.png`; it replaces the mailbox-list image beside step 3.

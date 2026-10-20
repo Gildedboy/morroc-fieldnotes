@@ -1,0 +1,50 @@
+---
+import { withBase } from '../../lib/paths';
+import Callout from '../Callout.astro';
+import SkillIcon from '../SkillIcon.astro';
+import ProgressGearNotice from './ProgressGearNotice.astro';
+---
+<div class="trickster-portraits">
+  <figure><img src={withBase('images/classes/vagabond-male-portrait.webp')} alt="Male Vagabond portrait from Refuge" width="450" height="760" loading="lazy" /><figcaption>Male Vagabond</figcaption></figure>
+  <figure><img src={withBase('images/classes/vagabond-female-portrait.webp')} alt="Female Vagabond portrait from Refuge" width="436" height="760" loading="lazy" /><figcaption>Female Vagabond</figcaption></figure>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>Vagabond fights with dagger auto attacks. STR and AGI are its main stats. Its small SP pool limits extra skills from cards and manuals, while equipment has a large effect on its damage and survival.</p>
+<Callout title="Refuge Changes"><p>Vagabond is affected by Refuge’s shared passive changes. See the <a href={withBase('guides/aspd-elements/')}>ASPD &amp; Element Table</a> for attack-speed limits.</p></Callout>
+
+<h2 id="job-change">Job Change Quest</h2>
+<Callout title="Requirements"><p><strong>Orphan Base Level 15 and Job Level 10.</strong> Carry <strong>0 Zeny</strong>.</p></Callout>
+<ol>
+  <li>Speak to the <strong>Jobless Orphan</strong> in the Orphanage at <strong>va_orpha 17, 18</strong>. Tell them you want to leave the regular job paths.</li>
+  <li>Return at Base Level 15. The quest instructions say to return “carrying nothing”; the listed requirement explicitly specifies no Zeny.</li>
+  <li>Accept the offer to become a <strong>Vagabond</strong>.</li>
+</ol>
+
+<h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
+<ul>
+  <li><SkillIcon icon="SM_SWORD" /><strong>Blade Mastery:</strong> improves dagger damage and attack speed. Vagabonds cannot equip swords.</li>
+  <li><SkillIcon icon="MO_DODGE" /><strong>Shadow Mastery:</strong> improves Flee and overall attack speed.</li>
+  <li><SkillIcon icon="TF_MISS" /><strong>Improve Dodge:</strong> increases Flee.</li>
+  <li><SkillIcon icon="SM_RECOVERY" /><strong>Improve Defense:</strong> increases maximum HP.</li>
+  <li><SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery:</strong> improves SP recovery.</li>
+  <li><SkillIcon icon="MC_INCCARRY" /><strong>Enlarge Weight Limit:</strong> increases carrying capacity.</li>
+  <li><SkillIcon icon="LK_BERSERK" /><strong>Frenzy:</strong> sets ASPD to 193 while active, drains HP, sets defenses to zero, prevents direct healing, and blocks items and chat. You can disable it manually. Learning it also adds +3 to the ASPD limit.</li>
+  <li><SkillIcon icon="AL_PNEUMA" /><strong>Pneuma:</strong> protects a 3 × 3 area from ranged physical attacks for 10 seconds. Requires all six passive skills at level 10.</li>
+</ul>
+
+<h2 id="how-to-play">How to Play</h2>
+<ol>
+  <li>Use dagger auto attacks as your main damage. There is no required attack-skill rotation.</li>
+  <li>Use <SkillIcon icon="AL_PNEUMA" /><strong>Pneuma</strong> against ranged physical attacks once unlocked.</li>
+  <li>Activate <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong> only when you can finish the fight without items or direct healing. Disable it when you need to recover.</li>
+</ol>
+
+<h2 id="leveling-spots">Leveling Spots</h2>
+<p>Use <a href={withBase('guides/leveling-spots/')}>Leveling Spots</a> for monster ranges, routes, and access notes.</p>
+
+<h2 id="progress-gear">Progress Gear</h2>
+<ProgressGearNotice />
+
+<h2 id="next-step">Next Step</h2>
+<p>Reach <strong>Vagabond Job Level 70</strong> to begin the <a href={withBase('classes/legend/')}>Legend</a> job-change quest.</p>

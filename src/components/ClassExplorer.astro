@@ -99,15 +99,17 @@ import '../styles/class-explorer.css';
           svg.append(path);
           if (merchant) {
             const label = document.createElementNS(svgNamespace, 'text');
-            label.setAttribute('x', String((x1+x2)/2));
-            label.setAttribute('y', String(y1+18));
+            const compact = x2 - x1 < 120;
+            const labelX = compact ? (to.left + to.right) / 2 - bounds.left : (x1 + x2) / 2;
+            label.setAttribute('x', String(labelX));
+            label.setAttribute('y', String(compact ? to.bottom - bounds.top + 12 : y1 + 18));
             label.setAttribute('class', 'merchant-line-label');
             label.setAttribute('aria-label', 'Requires Orphan, Base Level 1, Job Level 1');
-            const requirements = bounds.width < 500 ? ['Requires', 'Orphan', 'Base Lv 1', 'Job Lv 1'] : ['Requires Orphan', 'Base Level 1', 'Job Level 1'];
+            const requirements = ['Requires Orphan', 'Base Level 1', 'Job Level 1'];
             for (const [index, line] of requirements.entries()) {
               const span = document.createElementNS(svgNamespace, 'tspan');
-              span.setAttribute('x', String((x1+x2)/2));
-              span.setAttribute('dy', index ? '16' : '0');
+              span.setAttribute('x', String(labelX));
+              span.setAttribute('dy', index ? (compact ? '12' : '16') : '0');
               span.textContent = line;
               label.append(span);
             }

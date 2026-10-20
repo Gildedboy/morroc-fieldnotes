@@ -1,0 +1,53 @@
+---
+import { withBase } from '../../lib/paths';
+import Callout from '../Callout.astro';
+import SkillIcon from '../SkillIcon.astro';
+import ProgressGearNotice from './ProgressGearNotice.astro';
+---
+<div class="trickster-portraits">
+  <figure><img src={withBase('images/classes/legend-male-portrait.webp')} alt="Male Legend portrait from Refuge" width="738" height="760" loading="lazy" /><figcaption>Male Legend</figcaption></figure>
+  <figure><img src={withBase('images/classes/legend-female-portrait.webp')} alt="Female Legend portrait from Refuge" width="504" height="760" loading="lazy" /><figcaption>Female Legend</figcaption></figure>
+</div>
+
+<Callout title="Guide scope: job change to level 130" tone="warning"><p><strong>This guide covers progression from the Legend job change through Base Level 130.</strong> Beyond level 130, most locations require specific equipment and setups. Explore and adapt your build for those areas.</p></Callout>
+
+<h2 id="overview">Overview</h2>
+<p>Legend evolves Vagabond’s dagger auto attacks with dual wielding and active buffs. Harness Magic adds magic damage to physical attacks, while Harness Speed improves attack-speed bonuses. Safety Wall becomes available late in the skill tree.</p>
+<Callout title="Refuge Changes"><p>Legend is affected by Refuge’s shared passive changes. The shared base ASPD limit is 180; see <a href={withBase('guides/aspd-elements/')}>ASPD &amp; Element Table</a> for ways to raise it.</p></Callout>
+
+<h2 id="job-change">Job Change Quest</h2>
+<Callout title="Requirement"><p><strong>Vagabond Job Level 70.</strong></p></Callout>
+<ol>
+  <li>Speak to the <strong>Wandering Vagabond</strong> in Dicastes Outskirts at <strong>dicast_out 106, 168</strong> and listen to the rumour about a strange power.</li>
+  <li>Find the <strong>Mysterious Man</strong> studying the Heart of Power at <strong>snow_fild05 239, 55</strong>.</li>
+  <li>Inside the <strong>Heart of Power</strong>, break all <strong>six seals</strong> and defeat <strong>Legendary Zack</strong> to become a Legend.</li>
+</ol>
+
+<h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
+<ul>
+  <li><SkillIcon icon="GN_TRAINING_SWORD" /><strong>Advanced Blade Mastery:</strong> increases weapon damage and Hit.</li>
+  <li><SkillIcon icon="KO_RIGHT" /><strong>Advanced Righthand Mastery</strong> and <SkillIcon icon="KO_LEFT" /><strong>Advanced Lefthand Mastery:</strong> recover damage lost when wielding two weapons.</li>
+  <li><SkillIcon icon="SA_ADVANCEDBOOK" /><strong>Relentless Daggers:</strong> increases attack speed with dual daggers.</li>
+  <li><SkillIcon icon="RK_ENCHANTBLADE" /><strong>Harness Magic:</strong> adds magic damage to physical attacks. Enemy MDEF reduces the bonus. Requires Advanced Blade Mastery and both hand masteries at level 5.</li>
+  <li><SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed:</strong> amplifies existing ASPD bonuses. Changing equipment removes it; without ASPD bonuses it has no ASPD effect. Requires Improve Potion 10, Relentless Daggers 10, and Advanced Blade Mastery 5.</li>
+  <li><SkillIcon icon="AM_LEARNINGPOTION" /><strong>Improve Potion:</strong> increases HP potion effectiveness.</li>
+  <li><SkillIcon icon="SM_TWOHAND" /><strong>Final Blade Mastery:</strong> further increases dagger damage. Requires Harness Magic 10 and Harness Speed 10.</li>
+  <li><SkillIcon icon="MG_SAFETYWALL" /><strong>Safety Wall:</strong> blocks melee physical hits on the target cell. It expires with time or incoming hits, and a strong hit can break it early. Requires Final Blade Mastery 10.</li>
+</ul>
+
+<h2 id="how-to-play">How to Play</h2>
+<ol>
+  <li>Equip your daggers before applying <SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed</strong>; recast it after changing equipment.</li>
+  <li>Apply <SkillIcon icon="RK_ENCHANTBLADE" /><strong>Harness Magic</strong> and attack normally. Its contribution depends on your magic stats and the target’s MDEF.</li>
+  <li>Use <SkillIcon icon="AL_PNEUMA" /><strong>Pneuma</strong> for ranged physical protection, or <SkillIcon icon="MG_SAFETYWALL" /><strong>Safety Wall</strong> for melee physical protection once unlocked.</li>
+  <li>If using inherited <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong>, account for its HP drain, zero defenses, and blocked items and direct healing. It disables <SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed</strong>.</li>
+</ol>
+
+<h2 id="leveling-spots">Leveling Spots</h2>
+<p>Use <a href={withBase('guides/leveling-spots/')}>Leveling Spots</a> for monster ranges, routes, and access notes.</p>
+
+<h2 id="progress-gear">Progress Gear</h2>
+<ProgressGearNotice finalJob />
+
+<h2 id="next-step">Next Steps</h2>
+<p>Discuss the class in the <a href="https://discord.gg/a5P3PFNMhn">Refuge Discord server</a> and share your setup with the <a href="https://amfsizzy.github.io/refuge-buildplanner/">Refuge Build Planner</a>.</p>

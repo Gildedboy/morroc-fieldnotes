@@ -1,5 +1,11 @@
 # Job Class Tree implementation
 
+## Sidebar job navigation — October 20, 2026
+
+Order the sidebar’s starting jobs with Thief first, then other jobs with evolutions, then jobs without evolutions, and Merchant last. Preserve roster order within each group. This sorting applies only to sidebar navigation.
+
+The sidebar has a standalone Class Tree link above a collapsible Job Guides section, and nested branches from the shared class roster. Each branch opens and closes independently; toggling one branch preserves the others. The current class and its ancestors open automatically, with a highlighted guide link. Names navigate; chevrons expand. Desktop and mobile disclosures operate independently. Trickster and Revenant have ready guides; all remaining jobs show WIP, including the local Vagabond and Legend drafts. This replaces the flat Trickster/Revenant sidebar links described below.
+
 Game mechanics and their evidence are in `docs/game-reference.md`. This document records presentation and implementation decisions.
 
 - The user chose http://57.131.145.72/classes as a branching-card design reference. Author original components and CSS; use Refuge data and artwork.
@@ -55,3 +61,13 @@ Initial grid placement is server-rendered and controlled by CSS container querie
 - Show weapon labels directly beside/below job names in the cards, detail panels, and class-page headers. Keep card dimensions and sprite space stable. Display Puppet for Illusionist and Codex for Mimic; retain full source equipment data separately. Trickster now has a WIP starter guide with job-change steps and core combat guidance.
 - Trickster's guide places Refuge's male and female portraits side by side, then organizes the article into Job Change Quest, Core Gameplay & Skills, How to Play, Progress Gear, and Next Step. Link Trickster beneath Job Class Tree in the left navigation; the tree is a normal page link and has no chevron.
 - Keep both Trickster portraits in equal-sized boxes. Present the job-change steps in a Callout box until the owner supplies location screenshots. The quest gives a Black Scythe; Ornstein exchanges the Exchange Voucher for a Scythe of the Orphan. Use Refuge database skill icons beside Trickster skills. The early leveling section follows Phawkes' spreadsheet and preserves its ambiguous paired stat targets; Burning Scythe can be replaced with Hellraiser levels when Fire endowment is not needed.
+
+When the Orphan–Merchant connector gap is under 120px, place Merchant’s requirements below its card in three readable lines. Base this on the measured gap, not viewport or container width. Keep the horizontal connector and both cards in their existing positions.
+
+Sidebar branch rows separate the disclosure chevron from the guide link with a vertical divider. Job links carry a right arrow; unfinished guides retain their WIP badge.
+
+Keep 26px centered dividers beside top-level job disclosures only. Nested job disclosures have no divider, and their names align with leaf-job names in the same list. Top-level leaf names also align with top-level branch names. Expanded branches use indentation without a long vertical hierarchy line.
+
+Final-stage jobs in the sidebar have gold names and a small diamond in the disclosure column, labeled “Final job” for assistive technology and hover. Use the shared roster’s `stage === "final"`; leaf jobs are not automatically final. Preserve WIP badges and the current-page purple highlight.
+
+The desktop sidebar is 290px wide, reducing to 260px at the existing 1250px breakpoint. Mobile continues to use the guide-navigation drawer.

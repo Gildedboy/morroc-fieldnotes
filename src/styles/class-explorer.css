@@ -61,7 +61,7 @@
 .difficulty-tag.difficulty-hard,.difficulty-tag.difficulty-expert{color:#f1a09b;background:#402625;border-color:#85504b}
 .class-root-back{position:absolute;left:50%;top:-30px;transform:translateX(-50%);border:0;background:var(--bg);color:var(--accent);font:inherit;font-size:11px;padding:0 6px;cursor:pointer}
 .class-root-back[hidden]{display:none}
-@media(max-width:760px){.class-explorer{margin-left:-5px;margin-right:-5px}.class-guide-panel{padding:16px 12px;font-size:11px}.class-card{padding:8px;height:294px}.class-card-heading{height:124px}.class-card-tags>span{padding:2px 4px;font-size:8px}.merchant-line-label{font-size:7px;stroke-width:3px}}
+@media(max-width:760px){.class-explorer{margin-left:-5px;margin-right:-5px}.class-guide-panel{padding:16px 12px;font-size:11px}.class-card{padding:8px;height:294px}.class-card-heading{height:124px}.class-card-tags>span{padding:2px 4px;font-size:8px}.merchant-line-label{font-size:10px;stroke-width:3px}}
 @media(prefers-reduced-motion:reduce){.class-card,.class-card-face{transition:none}.class-children,.class-children.is-leaving,.class-guide-panel{animation:none}.class-motion-sprite{display:none}.class-still-sprite{display:block}}
 @container class-tree (min-width:1098px){.class-explorer>.class-row,.class-sprite-selector{--root-columns:5;--root-grid-width:calc(5 * var(--class-card-width) + 48px)}.class-root>.class-children>.class-row>[data-class-id="thief"]{order:2}.class-root>.class-children>.class-row>[data-class-id="jester"]{order:1}}
 @container class-tree (max-width:479px){.class-card-name{font-size:13px}}
