@@ -60,6 +60,6 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Add Refuge Build Planner to sidebar, desktop header, mobile resources, and Revenant Next Steps.
 
 - [x] Add Amatsu Seals Unlock as a WIP entry under Getting Started.
-- [ ] Author Amatsu Seals Unlock from supporting quest sources and screenshots.
+- [x] Author Amatsu Seals Unlock from owner screenshots 145–155, route map, enemy counts, and EXP reward confirmation. Owner approved publication and upload on October 19, 2026.
 
 - [x] Add shareable # links beside dungeon and distortion headings; direct fragment URLs jump to the selected location.

@@ -1,16 +1,98 @@
 ---
 title: Amatsu Seals Unlock
-publication: wip
-description: Unlock Amatsu seals.
+publication: published
+description: Follow the Tatami Maze route, awaken four seals, and activate a server-wide 20% EXP bonus for one hour.
 category: Getting Started
 icon: book
 order: 1.4
 updated: 2026-10-19
-verified: null
-status: needs-review
-statusNote: Guide requested by the site owner; quest instructions and supporting sources are pending review.
-readingMinutes: 1
-tags: [Amatsu, seals, unlock]
-related: []
-sources: []
+verified: 2026-10-19
+status: in-game-verified
+statusNote: Owner gameplay screenshots 145–156 show the four seals, the 90-second challenge dialogue, combat, and awakened states. The owner confirms the enemy groups in route order and the server-wide 20% EXP reward lasting one hour, plus weakening of the entire Amatsu SS distortion dungeon. Editorial review October 19, 2026; screenshot session October 19, 2026. Owner approved publication on October 19, 2026.
+readingMinutes: 4
+tags: [Amatsu, seals, unlock, Tatami Maze, EXP, distortion]
+related: [dungeons, distortions, leveling-spots]
+sources:
+  - title: Owner gameplay screenshots and Amatsu seal route
+    url: https://rtm-database.pages.dev/places?id=tatami-maze
+    author: Site owner
+    sourceUpdated: null
+    note: Primary evidence is the owner's Refuge screenshots screenPRM145.jpg–screenPRM156.jpg, supplied route image amatsu unlocks.png, and direct confirmations on October 19, 2026. The linked database page identifies the location; it is not the source of the challenge or reward rules. The owner requested local integration of these images. The route image's original author and reuse terms are unspecified; no open license is asserted. Enemy GIFs are unmodified local copies from the Refuge database assets/sprites directory, IDs 1375, 1401, 1403, 1404, 1405, and 2254. Database name Corrupted Shinobi corresponds to the owner’s Shinobi encounter label. Game artwork belongs to its respective rights holders. Screenshots show Touch the stone, a 90-second limit, and awake labels. Enemy counts and the server-wide 20% EXP bonus for one hour and weakening of the entire Amatsu SS distortion dungeon are owner-confirmed; screenshot 156 confirms the Seal of Amatsu (4/4) tooltip, server-wide EXP bonus, remaining timer, and Amatsu SS at its weakest.
 ---
+
+import Callout from '../../components/Callout.astro';
+import AmatsuEnemies from '../../components/AmatsuEnemies.astro';
+import SourceScreenshot from '../../components/SourceScreenshot.astro';
+import { amatsuSealsImages as images } from '../../data/amatsu-seals-images';
+import { locations } from '../../data/locations';
+import { guideHref } from '../../lib/paths';
+
+<Callout title="Reward: +20% EXP for one hour">
+Awaken **all four seals** to grant **20% additional EXP server-wide for one hour** and **weaken the entire Amatsu SS distortion dungeon**.
+</Callout>
+
+## Reach Tatami Maze
+
+{locations.find(location => location.id === 'amatsu-dungeon')?.access}
+
+Enter **Tatami Maze**. See the <a href={`${guideHref('dungeons')}#amatsu-dungeon`}>Amatsu Dungeon entrance screenshots</a> for the approach.
+
+## Seal route
+
+Start at **START** in the southeast corner and visit **I → II → III → IV / END**.
+
+<SourceScreenshot image={images.route} caption="Tatami Maze · follow the colored paths between the four numbered seals." />
+
+## Activate and clear each seal
+
+<Callout title="Before attempting" tone="warning">
+All summoned enemies are **aggressive** and can be difficult for players leveling in this area. Attempt the seals **with a party or help from a high-level player**.
+
+If someone else awakens the seals for the entire server, remember to **thank them**!
+</Callout>
+
+Speak to the small stone and choose **Touch the stone** when ready to fight. Defeat **all enemies it summons within 90 seconds**. Watch the chat counter for enemies still standing and the message that the seal wakes beneath Amatsu.
+
+<SourceScreenshot image={images['seal-dialogue']} caption="Seal activation dialogue." />
+
+A sealed stone is small. Once cleared, it becomes a taller, jagged stone and its name gains **[awake]**. Check this state before moving to the next stop.
+
+## I — Spell Seal
+
+Follow the first yellow segment from START to **Spell Seal** in the lower-center room.
+
+<AmatsuEnemies seal="spell" />
+
+<SourceScreenshot image={images['spell-sealed']} caption="Spell Seal · small stone before activation." />
+
+## II — Surge Seal
+
+Follow the cyan path southwest to **Surge Seal**.
+
+<AmatsuEnemies seal="surge" />
+
+<SourceScreenshot image={images['surge-sealed']} caption="Surge Seal · before activation." />
+<SourceScreenshot image={images['surge-awake']} caption="Surge Seal [awake] · the taller stone confirms this seal is cleared." />
+
+## III — Blade Seal
+
+Follow the yellow route north along the western side of the maze to **Blade Seal** in the northwest room.
+
+<AmatsuEnemies seal="blade" />
+
+<SourceScreenshot image={images['blade-sealed']} caption="Blade Seal · the northwest stop, marked III on the route." />
+
+## IV — Bow Seal
+
+Follow the magenta route east across the northern part of the maze to **Bow Seal**, at **IV / END**.
+
+<AmatsuEnemies seal="bow" />
+
+<SourceScreenshot image={images['bow-sealed']} caption="Bow Seal · the final stone before activation." />
+<SourceScreenshot image={images['bow-awake']} caption="Bow Seal [awake] · the final stone after its enemies have been defeated." />
+
+## Check the server buff
+
+Hover over the **Seal of Amatsu (4/4)** buff icon on the right side of the screen to check the remaining duration. The **4/4** confirms all seals are awake.
+
+<SourceScreenshot image={images.buff} caption="Seal of Amatsu (4/4) · active buff tooltip." />

@@ -266,3 +266,14 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Owner corrects Revenant Shadow equipment: Red Velvet does not exist in current Refuge; remove it. Unknown Tech is the current best-in-slot set. Current item records list Armor, Boots, Pendant, and Shield at required level 100.
 
 - Owner approves removing Revenant’s WIP and publishing the guide on October 19, 2026. Remove WIP labels from the guide, sidebar, and class-tree info link, and allow indexing. Source-reviewed status remains; no in-game verification date is asserted.
+
+## Amatsu seals — October 19, 2026
+
+- Owner screenshots 145–155 and `amatsu unlocks.png` establish the Tatami Maze route: I Spell (lower center), II Surge (southwest), III Blade (northwest), IV Bow (northeast). Dialogue says to choose **Touch the stone** and clear summoned enemies within **90 seconds**. Cleared seals become tall jagged stones with **[awake]** labels. Do not infer reset, cooldown, failure, party-credit, or level requirements from these images.
+- Owner explicitly supplies enemies in route order: **3 The Paper + 3 Shinobi; 5 Tengu + 1 Silent Ronin; 4 Miyabi Doll; 5 Antique Firelock**. Nearby normal spawns and looted items are not evidence overriding these encounter counts.
+- Owner confirms awakening all four rewards **20% EXP server-wide for one hour**, and **weakening the entire Amatsu SS distortion dungeon**.
+- Owner approved publication and upload on October 19, 2026; Amatsu Seals Unlock is published. Original screenshots and supplied map retained in ignored `imports/amatsu-seals/`; selected seal/dialogue crops displayed with SourceScreenshot at the owner’s request, with full originals available through image links. Map creator/reuse terms unknown; do not assert an open license.
+
+- Owner screenshot **156** confirms the server-wide **Seal of Amatsu (4/4)** buff on another character: +20% EXP, all four seals awake, remaining duration, and **Amatsu SS is at its weakest**. This is dungeon weakening in addition to the EXP reward; do not describe it merely as EXP applying inside Amatsu SS. No numerical weakening amount is supplied. The guide displays a crop of the right-side icon and tooltip.
+
+- Owner confirms all seal encounter enemies are aggressive and can be difficult for players leveling in the area. The guide recommends a party or help from a high-level player and thanking whoever awakens the seals for the server.

@@ -1,0 +1,22 @@
+---
+import { withBase } from '../lib/paths';
+interface Props { seal: 'spell' | 'surge' | 'blade' | 'bow' }
+const groups = {
+  spell: [{ name: 'The Paper', file: 'the-paper', id: 1375, count: 3, width: 44, height: 81 }, { name: 'Shinobi', file: 'shinobi', id: 1401, count: 3, width: 101, height: 112 }],
+  surge: [{ name: 'Tengu', file: 'tengu', id: 1405, count: 5, width: 74, height: 98 }, { name: 'Silent Ronin', file: 'silent-ronin', id: 2254, count: 1, width: 64, height: 105 }],
+  blade: [{ name: 'Miyabi Doll', file: 'miyabi-doll', id: 1404, count: 4, width: 84, height: 96 }],
+  bow: [{ name: 'Antique Firelock', file: 'antique-firelock', id: 1403, count: 5, width: 60, height: 90 }],
+};
+---
+<div class="seal-enemies">
+  {groups[Astro.props.seal].map(enemy => <a href={`https://rtm-database.pages.dev/monsters?id=${enemy.id}`} target="_blank" rel="noreferrer">
+    <span class="sprite"><img src={withBase(`images/amatsu-seals/enemies/${enemy.file}.gif`)} width={enemy.width} height={enemy.height} alt="" loading="lazy" decoding="async" /></span>
+    <span>{enemy.count} {enemy.name}</span>
+  </a>)}
+</div>
+<style>
+  .seal-enemies { display: flex; flex-wrap: wrap; gap: 16px; }
+  .seal-enemies a { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+  .sprite { display: flex; align-items: flex-end; justify-content: center; height: 112px; }
+  .sprite img { width: auto; max-width: 101px; max-height: 112px; margin: 0; border: 0; border-radius: 0; background: transparent; }
+</style>
