@@ -10,17 +10,22 @@ const location = entry.locationId ? locations.find(location => location.id === e
 if (entry.locationId && !location) throw new Error(`Unknown shared location ${entry.locationId}`);
 const levels = location?.monsterLevels ?? entry.monsterLevels;
 const extraRequirements = entry.extraRequirements ?? [];
+const isDungeon = entry.kind === 'dungeons';
+const route = entry.route?.length ? entry.route : isDungeon && (location?.access || entry.directions)
+  ? [location?.access ?? entry.directions!]
+  : [];
 ---
 <div class="entrance-details" data-entrance={entry.id}>
   {(levels || entry.rank || entry.mirrorEye) && <p class="entrance-meta">{levels && <span>Monster Lv. <strong>{levels}</strong></span>}{entry.rank && <span>Rank <strong>{entry.rank}</strong></span>}{entry.mirrorEye && <span>Mirror eye <strong>Eye of {entry.mirrorEye}</strong></span>}</p>}
-  {location && <p>{location.access}</p>}
-  {entry.directions && entry.directions !== location?.access && <p>{entry.directions}</p>}
+  {!isDungeon && location && <p>{location.access}</p>}
+  {!isDungeon && entry.directions && entry.directions !== location?.access && <p>{entry.directions}</p>}
   {extraRequirements.length > 0 && <Callout title="Entry requirements" tone="warning">
     <ul class="entrance-requirements">
       {extraRequirements.map(requirement => <li><strong>{requirement}</strong></li>)}
     </ul>
   </Callout>}
-  {entry.route && entry.route.length > 0 && <details class="entrance-route"><summary>Route and entrance NPCs</summary><ol>{entry.route.map(step => <li>{step}</li>)}</ol></details>}
+  {route.length > 0 && <details class="entrance-route"><summary>Route</summary><ol>{route.map(step => <li>{step}</li>)}</ol></details>}
+  {entry.alternativeRoute && <details class="entrance-route"><summary>Alternative route</summary><p>{entry.alternativeRoute}</p></details>}
   {entry.notes && <p>{entry.notes}</p>}
   {entry.places.length > 0 && <p class="entrance-database">Refuge database: {entry.places.map((place, i) => <>{i > 0 && ', '}<a href={`https://rtm-database.pages.dev/places?id=${encodeURIComponent(place.key)}`} target="_blank" rel="noreferrer">{place.label} ↗</a></>)}</p>}
   {location && <p><a href={`${guideHref('leveling-spots')}#${entry.locationId}`}>Monsters and leveling notes →</a></p>}

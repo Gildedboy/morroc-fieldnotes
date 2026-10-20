@@ -264,6 +264,7 @@ export interface DungeonEntrance {
   locationId?: string;
   directions?: string;
   route?: string[];
+  alternativeRoute?: string;
   monsterLevels?: string;
   rank?: string;
   mirrorEye?: 'Vidar' | 'Vali' | 'Thor' | 'Balder';
@@ -371,8 +372,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "16–25",
     "route": [
       "From the Orphanage, speak with Skia Nerius and choose Payon Archer Village.",
-      "Archer Village.",
-      "Payon Cave F1."
+      "Enter Payon Cave F1 in the northwest corner of Archer Village."
     ]
   },
   {
@@ -510,8 +510,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "40–45",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Comodo.",
-      "Comodo, the Beach Town.",
-      "Karu, the West Cave."
+      "Enter Karu, the West Cave, on the west side of Comodo."
     ]
   },
   {
@@ -604,7 +603,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Izlude.",
       "Izlude, the Satellite City — interact with Sailor (northeast) at 197, 205.",
-      "Byalan Island."
+      "On Byalan Island, enter the cave in the middle of the island."
     ]
   },
   {
@@ -635,16 +634,20 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "42–50",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Comodo.",
-      "Comodo, the Beach Town.",
       "Inside Comodo — interact with Bath Gatekeeper (northeast) at 183, 192.",
       "Noble Bathhouse."
     ]
   },
   {
     "id": "forest-maze",
+    "route": [
+      "From the Orphanage, speak with Skia Nerius and choose Forest Maze.",
+      "Prontera Field F1.",
+      "Labyrinth Forest."
+    ],
     "name": "Forest Maze",
     "kind": "dungeons",
-    "places": [],
+    "places": [{ "label": "Labyrinth Forest", "key": "labyrinth-forest" }],
     "screenshots": [
       {
         "src": "images/entrances/dungeons-021.webp",
@@ -660,7 +663,9 @@ export const dungeonEntrances: DungeonEntrance[] = [
         "caption": "Forest Maze · Follow the mouse pointer to the destination map."
       }
     ],
-    "rank": "C"
+    "rank": "C",
+    "monsterLevels": "1–50",
+    "notes": "Baphomet Jr. (Level 45) and Baphomet’s Shadow (Level 48) are abundant; Baphomet (MVP) is Level 50. Dangerous for low-level players."
   },
   {
     "id": "orc-dungeon",
@@ -813,7 +818,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
       "From the Orphanage, speak with Skia Nerius and choose Juperos. This destination requires Orphanage investment level 60.",
       "El Mes Gorge (Valley of Abyss).",
       "El Mes Plateau.",
-      "Nogg Road F1."
+      "Enter Nogg Road F1 on the west side of El Mes Plateau, near the middle."
     ]
   },
   {
@@ -852,7 +857,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "68–70",
     "route": [
       "From the Orphanage, speak with Skia Nerius and choose Payon Archer Village.",
-      "Archer Village.",
       "Faceworm's Forest.",
       "Faceworm's Inner Forest.",
       "Faceworm's Den Forest.",
@@ -896,8 +900,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "62–70",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Payon.",
-      "Payon Town.",
-      "Inside Payon.",
+      "Enter the building on the north side of Payon.",
       "Payon Sunken Temple."
     ]
   },
@@ -974,8 +977,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "65–70",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Aldebaran.",
-      "Border City Aldebaran.",
-      "Clock Tower F1."
+      "Enter Clock Tower F1 in Aldebaran."
     ]
   },
   {
@@ -1008,8 +1010,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "70–75",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Einbech.",
-      "Einbech, the Mining Village.",
-      "Einbech Mine F1."
+      "Enter Einbech Mine F1 on the north side of Einbech."
     ]
   },
   {
@@ -1046,7 +1047,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "70–75",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Lutie.",
-      "Lutie, the Snow Village.",
       "Toy Factory Warehouse."
     ]
   },
@@ -1081,7 +1081,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "route": [
       "From the Orphanage, speak with Skia Nerius and choose Dragon Nest.",
       "Kalala Swamp.",
-      "Dragon Nest F1."
+      "Enter Dragon Nest F1 in the northeast corner of Kalala Swamp."
     ]
   },
   {
@@ -1446,7 +1446,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "1–1",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Umbala.",
-      "Wootan Tribe's Village, Umbala.",
       "Yggdrasil Dungeon 1F."
     ]
   },
@@ -1521,7 +1520,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "92–100",
     "route": [
       "From the Orphanage, speak with Skia Nerius and choose Abyss Lake. This destination requires Orphanage investment level 105.",
-      "Hugel Abyss Lake.",
+      "At Hugel Abyss Lake, interact with the pillar just north of the middle to reach the dungeon entrance.",
       "Abyss Lakes Underground Cave F1."
     ]
   },
@@ -1553,7 +1552,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "95–100",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Geffen.",
-      "Geffen, the Magic City.",
       "Geffen Tower.",
       "Geffenia F2."
     ]
@@ -1671,12 +1669,12 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "100–105",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Nomad Village.",
-      "Nomad Village.",
-      "Grey Forest."
+      "From the southeast side of Nomad Village, enter Grey Forest."
     ]
   },
   {
     "id": "sky-garden",
+    "alternativeRoute": "From the Orphanage, use Kafra Allysia to warp to Umbala. Go north to Yggdrasil Tree and pass through Yggdrasil Dungeon F1 and F2 to the Trunk. Go north to the Branches and speak with the Sky Garden NPC in the middle section.",
     "name": "Sky Garden",
     "kind": "dungeons",
     "places": [
@@ -1780,7 +1778,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "101–105",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Veins.",
-      "Veins, the Canyon Village.",
       "Veins Field F7 — interact with Island Ferryman (southwest) at 130, 131.",
       "Nameless Island Entrance."
     ]
@@ -1815,7 +1812,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "96–105",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Rachel.",
-      "Rachel, Capital of Arunafeltz.",
       "Ida Plane.",
       "Audumra Grass Land.",
       "Rachel Ice Cave F1."
@@ -1852,7 +1848,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "route": [
       "From the Orphanage, speak with Skia Nerius and choose Kiel Hyre Factory. This destination requires Orphanage investment level 60.",
       "Kiel Hyre's Academy.",
-      "Robot Factory F1."
+      "Enter Robot Factory F1 on the west side of the map, near the middle."
     ]
   },
   {
@@ -1902,7 +1898,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "route": [
       "From the Orphanage, speak with Skia Nerius and choose Glast Heim.",
       "Glastheim.",
-      "Glastheim F1."
+      "Enter Glastheim F1 at the monastery bonfire."
     ]
   },
   {
@@ -1934,7 +1930,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "101–110",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Rachel.",
-      "Rachel, Capital of Arunafeltz.",
       "Freya's Grand Temple (Sesilmir) — interact with Rachel Guard (northeast) at 166, 215.",
       "Freya's Sacred Precinct F1."
     ]
@@ -1976,7 +1971,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "116–120",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Geffen.",
-      "Geffen, the Magic City.",
       "Geffen Field F4.",
       "Geffen Field F5.",
       "Observatorium Study."
@@ -2088,8 +2082,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "115–120",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Niflheim.",
-      "Niflheim, Realm of the Dead.",
-      "nif_dun01."
+      "Enter the Opera House (nif_dun01) a little southwest of the Niflheim arrival point."
     ]
   },
   {
@@ -2122,14 +2115,14 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "120–125",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Veins.",
-      "Veins, the Canyon Village.",
-      "Veins Field F5.",
-      "Veins Field F3.",
-      "Thor Volcano Dungeon."
+      "From Veins, go north to Veins Field F5.",
+      "Go west, then north to Veins Field F3.",
+      "Enter Thor Volcano Dungeon on the north side of the map."
     ]
   },
   {
     "id": "varmundt-mansion-and-library",
+    "alternativeRoute": "With the Bifrost Mirror unlocked, use the Orphanage distortion orb and leave through the Pyramid-side passage. Enter the building in the upper-right, follow its portals, and interact with the dresser to reach the library.",
     "name": "Varmundt Mansion and Library",
     "kind": "dungeons",
     "places": [
@@ -2189,7 +2182,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
       "From the Orphanage, speak with Kafra Allysia and choose Lighthalzen.",
       "Lighthalzen, the City-State of Prosperity — interact with Airport Staff (southeast) at 305, 76; pay 5000 Zeny.",
       "Varmundt's Mansion.",
-      "Mansion Garden."
+      "Mansion Garden: enter the mansion building, follow its portals, and interact with the dresser to reach the library."
     ],
     "requirements": "Speak with Master of Vidar in Dicastes Diel before using the corresponding distortion."
   },
@@ -2227,10 +2220,9 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "135–140",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Niflheim.",
-      "Niflheim, Realm of the Dead.",
       "Valley of Niflheim.",
       "Skellington, a Solitary Village in Niflheim.",
-      "Death Castle Entrance."
+      "At Death Castle Entrance, speak with Strange Soul at nif_cas01 30, 125 to enter the Grandhall."
     ]
   },
   {
@@ -2263,7 +2255,6 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "monsterLevels": "140–142",
     "route": [
       "From the Orphanage, speak with Kafra Allysia and choose Lighthalzen.",
-      "Lighthalzen, the City-State of Prosperity.",
       "Lighthalzen Field F1.",
       "Fortu Luna — interact with Strange Switch (southeast) at 270, 74.",
       "Regenschutz Secret Laboratory F1."

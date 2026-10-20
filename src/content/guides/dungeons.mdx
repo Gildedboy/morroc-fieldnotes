@@ -5,7 +5,7 @@ description: Dungeon entrances, travel routes, and difficulty ranks.
 category: Leveling
 icon: map
 order: 2.1
-updated: 2026-10-18
+updated: 2026-10-19
 verified: null
 status: source-reviewed
 statusNote: Entrance routes and screenshots reviewed against the entrance spreadsheet, Refuge world page, and current place records. Rank labels use the original-server reference; no in-game verification date is recorded.
@@ -27,7 +27,7 @@ sources:
     url: https://rtm-database.pages.dev/places
     author: Return to Morroc Refuge team
     sourceUpdated: null
-    note: Current monster level ranges, map sequences, entrance NPCs, and mirror Master requirements. Reviewed October 18, 2026. Coordinates identify entrance positions; they do not require a navigation command.
+    note: Current monster level ranges, map sequences, entrance NPCs, and mirror Master requirements. Reviewed October 18, 2026. Forest Maze matched to Labyrinth Forest on October 19, 2026, with a full monster range of 1–50; Baphomet Jr. 45, Baphomet’s Shadow 48, Baphomet MVP 50, and Rank C Shadow 1. Yggdrasil Tree Trunk and Branches records reviewed October 19, 2026 confirm Level 96–99 enemies; the owner confirms the dungeon plants cast magic. Coordinates identify entrance positions; they do not require a navigation command.
 ---
 
 import EntranceDetails from '../../components/EntranceDetails.astro';
@@ -39,10 +39,6 @@ import DungeonRankWarning from '../../components/DungeonRankWarning.astro';
 <Callout title="Follow the mouse pointer on the maps">
 Look at the mouse arrow in the map references: it points to the destination being shown. Use the accompanying gameplay screenshot and its top-right minimap to find the entrance within that map. Open the full-size image to see the pointer clearly.
 </Callout>
-
-## Upper Pyramid
-
-<EntranceDetails id="upper-pyramid" />
 
 ## Pyramid Basement
 
@@ -56,6 +52,10 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="payon-cave" />
 
+## Upper Pyramid
+
+<EntranceDetails id="upper-pyramid" />
+
 ## Prontera Culvert
 
 <EntranceDetails id="prontera-culvert" />
@@ -64,21 +64,21 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="morroc-sphinx" />
 
+## Byalan Island
+
+<EntranceDetails id="byalan-island" />
+
 ## Geffen Cave
 
 <EntranceDetails id="geffen-cave" />
-
-## Beach Caves
-
-<EntranceDetails id="beach-caves" />
 
 ## Sunken Ship
 
 <EntranceDetails id="sunken-ship" />
 
-## Byalan Island
+## Beach Caves
 
-<EntranceDetails id="byalan-island" />
+<EntranceDetails id="beach-caves" />
 
 ## Noble’s Bathhouse
 
@@ -87,6 +87,14 @@ Look at the mouse arrow in the map references: it points to the destination bein
 ## Forest Maze
 
 <EntranceDetails id="forest-maze" />
+
+## Regenschirm Lab
+
+<EntranceDetails id="regenschirm-lab" />
+
+## Thanatos Tower
+
+<EntranceDetails id="thanatos-tower" />
 
 ## Orc Dungeon
 
@@ -104,10 +112,6 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="magma-dungeon" />
 
-## Faceworm Nest
-
-<EntranceDetails id="faceworm-nest" />
-
 ## Sunken Temple
 
 <EntranceDetails id="sunken-temple" />
@@ -119,6 +123,10 @@ Look at the mouse arrow in the map references: it points to the destination bein
 ## Clock Tower
 
 <EntranceDetails id="clock-tower" />
+
+## Faceworm Nest
+
+<EntranceDetails id="faceworm-nest" />
 
 ## Einbroch Mines (Einbech)
 
@@ -132,21 +140,25 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="dragon-nest" />
 
-## Regenschirm Lab
+## Glast Heim
 
-<EntranceDetails id="regenschirm-lab" />
-
-## Ayothaya Temple
-
-<EntranceDetails id="ayothaya-temple" />
+<EntranceDetails id="glast-heim" />
 
 ## Dewata Volcano
 
 <EntranceDetails id="dewata-volcano" />
 
+## Ayothaya Temple
+
+<EntranceDetails id="ayothaya-temple" />
+
 ## Crystal Caves
 
 <EntranceDetails id="crystal-caves" />
+
+## Alchemist Fortress
+
+<EntranceDetails id="alchemist-fortress" />
 
 ## Waterfall Caves
 
@@ -160,29 +172,21 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="juperos-ruins" />
 
-## Abandoned Hospital
-
-<EntranceDetails id="abandoned-hospital" />
-
-## Yggdrasil Tree
-
-<EntranceDetails id="yggdrasil-tree" />
-
-## Alchemist Fortress
-
-<EntranceDetails id="alchemist-fortress" />
-
 ## Abyss Lake
 
 <EntranceDetails id="abyss-lake" />
+
+## Abandoned Hospital
+
+<EntranceDetails id="abandoned-hospital" />
 
 ## Geffenia
 
 <EntranceDetails id="geffenia" />
 
-## Thanatos Tower
+## Ice Dungeon
 
-<EntranceDetails id="thanatos-tower" />
+<EntranceDetails id="ice-dungeon" />
 
 ## Abandoned Kafra Warehouse
 
@@ -192,6 +196,18 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="grey-forest" />
 
+## Kiel Hyre Factory
+
+<EntranceDetails id="kiel-hyre-factory" />
+
+## Yggdrasil Tree
+
+<Callout title="Level 1 plants" tone="warning">
+The plants cast magic despite their level. The adjoining Trunk and Branches have **Level 96–99 enemies**.
+</Callout>
+
+<EntranceDetails id="yggdrasil-tree" />
+
 ## Sky Garden
 
 <EntranceDetails id="sky-garden" />
@@ -200,25 +216,9 @@ Look at the mouse arrow in the map references: it points to the destination bein
 
 <EntranceDetails id="nameless-island-and-cursed-monastery" />
 
-## Ice Dungeon
-
-<EntranceDetails id="ice-dungeon" />
-
-## Kiel Hyre Factory
-
-<EntranceDetails id="kiel-hyre-factory" />
-
-## Glast Heim
-
-<EntranceDetails id="glast-heim" />
-
 ## Rachel Sanctuary
 
 <EntranceDetails id="rachel-sanctuary" />
-
-## Observatorium Astrologika
-
-<EntranceDetails id="observatorium-astrologika" />
 
 ## Odin Shrine
 
@@ -231,6 +231,10 @@ Look at the mouse arrow in the map references: it points to the destination bein
 ## Opera House
 
 <EntranceDetails id="opera-house" />
+
+## Observatorium Astrologika
+
+<EntranceDetails id="observatorium-astrologika" />
 
 ## Thor Volcano
 

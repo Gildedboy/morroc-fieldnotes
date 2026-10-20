@@ -12,7 +12,7 @@ test('dungeon navigation exposes ranks, entrance routes, and full-frame screensh
   await expect(page).toHaveURL(/#thanatos-tower$/);
   const tower = page.locator('[data-entrance="thanatos-tower"]');
   await expect(tower).toContainText('Rank B');
-  await tower.getByText('Route and entrance NPCs', { exact: true }).click();
+  await tower.getByText('Route', { exact: true }).click();
   await expect(tower.getByRole('list')).toBeVisible();
   const frame = tower.getByRole('img').first();
   await expect(frame).toBeVisible();
@@ -42,7 +42,7 @@ test('keyboard search finds an entrance NPC and opens its distortion requirement
   await expect(entrance.locator('.entrance-meta')).toContainText('Mirror eye Eye of Balder');
   await expect(page.locator('[data-entrance="morroc-castle-and-ritual-basement"] .entrance-meta')).toContainText('Eye of Thor');
   await expect(entrance.getByRole('complementary')).toHaveCount(0);
-  await entrance.getByText('Route and entrance NPCs', { exact: true }).click();
+  await entrance.getByText('Route', { exact: true }).click();
   await expect(entrance).toContainText('Master of Balder');
   await expect(page.locator('[data-entrance="lokis-tomb"]').getByRole('complementary')).toContainText('1 Enriched Oridecon');
   await expect(page.locator('[data-entrance="jormungands-lair"]').getByRole('complementary')).toContainText('Base Level 130');

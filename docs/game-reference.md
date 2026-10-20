@@ -277,3 +277,17 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Owner screenshot **156** confirms the server-wide **Seal of Amatsu (4/4)** buff on another character: +20% EXP, all four seals awake, remaining duration, and **Amatsu SS is at its weakest**. This is dungeon weakening in addition to the EXP reward; do not describe it merely as EXP applying inside Amatsu SS. No numerical weakening amount is supplied. The guide displays a crop of the right-side icon and tooltip.
 
 - Owner confirms all seal encounter enemies are aggressive and can be difficult for players leveling in the area. The guide recommends a party or help from a high-level player and thanking whoever awakens the seals for the server.
+
+## Forest Maze — October 19, 2026
+
+- Forest Maze is the database’s **Labyrinth Forest** (`labyrinth-forest`, `prt_maze02` and `prt_maze03`). Current `db-places.json` gives the full monster range **1–50**. Current `db-mobs.json` confirms **Baphomet Jr. 45**, **Baphomet’s Shadow 48**, **Baphomet MVP 50**, and **Rank C Shadow 1**, alongside lower-level regular monsters. Preserve the full 1–50 range as data, but place Forest Maze alongside 45–50 encounters: the owner confirms Baphomet Jr. and Baphomet’s Shadow are abundant and dangerous for low-level players.
+- Leveling Spots uses ascending minimum monster level, then maximum. Dungeons normally follows the same order, with explicit exceptions for Forest Maze’s abundant 45–50 encounters and Yggdrasil’s misleading Level 1 plant range.
+
+## Yggdrasil Tree safety and ordering — October 19, 2026
+
+- Owner confirms Yggdrasil Tree plants cast magic and its Level 1 range is misleading as a beginner recommendation. Keep the accurate plant range but place the entry directly before Sky Garden in Dungeons with a warning, as requested by the owner.
+- Current Refuge place and monster records list **Yggdrasil Tree Trunk and Branches at 96–99**, correcting the owner’s tentative recollection of around 80: **Miming 96, Menblatt 97, Fairy Les 98, Parus 99**. These are separate areas from `ygg_dun01`/`ygg_dun02`; do not blend them into the dungeon’s plant-level range or invent a connecting exit route from the database’s separate travel routes.
+
+## Dungeon route presentation — October 19, 2026
+
+- Dungeon entries with a route display that route once, without repeating shared access text or legacy directions above it. Unique entrance positions, final interactions, and library access are folded into the route. Sky Garden’s Umbala approach and Varmundt’s mirror approach remain separate alternatives. All dungeon entries use a Route box; shared access directions supply the route when no step list exists. Forest Maze’s route follows the current place record: Skia Nerius → Forest Maze → Prontera Field F1 → Labyrinth Forest. Distortion access display is unchanged.
