@@ -3,8 +3,10 @@ import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import SourceScreenshot from '../SourceScreenshot.astro';
 import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
 import RevenantGear from './RevenantGear.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
+import StatAllocationNotice from './StatAllocationNotice.astro';
 ---
 
 <div class="trickster-portraits">
@@ -23,12 +25,32 @@ import ProgressGearNotice from './ProgressGearNotice.astro';
 <h2 id="job-change">Job Change Quest</h2>
 <Callout title="Requirement: Trickster Job Level 70">
   <ol>
-    <li>Speak to the <strong>Recluse Trickster</strong> in Niflheim at <strong>niflheim 93, 227</strong>. Ask for an audience with Lady Hel.</li>
+    <li>
+      <p>Speak to the <strong>Recluse Trickster</strong> in Niflheim at <strong>niflheim 93, 227</strong>. Ask for an audience with Lady Hel.</p>
+      <SourceScreenshot image={{ src: 'images/classes/revenant-job-change-start.jpg', width: 1904, height: 1041, alt: 'Trickster NPC at the front door of the Niflheim house where the Revenant job-change quest starts', caption: 'Find the Trickster at the house entrance in Niflheim.', crop: { x: 315, y: 140, width: 565, height: 550 } }} />
+    </li>
     <li>Follow Serin through the Long Night and defeat the corrupted Reapers at <strong>que_sign01 49, 27</strong>.</li>
     <li>Defeat <strong>Revenant Ebel</strong> at <strong>que_sign01 55, 217</strong>.</li>
     <li>Survive Lady Hel's ritual at <strong>que_sign01 45, 227</strong>.</li>
   </ol>
-  <p><strong>Rewards:</strong> the Revenant job, a Reaper egg, and a reforged scythe. Hatch the egg for a combat pet that grants leech and inflicts Burning, or exchange it for a Revenant Ebel Card for Critical Rate and Critical Damage.</p>
+  <p><strong>Rewards:</strong> the Revenant job, a Reaper egg, and a reforged scythe. Hatch the egg for a combat pet that grants leech and inflicts Burning, or exchange it for a <strong>Revenant Ebel Card</strong> for Critical Rate and Critical Damage.</p>
+  <div class="quest-item-rewards">
+    <figure>
+      <a href="https://rtm-database.pages.dev/index.html?id=9057"><img src={withBase('images/classes/reaper-shell.png')} alt="Reaper Shell egg artwork from the Refuge database" width="75" height="100" loading="lazy" /></a>
+      <figcaption><a href="https://rtm-database.pages.dev/index.html?id=9057">Reaper Shell</a></figcaption>
+    </figure>
+    <figure>
+      <a href="https://rtm-database.pages.dev/index.html?id=27151"><img src={withBase('images/classes/revenant-ebel-card.png')} alt="Revenant Ebel Card artwork from the Refuge database" width="150" height="200" loading="lazy" /></a>
+      <figcaption><a href="https://rtm-database.pages.dev/index.html?id=27151">Revenant Ebel Card</a></figcaption>
+    </figure>
+  </div>
+  <NpcCard name="Trickster Serin" image="images/classes/trickster-job-change-serin.png" width={160} height={230}>
+    <p>Speak to Serin <strong>where you started as a Trickster</strong> to switch between the <strong>Reaper</strong> and the <strong>Revenant Ebel Card</strong>.</p>
+  </NpcCard>
+  <SourceScreenshot image={{ src: 'images/classes/revenant-reaper.jpg', width: 1904, height: 1041, alt: 'The red hooded Reaper pet carrying its scythe', caption: 'Reaper pet.', crop: { x: 550, y: 170, width: 245, height: 310 } }} />
+  <div class="trickster-quest-reward">
+    <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase('images/classes/revenant-attacking-still.webp')} /><img src={withBase('images/classes/revenant-attacking.webp')} alt="Revenant attacking" width="296" height="300" loading="lazy" /></picture>
+  </div>
 </Callout>
 <h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
 <ul>
@@ -47,9 +69,7 @@ import ProgressGearNotice from './ProgressGearNotice.astro';
   <li><SkillIcon icon="RK_PHANTOMTHRUST" /><strong>Phantom Slice:</strong> pulls a distant enemy toward you; it can also pull a party member without damaging them.</li>
 </ul>
 <h3>Stat allocation</h3>
-<Callout title="Adjust stats to your build">
-  <p>The allocation below is an example, not a requirement. Adjust your stats to suit your skills, equipment, and survivability needs.</p>
-</Callout>
+<StatAllocationNotice />
 <div class="gear-table-wrap"><table>
   <thead><tr><th>Stage</th><th>Stats</th><th>Notes</th></tr></thead>
   <tbody>

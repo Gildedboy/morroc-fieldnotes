@@ -1,8 +1,11 @@
 ---
 import { withBase } from '../../lib/paths';
 import Callout from '../Callout.astro';
+import SourceScreenshot from '../SourceScreenshot.astro';
 import SkillIcon from '../SkillIcon.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
+import VagabondGear from './VagabondGear.astro';
+import StatAllocationNotice from './StatAllocationNotice.astro';
 ---
 <div class="trickster-portraits">
   <figure><img src={withBase('images/classes/vagabond-male-portrait.webp')} alt="Male Vagabond portrait from Refuge" width="450" height="760" loading="lazy" /><figcaption>Male Vagabond</figcaption></figure>
@@ -10,16 +13,27 @@ import ProgressGearNotice from './ProgressGearNotice.astro';
 </div>
 
 <h2 id="overview">Overview</h2>
-<p>Vagabond fights with dagger auto attacks. STR and AGI are its main stats. Its small SP pool limits extra skills from cards and manuals, while equipment has a large effect on its damage and survival.</p>
+<p>Vagabond fights with dagger auto attacks. STR, AGI, and LUK are its main stats. Its small SP pool limits defensive skill use, while equipment has a large effect on its damage and survival.</p>
 <Callout title="Refuge Changes"><p>Vagabond is affected by Refuge’s shared passive changes. See the <a href={withBase('guides/aspd-elements/')}>ASPD &amp; Element Table</a> for attack-speed limits.</p></Callout>
 
 <h2 id="job-change">Job Change Quest</h2>
-<Callout title="Requirements"><p><strong>Orphan Base Level 15 and Job Level 10.</strong> Carry <strong>0 Zeny</strong>.</p></Callout>
-<ol>
-  <li>Speak to the <strong>Jobless Orphan</strong> in the Orphanage at <strong>va_orpha 17, 18</strong>. Tell them you want to leave the regular job paths.</li>
-  <li>Return at Base Level 15. The quest instructions say to return “carrying nothing”; the listed requirement explicitly specifies no Zeny.</li>
-  <li>Accept the offer to become a <strong>Vagabond</strong>.</li>
-</ol>
+<Callout title="Requirements: Orphan Base Level 15 and Job Level 10">
+  <ol>
+    <li>
+      <p>Open the <strong>bank</strong> with <strong>Ctrl + B</strong> (default shortcut) and deposit all your Zeny so you carry <strong>0 Zeny</strong>.</p>
+      <SourceScreenshot image={{ src: 'images/classes/vagabond-job-change-bank.jpg', width: 1904, height: 1041, alt: 'Zeny Storage window with on-hand balance, amount field, and Deposit button', crop: { x: 810, y: 442, width: 284, height: 157 } }} />
+    </li>
+    <li>
+      <p>Speak to the <strong>Vagabond Orphan</strong> in the Orphanage at <strong>va_orpha 17, 18</strong>. Tell them you want to leave the regular job paths.</p>
+      <SourceScreenshot image={{ src: 'images/classes/vagabond-job-change-npc.png', width: 204, height: 312, alt: 'Vagabond Orphan NPC beneath the Vagabond Job Quest sign' }} />
+    </li>
+    <li>Accept the offer to become a <strong>Vagabond</strong>.</li>
+  </ol>
+  <div class="trickster-quest-reward">
+    <p><strong>Reward:</strong> the Vagabond job.</p>
+    <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase('images/classes/vagabond-attacking-still.webp')} /><img src={withBase('images/classes/vagabond-attacking.webp')} alt="Vagabond attacking" width="140" height="140" loading="lazy" /></picture>
+  </div>
+</Callout>
 
 <h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
 <ul>
@@ -29,22 +43,53 @@ import ProgressGearNotice from './ProgressGearNotice.astro';
   <li><SkillIcon icon="SM_RECOVERY" /><strong>Improve Defense:</strong> increases maximum HP.</li>
   <li><SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery:</strong> improves SP recovery.</li>
   <li><SkillIcon icon="MC_INCCARRY" /><strong>Enlarge Weight Limit:</strong> increases carrying capacity.</li>
-  <li><SkillIcon icon="LK_BERSERK" /><strong>Frenzy:</strong> sets ASPD to 193 while active, drains HP, sets defenses to zero, prevents direct healing, and blocks items and chat. You can disable it manually. Learning it also adds +3 to the ASPD limit.</li>
+  <li><SkillIcon icon="LK_BERSERK" /><strong>Frenzy:</strong> sets ASPD to 193 while active, grants Endure and +30% movement speed, and sets SP to 0. It drains HP, sets defenses to zero, prevents direct healing, and blocks item use. Higher AGI slows its HP drain. You can disable it manually. Learning it also adds +3 to the ASPD limit.</li>
   <li><SkillIcon icon="AL_PNEUMA" /><strong>Pneuma:</strong> protects a 3 × 3 area from ranged physical attacks for 10 seconds. Requires all six passive skills at level 10.</li>
 </ul>
 
+<h3>Early leveling stat allocation</h3>
+<Callout title="New characters and alts">
+  <p>For a new character, follow the DEX target below. Alts with easy access to Critical Rate can skip DEX and put those points into LUK instead.</p>
+</Callout>
+<StatAllocationNotice />
+<p>Aim for these stat targets around <strong>Base Level 38</strong>:</p>
+<ol class="trickster-stat-order">
+  <li>Raise both <strong>STR and AGI to 49</strong>.</li>
+  <li>Raise <strong>VIT to 20</strong> for more HP.</li>
+  <li>Raise <strong>DEX to 10</strong>.</li>
+</ol>
+
+<h3>After Base Level 50 and obtaining a Keris</h3>
+<p>After reaching <strong>Base Level 50</strong> and obtaining a <strong>Keris</strong>, keep AGI and VIT at their existing targets and continue raising STR. Start allocating points to LUK once you begin equipping Critical Rate gear. Follow these priorities until you evolve into Legend.</p>
+
+<h3>Skill allocation</h3>
+<ol class="trickster-skill-order">
+  <li>Unlock <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong>.</li>
+  <li>Prioritize <SkillIcon icon="SM_SWORD" /><strong>Blade Mastery</strong>, <SkillIcon icon="SM_RECOVERY" /><strong>Improve Defense</strong>, <SkillIcon icon="TF_MISS" /><strong>Improve Dodge</strong>, and <SkillIcon icon="MO_DODGE" /><strong>Shadow Mastery</strong>. Split points between them or max one at a time, in whichever order suits your leveling needs.</li>
+  <li>Add a few levels to <SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery</strong> as needed for SP recovery. You can leave it below maximum while leveling.</li>
+  <li>Level <SkillIcon icon="MC_INCCARRY" /><strong>Enlarge Weight Limit</strong> after your other passives.</li>
+  <li><SkillIcon icon="AL_PNEUMA" /><strong>Pneuma requires every other Vagabond skill to be maxed first.</strong> Once those requirements are met, spend your final points on Pneuma.</li>
+</ol>
+
+<SourceScreenshot image={{ src: 'images/classes/vagabond-owner-skill-tree.png', width: 538, height: 398, alt: 'Vagabond skill tree showing maxed passives, Frenzy level 1, and Pneuma level 8', caption: 'Vagabond skill-tree example.' }} />
+
 <h2 id="how-to-play">How to Play</h2>
 <ol>
-  <li>Use dagger auto attacks as your main damage. There is no required attack-skill rotation.</li>
+  <li>Activate <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong> and keep auto-attacking at <strong>193 ASPD</strong>.</li>
+  <li>Use <SkillIcon icon="TF_HIDING" /><strong>Hiding</strong> to evade attacks (<SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery</strong> lets you recover SP while <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong> is active), and use leech options to recover HP in order to maintain Frenzy.</li>
   <li>Use <SkillIcon icon="AL_PNEUMA" /><strong>Pneuma</strong> against ranged physical attacks once unlocked.</li>
-  <li>Activate <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong> only when you can finish the fight without items or direct healing. Disable it when you need to recover.</li>
+  <li>When no enemies are nearby, disable <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong>, recover HP and SP, then repeat the loop.</li>
 </ol>
+<Callout title="Watch your HP" tone="warning">
+  <p><SkillIcon icon="LK_BERSERK" /><strong>Frenzy drains HP over time and ends automatically if your HP falls below 100.</strong></p>
+</Callout>
 
 <h2 id="leveling-spots">Leveling Spots</h2>
 <p>Use <a href={withBase('guides/leveling-spots/')}>Leveling Spots</a> for monster ranges, routes, and access notes.</p>
 
 <h2 id="progress-gear">Progress Gear</h2>
 <ProgressGearNotice />
+<VagabondGear />
 
 <h2 id="next-step">Next Step</h2>
 <p>Reach <strong>Vagabond Job Level 70</strong> to begin the <a href={withBase('classes/legend/')}>Legend</a> job-change quest.</p>

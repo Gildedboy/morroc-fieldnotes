@@ -3,8 +3,10 @@ import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import SourceScreenshot from '../SourceScreenshot.astro';
 import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
 import GearTabBehavior from './GearTabBehavior.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
+import StatAllocationNotice from './StatAllocationNotice.astro';
 const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/index.html?id=${id}&q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items&tab=items`;
 const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items`;
 ---
@@ -51,7 +53,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 </ul>
 <p>This guide follows the STR/LUK damage build. Dark Message and Dark Messenger are INT-build skills and are not covered here.</p>
 <h3>Early leveling (levels 1–100)</h3>
-<p>Use this stat allocation example as a guide:</p>
+<StatAllocationNotice />
 <ol class="trickster-stat-order">
   <li>49 STR/LUK</li>
   <li>20 VIT/INT</li>
@@ -136,7 +138,6 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
   <section id="trickster-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-low" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Low headgear / set option</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
       <tr><td><a href={itemHref(31877, 'Bravery Scarf')}>Bravery Scarf [0]</a></td><td>0</td><td></td></tr>
-      <tr><td><a href={itemHref(31882, 'Calm Scarf')}>Calm Scarf [0]</a></td><td>0</td><td></td></tr>
       <tr><td><a href={itemHref(5305, 'Pirate Dagger')}>Pirate Dagger [0]</a></td><td>0</td><td>Pirate Set piece</td></tr>
       <tr><td><a href={itemHref(5767, 'Samurai Mask')}>Samurai Mask [0]</a></td><td>50</td><td>A good upgrade: +20% total Critical Rate.</td></tr>
     </tbody></table></div>
@@ -204,3 +205,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 
 <h2 id="next-step">Next Step</h2>
 <p>Reach <strong>Trickster Job Level 70</strong> to advance to <a href={withBase('classes/revenant/')}>Revenant</a>.</p>
+
+<NpcCard name="Trickster Serin" image="images/classes/trickster-job-change-serin.png" width={160} height={230}>
+  <p>After becoming a Revenant, return to Serin <strong>where you started as a Trickster</strong> to switch between your <strong>Reaper</strong> reward and the <strong>Revenant Ebel Card</strong>.</p>
+</NpcCard>

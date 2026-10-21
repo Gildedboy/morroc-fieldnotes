@@ -199,3 +199,21 @@ Owner supplied four PNG close-ups in Windows OneDrive Imágenes/Capturas de pant
 At the owner’s request, the fourth Weapon Voucher screenshot displays only the reward message and attachment controls using a SourceScreenshot viewport at (751, 260), 302 × 402. Its full-frame original remains unchanged and available through the full-size link.
 
 The owner’s additional PNG `Captura de pantalla 2026-10-20 145903.png` (225 × 134) shows the Mail envelope with its red N notification after claiming the reward. Archived in `imports/weapon-voucher/` and copied unchanged as `public/images/weapon-voucher/mail-button.png`; it replaces the mailbox-list image beside step 3.
+
+## Vagabond job-change images — October 20, 2026
+
+Owner screenshots `Captura de pantalla 2026-10-20 152008.png` (204 × 312) and `screenPRM160.jpg` (1904 × 1041) are archived unchanged in ignored `imports/vagabond-job-change/`. Identical public copies are `images/classes/vagabond-job-change-npc.png` and `vagabond-job-change-bank.jpg`. SourceScreenshot preserves the full NPC close-up; the bank viewport is (810, 442), 284 × 157, with the unchanged full original available. Owner requested local integration; game artwork belongs to its rights holders. Revenant’s reward section reuses the existing local attacking animation and reduced-motion still, with no new artwork.
+
+## Revenant quest start and Reaper — October 20, 2026
+
+Owner screenshots screenPRM161–165 are archived unchanged in `imports/revenant-job-change/`. Public copies of 161 (`images/classes/revenant-job-change-start.jpg`) and 163 (`revenant-reaper.jpg`) are 1904 × 1041. SourceScreenshot displays the Niflheim house entrance full-frame beside the first quest step, and the Reaper at (550, 170), 245 × 310 beside its reward description, retaining full original links. Remaining Reaper frames are evidence rather than repeated illustrations. Trickster’s exchange note reuses the existing Serin image. Owner requested local integration; game artwork belongs to its rights holders.
+
+The owner requested a house-only viewport for the Revenant quest-start image: (315, 140), 565 × 550, excluding UI and the player character while retaining the entrance NPC. The full original stays unchanged. Revenant’s exchange note now also reuses Serin’s existing local image.
+
+## Revenant reward item artwork — October 20, 2026
+
+At the owner’s request, original database PNGs `assets/icons/art/27151.png` (Revenant Ebel Card, 150 × 200) and `assets/icons/art/9057.png` (Reaper Shell, 75 × 100) are copied unchanged to `public/images/classes/revenant-ebel-card.png` and `reaper-shell.png`. They link to their item records beside Serin’s reward exchange. The Reaper Shell picture is the egg, not the pet sprite; the owner photo separately illustrates the pet. Refuge permits copying site content; game artwork remains with its rights holders.
+
+## Vagabond skill tree — October 20, 2026
+
+Owner screenshot `Captura de pantalla 2026-10-20 155753.png` (538 × 398) is archived in ignored `imports/vagabond-skill-tree/` with screenPRM166.jpg. The PNG is copied unchanged to `public/images/classes/vagabond-owner-skill-tree.png` and displayed full-frame after Skill allocation with SourceScreenshot. It is an allocation example, not an inferred Job Level or mandatory build. Owner requested integration; game artwork belongs to its rights holders.

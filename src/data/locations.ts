@@ -185,7 +185,7 @@ export const locations: LevelingLocation[] = [
     id: 'sky-garden', name: 'Sky Garden', monsterLevels: '101–105', expStartBaseLevel: 86,
     monsters: ['Sif Avatar Lv. 101', 'Sleipnir Avatar Lv. 101', 'Idun Avatar Lv. 102', 'Siegfried Avatar Lv. 103', 'Thor Avatar Lv. 104', 'Sarah Irene Lv. 105 (MVP)'],
     access: 'From the Orphanage, use Kafra Allysia to warp to Umbala. Go one map north to Yggdrasil Tree and enter Yggdrasil Dungeon. Continue through Yggdrasil Dungeon F1 and F2 to reach Yggdrasil Tree Trunk, then go one map north to Yggdrasil Tree Branches. Speak with the Sky Garden NPC in the middle section to enter.',
-    notes: 'Trade Einherjar Soul for powerful equipment at the end of Sky Garden. Watch out for Sarah Irene on the last floor of Okolnir. If you use the Sky Garden NPC to warp someone, be a good Orphan and do it for free.',
+    notes: 'Trade Einherjar Soul for powerful equipment at the end of Sky Garden. Watch out for Sarah Irene on the last floor of Okolnir. If you open a Warp Portal for another player, be a good Orphan and let them travel for free.',
     image: { src: 'images/locations/sky-garden.jpg', alt: 'Several Sky Garden enemies on a stone path beside garden foliage', square: true },
     databasePlaces: [
       { label: 'Sky Garden Village', query: 'skydun1' },
@@ -235,7 +235,7 @@ export const locations: LevelingLocation[] = [
     id: "mad-drinker", name: "Mad Drinker", monsterLevels: "125–135", expStartBaseLevel: 110,
     monsters: ["Bartender Lv. 125", "Buckethead Lv. 127", "Bruised Drunkard Lv. 129", "Tired Maid Lv. 131", "Desperate Maid Lv. 133", "Moldy Man Lv. 134", "Strange Love Lv. 135 (MVP)"],
     access: "In the Orphanage kitchen, enter the Mad Drinker Distortion at va_orpha 389,180.",
-    notes: "The entry record requires Master of Balder. Strange Love is the MVP in this distortion.",
+    notes: "You need the Bifrost Mirror to enter. Strange Love is the MVP in this distortion.",
     image: { src: 'images/locations/mad-drinker-monsters.svg', alt: 'Three Mad Drinker mobs in a stone-floored room beside wooden shelves', square: true },
     databasePlaces: [{"label": "Mad Drinker", "query": "mad-drinker-distortion"}],
   },

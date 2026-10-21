@@ -16,19 +16,20 @@ const { job } = Astro.props;
 const isThief = job.id === 'thief';
 const isTrickster = job.id === 'trickster';
 const isRevenant = job.id === 'revenant';
-const isDraftPreview = import.meta.env.DEV && ['vagabond', 'legend'].includes(job.id);
-const hasGuide = isTrickster || isRevenant || isDraftPreview;
+const isVagabond = job.id === 'vagabond';
+const isDraftPreview = import.meta.env.DEV && job.id === 'legend';
+const hasGuide = isTrickster || isRevenant || isVagabond || isDraftPreview;
 const sections = hasGuide ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', isRevenant || job.id === 'legend' ? 'Next Steps' : 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
-<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={job.id} noindex={!isRevenant}>
+<Shell title={job.name} description={`${job.name}: ${job.weapons}. Follow its place in Refuge's job tree.`} currentId={job.id} noindex={!isRevenant && !isTrickster && !isVagabond}>
   <div class="article-grid">
     <div class="article-column">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href={withBase('classes/')}>Job Class Tree</a><span aria-hidden="true">›</span><span>{job.name}</span></nav>
       <header class="article-header job-class-header">
         <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase(job.idleStill)} /><img src={withBase(job.idle)} alt={`${job.name} animated sprite`} width="112" height="112" /></picture>
-<div>{!isTrickster && !isRevenant && <span class="wip-badge">WIP</span>}<div class="job-title"><h1>{job.name}</h1>{!isTrickster && <span class="job-heading-weapon">{job.weaponLabel ?? job.weapons}</span>}</div>{!isTrickster && <div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div>}</div>
+<div>{!isTrickster && !isRevenant && !isVagabond && <span class="wip-badge">WIP</span>}<div class="job-title"><h1>{job.name}</h1>{!isTrickster && <span class="job-heading-weapon">{job.weaponLabel ?? job.weapons}</span>}</div>{!isTrickster && <div class="job-tags">{job.id === 'merchant' ? <span>Vendor only</span> : job.roles.map(role => <span>{roleLabels[role]}</span>)}</div>}</div>
       </header>
       <details class="mobile-outline"><summary>On this page</summary><ul>{sections.map(([id, title]) => <li><a href={`#${id}`}>{title}</a></li>)}</ul></details>
       <article class="prose" data-article>
@@ -45,7 +46,7 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
           <ul><li><strong>Daggers and swords:</strong> use Back Stab for single targets, or Rolling Cutter and Cross Ripper Slasher for spinning attacks and their follow-up.</li><li><strong>Bows:</strong> use Double Strafe and Arrow Shower for ranged attacks. Carry arrows.</li><li><strong>Magic:</strong> Flaming Petals, Freezing Spear, and Wind Blade build elemental focus. Auto Spell lets normal attacks trigger learned spells.</li><li><strong>Poison:</strong> Envenom inflicts Poison, Enchant Poison changes your weapon's element, and Detoxify removes Poison.</li></ul>
           <p>These are options to explore, not a prescribed skill build. Check current costs, prerequisites, and damage in the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge skills database ↗</a>.</p>
         </>}
-        {isTrickster ? <TricksterGuide /> : isRevenant ? <RevenantGuide /> : isDraftPreview ? (job.id === 'vagabond' ? <VagabondGuide /> : <LegendGuide />) : <>
+        {isTrickster ? <TricksterGuide /> : isRevenant ? <RevenantGuide /> : isVagabond ? <VagabondGuide /> : isDraftPreview ? <LegendGuide /> : <>
           <h2 id="next-jobs">{isThief ? 'Next jobs' : 'Job progression'}</h2>
           {nextJobs.length ? <ul class="job-next-links">{nextJobs.map(next => <li><a href={withBase(`classes/${next.id}/`)}>{next.name} <small>{next.weaponLabel ?? next.weapons}</small><span class="wip-badge">WIP</span> →</a></li>)}</ul> : <p>This class does not lead to another job in Refuge's current class tree.</p>}
         </>}

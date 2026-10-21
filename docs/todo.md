@@ -68,3 +68,7 @@ The New Player Guide is already available as the Getting Started example. Do not
 
 - [x] Start local WIP guides with job-change steps, skill descriptions, combat instructions, and shared leveling links. Production keeps the existing WIP notices.
 - [ ] Add owner-reviewed job-change screenshots, skill allocations, and equipment progression for both classes; review Legend progression through Base Level 130 before publication.
+- [ ] Complete Vagabond and Legend stat progression and numbered skill-learning priorities using class-specific sources or owner input, following `docs/class-guide-template.md`. Vagabond’s STR/AGI/LUK priorities are confirmed; numerical targets and learning order still need support.
+
+- [x] Add owner-reviewed Vagabond dagger progression, weapon cards, and drain/Splash Radius research.
+- [ ] Finish reviewing Vagabond’s copied non-weapon gear and cards with the owner.

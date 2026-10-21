@@ -1,0 +1,134 @@
+---
+import GearTabBehavior from './GearTabBehavior.astro';
+import { withBase } from '../../lib/paths';
+const itemHref = (id: number, name: string) => `https://rtm-database.pages.dev/index.html?id=${id}&q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items&tab=items`;
+const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${encodeURIComponent(name).replace(/%20/g, '+')}&show=items`;
+---
+<div class="gear-tabs" data-gear-tabs>
+  <div class="gear-tab-list" role="tablist" aria-label="Vagabond gear slots">
+    <button id="vagabond-gear-tab-weapon" class="gear-tab" type="button" role="tab" aria-selected="true" aria-controls="vagabond-gear-panel-weapon" tabindex="0">Weapon</button>
+    <button id="vagabond-gear-tab-shield" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-shield" tabindex="-1">Shield</button>
+    <button id="vagabond-gear-tab-top" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-top" tabindex="-1">Top Headgear</button>
+    <button id="vagabond-gear-tab-mid" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-mid" tabindex="-1">Mid Headgear</button>
+    <button id="vagabond-gear-tab-low" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-low" tabindex="-1">Low Headgear</button>
+    <button id="vagabond-gear-tab-armor" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-armor" tabindex="-1">Armor</button>
+    <button id="vagabond-gear-tab-garment" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-garment" tabindex="-1">Garment</button>
+    <button id="vagabond-gear-tab-shoes" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-shoes" tabindex="-1">Shoes</button>
+    <button id="vagabond-gear-tab-accessories" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-accessories" tabindex="-1">Accessories</button>
+    <button id="vagabond-gear-tab-shadow-sets" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-shadow-sets" tabindex="-1">Shadow Sets</button>
+    <button id="vagabond-gear-tab-runes" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-runes" tabindex="-1">Runes</button>
+    <button id="vagabond-gear-tab-manuals" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="vagabond-gear-panel-manuals" tabindex="-1">Manuals</button>
+  </div>
+  <section id="vagabond-gear-panel-weapon" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-weapon" tabindex="0">
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Weapon</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(1240, 'Toy Knife')}>Toy Knife [0]</a></td><td>1</td><td>Double Attack level 7.</td></tr>
+      <tr><td><a href={itemHref(1221, 'Bone Dagger')}>Bone Dagger [2]</a></td><td>10</td><td>Double Attack level 7.</td></tr>
+      <tr><td><a href={itemHref(13057, 'Lightning Vortex')}>Lightning Vortex [2]</a></td><td>15</td><td>Double Attack level 10, ASPD +2, movement speed +7%.</td></tr>
+      <tr><td><a href={itemHref(1211, 'Dirk')}>Dirk [4]</a></td><td>15</td><td>Optional early drain weapon: 2% chance to recover 1% of damage dealt as HP. Double Attack level 2.</td></tr>
+      <tr><td><a href={itemHref(1226, 'Damascus')}>Damascus [2]</a></td><td>30</td><td>Double Attack level 7, ASPD +12%.</td></tr>
+      <tr><td><a href={itemHref(13040, 'Master Dagger')}>Master Dagger [1]</a></td><td>40</td><td>Double Attack level 10. Each Blade Mastery level adds ATK +1%, MATK +1%, ASPD +1%, and AGI +1.</td></tr>
+      <tr><td><a href={itemHref(13067, 'Keris')}>Keris [3]</a></td><td>50</td><td><strong>Best-in-slot until the Legend job change.</strong> Double Attack level 8. Each refine adds 7 HP recovery on auto attacks and ASPD +1, with SP −5%.</td></tr>
+    </tbody></table></div>
+    <p>Look for <strong>HP Drain +2 per Hit</strong> or <strong>Splash Radius +1</strong> in dagger <a href={withBase('guides/random-rolls/')}>random rolls</a>.</p>
+    <hr class="gear-card-divider" />
+    <p><strong>Cards:</strong> <a href={itemHref(4086, 'Soldier Skeleton Card')}>Soldier Skeleton Card</a> (Critical Rate +10), <a href={itemHref(4355, 'Gremlin Card')}>Gremlin Card</a> (total Critical Rate +15%), <a href={itemHref(13522, 'Sandworm Card')}>Sandworm Card</a> (Critical Damage +10%), and <a href={itemHref(4020, 'Familiar Card')}>Familiar Card</a> (drains 5 HP when dealing physical damage).</p>
+  </section>
+  <section id="vagabond-gear-panel-shield" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-shield" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shield</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(2157, 'Scaraba Tower')}>Scaraba Tower [1]</a></td><td>15</td><td>Auto Guard level 10, Flat Defense +10, HP Regen +20%.</td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> <a href={itemHref(4041, 'Coco Card')}>Coco Card</a> — Flee +15.</p>
+  </section>
+  <section id="vagabond-gear-panel-top" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-top" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Top headgear</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(5591, 'Desert Prince')}>Desert Prince [1]</a></td><td>5</td><td></td></tr>
+      <tr><td><a href={itemHref(5969, 'Royal Pirate Hat')}>Royal Pirate Hat [1]</a> or <a href={itemHref(5019, 'Corsair')}>Corsair [1]</a></td><td>10</td><td>Pirate Set with Pirate Dagger</td></tr>
+      <tr><td><a href={itemHref(2275, 'Old Bandana')}>Old Bandana [1]</a></td><td>10</td><td>Recovers 50 HP per kill. Buried Set with Old Tomb Ring.</td></tr>
+      <tr><td><a href={itemHref(2299, 'Orc Helm')}>Orc Helm [1]</a></td><td>30</td><td>Orc Set</td></tr>
+      <tr><td><a href={itemHref(5873, 'Crimson Wings Helm')}>Crimson Wings Helm [0]</a></td><td>50</td><td></td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> <a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</p>
+  </section>
+  <section id="vagabond-gear-panel-mid" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-mid" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Mid headgear</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(5074, 'Angel Wing Ears')}>Angel Wing Ears [1]</a></td><td>10</td><td></td></tr>
+      <tr><td><a href={itemHref(5068, 'Evil Wing Ears')}>Evil Wing Ears [1]</a></td><td>10</td><td></td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> <a href={itemHref(13571, 'Veins Ghoul Card')}>Veins Ghoul Card</a> (if affordable from the Market).</p>
+  </section>
+  <section id="vagabond-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-low" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Low headgear / set option</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(31877, 'Bravery Scarf')}>Bravery Scarf [0]</a></td><td>0</td><td></td></tr>
+      <tr><td><a href={itemHref(31880, 'Attentive Scarf')}>Attentive Scarf [0]</a></td><td>0</td><td>Critical Rate +3, Critical Damage +3%.</td></tr>
+      <tr><td><a href={itemHref(5305, 'Pirate Dagger')}>Pirate Dagger [0]</a></td><td>0</td><td>Pirate Set piece</td></tr>
+      <tr><td><a href={itemHref(5767, 'Samurai Mask')}>Samurai Mask [0]</a></td><td>50</td><td>A good upgrade: +20% total Critical Rate.</td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> none for now. Baphomet Shadow may be an option later.</p>
+  </section>
+  <section id="vagabond-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-armor" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Armor</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(15368, 'Orphan Clothes')}>Orphan Clothes [1]</a></td><td>1</td><td></td></tr>
+      <tr><td><a href={itemHref(2812, 'Scarlet Suit')}>Scarlet Suit [1]</a></td><td>10</td><td>Scarlet Set</td></tr>
+      <tr><td><a href={itemHref(15103, 'Tomb Thief Armor')}>Tomb Thief Armor [1]</a></td><td>10</td><td>Recovers 10 HP per hit. Tomb Thief Set with mantle and boots.</td></tr>
+      <tr><td><a href={itemHref(15000, 'Orc Armor')}>Orc Armor [1]</a></td><td>30</td><td>Orc Set</td></tr>
+      <tr><td><a href={itemHref(15448, 'Bullhorn Armor')}>Bullhorn Armor [1]</a></td><td>40</td><td>Slotted Bullhorn Set: armor, garment, shoes, and ring</td></tr>
+      <tr><td><a href={itemHref(15196, 'Eastern Sky Armor')}>Eastern Sky Armor [1]</a></td><td>50</td><td>Critical Rate +5, ASPD +1, SP Regen +25%; HP Regen −95%.</td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> <a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</p>
+  </section>
+  <section id="vagabond-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-garment" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Garment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(15366, 'Orphan Cape')}>Orphan Cape [1]</a></td><td>1</td><td></td></tr>
+      <tr><td><a href={itemHref(2811, 'Scarlet Cape')}>Scarlet Cape [1]</a></td><td>10</td><td>Scarlet Set</td></tr>
+      <tr><td><a href={itemHref(2542, 'Dracula Manteau')}>Dracula Manteau [0]</a></td><td>15</td><td>Nice to have</td></tr>
+      <tr><td><a href={itemHref(15452, 'Bullhorn Manteau')}>Bullhorn Manteau [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
+      <tr><td><a href={itemHref(15198, 'Clean Towel')}>Clean Towel [1]</a></td><td>40</td><td>Recovers 75 HP and 25 SP per kill. Can be difficult to obtain; keep leveling without it.</td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> <a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a>.</p>
+  </section>
+  <section id="vagabond-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-shoes" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shoes</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(15367, 'Orphan Shoes')}>Orphan Shoes [1]</a></td><td>1</td><td></td></tr>
+      <tr><td><a href={itemHref(2813, 'Scarlet Shoes')}>Scarlet Shoes [1]</a></td><td>10</td><td>Scarlet Set</td></tr>
+      <tr><td><a href={itemHref(16135, 'Night Boots')}>Night Boots [1]</a></td><td>20</td><td>Nice to have, but not mandatory. Keep leveling without them.</td></tr>
+      <tr><td><a href={itemHref(15450, 'Bullhorn Shoes')}>Bullhorn Shoes [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Card:</strong> <a href={itemHref(27163, 'Faceworm Card')}>Faceworm Card</a> — Critical Damage +5% and ASPD +1.</p>
+  </section>
+  <section id="vagabond-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-accessories" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Accessory</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(32242, 'Old Tomb Ring')}>Old Tomb Ring [1]</a></td><td>10</td><td></td></tr>
+      <tr><td><a href={itemHref(2715, 'Orc Ring')}>Orc Ring [1]</a></td><td>30</td><td>Orc Set</td></tr>
+      <tr><td><a href={itemHref(15454, 'Bullhorn Ring')}>Bullhorn Ring [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
+    </tbody></table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Cards:</strong> <a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a> or <a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a>, if affordable; <a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> is another option if affordable.</p>
+  </section>
+  <section id="vagabond-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-shadow-sets" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shadow set pieces</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemSearchHref('Lost Attire')}>Lost Attire Set</a></td><td>1</td><td>Four pieces</td></tr>
+      <tr><td><a href={itemSearchHref('Legacy of Coins')}>Legacy of Coins Set</a></td><td>10</td><td>Four pieces</td></tr>
+      <tr><td><a href={itemSearchHref('Endless Forest')}>Endless Forest Set</a></td><td>50</td><td>Four pieces</td></tr>
+      <tr><td><a href={itemSearchHref('Bushido')}>Bushido Set</a></td><td>65</td><td>Four pieces. Can be best-in-slot for Vagabond when paired with a Keris with Splash Radius.</td></tr>
+    </tbody></table></div>
+  </section>
+  <section id="vagabond-gear-panel-runes" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-runes" tabindex="0" hidden>
+    <ul>
+      <li><a href={itemHref(24108, 'Soul Rune of Orphans')}>Soul Rune of Orphans</a> (Required Level 10).</li>
+      <li><a href={itemHref(24106, 'Soul Rune of Destiny')}>Soul Rune of Destiny</a> (Required Level 10).</li>
+      <li><a href={itemHref(24183, 'Berkano Rune of Beginning')}>Berkano Rune of Beginning</a> (Required Level 15).</li>
+    </ul>
+  </section>
+  <section id="vagabond-gear-panel-manuals" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-manuals" tabindex="0" hidden>
+    <p><a href={itemHref(24035, 'Vanish Manual')}>Vanish Manual</a> (Required Level 10; sold at the Black Market).</p>
+  </section>
+</div>
+
+<GearTabBehavior />

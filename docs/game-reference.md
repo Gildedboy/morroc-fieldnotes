@@ -323,3 +323,111 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Owner screenshots 2026-10-20 145231/145312/145327/145359 and screenPRM159 establish the starter weapon sequence: Achievement Challenges trophy button → Character → completed A Path Ahead… → claim reward → Achievement Reward Mail from GM → retrieve Weapon Voucher using the attachment down-arrow → Ornstein by the forge in the Orphanage smithy. Owner confirms this sequence. The tooltip’s current name is Weapon Voucher; earlier guide text called it Exchange Voucher. Do not infer mail expiry, job-specific weapon selections, or repeatability from these screenshots. Whole-guide in-game verification remains unset.
 
 - Owner confirms the mail feature also lets players send and receive items, Zeny, or both with other players. Added a brief callout beside the voucher walkthrough’s mail step.
+
+## Mad Drinker entry wording — October 20, 2026
+
+- Owner requests naming the Bifrost Mirror in Mad Drinker’s entry note instead of Master of Balder. This wording does not establish a different required mirror upgrade.
+
+## Vagabond overview correction — October 20, 2026
+
+- Owner confirms STR, AGI, and LUK as Vagabond’s main stats. Describe its small SP pool as limiting defensive skill use, replacing the broader cards/manuals wording in its overview.
+
+## Vagabond job-change presentation — October 20, 2026
+
+- Owner confirms depositing all Zeny through the bank (default Ctrl + B) for the zero-Zeny requirement. This replaces the draft’s ambiguous “carrying nothing” wording; do not instruct players to empty their item inventory.
+- Owner screenshot 2026-10-20 152008 identifies the quest NPC as **Vagabond Orphan**, superseding the class reference’s Jobless Orphan display name. screenPRM160 shows the NPC beside Zeny Storage. Keep the existing source coordinates; these images do not independently verify coordinates or a completed quest.
+- Vagabond’s full quest is in one Callout matching Trickster. Revenant’s reward box ends with its existing attacking animation and reduced-motion still. No local standalone Vagabond quest-NPC sprite or Reaper pet sprite was found; use the owner’s NPC close-up rather than a guessed sprite.
+
+## Revenant quest and reward photos — October 20, 2026
+
+- Owner screenshot screenPRM161 shows the quest-start NPC labeled Trickster at a house entrance in Niflheim. The first quest step retains the reference’s Recluse Trickster name and NPC coordinates; the minimap coordinates are the player’s position, not a correction to the NPC position.
+- Owner screenshots screenPRM162–165 identify the Reaper pet. Use 163 as its clear reward illustration; the other frames remain archived as evidence. No combat effects are inferred from these stills.
+- Owner confirms Trickster Serin can switch between the Reaper reward and Revenant Ebel Card. Add her existing local image and exchange instructions to Trickster’s Next Step, and name her in Revenant’s reward description. Item 9057’s retained description identifies the Trickster Job Room as the exchange location. No fee is established.
+- Reviewed game screenshots 000–165 and October 10–19 Pictures captures for an older Ebel image; none was clearly identified. Leave that quest step without an image until a labeled screenshot is available.
+
+## Legend strengths and weaknesses — October 20, 2026
+
+- Owner confirms strengths: dual wielding, additional support skills including Safety Wall, and access to the complete skill tree. Weaknesses: low defenses during Frenzy and investment in gear and sustain options to maintain Frenzy. Added to the shared class-tree entry.
+
+## Vagabond skill allocation — October 20, 2026
+
+- Owner confirms unlocking Frenzy as the first skill-allocation priority. Remaining priorities are pending owner input.
+
+- Owner sets the remaining Vagabond priorities: level Blade Mastery, Shadow Mastery, Improve Defense, and Improve Dodge as needed, grouped in one allocation step. A few Increase SP Recovery levels are optional; maxing it is unnecessary unless pursuing Pneuma, whose six level-10 passive prerequisites still apply. Enlarge Weight Limit is the last passive priority; Pneuma takes the final points after all passives are maxed. This owner-requested grouping is an exception to the template’s usual one-skill-per-step presentation.
+
+- Owner confirms Frenzy no longer disables chat. This supersedes the older Refuge skill description; remove the chat restriction from the guide.
+
+- Owner clarifies the allocation wording: Pneuma requires every other Vagabond skill to be maxed first. Increase SP Recovery may stay below maximum during leveling; this is not an exception to Pneuma’s requirements.
+
+- Owner refines Vagabond allocation step 2: recommend maxing Blade Mastery, Shadow Mastery, Improve Defense, and Improve Dodge first, after unlocking Frenzy.
+
+- Owner orders the four grouped passive priorities as Blade Mastery, Improve Defense, Improve Dodge, then Shadow Mastery.
+
+- Owner clarifies that the four grouped passives are priorities, not a fixed maxing order. Players may distribute points among them or max one at a time in any order. The displayed list order does not prescribe allocation order.
+
+- Owner confirms Frenzy sets SP to 0. Include this in Vagabond’s skill description alongside its healing and item restrictions.
+
+## Vagabond combat loop — October 20, 2026
+
+- Owner defines the loop: activate Frenzy, auto-attack at 193 ASPD, use Hiding to evade attacks when SP permits, and sustain Frenzy with leech. Use Pneuma against ranged physical attacks once unlocked. With no enemies nearby, disable Frenzy, recover HP/SP, and repeat. Frenzy automatically ends below 100 HP. Do not change the threshold to 100 or less.
+
+- Owner confirms Increase SP Recovery allows SP recovery while Frenzy is active. Explain this beside Hiding in the combat loop; Frenzy sets SP to 0 on activation rather than preventing all subsequent recovery.
+
+- Owner confirms Frenzy grants Endure and +30% movement speed, and higher AGI slows its HP drain. No AGI threshold or drain formula was supplied; do not invent one.
+
+## Vagabond early stat targets — October 20, 2026
+
+- Owner supplies initial progression: raise both STR and AGI to 49, then VIT to 10–20, then DEX to 10. These are stat targets, not a claimed Base Level or full allocation through the job change. Later LUK allocation remains unspecified.
+
+- Owner refines the initial Vagabond targets to 49 STR, 49 AGI, 20 VIT, and 10 DEX, reached around Base Level 38. This supersedes the earlier VIT range and unspecified milestone.
+
+- Owner distinguishes Vagabond starter resources: new characters use the stated DEX target; alts with easy access to Critical Rate can skip DEX and prioritize LUK instead. Present this as a contextual callout, not a route selector or a universal stat rule for other classes.
+
+## Vagabond post-50 stat priorities — October 20, 2026
+
+- Owner defines the Keris stage after Base Level 50 through the Legend job change: maintain existing AGI/VIT targets, raise STR, and begin allocating LUK when Critical Rate equipment becomes available. No further numerical STR/LUK targets or Keris equip-level requirement is inferred.
+
+## Vagabond gear draft — October 20, 2026
+
+- Owner explicitly requests copying Trickster’s non-weapon leveling equipment and cards to Vagabond as the starting point for further review. Copied every slot from Top Headgear through Manuals into a separate VagabondGear component, preserving table order, card notes, database links, and the shared gear notice. Do not copy Trickster scythes or weapon cards into the dagger slot. Dagger recommendations remain pending. This is owner-directed draft content, not an independently established optimal Vagabond set.
+
+- Owner removes Soldier Andre Card from Vagabond’s copied mid-headgear recommendations. Trickster’s recommendation remains unchanged.
+
+- Owner adds “Best job for monsters with Plant Defense” and “Goes BRRRR” to Vagabond’s class-tree strengths. The playful wording is explicitly owner-requested for this strengths entry.
+
+- Owner adds “Best job for monsters with Plant Defense” and “Goes double BRRR” to Legend’s class-tree strengths.
+
+- Owner adds Attentive Scarf to Vagabond’s low-headgear options. Retained item record 31880 confirms required level 0, no slots, Critical Rate +3, and Critical Damage +3%.
+
+- Owner removes Calm Scarf from both Vagabond and Trickster low-headgear recommendations.
+
+- Owner adds Eastern Sky Armor to Vagabond’s armor progression. Retained Refuge item 15196 confirms required level 50, one slot, Critical Rate +5, ASPD +1, SP Regen +25%, and HP Regen −95% (also HP Bonus +13%, SP Bonus +7%). Preserve the HP-regeneration tradeoff in the recommendation.
+
+- Owner removes Zerom and Requiem cards, including their pairing note, from Vagabond’s garment and shoe recommendations.
+
+- Owner adds Endless Forest Set to Vagabond Shadow Sets and identifies Bushido as potentially best-in-slot when paired with a weapon such as Keris with **Splash Radius** (owner corrected “Splash Rate”). Retained item records confirm all four Endless Forest pieces require level 50; Bushido pieces require level 65.
+
+- Owner adds Soul Rune of Destiny to Vagabond’s rune options. Retained item record 24106 confirms required level 10.
+
+- Owner adds Berkano Rune of Beginning to Vagabond’s rune options. Retained item record 24183 confirms required level 15.
+
+- Owner removes Anima Rune of Restoration from Vagabond’s rune options.
+
+- Owner adds Faceworm Card to Vagabond’s shoe recommendations. Retained item record 27163 confirms Critical Damage +5% and ASPD +1.
+
+
+- Owner adds Scaraba Tower and Coco Card to Vagabond’s shield recommendations. Retained item records: Scaraba Tower 2157, required level 15, one slot, Auto Guard 10, Flat Defense +10, HP Regen +20%; Coco Card 4041, Flee +15. Coco is the card recommendation, not a second shield.
+
+- Owner adds Tomb Thief Armor to Vagabond’s armor recommendations. Retained item 15103 confirms required level 10, one slot, and recovery of 10 HP per hit. Tomb Thief Set consists of armor, mantle, and boots; adding the armor does not imply recommending all pieces.
+
+- Owner adds Old Bandana and Clean Towel to Vagabond and notes Clean Towel can be difficult to obtain. Retained records: Old Bandana 2275, top headgear, level 10, one slot, 50 HP per kill; Clean Towel 15198, garment, level 40, one slot, 75 HP and 25 SP per kill.
+
+- Owner removes Bongun and Munak card notes from Vagabond’s garment and shoe recommendations.
+
+## Vagabond dagger progression — October 20, 2026
+
+- Owner supplies Toy Knife, Bone Dagger, Lightning Vortex, Damascus, Master Dagger, and Keris; confirms **Keris is best-in-slot until the Legend job change**. Owner requests Soldier Skeleton, Gremlin, Sandworm, and Familiar weapon cards.
+- Current Refuge db-items.json retrieved October 20 confirms IDs/levels/slots: Toy Knife 1240 / 1 / 0; Bone Dagger 1221 / 10 / 2; Lightning Vortex 13057 / 15 / 2; Damascus 1226 / 30 / 2 (alternate 1222 has one slot); Master Dagger 13040 / 40 / 1; Keris 13067 / 50 / 3. Keris grants 7 HP recovery per auto attack, ASPD +1, and SP −5% per refine. All support Vagabond.
+- Search of dagger descriptions identifies Dirk 1211 (level 15, 4 slots, Double Attack 2, 2% chance to recover 1% of damage dealt as HP) as an optional HP-drain weapon. Exclude Cannon Dagger’s self-drain on unequip from sustain recommendations; Hakujin’s Heal autocast is not leech.
+- Current Refuge Gear dagger pool confirms **HP Drain +2 per Hit** and **Splash Radius +1** as random options. No built-in Splash Radius appears in the reviewed dagger descriptions; do not imply it is innate to Keris or guaranteed on a drop.
+- Current card records: Soldier Skeleton 4086 gives Critical Rate +10; Gremlin 4355 gives total Critical Rate +15%; Sandworm 13522 gives Critical Damage +10%; Familiar 4020 drains 5 HP when dealing physical damage. Sandworm and Familiar are separate cards. Downloads are retained in ignored `imports/vagabond-weapons/`; Refuge permits copying site content.
