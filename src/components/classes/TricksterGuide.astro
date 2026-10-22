@@ -3,7 +3,6 @@ import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import SourceScreenshot from '../SourceScreenshot.astro';
 import Callout from '../Callout.astro';
-import NpcCard from '../NpcCard.astro';
 import GearTabBehavior from './GearTabBehavior.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
 import StatAllocationNotice from './StatAllocationNotice.astro';
@@ -56,12 +55,12 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 <StatAllocationNotice />
 <ol class="trickster-stat-order">
   <li>49 STR/LUK</li>
-  <li>20 VIT/INT</li>
+  <li>20 VIT</li>
   <li>70 STR/LUK</li>
-  <li>40 VIT/INT</li>
+  <li>40 VIT</li>
   <li>90 LUK</li>
 </ol>
-<p>Raise both STR and LUK to 49 before moving on to the later targets. Add VIT and INT as needed for survivability and SP while leveling.</p>
+<p>Raise both STR and LUK to 49 before moving on to the later targets. Raise VIT to 40 following these targets. Add INT only if needed for SP while leveling.</p>
 <p>It lists this skill order for Trickster:</p>
 <ol class="trickster-skill-order">
   <li><SkillIcon icon="LK_SPIRALPIERCE" />Unlock Scythe Reap and <SkillIcon icon="KN_PIERCE" />Sweeping Slash.</li>
@@ -111,7 +110,8 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(1524, 'Bone Scythe')}>Bone Scythe [2]</a></td><td>10</td><td></td></tr>
       <tr><td><a href={itemHref(1521, 'Blood Reaver')}>Blood Reaver [4]</a></td><td>15</td><td></td></tr>
       <tr><td><a href={itemHref(1532, 'Crescent Demon')}>Crescent Demon [1]</a></td><td>40</td><td>Optional middle ground; nice to have</td></tr>
-      <tr><td><a href={itemHref(1542, 'Steel Reaper')}>Steel Reaper [0]</a></td><td>70</td><td>Possible final choice</td></tr>
+      <tr><td><a href={itemHref(1542, 'Steel Reaper')}>Steel Reaper [0]</a></td><td>70</td><td>Shines more as Revenant with Ominous Presence</td></tr>
+      <tr><td><a href={itemHref(1514, 'Ojika')}>Ojika [3]</a></td><td>70</td><td>Another option alongside Steel Reaper and Gargantua</td></tr>
       <tr><td><a href={itemHref(1529, 'Gargantua')}>Gargantua [2]</a></td><td>70</td><td>Top scythe choice for Trickster</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
@@ -206,6 +206,3 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 <h2 id="next-step">Next Step</h2>
 <p>Reach <strong>Trickster Job Level 70</strong> to advance to <a href={withBase('classes/revenant/')}>Revenant</a>.</p>
 
-<NpcCard name="Trickster Serin" image="images/classes/trickster-job-change-serin.png" width={160} height={230}>
-  <p>After becoming a Revenant, return to Serin <strong>where you started as a Trickster</strong> to switch between your <strong>Reaper</strong> reward and the <strong>Revenant Ebel Card</strong>.</p>
-</NpcCard>

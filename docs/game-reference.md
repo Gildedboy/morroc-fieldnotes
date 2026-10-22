@@ -1,5 +1,15 @@
 # Refuge game reference
 
+## Trickster and Revenant adjustments — October 21, 2026
+
+- Owner removes the duplicate Serin reward-exchange box from Trickster’s Next Step. Keep the exchange details in Revenant and retain Serin in Trickster’s job-change quest.
+
+- Owner confirms Steel Reaper shines more with Revenant’s Ominous Presence. Include it in Revenant’s weapon options and clarify the Trickster recommendation.
+- Owner also requests Ojika in Revenant’s weapon options.
+- Owner adds Ojika as another Trickster weapon option alongside Steel Reaper and Gargantua. Retained Refuge item 1514 confirms three slots and required Base Level 70 (1513 is the two-slot variant, also Base Level 70). The jobs field value 3 is not the required level; use the named `lv` column.
+- Owner revises Trickster’s stat targets to 40 VIT, with INT only as needed for SP. Retain the intermediate 20 VIT target; this supersedes the older paired VIT/INT targets.
+
+
 ## Trickster mid headgear — October 20, 2026
 
 - Owner adds Soldier Andre Card to Trickster’s mid-headgear recommendations alongside Veins Ghoul Card. The retained Refuge item snapshot identifies Soldier Andre Card as item 4059.
