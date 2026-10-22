@@ -456,6 +456,19 @@ const groups = [
     "id": "shadow-sets"
   },
   {
+    "title": "Class Gem",
+    "id": "class-gem",
+    "items": [
+      {
+        "name": "Crimson Gem of Stained Cloth",
+        "slots": null,
+        "level": "110",
+        "note": "Shortens Roaring Overslash cooldown and ignores reflected damage. Initially reduces Roaring Overslash damage and all stats; refine improves its damage, and maximum refine offsets the stat penalty. Takes effect after an equip delay."
+      }
+    ],
+    "cards": []
+  },
+  {
     "title": "Runes",
     "items": [
       {
@@ -505,13 +518,24 @@ const href = (name: string) => `https://rtm-database.pages.dev/?q=${encodeURICom
 <div class="gear-tabs" data-gear-tabs>
   <div class="gear-tab-list" role="tablist" aria-label="Revenant gear slots">
     {groups.map((group, index) => <button id={`revenant-gear-tab-${group.id}`} class="gear-tab" type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`revenant-gear-panel-${group.id}`} tabindex={index === 0 ? 0 : -1}>{group.title}</button>)}
+    <button id="revenant-gear-tab-manuals" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="revenant-gear-panel-manuals" tabindex="-1">Manuals</button>
   </div>
   {groups.map((group, index) => <section id={`revenant-gear-panel-${group.id}`} class="gear-panel" role="tabpanel" aria-labelledby={`revenant-gear-tab-${group.id}`} tabindex="0" hidden={index !== 0}>
     <div class="gear-table-wrap"><table class="gear-table">
       <thead><tr><th scope="col">{group.title}</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
       <tbody>{group.items.map(item => <tr><td><a href={href(item.name)} target="_blank" rel="noreferrer">{item.name}{item.slots !== null && ` [${item.slots}]`}</a></td><td>{item.level ?? '—'}</td><td>{item.note}</td></tr>)}</tbody>
     </table></div>
-    {group.cards.length > 0 && <><hr class="gear-card-divider" /><p><strong>Cards:</strong> {group.cards.map((name, cardIndex) => <Fragment>{cardIndex > 0 && ' · '}<a href={href(name)} target="_blank" rel="noreferrer">{name}</a></Fragment>)}</p></>}
+    {group.cards.length > 0 && <><hr class="gear-card-divider" /><p><strong>Cards:</strong></p><ul>{group.cards.map(name => <li><a href={href(name)} target="_blank" rel="noreferrer">{name}</a></li>)}</ul></>}
   </section>)}
+  <section id="revenant-gear-panel-manuals" class="gear-panel" role="tabpanel" aria-labelledby="revenant-gear-tab-manuals" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table">
+      <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr><td><a href={href('Hammer Manual X')}>Hammer Manual X</a></td><td>50</td><td>STR +3; alternative when prioritizing STR.</td></tr>
+        <tr><td><a href={href('Vanish Manual X')}>Vanish Manual X</a></td><td>50</td><td>LUK +3 and Hiding bonuses.</td></tr>
+        <tr><td><a href={href('Celestial Tome')}>Celestial Tome</a></td><td>130</td><td>Final choice. All stats, defensive bonuses, and utility skills.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
 </div>
 <GearTabBehavior />

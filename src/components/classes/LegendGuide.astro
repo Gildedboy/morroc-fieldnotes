@@ -1,46 +1,94 @@
 ---
 import { withBase } from '../../lib/paths';
+import { dicastesDielAccess, legendJobChangeLocations } from '../../data/locations';
 import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
+import SourceScreenshot from '../SourceScreenshot.astro';
+import JobRewardSprites from './JobRewardSprites.astro';
 import SkillIcon from '../SkillIcon.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
+import StatAllocationNotice from './StatAllocationNotice.astro';
+import LegendGear from './LegendGear.astro';
 ---
 <div class="trickster-portraits">
   <figure><img src={withBase('images/classes/legend-male-portrait.webp')} alt="Male Legend portrait from Refuge" width="738" height="760" loading="lazy" /><figcaption>Male Legend</figcaption></figure>
   <figure><img src={withBase('images/classes/legend-female-portrait.webp')} alt="Female Legend portrait from Refuge" width="504" height="760" loading="lazy" /><figcaption>Female Legend</figcaption></figure>
 </div>
 
-<Callout title="Guide scope: job change to level 130" tone="warning"><p><strong>This guide covers progression from the Legend job change through Base Level 130.</strong> Beyond level 130, most locations require specific equipment and setups. Explore and adapt your build for those areas.</p></Callout>
+<Callout title="Guide scope: job change to level 130" tone="warning"><p><strong>This guide follows your progression from the Legend job change all the way to Base Level 130.</strong> Beyond level 130, most locations require specific equipment and setups. Use this foundation to explore, adapt your build, and choose your own route.</p></Callout>
 
 <h2 id="overview">Overview</h2>
-<p>Legend evolves Vagabond’s dagger auto attacks with dual wielding and active buffs. Harness Magic adds magic damage to physical attacks, while Harness Speed improves attack-speed bonuses. Safety Wall becomes available late in the skill tree.</p>
-<Callout title="Refuge Changes"><p>Legend is affected by Refuge’s shared passive changes. The shared base ASPD limit is 180; see <a href={withBase('guides/aspd-elements/')}>ASPD &amp; Element Table</a> for ways to raise it.</p></Callout>
+<p>Legend builds on Vagabond’s auto attacks with dual wielding and weapon masteries. Harness Magic turns INT and MATK into additional magic damage on physical attacks, reduced by the enemy’s MDEF. Harness Speed amplifies existing ASPD bonuses and improves Critical Rate and Hit. Safety Wall unlocks at the end of the skill tree, adding melee physical protection for you and your party.</p>
+<Callout title="Refuge Changes"><p>Legend is affected by Refuge’s shared passive changes. See the <a href={withBase('guides/aspd-elements/')}>ASPD &amp; Element Table</a> for attack-speed limits.</p></Callout>
 
 <h2 id="job-change">Job Change Quest</h2>
-<Callout title="Requirement"><p><strong>Vagabond Job Level 70.</strong></p></Callout>
+<Callout title="Requirement: Vagabond Job Level 70">
 <ol>
-  <li>Speak to the <strong>Wandering Vagabond</strong> in Dicastes Outskirts at <strong>dicast_out 106, 168</strong> and listen to the rumour about a strange power.</li>
-  <li>Find the <strong>Mysterious Man</strong> studying the Heart of Power at <strong>snow_fild05 239, 55</strong>.</li>
+  <li>{dicastesDielAccess}</li>
+  <li>
+    <NpcCard name="Vagabond" image="images/classes/legend-job-change-vagabond.jpg" crop={{ x: 405, y: 380, width: 65, height: 105, sourceWidth: 1904, sourceHeight: 1041 }}>
+      <p>Take the stairs in <strong>Dicastes Diel</strong> and speak with him at <strong>dicast_out 106, 168</strong>. Listen to the rumour about a strange power.</p>
+    </NpcCard>
+  </li>
+  <li>
+    <NpcCard name="Strange Man" image="images/classes/legend-job-change-strange-man.jpg" crop={{ x: 1400, y: 530, width: 100, height: 215, sourceWidth: 1904, sourceHeight: 1041 }}>
+      <p>{legendJobChangeLocations.mysteriousMan.access} Speak with him about the <strong>Heart of Power</strong> at <strong>{legendJobChangeLocations.mysteriousMan.map} {legendJobChangeLocations.mysteriousMan.coordinates}</strong>.</p>
+    </NpcCard>
+    <SourceScreenshot image={{ src: 'images/classes/legend-job-change-strange-man.jpg', width: 1904, height: 1041, alt: 'Snow Fields 05 minimap showing the player near the Strange Man in the southeast corner', caption: 'Strange Man — southeast corner of Snow Fields 05.', crop: { x: 1770, y: 10, width: 125, height: 155 } }} />
+    <NpcCard name="Hatii — MVP" image="images/classes/legend-hatii.gif" stillImage="images/classes/legend-hatii-still.png" width={156} height={114}>
+      <p>{legendJobChangeLocations.mysteriousMan.warning}</p>
+    </NpcCard>
+  </li>
   <li>Inside the <strong>Heart of Power</strong>, break all <strong>six seals</strong> and defeat <strong>Legendary Zack</strong> to become a Legend.</li>
 </ol>
+  <div class="trickster-quest-reward">
+    <p><strong>Reward:</strong> the Legend job.</p>
+    <JobRewardSprites job="legend" name="Legend" />
+  </div>
+</Callout>
 
 <h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
 <ul>
-  <li><SkillIcon icon="GN_TRAINING_SWORD" /><strong>Advanced Blade Mastery:</strong> increases weapon damage and Hit.</li>
-  <li><SkillIcon icon="KO_RIGHT" /><strong>Advanced Righthand Mastery</strong> and <SkillIcon icon="KO_LEFT" /><strong>Advanced Lefthand Mastery:</strong> recover damage lost when wielding two weapons.</li>
-  <li><SkillIcon icon="SA_ADVANCEDBOOK" /><strong>Relentless Daggers:</strong> increases attack speed with dual daggers.</li>
-  <li><SkillIcon icon="RK_ENCHANTBLADE" /><strong>Harness Magic:</strong> adds magic damage to physical attacks. Enemy MDEF reduces the bonus. Requires Advanced Blade Mastery and both hand masteries at level 5.</li>
-  <li><SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed:</strong> amplifies existing ASPD bonuses. Changing equipment removes it; without ASPD bonuses it has no ASPD effect. Requires Improve Potion 10, Relentless Daggers 10, and Advanced Blade Mastery 5.</li>
-  <li><SkillIcon icon="AM_LEARNINGPOTION" /><strong>Improve Potion:</strong> increases HP potion effectiveness.</li>
-  <li><SkillIcon icon="SM_TWOHAND" /><strong>Final Blade Mastery:</strong> further increases dagger damage. Requires Harness Magic 10 and Harness Speed 10.</li>
-  <li><SkillIcon icon="MG_SAFETYWALL" /><strong>Safety Wall:</strong> blocks melee physical hits on the target cell. It expires with time or incoming hits, and a strong hit can break it early. Requires Final Blade Mastery 10.</li>
+  <li><SkillIcon icon="GN_TRAINING_SWORD" /><strong>Advanced Blade Mastery:</strong> increases dagger and sword damage and Hit.</li>
+  <li><SkillIcon icon="KO_RIGHT" /><strong>Advanced Righthand Mastery:</strong> restores right-hand damage when dual wielding.</li>
+  <li><SkillIcon icon="KO_LEFT" /><strong>Advanced Lefthand Mastery:</strong> restores left-hand damage when dual wielding.</li>
+  <li><SkillIcon icon="RK_ENCHANTBLADE" /><strong>Harness Magic:</strong> adds magic damage to physical attacks based on INT and MATK. Enemy MDEF reduces the bonus.</li>
+  <li><SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed:</strong> amplifies existing ASPD bonuses and increases Critical Rate and Hit. Changing equipment removes it; without existing ASPD bonuses, it has no ASPD effect.</li>
+  <li><SkillIcon icon="SA_ADVANCEDBOOK" /><strong>Relentless Daggers:</strong> increases ATK and attack speed while dual wielding daggers.</li>
+  <li><SkillIcon icon="AM_LEARNINGPOTION" /><strong>Improve Potion:</strong> improves HP potion recovery, including potions delivered through skills.</li>
+  <li><SkillIcon icon="SM_TWOHAND" /><strong>Final Blade Mastery:</strong> further increases dagger damage and grants Leech Power when maxed.</li>
+  <li><SkillIcon icon="MG_SAFETYWALL" /><strong>Safety Wall:</strong> places a barrier against melee physical attacks. It expires with time or incoming hits, and a strong hit can break it early. Casting also consumes HP.</li>
 </ul>
+
+<h3 id="stat-allocation">Stat allocation</h3>
+<StatAllocationNotice />
+<p>From the Legend job change through <strong>Base Level 130</strong>, continue building STR and LUK for dagger auto attacks.</p>
+<ol>
+  <li>Raise <strong>STR to 99</strong> and add enough <strong>LUK to reach 130+ Critical Rate</strong> with your equipment and buffs.</li>
+  <li>Put the remaining points into <strong>AGI or VIT</strong> as needed: AGI slows <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong>’s HP drain, while VIT gives you more HP.</li>
+</ol>
+
+<h3 id="skill-allocation">Skill allocation</h3>
+<ol>
+  <li><SkillIcon icon="KO_LEFT" />Max Advanced Lefthand Mastery.</li>
+  <li><SkillIcon icon="KO_RIGHT" />Max Advanced Righthand Mastery.</li>
+  <li><SkillIcon icon="GN_TRAINING_SWORD" />Max Advanced Blade Mastery.</li>
+  <li><SkillIcon icon="SA_ADVANCEDBOOK" />Max Relentless Daggers.</li>
+  <li><SkillIcon icon="RK_ENCHANTBLADE" />Max Harness Magic.</li>
+  <li><SkillIcon icon="AM_LEARNINGPOTION" />Max Improve Potion.</li>
+  <li><SkillIcon icon="KN_TWOHANDQUICKEN" />Max Harness Speed.</li>
+  <li><SkillIcon icon="SM_TWOHAND" />Max Final Blade Mastery.</li>
+  <li><SkillIcon icon="MG_SAFETYWALL" />Max Safety Wall.</li>
+</ol>
+
+<SourceScreenshot image={{ src: 'images/classes/legend-owner-skill-tree.jpg', width: 1904, height: 1041, alt: 'Legend skill tree with the three advanced masteries at level 5, Improve Potion and Relentless Daggers at level 10, Harness Magic at level 10, and Harness Speed at level 7', caption: 'Legend skill-tree allocation example.', crop: { x: 400, y: 246, width: 561, height: 400 } }} />
 
 <h2 id="how-to-play">How to Play</h2>
 <ol>
-  <li>Equip your daggers before applying <SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed</strong>; recast it after changing equipment.</li>
-  <li>Apply <SkillIcon icon="RK_ENCHANTBLADE" /><strong>Harness Magic</strong> and attack normally. Its contribution depends on your magic stats and the target’s MDEF.</li>
-  <li>Use <SkillIcon icon="AL_PNEUMA" /><strong>Pneuma</strong> for ranged physical protection, or <SkillIcon icon="MG_SAFETYWALL" /><strong>Safety Wall</strong> for melee physical protection once unlocked.</li>
-  <li>If using inherited <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong>, account for its HP drain, zero defenses, and blocked items and direct healing. It disables <SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed</strong>.</li>
+  <li>Apply <SkillIcon icon="RK_ENCHANTBLADE" /><strong>Harness Magic</strong> and <SkillIcon icon="KN_TWOHANDQUICKEN" /><strong>Harness Speed</strong>, then activate <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong> and keep auto-attacking at <strong>193 ASPD</strong>. Refresh both buffs as needed; SP recovery or SP leech lets you cast them while Frenzy is active.</li>
+  <li>Use <SkillIcon icon="TF_HIDING" /><strong>Hiding</strong> to evade attacks (<SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery</strong> lets you recover SP while <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong> is active), and use leech options to recover HP in order to maintain Frenzy.</li>
+  <li>Use <SkillIcon icon="AL_PNEUMA" /><strong>Pneuma</strong> against ranged physical attacks and <SkillIcon icon="MG_SAFETYWALL" /><strong>Safety Wall</strong> against melee physical attacks once unlocked.</li>
+  <li>When no enemies are nearby, disable <SkillIcon icon="LK_BERSERK" /><strong>Frenzy</strong>, recover HP and SP, then repeat the loop.</li>
 </ol>
 
 <h2 id="leveling-spots">Leveling Spots</h2>
@@ -48,6 +96,7 @@ import ProgressGearNotice from './ProgressGearNotice.astro';
 
 <h2 id="progress-gear">Progress Gear</h2>
 <ProgressGearNotice finalJob />
+<LegendGear />
 
 <h2 id="next-step">Next Steps</h2>
 <p>Discuss the class in the <a href="https://discord.gg/a5P3PFNMhn">Refuge Discord server</a> and share your setup with the <a href="https://amfsizzy.github.io/refuge-buildplanner/">Refuge Build Planner</a>.</p>

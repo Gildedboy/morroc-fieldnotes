@@ -3,6 +3,8 @@ import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import SourceScreenshot from '../SourceScreenshot.astro';
 import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
+import JobRewardSprites from './JobRewardSprites.astro';
 import GearTabBehavior from './GearTabBehavior.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
 import StatAllocationNotice from './StatAllocationNotice.astro';
@@ -23,21 +25,24 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
   <p><strong>Orphan Job Level 10</strong></p>
   <ol class="trickster-quest-steps">
     <li>
-      <p>Speak with <strong>Lorelei Sorin</strong> in the Orphanage at <strong>va_orpha 376, 129</strong> and choose the cold-hearted answer.</p>
-      <figure><img src={withBase('images/classes/trickster-job-change-lorelei.png')} alt="Lorelei Sorin in the Orphanage" width="140" height="150" loading="lazy" /><figcaption>Lorelei Sorin</figcaption></figure>
+      <NpcCard name="Lorelei Sorin" image="images/classes/trickster-job-change-lorelei.png" width={140} height={150}>
+        <p>Speak with her in the Orphanage at <strong>va_orpha 376, 129</strong> and choose the cold-hearted answer.</p>
+      </NpcCard>
     </li>
     <li>
-      <p>Touch the <strong>Wisp</strong> at <strong>va_orpha 391, 133</strong> to enter the hidden chamber.</p>
-      <figure><img src={withBase('images/classes/trickster-job-change-wisp.png')} alt="The Wisp in Lorelei's room" width="90" height="100" loading="lazy" /><figcaption>The Wisp</figcaption></figure>
+      <NpcCard name="Wisp" image="images/classes/trickster-job-change-wisp.png" width={90} height={100}>
+        <p>Touch the Wisp at <strong>va_orpha 391, 133</strong> to enter the hidden chamber.</p>
+      </NpcCard>
     </li>
     <li>
-      <p>Find <strong>Trickster Serin</strong> in the crypt at <strong>que_trck01 197, 198</strong> and win her number-guessing game.</p>
-      <figure><img src={withBase('images/classes/trickster-job-change-serin.png')} alt="Trickster Serin in the crypt" width="160" height="230" loading="lazy" /><figcaption>Trickster Serin</figcaption></figure>
+      <NpcCard name="Trickster Serin" image="images/classes/trickster-job-change-serin.png" width={160} height={230}>
+        <p>Find her in the crypt at <strong>que_trck01 197, 198</strong> and win her number-guessing game.</p>
+      </NpcCard>
     </li>
   </ol>
   <div class="trickster-quest-reward">
     <p><strong>Reward:</strong> the Trickster job and a <strong>Black Scythe</strong>.</p>
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase('images/classes/trickster-attacking-still.webp')} /><img src={withBase('images/classes/trickster-attacking.webp')} alt="Trickster attacking" width="140" height="140" loading="lazy" /></picture>
+    <JobRewardSprites job="trickster" name="Trickster" />
   </div>
 </Callout>
 
@@ -45,13 +50,14 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
 <ul>
   <li><SkillIcon icon="LK_SPIRALPIERCE" /><strong>Scythe Reap:</strong> the opener for Trickster's main combo. It deals multiple hits and grants <strong>Combo Ready</strong>.</li>
   <li><SkillIcon icon="KN_PIERCE" /><strong>Sweeping Slash:</strong> cast it after Scythe Reap while <strong>Combo Ready</strong> is active. Without it, Sweeping Slash deals reduced damage.</li>
-  <li><SkillIcon icon="SN_SIGHT" /><strong>True Sight:</strong> grants +3 to all stats and +3 Hit and Critical per skill level. Keep it active to boost this STR/LUK build's damage and accuracy.</li>
+  <li><SkillIcon icon="SN_SIGHT" /><strong>True Sight:</strong> increases all stats, Hit, and Critical Rate. Keep it active to boost this STR/LUK build's damage and accuracy.</li>
   <li><SkillIcon icon="RK_IGNITIONBREAK" /><strong>Hellraiser:</strong> a Fire attack around you with a long cooldown. It activates <strong>Finisher Ready</strong>.</li>
   <li><SkillIcon icon="SA_FLAMELAUNCHER" /><strong>Burning Scythe:</strong> endows your weapon with Fire for its duration.</li>
   <li><SkillIcon icon="LK_PARRYING" /><strong>Shadow Parry:</strong> keep it active to block physical hits while using a scythe, with a brief pause after a successful block.</li>
 </ul>
 <p>This guide follows the STR/LUK damage build. Dark Message and Dark Messenger are INT-build skills and are not covered here.</p>
-<h3>Early leveling (levels 1–100)</h3>
+<h3 id="stat-allocation">Stat allocation</h3>
+<p>Early leveling, Base Levels 1–100:</p>
 <StatAllocationNotice />
 <ol class="trickster-stat-order">
   <li>49 STR/LUK</li>
@@ -61,7 +67,7 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
   <li>90 LUK</li>
 </ol>
 <p>Raise both STR and LUK to 49 before moving on to the later targets. Raise VIT to 40 following these targets. Add INT only if needed for SP while leveling.</p>
-<p>It lists this skill order for Trickster:</p>
+<h3 id="skill-allocation">Skill allocation</h3>
 <ol class="trickster-skill-order">
   <li><SkillIcon icon="LK_SPIRALPIERCE" />Unlock Scythe Reap and <SkillIcon icon="KN_PIERCE" />Sweeping Slash.</li>
   <li><SkillIcon icon="PR_MACEMASTERY" />Max Scythe Mastery.</li>
@@ -115,7 +121,11 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(1529, 'Gargantua')}>Gargantua [2]</a></td><td>70</td><td>Top scythe choice for Trickster</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4086, 'Soldier Skeleton Card')}>Soldier Skeleton Card</a> or <a href={itemHref(4172, 'The Paper Card')}>The Paper Card</a>.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4086, 'Soldier Skeleton Card')}>Soldier Skeleton Card</a>.</li>
+      <li><a href={itemHref(4172, 'The Paper Card')}>The Paper Card</a>.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-top" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-top" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Top headgear</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -125,7 +135,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(5873, 'Crimson Wings Helm')}>Crimson Wings Helm [0]</a></td><td>50</td><td></td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-mid" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-mid" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Mid headgear</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -133,7 +146,11 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(5068, 'Evil Wing Ears')}>Evil Wing Ears [1]</a></td><td>10</td><td></td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4059, 'Soldier Andre Card')}>Soldier Andre Card</a> or <a href={itemHref(13571, 'Veins Ghoul Card')}>Veins Ghoul Card</a> (if affordable from the Market).</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4059, 'Soldier Andre Card')}>Soldier Andre Card</a>.</li>
+      <li><a href={itemHref(13571, 'Veins Ghoul Card')}>Veins Ghoul Card</a> — if affordable from the Market.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-low" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Low headgear / set option</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -142,7 +159,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(5767, 'Samurai Mask')}>Samurai Mask [0]</a></td><td>50</td><td>A good upgrade: +20% total Critical Rate.</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> none for now. Baphomet Shadow may be an option later.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li>none for now. Baphomet Shadow may be an option later.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-armor" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Armor</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -152,7 +172,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15448, 'Bullhorn Armor')}>Bullhorn Armor [1]</a></td><td>40</td><td>Slotted Bullhorn Set: armor, garment, shoes, and ring</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-garment" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Garment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -162,7 +185,13 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15452, 'Bullhorn Manteau')}>Bullhorn Manteau [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4212, 'Bongun Card')}>Bongun</a> and <a href={itemHref(4090, 'Munak Card')}>Munak</a> can go in shoes or garment; <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> goes in garment. The <a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a> is another garment option.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4212, 'Bongun Card')}>Bongun</a> — shoes or garment.</li>
+      <li><a href={itemHref(4090, 'Munak Card')}>Munak</a> — shoes or garment.</li>
+      <li><a href={itemHref(4064, 'Zerom Card')}>Zerom</a> — garment.</li>
+      <li><a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a> — another garment option.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shoes" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shoes</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -172,7 +201,12 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15450, 'Bullhorn Shoes')}>Bullhorn Shoes [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4212, 'Bongun Card')}>Bongun</a> and <a href={itemHref(4090, 'Munak Card')}>Munak</a> can go in shoes or garment. <a href={itemHref(4104, 'Requiem Card')}>Requiem</a> goes in shoes; pair it later with <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> in garment.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4212, 'Bongun Card')}>Bongun</a> — shoes or garment.</li>
+      <li><a href={itemHref(4090, 'Munak Card')}>Munak</a> — shoes or garment.</li>
+      <li><a href={itemHref(4104, 'Requiem Card')}>Requiem</a> — shoes; pair later with <a href={itemHref(4064, 'Zerom Card')}>Zerom</a> in garment.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-accessories" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Accessory</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -181,7 +215,12 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15454, 'Bullhorn Ring')}>Bullhorn Ring [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a> or <a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a>, if affordable; <a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> is another option if affordable.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a>.</li>
+      <li><a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a> — if affordable.</li>
+      <li><a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> — if affordable.</li>
+    </ul>
   </section>
   <section id="trickster-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-shadow-sets" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shadow set pieces</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -191,13 +230,15 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
     </tbody></table></div>
   </section>
   <section id="trickster-gear-panel-runes" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-runes" tabindex="0" hidden>
-    <ul>
-      <li><a href={itemHref(24108, 'Soul Rune of Orphans')}>Soul Rune of Orphans</a> (Required Level 10).</li>
-      <li><a href={itemHref(24182, 'Anima Rune of Restoration')}>Anima Rune of Restoration</a> (Required Level 15; First Rune Coffer).</li>
-    </ul>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(24108, 'Soul Rune of Orphans')}>Soul Rune of Orphans</a></td><td>10</td><td></td></tr>
+      <tr><td><a href={itemHref(24182, 'Anima Rune of Restoration')}>Anima Rune of Restoration</a></td><td>15</td><td>First Rune Coffer</td></tr>
+    </tbody></table></div>
   </section>
   <section id="trickster-gear-panel-manuals" class="gear-panel" role="tabpanel" aria-labelledby="trickster-gear-tab-manuals" tabindex="0" hidden>
-    <p><a href={itemHref(24035, 'Vanish Manual')}>Vanish Manual</a> (Required Level 10; sold at the Black Market).</p>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(24035, 'Vanish Manual')}>Vanish Manual</a></td><td>10</td><td>Sold at the Black Market</td></tr>
+    </tbody></table></div>
   </section>
 </div>
 

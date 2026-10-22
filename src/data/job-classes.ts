@@ -737,7 +737,7 @@ export const jobClasses: JobClass[] = [
     "sitting": "images/classes/legend-sitting.webp",
     "sittingStill": "images/classes/legend-sitting-still.webp",
     "strengths": "Dual wielding, more support skills including Safety Wall, access to its complete skill tree. Best job for monsters with Plant Defense. Goes double BRRR.",
-    "weaknesses": "Low defenses during Frenzy; requires investment in gear and sustain to maintain Frenzy.",
+    "weaknesses": "0 defenses during Frenzy; requires investment in gear and sustain to maintain Frenzy.",
     "attacking": "images/classes/legend-attacking.webp",
     "attackingStill": "images/classes/legend-attacking-still.webp",
     "female": {

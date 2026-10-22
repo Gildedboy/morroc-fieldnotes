@@ -1,0 +1,538 @@
+---
+import GearTabBehavior from './GearTabBehavior.astro';
+const itemHref = (id: number) => `https://rtm-database.pages.dev/index.html?id=${id}&show=items&tab=items`;
+const groups = [
+  {
+    "id": "top",
+    "title": "Top Headgear",
+    "items": [
+      {
+        "id": 5653,
+        "name": "Darkness Helm",
+        "level": 80,
+        "slots": 1,
+        "note": "LUK and refine-scaling critical bonuses."
+      },
+      {
+        "id": 31211,
+        "name": "Orion of the Sun",
+        "level": 110,
+        "slots": 2,
+        "note": "Later critical option with two card slots."
+      },
+      {
+        "id": 31213,
+        "name": "Caelum of the Sun",
+        "level": 110,
+        "slots": 2,
+        "note": "Melee damage and reduced SP cost per refine."
+      },
+      {
+        "id": 31221,
+        "name": "Volan of the Sun",
+        "level": 110,
+        "slots": 2,
+        "note": "Leech rate and power for sustain."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4129,
+        "name": "Baphomet Jr. Card",
+        "note": "total Critical Rate"
+      },
+      {
+        "id": 13608,
+        "name": "Dream of Kings Card",
+        "note": "Defense Penetration per refine"
+      }
+    ]
+  },
+  {
+    "id": "mid",
+    "title": "Mid Headgear",
+    "items": [
+      {
+        "id": 5068,
+        "name": "Evil Wing Ears",
+        "level": 10,
+        "slots": 1,
+        "note": "Physical-damage leech."
+      },
+      {
+        "id": 5930,
+        "name": "Eye of Hearts",
+        "level": 125,
+        "slots": 1,
+        "note": "Later HP option."
+      }
+    ],
+    "cards": [
+      {
+        "id": 13523,
+        "name": "Giga Sandworm Card",
+        "note": "Critical Damage"
+      },
+      {
+        "id": 4411,
+        "name": "Vanberk Card",
+        "note": "Critical Rate"
+      },
+      {
+        "id": 13595,
+        "name": "Paradox Amdarais Card",
+        "note": "chance to apply Lex Aeterna while attacking; reduces HP and ASPD"
+      },
+      {
+        "id": 13744,
+        "name": "Star Scourge Card",
+        "note": "summons a temporary astral clone on hit"
+      }
+    ]
+  },
+  {
+    "id": "low",
+    "title": "Low Headgear",
+    "items": [
+      {
+        "id": 5767,
+        "name": "Samurai Mask",
+        "level": 50,
+        "slots": 0,
+        "note": "Total Critical Rate."
+      },
+      {
+        "id": 5878,
+        "name": "Miracle Blue Rose",
+        "level": 80,
+        "slots": 1,
+        "note": "SP recovery and STR/INT."
+      },
+      {
+        "id": 5925,
+        "name": "Fate Weaver",
+        "level": 125,
+        "slots": 2,
+        "note": "Later critical option with two card slots."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4435,
+        "name": "Zombie Slaughter Card",
+        "note": "STR when base STR is 99"
+      },
+      {
+        "id": 4439,
+        "name": "Flame Skull Card",
+        "note": "LUK when base LUK is 99"
+      },
+      {
+        "id": 13523,
+        "name": "Giga Sandworm Card",
+        "note": "Critical Damage"
+      },
+      {
+        "id": 4411,
+        "name": "Vanberk Card",
+        "note": "Critical Rate"
+      }
+    ]
+  },
+  {
+    "id": "armor",
+    "title": "Armor",
+    "items": [
+      {
+        "id": 15391,
+        "name": "Power Dragon Plate",
+        "level": 80,
+        "slots": 1,
+        "note": "STR and HP per refine; melee damage at 99 base STR."
+      },
+      {
+        "id": 15392,
+        "name": "Speed Dragon Plate",
+        "level": 80,
+        "slots": 1,
+        "note": "AGI and HP per refine; alternative when prioritizing AGI."
+      },
+      {
+        "id": 15396,
+        "name": "Fate Dragon Plate",
+        "level": 80,
+        "slots": 1,
+        "note": "LUK and HP per refine; alternative when prioritizing criticals."
+      },
+      {
+        "id": 2375,
+        "name": "Diabolus Armor",
+        "level": 130,
+        "slots": 2,
+        "note": "General endgame option: reduced physical damage received, ATK per refine, and two card slots."
+      },
+      {
+        "id": 15443,
+        "name": "Genesis Bright Armor",
+        "level": 130,
+        "slots": 1,
+        "note": "Holy armor with HP per refine, knockback immunity, and movement speed."
+      },
+      {
+        "id": 15440,
+        "name": "Apocalypse Scale Mail",
+        "level": 130,
+        "slots": 1,
+        "note": "Dark armor with HP per refine; Hiding also moves you backward."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4126,
+        "name": "Minorous Card",
+        "note": "more HP, less SP"
+      },
+      {
+        "id": 4522,
+        "name": "Sropho Card",
+        "note": "Freeze immunity and Wind resistance"
+      },
+      {
+        "id": 4472,
+        "name": "Ruby Golem Card",
+        "note": "knockback immunity"
+      },
+      {
+        "id": 13742,
+        "name": "Meteor Golem Card",
+        "note": "HP and Neutral resistance"
+      }
+    ]
+  },
+  {
+    "id": "garment",
+    "title": "Garment",
+    "items": [
+      {
+        "id": 2542,
+        "name": "Dracula Manteau",
+        "level": 15,
+        "slots": 0,
+        "note": "Leech option; disables natural HP regeneration."
+      },
+      {
+        "id": 22006,
+        "name": "Temporal Manteau",
+        "level": 100,
+        "slots": 1,
+        "note": "HP/SP per refine; boosts Temporal Boots stat-threshold bonuses."
+      },
+      {
+        "id": 2541,
+        "name": "Asprika",
+        "level": 100,
+        "slots": 0,
+        "note": "Non-neutral damage reduction and Flee; no card slot."
+      },
+      {
+        "id": 15434,
+        "name": "Mercury Cape",
+        "level": 130,
+        "slots": 2,
+        "note": "Choose when you need more STR; STR increases with refine."
+      },
+      {
+        "id": 15439,
+        "name": "Neptune Cape",
+        "level": 130,
+        "slots": 2,
+        "note": "Choose when you need more LUK; LUK increases with refine."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4286,
+        "name": "Karakasa Card",
+        "note": "Critical Damage"
+      },
+      {
+        "id": 4285,
+        "name": "Choco Card",
+        "note": "movement speed"
+      },
+      {
+        "id": 4092,
+        "name": "Skeleton Worker Card",
+        "note": "Defense Penetration"
+      }
+    ]
+  },
+  {
+    "id": "shoes",
+    "title": "Shoes",
+    "items": [
+      {
+        "id": 22000,
+        "name": "Temporal STR Boots",
+        "level": 90,
+        "slots": 1,
+        "note": "STR and melee damage at 90 base STR."
+      },
+      {
+        "id": 22005,
+        "name": "Temporal LUK Boots",
+        "level": 90,
+        "slots": 1,
+        "note": "LUK and Critical Damage at 90 base LUK."
+      },
+      {
+        "id": 15417,
+        "name": "Metal Boots MK I",
+        "level": 90,
+        "slots": 1,
+        "note": "STR per refine and melee damage at +9. Pairs with Strange Metal Ring for the Metal Set bonus."
+      },
+      {
+        "id": 22071,
+        "name": "Blooming Rose Sandals",
+        "level": 120,
+        "slots": 1,
+        "note": "Later upgrade with refine bonuses unlocked by base-stat thresholds."
+      }
+    ],
+    "cards": [
+      {
+        "id": 27163,
+        "name": "Faceworm Card",
+        "note": "Critical Damage and ASPD"
+      },
+      {
+        "id": 4131,
+        "name": "Moonlight Flower Card",
+        "note": "movement speed; does not stack"
+      },
+      {
+        "id": 4127,
+        "name": "Nightmare Card",
+        "note": "Sleep immunity and movement speed"
+      },
+      {
+        "id": 13548,
+        "name": "Sleipnir Avatar Card",
+        "note": "movement speed at the cost of SP"
+      }
+    ]
+  },
+  {
+    "id": "accessories",
+    "title": "Accessories",
+    "items": [
+      {
+        "id": 2671,
+        "name": "Arch Ring",
+        "level": 15,
+        "slots": 1,
+        "note": "Melee damage."
+      },
+      {
+        "id": 2618,
+        "name": "Magma Ring",
+        "level": 45,
+        "slots": 1,
+        "note": "Protection from reflected damage, plus ASPD and Flee."
+      },
+      {
+        "id": 2677,
+        "name": "Invoker's Ring",
+        "level": 80,
+        "slots": 1,
+        "note": "HP leech rate and power for sustain."
+      },
+      {
+        "id": 15416,
+        "name": "Strange Metal Ring",
+        "level": 90,
+        "slots": 2,
+        "note": "SP recovery; pairs with Metal Boots MK I for the Metal Set bonus."
+      },
+      {
+        "id": 16314,
+        "name": "Sage Ring",
+        "level": 100,
+        "slots": 3,
+        "note": "Three card slots."
+      },
+      {
+        "id": 2631,
+        "name": "Draupnir",
+        "level": 100,
+        "slots": 0,
+        "note": "LUK based on base LUK and total Critical Rate."
+      },
+      {
+        "id": 2629,
+        "name": "Megingjard",
+        "level": 100,
+        "slots": 0,
+        "note": "STR based on base STR and Defense Penetration."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4069,
+        "name": "Drainliar Card",
+        "note": "HP recovery per physical hit"
+      },
+      {
+        "id": 13743,
+        "name": "Doomfist Card",
+        "note": "Defense Penetration and Critical Damage"
+      },
+      {
+        "id": 13688,
+        "name": "War Incarnate Card",
+        "note": "another option if affordable"
+      }
+    ]
+  },
+  {
+    "id": "shadow-sets",
+    "title": "Shadow Sets",
+    "items": [
+      {
+        "id": 24258,
+        "name": "Legacy of Coins Set",
+        "level": 10,
+        "slots": 0,
+        "note": "Four pieces. Use only when you do not need extra Splash Radius or Critical Rate."
+      },
+      {
+        "id": 24334,
+        "name": "Endless Forest Set",
+        "level": 50,
+        "slots": 0,
+        "note": "Four pieces. Use when your weapons lack Splash Radius options."
+      },
+      {
+        "id": 24387,
+        "name": "Bushido Set",
+        "level": 65,
+        "slots": 0,
+        "note": "Four pieces. Critical Rate and Critical Damage."
+      },
+      {
+        "id": 28988,
+        "name": "Fanatic Servant Set",
+        "level": 100,
+        "slots": 0,
+        "note": "Four pieces. HP/SP sustain from physical hits and kills, with refine-based leech."
+      }
+    ],
+    "cards": []
+  },
+  {
+    "id": "class-gem",
+    "title": "Class Gem",
+    "items": [
+      {
+        "id": 60152,
+        "name": "Ravenous Gem of Bloodshed",
+        "level": 110,
+        "slots": 0,
+        "note": "Sustain option: HP drain per hit and Leech Power, with an initial ATK penalty."
+      },
+      {
+        "id": 60153,
+        "name": "Borrowed Gem of Second Wind",
+        "level": 115,
+        "slots": 0,
+        "note": "Activates both Harness buffs and defensive buffs with Frenzy. Initial HP penalty; refines improve HP and add buff autocasts."
+      }
+    ],
+    "cards": []
+  },
+  {
+    "id": "runes",
+    "title": "Runes",
+    "items": [
+      {
+        "id": 24183,
+        "name": "Berkano Rune of Beginning",
+        "level": 15,
+        "slots": 0,
+        "note": "Leveling EXP, HP, and SP bonuses with refine."
+      },
+      {
+        "id": 24077,
+        "name": "Raidho Rune of Journey",
+        "level": 100,
+        "slots": 0,
+        "note": "Legend rune for HP and melee damage."
+      }
+    ],
+    "cards": []
+  }
+];
+---
+<div class="gear-tabs" data-gear-tabs>
+  <div class="gear-tab-list" role="tablist" aria-label="Legend gear slots">
+    <button id="legend-gear-tab-weapon" class="gear-tab" type="button" role="tab" aria-selected="true" aria-controls="legend-gear-panel-weapon" tabindex="0">Weapon</button>
+    {groups.map(group => <button id={`legend-gear-tab-${group.id}`} class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls={`legend-gear-panel-${group.id}`} tabindex="-1">{group.title}</button>)}
+    <button id="legend-gear-tab-manuals" class="gear-tab" type="button" role="tab" aria-selected="false" aria-controls="legend-gear-panel-manuals" tabindex="-1">Manuals</button>
+  </div>
+  <section id="legend-gear-panel-weapon" class="gear-panel" role="tabpanel" aria-labelledby="legend-gear-tab-weapon" tabindex="0">
+<h3>Main hand</h3>
+<div class="gear-table-wrap"><table class="gear-table">
+  <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+  <tbody>
+    <tr><td><a href={itemHref(13094)}>Murder Knife [3]</a></td><td>80</td><td>Best main-hand choice. Defense Penetration and Critical Damage improve with refine.</td></tr>
+  </tbody>
+</table></div>
+<h3>Off hand</h3>
+<div class="gear-table-wrap"><table class="gear-table">
+  <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+  <tbody>
+    <tr><td><a href={itemHref(13067)}>Keris [3]</a></td><td>50</td><td>HP recovery on auto attacks and ASPD per refine, with reduced SP.</td></tr>
+    <tr><td><a href={itemHref(1232)}>Assassin Dagger [2]</a></td><td>50</td><td>ASPD, total Critical Rate, and reduced After Cast Delay.</td></tr>
+    <tr><td><a href={itemHref(13094)}>Murder Knife [3]</a></td><td>80</td><td>A second Murder Knife for Defense Penetration and Critical Damage.</td></tr>
+    <tr><td><a href={itemHref(13052)}>Guiding Dagger [3]</a></td><td>130</td><td>Perfect Hit and Defense Penetration.</td></tr>
+  </tbody>
+</table></div>
+    <hr class="gear-card-divider" />
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4086)}>Soldier Skeleton Card</a> — Critical Rate.</li>
+      <li><a href={itemHref(4355)}>Gremlin Card</a> — total Critical Rate.</li>
+      <li><a href={itemHref(4136)}>Khalitzburg Card</a> — damage against all sizes.</li>
+      <li>Racial damage cards such as <a href={itemHref(4392)}>Observation Card</a> for Angel and Demon enemies.</li>
+      <li><a href={itemHref(4407)}>Valkyrie Randgris Card</a> — removes size penalties, ignores reflected damage, and protects the weapon from breaking or stripping.</li>
+      <li><a href={itemHref(13552)}>Sarah Irine Card</a> — optional Holy-element weapon card with weapon attack power, magic defense penetration, and protection from breaking or stripping.</li>
+      <li><a href={itemHref(4384)}>Hydrolancer Card</a> — use with two Murder Knives for Double Attack level 10.</li>
+    </ul>
+  </section>
+  {groups.map(group => <section id={`legend-gear-panel-${group.id}`} class="gear-panel" role="tabpanel" aria-labelledby={`legend-gear-tab-${group.id}`} tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table">
+      <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+      <tbody>{group.items.map(item => <tr><td><a href={item.name.endsWith(' Set') ? `https://rtm-database.pages.dev/?q=${encodeURIComponent(item.name.replace(/ Set$/, ''))}&show=items` : itemHref(item.id)}>{item.name}{item.slots > 0 && ` [${item.slots}]`}</a></td><td>{item.level}</td><td>{item.note}</td></tr>)}</tbody>
+    </table></div>
+    {group.cards.length > 0 && <><hr class="gear-card-divider" /><p><strong>Cards:</strong></p>
+      {group.id === 'accessories' ? <ul>
+        <li><a href={itemHref(4069)}>Drainliar Card</a>.</li>
+        <li><a href={itemHref(13743)}>Doomfist Card</a> — if affordable.</li>
+        <li><a href={itemHref(13688)}>War Incarnate Card</a> — if affordable.</li>
+      </ul> : <ul>{group.cards.map(card => <li><a href={itemHref(card.id)}>{card.name}</a> — {card.note}.</li>)}</ul>}
+    </>}
+    {group.id === 'class-gem' && <p>Both gems start with reduced all stats, offset at maximum refine, and take effect after an equip delay.</p>}
+  </section>)}
+  <section id="legend-gear-panel-manuals" class="gear-panel" role="tabpanel" aria-labelledby="legend-gear-tab-manuals" tabindex="0" hidden>
+    <div class="gear-table-wrap"><table class="gear-table">
+      <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr><td><a href={itemHref(24168)}>Hammer Manual X</a></td><td>50</td><td>STR +3; alternative when prioritizing STR.</td></tr>
+        <tr><td><a href={itemHref(24042)}>Vanish Manual X</a></td><td>50</td><td>LUK +3 and Hiding bonuses.</td></tr>
+        <tr><td><a href={itemHref(24236)}>Celestial Tome</a></td><td>130</td><td>Final choice. All stats, defensive bonuses, and utility skills.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</div>
+<GearTabBehavior />

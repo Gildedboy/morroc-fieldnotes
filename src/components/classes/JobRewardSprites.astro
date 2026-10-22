@@ -1,0 +1,21 @@
+---
+import { withBase } from '../../lib/paths';
+
+interface Props {
+  job: 'trickster' | 'revenant' | 'vagabond' | 'legend';
+  name: string;
+}
+const { job, name } = Astro.props;
+---
+<div class="job-reward-sprites">
+  {(['male', 'female'] as const).map((gender) => {
+    const prefix = `images/classes/${job}${gender === 'female' ? '-female' : ''}-attacking`;
+    return <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset={withBase(`${prefix}-still.webp`)} />
+      <img src={withBase(`${prefix}.webp`)} alt={`${gender === 'male' ? 'Male' : 'Female'} ${name} attacking`} width="140" height="140" loading="lazy" />
+    </picture>;
+  })}
+</div>
+<style>
+  .job-reward-sprites { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+</style>

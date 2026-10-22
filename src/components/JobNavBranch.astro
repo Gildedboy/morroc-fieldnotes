@@ -7,7 +7,7 @@ const { job, currentId } = Astro.props;
 const children = job.children.map(id => jobClasses.find(entry => entry.id === id)!)
   .sort((a, b) => Number(b.children.length > 0) - Number(a.children.length > 0));
 const containsCurrent = (entry: JobClass): boolean => entry.id === currentId || entry.children.some(id => containsCurrent(jobClasses.find(candidate => candidate.id === id)!));
-const ready = ['trickster', 'revenant', 'vagabond'].includes(job.id);
+const ready = ['trickster', 'revenant', 'vagabond', 'legend'].includes(job.id);
 ---
 <li class:list={['job-nav-item', { 'job-nav-final': job.stage === 'final' }]}>
   {children.length ? <details class="job-nav-branch" open={containsCurrent(job)}>

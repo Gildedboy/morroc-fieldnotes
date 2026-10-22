@@ -441,3 +441,106 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Search of dagger descriptions identifies Dirk 1211 (level 15, 4 slots, Double Attack 2, 2% chance to recover 1% of damage dealt as HP) as an optional HP-drain weapon. Exclude Cannon Dagger’s self-drain on unequip from sustain recommendations; Hakujin’s Heal autocast is not leech.
 - Current Refuge Gear dagger pool confirms **HP Drain +2 per Hit** and **Splash Radius +1** as random options. No built-in Splash Radius appears in the reviewed dagger descriptions; do not imply it is innate to Keris or guaranteed on a drop.
 - Current card records: Soldier Skeleton 4086 gives Critical Rate +10; Gremlin 4355 gives total Critical Rate +15%; Sandworm 13522 gives Critical Damage +10%; Familiar 4020 drains 5 HP when dealing physical damage. Sandworm and Familiar are separate cards. Downloads are retained in ignored `imports/vagabond-weapons/`; Refuge permits copying site content.
+
+## Legend overview — October 21, 2026
+
+- Reviewed the retained Legend class page and ability descriptions for the overview: dual wielding and masteries strengthen auto attacks; Harness Magic converts INT/MATK into additional magic damage reduced by enemy MDEF; Harness Speed amplifies existing ASPD bonuses and is disabled by Frenzy; Safety Wall unlocks after Final Blade Mastery 10 and provides melee physical protection on its target cell. This establishes no new stat targets or skill allocation.
+
+- Owner clarifies Final Blade Mastery’s prerequisite: max every other Legend skill except Safety Wall first. State the full prerequisite rather than only listing Harness Magic 10 and Harness Speed 10.
+
+## Legend job-change travel — October 22, 2026
+
+- Owner confirms the route: Orphanage Kafra Allysia → Hugel → ferry to Snow Fields → one map east → two maps north to Dicastes Diel. Reuse `dicastesDielAccess` from the shared location data in Legend’s quest and the existing Bifrost study route.
+
+- Owner adds the stairs instruction in Dicastes Diel. Screenshot screenPRM167 shows the NPC labeled **Vagabond**, superseding Wandering Vagabond as the displayed quest-step name. Retain source coordinates dicast_out 106,168; the minimap shows the player’s position, not corrected NPC coordinates.
+
+- Owner confirms the next Legend quest route: from Dicastes Diel, travel three maps south to Snow Fields 05 and find the Mysterious Man in the southeast corner. Warn about the map’s Hatii MVP. Keep the existing source coordinates snow_fild05 239,55. Route data lives in `legendJobChangeLocations`.
+
+- Owner screenshot screenPRM168 identifies the next quest NPC as **Strange Man**, superseding the inherited Mysterious Man display name. Use its NPC crop and minimap crop beside the step; retain source NPC coordinates, since the minimap coordinates belong to the player. Hatii uses one NpcCard without an outer warning box.
+
+## Legend skill review — October 22, 2026
+
+- Reviewed all nine learnable Legend skills against current database `assets/data/db-skills.json`. Put Harness Magic and Harness Speed first. Include their INT/MATK, Critical Rate/Hit, duration and equipment-removal effects; mastery damage/Hit bonuses; Relentless Daggers ATK/ASPD; potion recovery; Final Blade Mastery’s level-10 +2% Leech Power; and Safety Wall’s extra 10% HP cost and cast-time changes. Keep the owner’s fuller Final Blade Mastery prerequisite despite the database listing only its direct prerequisite pair.
+- Owner provides screenPRM169: display the Legend skill-window crop as an allocation example. It shows Harness Magic 10 and Harness Speed 7, three advanced masteries at 5, Improve Potion 10 and Relentless Daggers 10. It does not establish a recommended learning order or complete level-130 allocation.
+
+- Owner orders Legend’s core skills as Advanced Blade Mastery, Advanced Righthand Mastery, Advanced Lefthand Mastery, Harness Magic, then Harness Speed, followed by the remaining skills. Owner requests concise descriptions without numerical breakdowns or prerequisites; retain reviewed mechanics here and put learning requirements in allocation guidance when needed.
+
+- Owner clarifies the supplied order is Legend’s skill allocation: max Advanced Lefthand Mastery, Advanced Righthand Mastery, Advanced Blade Mastery, Relentless Daggers, Harness Magic, Improve Potion, Harness Speed, Final Blade Mastery, then Safety Wall. Restore the prior description-list order. This supplies the previously pending numbered learning order; it does not imply all skills are maxed by Base Level 130.
+
+## Legend stat allocation — October 22, 2026
+
+- Owner supplies progression from Legend unlock through Base Level 130: continue STR/LUK, reach 99 STR and enough LUK for 130+ Critical Rate, then allocate remaining points to AGI for slower Frenzy HP drain or VIT for more HP as needed. The Critical Rate target is distinct from Base Level 130; required LUK varies with equipment and buffs. Use the same shared StatAllocationNotice as Revenant to identify this as an adaptable example.
+
+- Owner requests Legend’s How to Play mirror Vagabond’s Frenzy loop: 193 ASPD auto attacks, Hiding with Increase SP Recovery, leech sustain, Pneuma, and disabling Frenzy to recover between fights. Include Legend’s Harness Magic and Safety Wall, retaining Harness Speed’s incompatibility with Frenzy.
+
+- Owner clarifies Pneuma and Safety Wall belong in the same numbered How to Play step. This is an instruction about list order, not confirmation that both skills can occupy the same cell.
+
+## Legend Harness buffs during Frenzy — October 22, 2026
+
+- Owner confirms both Harness Magic and Harness Speed can be cast while Frenzy is active when SP recovery or SP leech supplies enough SP. Include both in the combat loop. This supersedes inherited guidance and earlier notes claiming Frenzy disables Harness Speed; remove that restriction from public copy. Frenzy still sets SP to zero on activation.
+
+## Legend weapon choices — October 22, 2026
+
+- Owner confirms Murder Knife as the uncontested main-hand choice. Off-hand options: Keris, Assassin Dagger, a second Murder Knife, and Guiding Dagger. Retained database IDs/required levels/slots: Murder Knife 13094 / 80 / 3; Keris 13067 / 50 / 3; Assassin Dagger 1232 / 50 / 2; Guiding Dagger 13052 / 130 / 3. Keep the two hands distinct; other slots and cards remain pending.
+
+- Owner changes Legend’s class-tree weakness to: “0 defenses during Frenzy; requires investment in gear and sustain to maintain Frenzy.” This supersedes the earlier “Low defenses” wording.
+
+## Four-guide presentation alignment — October 22, 2026
+
+- Owner authorizes separate Trickster stat/skill allocation headings, quest NPC cards for the older guides, concise core/utility skill descriptions without numerical breakdowns or unlock requirements, and Runes/Manuals equipment tables for Trickster and Vagabond. Preserve game facts in reference notes and practical requirements/thresholds in allocation or combat instructions. No new class recommendations are established by these presentation changes.
+
+- Alignment browser review also found Revenant lacked the standard Manuals slot. Added its tab with WIP and a pending note; no manual recommendation was inferred.
+
+## Legend manuals — October 22, 2026
+
+- Owner requests Celestial Tome as the final manual choice and Hammer as the STR alternative. Retained database records: Hammer Manual 24166, level 10, STR +1; Hammer Manual X 24168, level 50, STR +3; Celestial Tome 24236, level 130, all stats +2 and defensive/utility effects. Show Hammer progression first and Celestial last inside the Manuals tab.
+
+- Owner clarifies Legend’s alternatives are **Hammer Manual X or Vanish Manual X**, followed by Celestial Tome as final choice. Remove the base Hammer Manual. Retained Vanish Manual X record 24042 confirms required level 50, LUK +3, and Hiding bonuses.
+
+- Owner applies the same Manuals recommendations to Revenant: Hammer Manual X or Vanish Manual X, with Celestial Tome as final choice. Replace the Manuals WIP placeholder with the standard equipment table.
+
+## Legend weapon cards — October 22, 2026
+
+- Owner recommends Soldier Skeleton, Gremlin, Khalitzburg, racial cards such as Observation, Valkyrie Randgris, and Hydrolancer when using two Murder Knives for Double Attack level 10. Retained database IDs/effects: 4086 Critical Rate +10; 4355 total Critical Rate +15%; 4136 damage vs all sizes +6%; 4392 damage vs Angel/Demon +2% per refine; 4407 no size penalty, ignores reflect, ATK +3%, unbreakable/unstrippable weapon; 4384 Double Attack chance +30%. The level-10 setup is owner-confirmed; do not describe Hydrolancer’s standalone effect as granting Double Attack level 10.
+
+- Owner adds Sarah Irine Card as an optional Legend weapon card. Retained database spelling is **Sarah Irine Card**, ID 13552: Holy-element weapon, unbreakable/unstrippable weapon, weapon attack power +3%, magic defense penetration +3. Preserve its elemental nature in the recommendation.
+
+## Gate equipment reference and final-job gems — October 22, 2026
+
+- Owner supplies Gate’s Legend gear guide, Google Doc `18bu-vAhLQTOpVGCDqq6CUnljuUHQ-oeX6A4mo7o0dj8`, for concise card/equipment suggestions. The full text identifies Patch 1.2 and last update June 16, 2024. Reuse terms unspecified; retain factual reference only, author fresh concise notes, and reproduce no source screenshots/prose. Full text, source metadata, and current item snapshot are archived in ignored imports/gate-legend-guide. Credit Gate on About with separate source/editorial dates; no whole-guide in-game verification.
+- Owner excludes Zeny/drop-farming gear, old Shadow sets, and changes to existing weapons. Keep the owner’s manual choices. Select a short set of leveling items/cards per slot, checking every name, level, slot count, and stated effect against current Refuge data. Do not import old prices, refine mandates, or post-130 farming instructions.
+- Important corrections from current records: Darkness Helm (not Darkness Helmet), Hermod’s Cap, Arch Ring, Invoker’s Ring; current leech rates differ from the old guide. Berkano Rune of Beginning grants HP/SP rather than the source’s printed reductions. Keep source recommendations distinct from current item mechanics; do not assert its old rankings as current best-in-slot.
+- Owner requests Class Gem sections for final jobs. Legend uses Ravenous Gem of Bloodshed (60152, level 110, HP drain/Leech Power with initial ATK and stat penalties) and Borrowed Gem of Second Wind (60153, level 115, Frenzy-triggered buffs, initial HP/stat penalties and refine-based autocasts). These are current Class Gems, not the old Ravenous Beast/Borrowed Time Shadow sets. Both take effect 15 seconds after equipping. Current Borrowed gem does not state that it removes Harness casting SP costs; do not copy that old set effect.
+- Revenant gets a separate Class Gem tab: Crimson Gem of Stained Cloth (60179, level 110), Roaring Overslash cooldown −2s, ignores reflected damage, initial Roaring Overslash damage −20% and all stats −5; damage +4% per refine, all stats +5 at +10, 15-second equip delay. Solitude gem is excluded from this STR/LUK build’s recommendations because its effects concern the INT skills.
+
+- Owner excludes Moon headgears from Legend and adds Caelum of the Sun and Volan of the Sun alongside Orion of the Sun. Remove Orion of the Moon. Current database: Caelum 31213, level 110, two slots, melee damage and reduced SP cost per refine; Volan 31221, level 110, two slots, leech rate/power. These owner choices supersede the older source’s Moon suggestions.
+
+- Owner removes Hermod’s Cap from Legend’s top headgear: the guide follows Frenzy, so do not retain Gate’s non-Frenzy ASPD-cap equipment recommendations solely for ASPD. This supersedes the imported cap suggestion.
+
+- Owner adds Dream of Kings Card to Legend top headgear and Paradox Amdarais / Star Scourge cards to middle headgear. Current records: Dream of Kings 13608, Defense Penetration +2 per refine; Paradox Amdarais 13595, level-scaling Lex Aeterna chance on attacks with HP −30% and ASPD −12; Star Scourge 13744, on-hit astral clone for four seconds. Use the current clone effect rather than the old guide’s ASPD-limit effect.
+
+- Owner adds Giga Sandworm Card (13523, Critical Damage) and Vanberk Card (4411, Critical Rate) to Legend’s low-headgear card options as well as middle headgear.
+
+- Owner adds Legend’s Base Level 130 armor options after the leveling plates: Diabolus Armor first as a general endgame option, then Genesis Bright Armor and Apocalypse Scale Mail. Current IDs/slots: 2375 / 2; 15443 / 1; 15440 / 1. Preserve Holy versus Dark elements and use current Hiding-backslide effect for Apocalypse instead of the old guide’s Perfect Hide claim. Owner also adds Meteor Golem Card (13742): HP +12%, Neutral resistance +5%.
+
+- Owner adds Mercury Cape for STR needs and Neptune Cape for LUK needs to Legend’s garments. Current records: Mercury 15434 and Neptune 15439, both Base Level 130 with two slots; each adds its respective stat per refine.
+
+- Owner adds Skeleton Worker Card to Legend garment recommendations. Current item 4092 confirms Defense Penetration +10.
+
+- Owner adds Metal Boots MK I and its Strange Metal Ring pairing, plus Sage Ring for slots, to Legend. Current records: boots 15417, level 90, one slot, STR per refine and melee bonus at +9; ring 15416, level 90, two slots, SP Regen +20%; Sage Ring 16314, level 100, three slots. Boots describe Metal Set bonuses; retain the pairing in both table notes.
+
+- Owner replaces Miming Card with Moonlight Flower Card in Legend’s shoe recommendations. Current item 4131 grants non-stacking movement speed +20%.
+
+- Owner adds Nightmare Card and Sleipnir Avatar Card as Legend shoe alternatives. Current records: Nightmare 4127, Sleep immunity and movement speed +10%; Sleipnir Avatar 13548, movement speed +20%, SP −20%.
+
+- Owner adds Draupnir and Megingjard to Legend accessories. Current records: Draupnir 2631, Base Level 100, no slots, extra LUK per nine base LUK and total Critical Rate +5%; Megingjard 2629, Base Level 100, no slots, extra STR per nine base STR and Defense Penetration +5.
+
+- Owner supersedes the earlier blanket Shadow-set exclusion for Legend: add Bushido (level 65) and Fanatic Servant (level 100) in their own Shadow Sets tab, keeping Class Gems separate. Current Fanatic pieces 28988–28991 provide physical-hit HP sustain, refine-based HP/SP leech, kill recovery and full-set stat/HP/SP bonuses. Both sets have four pieces and no card slots. Other old guide Shadow sets remain excluded.
+
+- Owner retains Legacy of Coins (level 10, four pieces) and Endless Forest (level 50, four pieces) in Legend Shadow Sets. Legacy is conditional on not needing extra Splash Radius or Critical Rate; Endless Forest is for weapons without Splash Radius options. Existing retained/current armor IDs: 24258 and 24334 respectively. Keep Bushido and Fanatic Servant later in progression.
+
+- Owner requests Legend accessory cards match Vagabond’s wording: Drainliar or Doomfist, if affordable; War Incarnate Card (13688) is another option if affordable.
+
+## October 22 deployment
+
+- Owner authorizes pushing and deploying the accumulated guide changes. Enable the reviewed Legend guide in production, remove its draft/noindex/WIP indicators, and keep source-reviewed provenance and unrecorded whole-guide in-game verification distinct from owner-confirmed facts.

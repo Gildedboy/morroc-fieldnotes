@@ -71,3 +71,7 @@ Keep 26px centered dividers beside top-level job disclosures only. Nested job di
 Final-stage jobs in the sidebar have gold names and a small diamond in the disclosure column, labeled “Final job” for assistive technology and hover. Use the shared roster’s `stage === "final"`; leaf jobs are not automatically final. Preserve WIP badges and the current-page purple highlight.
 
 The desktop sidebar is 290px wide, reducing to 260px at the existing 1250px breakpoint. Mobile continues to use the guide-navigation drawer.
+
+## Class-guide layout consistency — October 22, 2026
+
+These requirements apply to incomplete drafts as well as completed guides. Use the shared slot-tab gear layout from the first equipment recommendation; dual-wield main/off-hand tables belong together inside Weapon. Show unfilled slots and cards as WIP. Legend uses `LegendGear.astro` and shared `GearTabBehavior.astro`. Keep full job-change quests boxed, use one NPC/monster card without nested warning boxes, and end rewards with both attacking sprites. Skill-learning priorities belong in allocation, separately from concise descriptions. The exact scope text and full requirements live in `docs/class-guide-template.md` and are reinforced in AGENTS.md.

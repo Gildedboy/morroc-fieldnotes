@@ -1,6 +1,8 @@
 ---
 import { withBase } from '../../lib/paths';
 import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
+import JobRewardSprites from './JobRewardSprites.astro';
 import SourceScreenshot from '../SourceScreenshot.astro';
 import SkillIcon from '../SkillIcon.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
@@ -24,14 +26,15 @@ import StatAllocationNotice from './StatAllocationNotice.astro';
       <SourceScreenshot image={{ src: 'images/classes/vagabond-job-change-bank.jpg', width: 1904, height: 1041, alt: 'Zeny Storage window with on-hand balance, amount field, and Deposit button', crop: { x: 810, y: 442, width: 284, height: 157 } }} />
     </li>
     <li>
-      <p>Speak to the <strong>Vagabond Orphan</strong> in the Orphanage at <strong>va_orpha 17, 18</strong>. Tell them you want to leave the regular job paths.</p>
-      <SourceScreenshot image={{ src: 'images/classes/vagabond-job-change-npc.png', width: 204, height: 312, alt: 'Vagabond Orphan NPC beneath the Vagabond Job Quest sign' }} />
+      <NpcCard name="Vagabond Orphan" image="images/classes/vagabond-job-change-npc.png" width={204} height={312}>
+        <p>Speak to them in the Orphanage at <strong>va_orpha 17, 18</strong>. Tell them you want to leave the regular job paths.</p>
+      </NpcCard>
     </li>
     <li>Accept the offer to become a <strong>Vagabond</strong>.</li>
   </ol>
   <div class="trickster-quest-reward">
     <p><strong>Reward:</strong> the Vagabond job.</p>
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase('images/classes/vagabond-attacking-still.webp')} /><img src={withBase('images/classes/vagabond-attacking.webp')} alt="Vagabond attacking" width="140" height="140" loading="lazy" /></picture>
+    <JobRewardSprites job="vagabond" name="Vagabond" />
   </div>
 </Callout>
 
@@ -43,8 +46,8 @@ import StatAllocationNotice from './StatAllocationNotice.astro';
   <li><SkillIcon icon="SM_RECOVERY" /><strong>Improve Defense:</strong> increases maximum HP.</li>
   <li><SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery:</strong> improves SP recovery.</li>
   <li><SkillIcon icon="MC_INCCARRY" /><strong>Enlarge Weight Limit:</strong> increases carrying capacity.</li>
-  <li><SkillIcon icon="LK_BERSERK" /><strong>Frenzy:</strong> sets ASPD to 193 while active, grants Endure and +30% movement speed, and sets SP to 0. It drains HP, sets defenses to zero, prevents direct healing, and blocks item use. Higher AGI slows its HP drain. You can disable it manually. Learning it also adds +3 to the ASPD limit.</li>
-  <li><SkillIcon icon="AL_PNEUMA" /><strong>Pneuma:</strong> protects a 3 × 3 area from ranged physical attacks for 10 seconds. Requires all six passive skills at level 10.</li>
+  <li><SkillIcon icon="LK_BERSERK" /><strong>Frenzy:</strong> increases attack speed and movement speed, grants Endure, and empties SP. It drains HP, sets defenses to zero, prevents direct healing, and blocks item use. Higher AGI slows its HP drain. You can disable it manually. Learning it also raises the ASPD limit.</li>
+  <li><SkillIcon icon="AL_PNEUMA" /><strong>Pneuma:</strong> protects an area from ranged physical attacks.</li>
 </ul>
 
 <h3>Early leveling stat allocation</h3>

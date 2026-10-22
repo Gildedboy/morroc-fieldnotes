@@ -3143,6 +3143,8 @@ export const dungeonEntrances: DungeonEntrance[] = [
   }
 ];
 
+export const dicastesDielAccess = 'From the Orphanage, use Kafra Allysia to travel to Hugel. Speak with the Hugel Ferry on the east side of town and choose Snow Fields. From the arrival map, take the east portal, then head north twice to reach Dicastes Diel.';
+
 // Bifrost quest routes reviewed against Refuge Guides and Bahadur's illustrated walkthrough.
 export const bifrostQuestLocations = {
   shard: {
@@ -3166,7 +3168,7 @@ export const bifrostQuestLocations = {
     access: 'From the Orphanage, use Kafra Allysia to travel to Umbala. Use Umbala’s Kafra to reach Nifflheim. Find the tomb in the northeast part of town.',
   },
   study: {
-    access: 'From the Orphanage, use Kafra Allysia to travel to Hugel. Speak with the Hugel Ferry on the east side of town and choose Snow Fields. From the arrival map, take the east portal, then head north twice to reach Dicastes Diel. Cross the bridge and enter the large palace building.',
+    access: `${dicastesDielAccess} Cross the bridge and enter the large palace building.`,
   },
 };
 
@@ -3269,3 +3271,12 @@ export const sunHeadgearObservers = [
     "imageKey": "volan"
   }
 ] as const;
+
+export const legendJobChangeLocations = {
+  mysteriousMan: {
+    map: 'snow_fild05',
+    coordinates: '239, 55',
+    access: 'From Dicastes Diel, walk three maps south to Snow Fields 05. Find the Strange Man in the southeast corner.',
+    warning: 'Watch for Hatii on Snow Fields 05.',
+  },
+};

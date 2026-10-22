@@ -4,12 +4,13 @@ import { withBase } from '../lib/paths';
 interface Props {
   name: string;
   image?: string;
+  stillImage?: string;
   width?: number;
   height?: number;
   crop?: { x: number; y: number; width: number; height: number; sourceWidth: number; sourceHeight: number };
 }
 
-const { name, image, width, height, crop } = Astro.props;
+const { name, image, stillImage, width, height, crop } = Astro.props;
 const cropScale = crop ? 96 / crop.height : 1;
 ---
 
@@ -18,9 +19,15 @@ const cropScale = crop ? 96 / crop.height : 1;
     <span class="npc-screenshot-crop" style={`width:${crop.width * cropScale}px;height:96px;`}>
       <img src={withBase(image)} alt={name} width={crop.sourceWidth} height={crop.sourceHeight} loading="lazy" decoding="async" style={`width:${crop.sourceWidth * cropScale}px;height:${crop.sourceHeight * cropScale}px;left:${-crop.x * cropScale}px;top:${-crop.y * cropScale}px;`} />
     </span> :
+    stillImage ? <picture class="npc-sprite"><source media="(prefers-reduced-motion: reduce)" srcset={withBase(stillImage)} /><img src={withBase(image)} alt={name} width={width} height={height} loading="lazy" decoding="async" /></picture> :
     <img src={withBase(image)} alt={name} width={width} height={height} loading="lazy" decoding="async" />)}
   <div>
     <h3>{name}</h3>
     <slot />
   </div>
 </div>
+
+<style>
+  .npc-sprite { flex: none; align-self: center; }
+  .npc-sprite img { display: block; width: auto; height: 96px; object-fit: contain; image-rendering: pixelated; }
+</style>

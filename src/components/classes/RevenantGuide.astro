@@ -3,6 +3,7 @@ import { withBase } from '../../lib/paths';
 import SkillIcon from '../SkillIcon.astro';
 import SourceScreenshot from '../SourceScreenshot.astro';
 import Callout from '../Callout.astro';
+import JobRewardSprites from './JobRewardSprites.astro';
 import NpcCard from '../NpcCard.astro';
 import RevenantGear from './RevenantGear.astro';
 import ProgressGearNotice from './ProgressGearNotice.astro';
@@ -26,7 +27,9 @@ import StatAllocationNotice from './StatAllocationNotice.astro';
 <Callout title="Requirement: Trickster Job Level 70">
   <ol>
     <li>
-      <p>Speak to the <strong>Recluse Trickster</strong> in Niflheim at <strong>niflheim 93, 227</strong>. Ask for an audience with Lady Hel.</p>
+      <NpcCard name="Recluse Trickster" image="images/classes/revenant-job-change-start.jpg" crop={{ x: 650, y: 535, width: 65, height: 140, sourceWidth: 1904, sourceHeight: 1041 }}>
+        <p>Speak to him in Niflheim at <strong>niflheim 93, 227</strong>. Ask for an audience with Lady Hel.</p>
+      </NpcCard>
       <SourceScreenshot image={{ src: 'images/classes/revenant-job-change-start.jpg', width: 1904, height: 1041, alt: 'Trickster NPC at the front door of the Niflheim house where the Revenant job-change quest starts', caption: 'Find the Trickster at the house entrance in Niflheim.', crop: { x: 315, y: 140, width: 565, height: 550 } }} />
     </li>
     <li>Follow Serin through the Long Night and defeat the corrupted Reapers at <strong>que_sign01 49, 27</strong>.</li>
@@ -49,23 +52,23 @@ import StatAllocationNotice from './StatAllocationNotice.astro';
   </NpcCard>
   <SourceScreenshot image={{ src: 'images/classes/revenant-reaper.jpg', width: 1904, height: 1041, alt: 'The red hooded Reaper pet carrying its scythe', caption: 'Reaper pet.', crop: { x: 550, y: 170, width: 245, height: 310 } }} />
   <div class="trickster-quest-reward">
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset={withBase('images/classes/revenant-attacking-still.webp')} /><img src={withBase('images/classes/revenant-attacking.webp')} alt="Revenant attacking" width="296" height="300" loading="lazy" /></picture>
+    <JobRewardSprites job="revenant" name="Revenant" />
   </div>
 </Callout>
 <h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
 <ul>
-  <li><SkillIcon icon="LG_MOONSLASHER" /><strong>Reaping Slash:</strong> your new combo filler and Overslash stack builder. Hits a 5 × 5 area; building past one stack requires <strong>Combo Ready</strong>. With at least one stack and <strong>Combo Ready</strong> active, <strong>Finisher Ready</strong> lets it maximize stacks immediately.</li>
-  <li><SkillIcon icon="LG_OVERBRAND" /><strong>Roaring Overslash:</strong> your main damage nuke. Hits a 7 × 7 area, with an extra hit per Overslash stack. Keep <strong>Combo Ready</strong> active to avoid reduced damage. Both slash skills can critically hit.</li>
+  <li><SkillIcon icon="LG_MOONSLASHER" /><strong>Reaping Slash:</strong> your new combo filler and Overslash stack builder. Hits an area; building additional stacks requires <strong>Combo Ready</strong>. With an Overslash stack and <strong>Combo Ready</strong> active, <strong>Finisher Ready</strong> lets it maximize stacks immediately.</li>
+  <li><SkillIcon icon="LG_OVERBRAND" /><strong>Roaring Overslash:</strong> your main damage nuke. Hits an area, with extra hits from Overslash stacks. Keep <strong>Combo Ready</strong> active to avoid reduced damage. Both slash skills can critically hit.</li>
   <li><SkillIcon icon="WM_SEVERE_RAINSTORM" /><strong>Underworld Rainstorm:</strong> spends a Shadow Orb on sustained area damage. It never misses and its cast cannot be interrupted, but your defenses are halved while casting.</li>
-  <li><SkillIcon icon="KN_SPEARMASTERY" /><strong>Advanced Scythe Mastery:</strong> improves scythe damage and lets <SkillIcon icon="KN_PIERCE" />Sweeping Slash grant <strong>Combo Ready</strong> for three seconds.</li>
-  <li><SkillIcon icon="GS_SINGLEACTION" /><strong>Ominous Presence:</strong> improves scythe leech and converts excess healing at full HP into a shield. New overhealing refreshes its 30-second duration.</li>
+  <li><SkillIcon icon="KN_SPEARMASTERY" /><strong>Advanced Scythe Mastery:</strong> improves scythe damage and lets <SkillIcon icon="KN_PIERCE" />Sweeping Slash grant <strong>Combo Ready</strong> briefly.</li>
+  <li><SkillIcon icon="GS_SINGLEACTION" /><strong>Ominous Presence:</strong> improves scythe leech and converts excess healing at full HP into a shield. New overhealing refreshes the shield’s duration.</li>
   <li><SkillIcon icon="KG_KAGEMUSYA" /><strong>Darkside Shadow:</strong> summons a shadow that repeats normal attacks, enabling Double Attack with a scythe. It also improves physical skill damage through DEX scaling; Underworld Rainstorm receives half the bonus.</li>
   <li><SkillIcon icon="GN_BLOOD_SUCKER" /><strong>Vampire Mark:</strong> grants physical-damage leech to yourself or an ally. It stacks with equipment leech and works with Ominous Presence's overheal shield. It does not apply to magic damage.</li>
 </ul>
 <h3>Utility skills</h3>
 <ul>
-  <li><SkillIcon icon="TK_HIGHJUMP" /><strong>High Jump:</strong> leap forward over walls and obstacles when the destination cell is accessible. Higher levels increase range and shorten the cast. Requires Darkside Shadow level 1.</li>
-  <li><SkillIcon icon="GC_DARKILLUSION" /><strong>Haunting Slice:</strong> closes the gap and attacks a target. Unlock it after Roaring Overslash level 1.</li>
+  <li><SkillIcon icon="TK_HIGHJUMP" /><strong>High Jump:</strong> leap forward over walls and obstacles when the destination cell is accessible. Higher levels increase range and shorten the cast.</li>
+  <li><SkillIcon icon="GC_DARKILLUSION" /><strong>Haunting Slice:</strong> closes the gap and attacks a target.</li>
   <li><SkillIcon icon="RK_PHANTOMTHRUST" /><strong>Phantom Slice:</strong> pulls a distant enemy toward you; it can also pull a party member without damaging them.</li>
 </ul>
 <h3>Stat allocation</h3>
@@ -87,6 +90,7 @@ import StatAllocationNotice from './StatAllocationNotice.astro';
   <li>Max <SkillIcon icon="LG_OVERBRAND" />Roaring Overslash.</li>
   <li>Spend remaining Job Level skill points on <SkillIcon icon="GC_DARKILLUSION" />Haunting Slice, <SkillIcon icon="TK_HIGHJUMP" />High Jump, or <SkillIcon icon="WM_SEVERE_RAINSTORM" />Underworld Rainstorm, or max <SkillIcon icon="LG_MOONSLASHER" />Reaping Slash.</li>
 </ol>
+<p><SkillIcon icon="TK_HIGHJUMP" />High Jump requires Darkside Shadow level 1. <SkillIcon icon="GC_DARKILLUSION" />Haunting Slice unlocks after Roaring Overslash level 1.</p>
 <SourceScreenshot image={{ src: 'images/classes/revenant-owner-skill-tree.png', width: 556, height: 398, alt: 'Revenant skill tree supplied by the site owner, showing its chosen utility skills and remaining points', caption: 'Revenant skill-tree example.' }} />
 <h2 id="how-to-play">How to Play</h2>
 <ol>

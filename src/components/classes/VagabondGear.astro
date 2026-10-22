@@ -31,14 +31,23 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
     </tbody></table></div>
     <p>Look for <strong>HP Drain +2 per Hit</strong> or <strong>Splash Radius +1</strong> in dagger <a href={withBase('guides/random-rolls/')}>random rolls</a>.</p>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4086, 'Soldier Skeleton Card')}>Soldier Skeleton Card</a> (Critical Rate +10), <a href={itemHref(4355, 'Gremlin Card')}>Gremlin Card</a> (total Critical Rate +15%), <a href={itemHref(13522, 'Sandworm Card')}>Sandworm Card</a> (Critical Damage +10%), and <a href={itemHref(4020, 'Familiar Card')}>Familiar Card</a> (drains 5 HP when dealing physical damage).</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4086, 'Soldier Skeleton Card')}>Soldier Skeleton Card</a> — Critical Rate +10.</li>
+      <li><a href={itemHref(4355, 'Gremlin Card')}>Gremlin Card</a> — total Critical Rate +15%.</li>
+      <li><a href={itemHref(13522, 'Sandworm Card')}>Sandworm Card</a> — Critical Damage +10%.</li>
+      <li><a href={itemHref(4020, 'Familiar Card')}>Familiar Card</a> — drains 5 HP when dealing physical damage.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-shield" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-shield" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shield</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
       <tr><td><a href={itemHref(2157, 'Scaraba Tower')}>Scaraba Tower [1]</a></td><td>15</td><td>Auto Guard level 10, Flat Defense +10, HP Regen +20%.</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(4041, 'Coco Card')}>Coco Card</a> — Flee +15.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4041, 'Coco Card')}>Coco Card</a> — Flee +15.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-top" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-top" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Top headgear</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -49,7 +58,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(5873, 'Crimson Wings Helm')}>Crimson Wings Helm [0]</a></td><td>50</td><td></td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4129, 'Baphomet Jr. Card')}>Baphomet Jr. Card</a> in a slotted headgear.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-mid" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-mid" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Mid headgear</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -57,7 +69,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(5068, 'Evil Wing Ears')}>Evil Wing Ears [1]</a></td><td>10</td><td></td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(13571, 'Veins Ghoul Card')}>Veins Ghoul Card</a> (if affordable from the Market).</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(13571, 'Veins Ghoul Card')}>Veins Ghoul Card</a> (if affordable from the Market).</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-low" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-low" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Low headgear / set option</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -67,7 +82,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(5767, 'Samurai Mask')}>Samurai Mask [0]</a></td><td>50</td><td>A good upgrade: +20% total Critical Rate.</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> none for now. Baphomet Shadow may be an option later.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li>none for now. Baphomet Shadow may be an option later.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-armor" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-armor" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Armor</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -79,7 +97,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15196, 'Eastern Sky Armor')}>Eastern Sky Armor [1]</a></td><td>50</td><td>Critical Rate +5, ASPD +1, SP Regen +25%; HP Regen −95%.</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4126, 'Minorous Card')}>Minorous Card</a>.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-garment" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-garment" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Garment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -90,7 +111,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15198, 'Clean Towel')}>Clean Towel [1]</a></td><td>40</td><td>Recovers 75 HP and 25 SP per kill. Can be difficult to obtain; keep leveling without it.</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a>.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4286, 'Karakasa Card')}>Karakasa Card</a>.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-shoes" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-shoes" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shoes</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -100,7 +124,10 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15450, 'Bullhorn Shoes')}>Bullhorn Shoes [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Card:</strong> <a href={itemHref(27163, 'Faceworm Card')}>Faceworm Card</a> — Critical Damage +5% and ASPD +1.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(27163, 'Faceworm Card')}>Faceworm Card</a> — Critical Damage +5% and ASPD +1.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-accessories" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-accessories" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Accessory</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -109,7 +136,12 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
       <tr><td><a href={itemHref(15454, 'Bullhorn Ring')}>Bullhorn Ring [1]</a></td><td>40</td><td>Bullhorn set piece</td></tr>
     </tbody></table></div>
     <hr class="gear-card-divider" />
-    <p><strong>Cards:</strong> <a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a> or <a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a>, if affordable; <a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> is another option if affordable.</p>
+    <p><strong>Cards:</strong></p>
+    <ul>
+      <li><a href={itemHref(4069, 'Drainliar Card')}>Drainliar</a>.</li>
+      <li><a href={itemHref(13743, 'Doomfist Card')}>Doomfist</a> — if affordable.</li>
+      <li><a href={itemHref(13688, 'War Incarnate Card')}>War Incarnate Card</a> — if affordable.</li>
+    </ul>
   </section>
   <section id="vagabond-gear-panel-shadow-sets" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-shadow-sets" tabindex="0" hidden>
     <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Shadow set pieces</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
@@ -120,14 +152,16 @@ const itemSearchHref = (name: string) => `https://rtm-database.pages.dev/?q=${en
     </tbody></table></div>
   </section>
   <section id="vagabond-gear-panel-runes" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-runes" tabindex="0" hidden>
-    <ul>
-      <li><a href={itemHref(24108, 'Soul Rune of Orphans')}>Soul Rune of Orphans</a> (Required Level 10).</li>
-      <li><a href={itemHref(24106, 'Soul Rune of Destiny')}>Soul Rune of Destiny</a> (Required Level 10).</li>
-      <li><a href={itemHref(24183, 'Berkano Rune of Beginning')}>Berkano Rune of Beginning</a> (Required Level 15).</li>
-    </ul>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(24108, 'Soul Rune of Orphans')}>Soul Rune of Orphans</a></td><td>10</td><td></td></tr>
+      <tr><td><a href={itemHref(24106, 'Soul Rune of Destiny')}>Soul Rune of Destiny</a></td><td>10</td><td></td></tr>
+      <tr><td><a href={itemHref(24183, 'Berkano Rune of Beginning')}>Berkano Rune of Beginning</a></td><td>15</td><td></td></tr>
+    </tbody></table></div>
   </section>
   <section id="vagabond-gear-panel-manuals" class="gear-panel" role="tabpanel" aria-labelledby="vagabond-gear-tab-manuals" tabindex="0" hidden>
-    <p><a href={itemHref(24035, 'Vanish Manual')}>Vanish Manual</a> (Required Level 10; sold at the Black Market).</p>
+    <div class="gear-table-wrap"><table class="gear-table"><thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead><tbody>
+      <tr><td><a href={itemHref(24035, 'Vanish Manual')}>Vanish Manual</a></td><td>10</td><td>Sold at the Black Market</td></tr>
+    </tbody></table></div>
   </section>
 </div>
 

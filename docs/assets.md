@@ -217,3 +217,19 @@ At the owner’s request, original database PNGs `assets/icons/art/27151.png` (R
 ## Vagabond skill tree — October 20, 2026
 
 Owner screenshot `Captura de pantalla 2026-10-20 155753.png` (538 × 398) is archived in ignored `imports/vagabond-skill-tree/` with screenPRM166.jpg. The PNG is copied unchanged to `public/images/classes/vagabond-owner-skill-tree.png` and displayed full-frame after Skill allocation with SourceScreenshot. It is an allocation example, not an inferred Job Level or mandatory build. Owner requested integration; game artwork belongs to its rights holders.
+
+## Legend quest NPC — October 22, 2026
+
+Owner screenshot `screenPRM167.jpg` from Downloads/Refuge/ScreenShot is archived unchanged in ignored `imports/legend-job-change/` and copied unchanged to `public/images/classes/legend-job-change-vagabond.jpg` (1904 × 1041). It shows the NPC labeled Vagabond by the snowy stairs. SourceScreenshot displays a contextual viewport at (295, 280), 580 × 410, with the full original available. Owner requested integration; game artwork remains with its rights holders.
+
+## Legend Hatii warning — October 22, 2026
+
+At the owner’s request, added Hatii’s original database sprite from `https://rtm-database.pages.dev/assets/sprites/1252.gif`; current monster record 1252 identifies Hatii. Originals and monster snapshot are archived in ignored `imports/legend-job-change/`. Public `legend-hatii.gif` is unchanged; `legend-hatii-still.png` is its first frame for reduced motion. Refuge permits copying site content; game artwork remains with its rights holders. Removed the duplicate contextual Vagabond screenshot from the quest, retaining its identified NPC crop in NpcCard.
+
+## Legend Strange Man — October 22, 2026
+
+Owner screenshot screenPRM168.jpg (1904 × 1041) is archived unchanged in `imports/legend-job-change/` and copied to `public/images/classes/legend-job-change-strange-man.jpg`. Owner requested an NPC crop (1400,530; 100 × 215) and minimap crop (1770,10; 125 × 155). SourceScreenshot links to the full original; minimap coordinates represent the player’s position. Game artwork remains with its rights holders.
+
+## Legend skill tree — October 22, 2026
+
+Owner screenshot screenPRM169.jpg (1904 × 1041), from Downloads/Refuge/ScreenShot, is archived in `imports/legend-job-change/` and copied unchanged to `public/images/classes/legend-owner-skill-tree.jpg`. SourceScreenshot displays the skill-window crop (400,246; 561 × 400), including the job tab, with the full original available. Owner requested integration; game artwork remains with its rights holders.
