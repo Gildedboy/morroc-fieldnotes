@@ -9,8 +9,8 @@ if (root) {
   children.splice(1, 0, thief);
 }
 const tags = job.id === 'orphan' ? ['Start here'] : job.id === 'merchant' ? ['Vendor only'] : job.roles.slice(0, 3).map(role => roleLabels[role]);
-const selectedPose = job.id === 'merchant' ? 'images/classes/merchant-casting.webp' : job.attacking;
-const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-casting-still.webp' : job.attackingStill;
+const selectedPose = job.id === 'merchant' ? 'images/classes/merchant-idle.webp' : job.attacking;
+const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-idle-still.webp' : job.attackingStill;
 ---
 <div class:list={['class-branch', { 'class-root': root, 'is-open': root, 'is-attacking': root }]} data-class-id={job.id} style={position !== undefined ? `--job-order:${position}` : undefined}>
   <div class="class-card-wrap">
@@ -36,8 +36,8 @@ const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-casting-s
     {!root && <aside class="class-guide-panel" aria-label={`${job.name} guide`} hidden>
       <button type="button" class="class-info-close" aria-label="Close class details">×</button>
       <strong>{job.name}</strong><span class="class-detail-weapon"> · {job.weaponLabel ?? job.weapons}</span><p><span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span></p>
-      <dl class="class-verdict"><div class="class-strengths"><dt>Strengths</dt><dd>{job.strengths ?? 'Not listed in the Refuge class guide.'}</dd></div><div class="class-weaknesses"><dt>Weaknesses</dt><dd>{job.weaknesses ?? 'Not listed in the Refuge class guide.'}</dd></div></dl>
-      <a href={withBase(`classes/${job.id}/`)}>{job.id === 'thief' ? 'Read the Thief guide' : `${job.name} guide`} {!['trickster', 'revenant', 'vagabond', 'legend'].includes(job.id) && <span class="wip-badge">WIP</span>} →</a>
+      {job.id !== 'merchant' && <dl class="class-verdict"><div class="class-strengths"><dt>Strengths</dt><dd>{job.strengths ?? 'Not listed in the Refuge class guide.'}</dd></div><div class="class-weaknesses"><dt>Weaknesses</dt><dd>{job.weaknesses ?? 'Not listed in the Refuge class guide.'}</dd></div></dl>}
+      <a href={withBase(`classes/${job.id}/`)}>{job.id === 'thief' ? 'Read the Thief guide' : `${job.name} guide`} {!['trickster', 'revenant', 'vagabond', 'legend', 'merchant'].includes(job.id) && <span class="wip-badge">WIP</span>} →</a>
     </aside>}
     {root && <div class="merchant-route"><Astro.self job={jobClasses.find(entry => entry.id === 'merchant')!} /></div>}
     {root && <button type="button" class="class-root-back" hidden><span aria-hidden="true">←</span> Back</button>}

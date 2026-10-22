@@ -75,3 +75,11 @@ The desktop sidebar is 290px wide, reducing to 260px at the existing 1250px brea
 ## Class-guide layout consistency — October 22, 2026
 
 These requirements apply to incomplete drafts as well as completed guides. Use the shared slot-tab gear layout from the first equipment recommendation; dual-wield main/off-hand tables belong together inside Weapon. Show unfilled slots and cards as WIP. Legend uses `LegendGear.astro` and shared `GearTabBehavior.astro`. Keep full job-change quests boxed, use one NPC/monster card without nested warning boxes, and end rewards with both attacking sprites. Skill-learning priorities belong in allocation, separately from concise descriptions. The exact scope text and full requirements live in `docs/class-guide-template.md` and are reinforced in AGENTS.md.
+
+- October 22 owner correction: Merchant now uses stage final and the standard gold name/diamond in the left navigation. This supersedes its earlier visual exception; it remains a vendor-only job without combat progression.
+
+- Merchant selected pose now uses the owner-requested walking animation for both genders, with corresponding reduced-motion stills. This supersedes the earlier casting pose. Merchant guide is published following October 22 owner approval.
+
+- Final October 22 Merchant pose decision: owner rejects walking. Use existing Refuge idle sprites and corresponding stills for both genders in the selected tree card and guide reward. This supersedes walking and casting.
+
+- Merchant omits the strengths/weaknesses rows entirely at the owner’s request; do not show placeholder text. Its difficulty, guide link, idle pose and vendor role remain.

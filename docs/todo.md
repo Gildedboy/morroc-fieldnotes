@@ -73,3 +73,8 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Add owner-reviewed Vagabond dagger progression, weapon cards, and drain/Splash Radius research.
 - [ ] Finish reviewing Vagabond’s copied non-weapon gear and cards with the owner.
 - [x] Standardize the four guides’ presentation; Legend approved for deployment October 22, 2026.
+
+## Merchant
+
+- [x] Author a short local vendor guide with the shared class structure and explicit non-combat exceptions.
+- [x] Review Merchant quest NPC/skill-tree images and vending instructions with the owner; publish on October 22 approval.

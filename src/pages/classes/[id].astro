@@ -5,6 +5,7 @@ import RevenantGuide from '../../components/classes/RevenantGuide.astro';
 import TricksterGuide from '../../components/classes/TricksterGuide.astro';
 import VagabondGuide from '../../components/classes/VagabondGuide.astro';
 import LegendGuide from '../../components/classes/LegendGuide.astro';
+import MerchantGuide from '../../components/classes/MerchantGuide.astro';
 import '../../styles/job-tree.css';
 import { jobClasses, roleLabels, difficultyLabels, type JobClass } from '../../data/job-classes';
 import { guideHref, withBase } from '../../lib/paths';
@@ -18,8 +19,10 @@ const isTrickster = job.id === 'trickster';
 const isRevenant = job.id === 'revenant';
 const isVagabond = job.id === 'vagabond';
 const isLegend = job.id === 'legend';
-const hasGuide = isTrickster || isRevenant || isVagabond || isLegend;
-const sections = hasGuide ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', isRevenant || job.id === 'legend' ? 'Next Steps' : 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
+const isMerchant = job.id === 'merchant';
+const hasGuide = isTrickster || isRevenant || isVagabond || isLegend || isMerchant;
+const guideSections = hasGuide ? [['overview', 'Overview'], ['job-change', 'Job Change Quest'], ['core-gameplay', 'Core Gameplay & Skills'], ['how-to-play', 'How to Play'], ['leveling-spots', 'Leveling Spots'], ['progress-gear', 'Progress Gear'], ['next-step', isRevenant || isLegend || isMerchant ? 'Next Steps' : 'Next Step']] : isThief ? [['overview', 'Overview'], ['job-change', 'Become a Thief'], ['combat', 'Weapons and skills'], ['next-jobs', 'Next jobs']] : [['overview', 'Overview'], ['next-jobs', 'Job progression']];
+const sections = isMerchant ? guideSections.filter(([id]) => !['leveling-spots', 'progress-gear'].includes(id)) : guideSections;
 const nextJobs = job.children.map(id => jobClasses.find(entry => entry.id === id)!);
 const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!);
 ---
@@ -45,7 +48,7 @@ const parents = job.parents.map(id => jobClasses.find(entry => entry.id === id)!
           <ul><li><strong>Daggers and swords:</strong> use Back Stab for single targets, or Rolling Cutter and Cross Ripper Slasher for spinning attacks and their follow-up.</li><li><strong>Bows:</strong> use Double Strafe and Arrow Shower for ranged attacks. Carry arrows.</li><li><strong>Magic:</strong> Flaming Petals, Freezing Spear, and Wind Blade build elemental focus. Auto Spell lets normal attacks trigger learned spells.</li><li><strong>Poison:</strong> Envenom inflicts Poison, Enchant Poison changes your weapon's element, and Detoxify removes Poison.</li></ul>
           <p>These are options to explore, not a prescribed skill build. Check current costs, prerequisites, and damage in the <a href="https://rtm-database.pages.dev/skills.html" target="_blank" rel="noreferrer">Refuge skills database ↗</a>.</p>
         </>}
-        {isTrickster ? <TricksterGuide /> : isRevenant ? <RevenantGuide /> : isVagabond ? <VagabondGuide /> : isLegend ? <LegendGuide /> : <>
+        {isTrickster ? <TricksterGuide /> : isRevenant ? <RevenantGuide /> : isVagabond ? <VagabondGuide /> : isLegend ? <LegendGuide /> : isMerchant ? <MerchantGuide /> : <>
           <h2 id="next-jobs">{isThief ? 'Next jobs' : 'Job progression'}</h2>
           {nextJobs.length ? <ul class="job-next-links">{nextJobs.map(next => <li><a href={withBase(`classes/${next.id}/`)}>{next.name} <small>{next.weaponLabel ?? next.weapons}</small><span class="wip-badge">WIP</span> →</a></li>)}</ul> : <p>This class does not lead to another job in Refuge's current class tree.</p>}
         </>}

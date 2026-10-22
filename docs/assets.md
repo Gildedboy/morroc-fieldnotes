@@ -233,3 +233,25 @@ Owner screenshot screenPRM168.jpg (1904 × 1041) is archived unchanged in `impor
 ## Legend skill tree — October 22, 2026
 
 Owner screenshot screenPRM169.jpg (1904 × 1041), from Downloads/Refuge/ScreenShot, is archived in `imports/legend-job-change/` and copied unchanged to `public/images/classes/legend-owner-skill-tree.jpg`. SourceScreenshot displays the skill-window crop (400,246; 561 × 400), including the job tab, with the full original available. Owner requested integration; game artwork remains with its rights holders.
+
+## Merchant guide assets — October 22, 2026
+
+Downloaded original Refuge assets from `/assets/img/`: portraits/merchant-male.webp (413 × 760), portraits/merchant-female.webp (481 × 760), anim/merchant-female-attacking.webp and matching -still.webp, and skills/MC_VENDING.png and MC_PUSHCART.png. Stored in the matching public/classes and public/skills image directories with local filenames; existing male attacking sprites and MC_INCCARRY icon reused. Refuge permits copying site content; game artwork remains with its rights holders.
+
+## Merchant Representative — October 22, 2026
+
+Owner screenshot screenPRM170.jpg (1904 × 1041), from Downloads/Refuge/ScreenShot, is archived unchanged in ignored imports/merchant-job-change and copied to public/images/classes/merchant-job-change-representative.jpg. NpcCard uses an identified NPC viewport (575,650; 65 × 125). No duplicate screenshot is added. Owner requested integration; game artwork remains with its rights holders.
+
+## Merchant job change, skills, and license — October 22, 2026
+
+Owner screenPRM171–173.jpg (each 1904 × 1041) are archived unchanged in imports/merchant-job-change and copied to public/images/classes as merchant-dialogue.jpg, merchant-license-and-skills.jpg, and merchant-license-menu.jpg. SourceScreenshot viewports: dialogue (1180,565; 285 × 295); license tooltip (964,248; 280 × 210); skill window including tabs (400,246; 562 × 400); license choices (768,731; 279 × 120). Each links to its unchanged full original. Owner requested integration; game artwork remains with its rights holders.
+
+## Merchant shop setup — October 22, 2026
+
+Owner screenPRM174–176.jpg are archived in imports/merchant-job-change. screenPRM174 is copied unchanged to public/images/classes/merchant-shop-setup.jpg (1904 × 1041); SourceScreenshot shows the vending/shop windows at (0,120), 400 × 382, with full original available. The near-duplicate 175–176 images are not repeated publicly. Owner requested integration; game artwork remains with its rights holders.
+
+## Merchant walking sprites — October 22, 2026
+
+Owner requests trying male/female walking in the job reward and selected class-tree card. Refuge walking paths returned 404. Rendered classic Merchant GIFs from `https://assets.latam-tools.com.br/gif?job=5&action=1&gender=male&head=1` and its gender=female counterpart, using the already credited RagAssets renderer. Their classic outfits differ from Refuge’s custom sprites, disclosed to the owner. Archived originals in imports/merchant-job-change. Lossless WebP derivatives use nearest-neighbor 2× scaling and transparent 296 × 300 padding to match the site’s class frame; first-frame stills support reduced motion. Public files: merchant[-female]-walking[ -still].webp (without the space). Game artwork remains with its rights holders.
+
+Walking preview rejected by the owner before deployment. Public walking derivatives removed; original renderer trials remain ignored. Merchant now reuses existing Refuge male/female idle animations and stills in its reward and selected tree card.

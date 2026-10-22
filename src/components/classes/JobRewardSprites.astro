@@ -2,17 +2,18 @@
 import { withBase } from '../../lib/paths';
 
 interface Props {
-  job: 'trickster' | 'revenant' | 'vagabond' | 'legend';
+  job: 'trickster' | 'revenant' | 'vagabond' | 'legend' | 'merchant';
   name: string;
 }
 const { job, name } = Astro.props;
+const pose = job === 'merchant' ? 'idle' : 'attacking';
 ---
 <div class="job-reward-sprites">
   {(['male', 'female'] as const).map((gender) => {
-    const prefix = `images/classes/${job}${gender === 'female' ? '-female' : ''}-attacking`;
+    const prefix = `images/classes/${job}${gender === 'female' ? '-female' : ''}-${pose}`;
     return <picture>
       <source media="(prefers-reduced-motion: reduce)" srcset={withBase(`${prefix}-still.webp`)} />
-      <img src={withBase(`${prefix}.webp`)} alt={`${gender === 'male' ? 'Male' : 'Female'} ${name} attacking`} width="140" height="140" loading="lazy" />
+      <img src={withBase(`${prefix}.webp`)} alt={`${gender === 'male' ? 'Male' : 'Female'} ${name} ${pose}`} width="140" height="140" loading="lazy" />
     </picture>;
   })}
 </div>

@@ -1,0 +1,64 @@
+---
+import { withBase } from '../../lib/paths';
+import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
+import SourceScreenshot from '../SourceScreenshot.astro';
+import SkillIcon from '../SkillIcon.astro';
+import JobRewardSprites from './JobRewardSprites.astro';
+---
+<Callout title="Create a separate Merchant account" tone="warning">
+  <p><strong>Merchant requires a separate account tied to your main account and used only for Merchants.</strong> Create it through the <strong>Commands, Account and Donation</strong> channel in the <a href="https://discord.gg/a5P3PFNMhn">Refuge Discord server</a> before starting.</p>
+</Callout>
+
+<div class="trickster-portraits">
+  <figure><img src={withBase('images/classes/merchant-male-portrait.webp')} alt="Male Merchant portrait from Refuge" width="413" height="760" loading="lazy" /><figcaption>Male Merchant</figcaption></figure>
+  <figure><img src={withBase('images/classes/merchant-female-portrait.webp')} alt="Female Merchant portrait from Refuge" width="481" height="760" loading="lazy" /><figcaption>Female Merchant</figcaption></figure>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>Merchant is a vendor-only path from Orphan. Use your Merchant account to sell items while your combat character continues leveling.</p>
+<Callout title="Refuge Changes"><p>Merchant is a Refuge trading job. Its three skills are learned at job change, and the Merchant License provides free travel between the Orphanage and Alberta plus remote cart rental.</p></Callout>
+
+<h2 id="job-change">Job Change Quest</h2>
+<Callout title="Requirements: Orphan Base Level 1 and Job Level 1">
+  <p><strong>Skip the tutorial when creating your Merchant character.</strong> You must remain at Base Level 1 and Job Level 1 to change jobs.</p>
+  <ol>
+    <li><NpcCard name="Merchant Representative" image="images/classes/merchant-job-change-representative.jpg" crop={{ x: 575, y: 650, width: 65, height: 125, sourceWidth: 1904, sourceHeight: 1041 }}><p>Speak with her near the Orphanage backroom at <strong>va_orpha 196, 300</strong>. Tell her you want to become a Merchant.</p></NpcCard></li>
+    <li>
+      <p>Choose <strong>I want to be a Merchant</strong> and accept the job’s restrictions to receive the Merchant job and a <strong>Merchant License</strong>.</p>
+      <SourceScreenshot image={{ src: 'images/classes/merchant-dialogue.jpg', width: 1904, height: 1041, alt: 'Merchant Representative dialogue with I want to be a Merchant selected', caption: 'Choose I want to be a Merchant.', crop: { x: 1180, y: 565, width: 285, height: 295 } }} />
+    </li>
+  </ol>
+  <SourceScreenshot image={{ src: 'images/classes/merchant-license-and-skills.jpg', width: 1904, height: 1041, alt: 'Merchant License tooltip describing remote cart rental and free Orphanage and Alberta travel', caption: 'Merchant License.', crop: { x: 964, y: 248, width: 280, height: 210 } }} />
+  <div class="trickster-quest-reward">
+    <p><strong>Reward:</strong> the Merchant job and Merchant License.</p>
+    <JobRewardSprites job="merchant" name="Merchant" />
+  </div>
+</Callout>
+
+<h2 id="core-gameplay">Core Gameplay &amp; Skills</h2>
+<ul>
+  <li><SkillIcon icon="MC_VENDING" /><strong>Vending:</strong> opens a shop to sell items to other players. Use <code>@autotrade</code> to keep selling while offline.</li>
+  <li><SkillIcon icon="MC_INCCARRY" /><strong>Enlarge Weight Limit:</strong> increases carrying capacity.</li>
+  <li><SkillIcon icon="MC_PUSHCART" /><strong>Pushcart:</strong> provides extra item storage. Items in the cart cannot be used or equipped directly. Open it with <strong>Alt + W</strong>.</li>
+</ul>
+<h3 id="skill-allocation">Skill allocation</h3>
+<p>Vending, Enlarge Weight Limit, and Pushcart are all learned at level 10 when you change jobs.</p>
+<SourceScreenshot image={{ src: 'images/classes/merchant-license-and-skills.jpg', width: 1904, height: 1041, alt: 'Merchant skill tree showing Enlarge Weight Limit, Pushcart, and Vending at level 10', caption: 'Merchant skills after the job change.', crop: { x: 400, y: 246, width: 562, height: 400 } }} />
+
+<h2 id="how-to-play">How to Play</h2>
+<ol>
+  <li>
+    <p>Use your <strong>Merchant License</strong> and choose <strong>Rent Cart</strong>, <strong>Go to Orphanage</strong>, or <strong>Go to Alberta</strong>.</p>
+    <SourceScreenshot image={{ src: 'images/classes/merchant-license-menu.jpg', width: 1904, height: 1041, alt: 'Merchant License menu with Rent Cart, Go to Orphanage, Go to Alberta, and Cancel', caption: 'Use the license to rent a cart or travel.', crop: { x: 768, y: 731, width: 279, height: 120 } }} />
+  </li>
+  <li>Open <SkillIcon icon="MC_PUSHCART" /><strong>Pushcart</strong> with <strong>Alt + W</strong> and move the items you want to sell into it.</li>
+  <li>
+    <p>Use <SkillIcon icon="MC_VENDING" /><strong>Vending</strong>, name your shop, and add the items you want to sell. Enter the <strong>price per item</strong>: to sell 10 cards at <strong>100,000 Zeny each</strong>, enter <strong>100,000</strong> as the price. Finish setting it up promptly; taking too long may lock the shop.</p>
+    <SourceScreenshot image={{ src: 'images/classes/merchant-shop-setup.jpg', width: 1904, height: 1041, alt: 'Available Items for Vending and Opening a stall windows with shop name and price fields', caption: 'Set the shop name and price for each item.', crop: { x: 0, y: 120, width: 400, height: 382 } }} />
+  </li>
+  <li>Once the shop is open, use <code>@autotrade</code> to keep it running offline for up to <strong>three days</strong>, after which it disconnects.</li>
+</ol>
+
+<h2 id="next-step">Next Steps</h2>
+<p>Merchant has no further job evolution. Keep this character for trading and choose a combat path for another character from the <a href={withBase('classes/')}>Job Class Tree</a>.</p>

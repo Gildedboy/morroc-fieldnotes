@@ -354,9 +354,9 @@ export const jobClasses: JobClass[] = [
     "roles": [
       "utility"
     ],
-    "difficulty": "easy",
+    "difficulty": "none",
     "weapons": "None",
-    "stage": "alt",
+    "stage": "final",
     "sprite": "images/classes/merchant-sprite.webp",
     "face": "images/classes/merchant-face.webp",
     "idle": "images/classes/merchant-idle.webp",
@@ -372,8 +372,8 @@ export const jobClasses: JobClass[] = [
       "idleStill": "images/classes/merchant-female-idle-still.webp",
       "sitting": "images/classes/merchant-female-sitting.webp",
       "sittingStill": "images/classes/merchant-female-sitting-still.webp",
-      "selected": "images/classes/merchant-female-casting.webp",
-      "selectedStill": "images/classes/merchant-female-casting-still.webp"
+      "selected": "images/classes/merchant-female-idle.webp",
+      "selectedStill": "images/classes/merchant-female-idle-still.webp"
     }
   },
   {
@@ -1454,4 +1454,4 @@ export const jobClasses: JobClass[] = [
 ];
 
 export const roleLabels: Record<string, string> = { physical: "Physical damage", magic: "Magic damage", ranged: "Ranged", tank: "Durable", control: "Battlefield control", support: "Support", utility: "Utility" };
-export const difficultyLabels: Record<string, string> = { easy: "Easy to pick up", moderate: "Moderate", hard: "Hard", expert: "Expert only" };
+export const difficultyLabels: Record<string, string> = { none: "Non-existent", easy: "Easy to pick up", moderate: "Moderate", hard: "Hard", expert: "Expert only" };

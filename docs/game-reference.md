@@ -544,3 +544,34 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 ## October 22 deployment
 
 - Owner authorizes pushing and deploying the accumulated guide changes. Enable the reviewed Legend guide in production, remove its draft/noindex/WIP indicators, and keep source-reviewed provenance and unrecorded whole-guide in-game verification distinct from owner-confirmed facts.
+
+## Merchant draft — October 22, 2026
+
+- Owner requests a short Merchant guide and changes its difficulty label to **Non-existent**, only for Merchant. Other jobs’ easy difficulty text stays unchanged.
+- Refuge Merchant page: vendor-only, cannot fight or level; three skills learned at job change. Merchant Representative Ellen at va_orpha 196,300 grants the job and Merchant License. Owner-confirmed Base Level 1 / Job Level 1 requirement retained. Item 25791 confirms remote cart rental and free travel to Orphanage/Alberta.
+- Current skill records confirm Vending, Enlarge Weight Limit, and Pushcart; Vending supports @autotrade for up to three days, then auto-disconnect. Pushcart opens with Alt+W; stored items cannot be used/equipped directly. Default shop setup instructions use the cart and Vending; no unverified fee, vending area restriction, or account restriction is introduced.
+- Local WIP Merchant draft preserves section order but records non-applicable leveling allocations and gear progression. No level-130 combat scope or Class Gem recommendation applies. NPC and skill-tree images remain pending. Source reviewed, source update unknown, no completed job-change or vending verification recorded. Source: https://rtmrefuge.pages.dev/classes/merchant and current item/skill snapshots previously retrieved October 22.
+
+- Owner confirms Merchant requires a separate Merchant-only account, created through the Commands, Account and Donation channel in Refuge Discord. Put a prominent warning Callout before portraits, and correct the overview’s earlier separate-character wording. No direct channel URL supplied; link the known server invite without implying it opens the channel.
+- Owner now requests Merchant’s final-job accent in the left navigation, superseding the earlier visually-unchanged exception. Set its shared stage to final so the existing gold name and diamond marker apply; retain vendor-only behavior and no combat-level scope.
+
+- Owner screenshot screenPRM170 shows the quest NPC labeled **Merchant Representative**, beneath the Merchant Guild sign in the Orphanage hallway. Use that displayed name in the NPC card rather than the source’s Ellen suffix. Keep source coordinates va_orpha 196,300; this screenshot does not show a completed job change.
+
+- Owner instructs players to skip the tutorial when creating a Merchant so the character remains at the required Base Level 1 / Job Level 1. Put the warning at the beginning of the job-change box.
+
+- Owner screenshots screenPRM171–173 document the level-1 Orphan dialogue, completed Merchant job change, Merchant License receipt and tooltip, all three Merchant skills at level 10, and the license menu: Rent Cart / Go to Orphanage / Go to Alberta / Cancel. Add dialogue, license, skill-tree, and menu crops beside their instructions; remove skill-tree WIP. The screenshots verify the job-change reward and learned skills, not offline-vending behavior or the separate-account creation flow.
+
+- Owner removes Merchant Stat allocation, Leveling Spots, and Progress Gear sections, including the license table and unused outline links. Remove “There is no leveling order.” Keep the granted skill levels and relevant screenshots.
+- Owner confirms vending prices are per unit: for ten cards at 100,000 Zeny each, enter 100,000 as the price. screenPRM174 shows the vending/shop setup windows; 175–176 are near-duplicates and remain archived only. Use the setup screenshot beside pricing, without inventing a completed sale or cart inventory contents.
+
+- At the owner’s request, re-fetched the live Refuge db-skills.json on October 22 and checked merchant/vending: it explicitly states offline vending via @autotrade lasts up to three days, then auto-disconnects. Retain the duration as current database-supported information; this is not a timed in-game observation. Snapshot archived in imports/merchant-job-change/db-skills-duration-review.json.
+
+- Owner clarifies the separate Merchant-only account must be tied to the player’s main account. Include that relationship in the opening account Callout.
+
+- Owner approves publishing, pushing, and deploying Merchant, removes “Merchants cannot fight or level up” from the overview, and requests walking sprites for the reward and selected class-tree pose. Refuge’s static walking paths were unavailable; user requests trying renderer walking out of curiosity. Rendered classic Merchant walking (job 5, action 1, head 1, male/female) differs from Refuge’s custom outfit; this distinction was disclosed. Reduced-motion stills retained.
+
+- Owner rejects the walking preview and explicitly requests the existing Refuge idle Merchant sprites for both the guide reward and selected class-tree card. Reuse male/female idle animations and stills; remove walking derivatives from public assets. Deploy this idle version.
+
+- Replace Merchant’s class-tree strengths/weaknesses placeholders with reviewed facts: offline vending, cart storage, and free Orphanage/Alberta travel; separate linked Merchant-only account and no combat progression. Owner requests the info-panel update before deployment.
+
+- Owner immediately withdraws Merchant’s proposed strengths/weaknesses additions. Keep both null and omit their class-tree info-panel rows for Merchant rather than displaying fallback placeholders. Other jobs retain their existing information.
