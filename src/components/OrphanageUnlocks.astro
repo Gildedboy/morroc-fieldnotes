@@ -1,0 +1,24 @@
+---
+const unlocks = [
+  [50, 'Weapons'],
+  [60, 'Headgears, Shoes'],
+  [70, 'Armor, Shields'],
+  [80, 'Accessories, Garments'],
+  [90, 'Shadow Equipment'],
+];
+---
+<div class="guide-table-wrap orphanage-unlocks">
+  <table class="guide-table">
+    <caption>Orphanage levels for inheritance and rerolls</caption>
+    <thead><tr><th scope="col">Level</th><th scope="col">Equipment</th></tr></thead>
+    <tbody>{unlocks.map(([level, equipment]) => <tr><th scope="row">{level}</th><td>{equipment}</td></tr>)}</tbody>
+  </table>
+</div>
+<style>
+  .orphanage-unlocks { max-width: 460px; margin: 16px 0 24px; }
+  table { min-width: 0; }
+  caption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  th:first-child { width: 76px; text-align: center; }
+  tbody th { font-variant-numeric: tabular-nums; }
+  tbody tr:last-child > * { border-bottom: 0; }
+</style>

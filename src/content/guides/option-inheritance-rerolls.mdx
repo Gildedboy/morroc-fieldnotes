@@ -1,0 +1,164 @@
+---
+title: Option Inheritance & Rerolls
+publication: published
+description: Recycle equipment, copy a random-option line, or reroll one line with Croc Alt-Eisen in the Orphanage.
+category: Getting Started
+icon: compass
+order: 1.25
+updated: 2026-10-24
+verified: null
+status: source-reviewed
+statusNote: Croc Alt-Eisen service notes supplied and reviewed by the owner on October 24, 2026. The owner approved publication and upload after reviewing the guide. Original announcement URL and source update date are not recorded; no in-game verification is recorded. These notes supersede the older no-reroll description for eligible equipment.
+readingMinutes: 5
+tags: [random options, inheritance, rerolls, recycling, Croc, Orphanage]
+related: [random-rolls, refine-guide, dream-enchants]
+sources:
+  - title: Owner-supplied Croc Alt-Eisen service notes
+    url: https://rtmrefuge.pages.dev/gear#random-options
+    author: Site owner
+    sourceUpdated: null
+    note: Service rules, costs, shared Orphanage unlocks, recycling yields, inheritance, rerolls, and exclusions were supplied directly by the owner on October 24, 2026 and approved for publication after editorial review. The link is the related Refuge equipment reference, not the original announcement URL, which was not supplied. Croc's NPC image reuses owner screenshot 134, already integrated in the New Player Guide. Original source update date and new-service in-game verification are not recorded.
+---
+
+import Callout from '../../components/Callout.astro';
+import NpcCard from '../../components/NpcCard.astro';
+import OrphanageUnlocks from '../../components/OrphanageUnlocks.astro';
+import { guideHref } from '../../lib/paths';
+
+<NpcCard name="Croc Alt-Eisen" image="images/refining/croc-npc.jpg" crop={{ x: 1025, y: 200, width: 140, height: 190, sourceWidth: 1904, sourceHeight: 1041 }}>
+Find Croc in the **Orphanage smithy** to recycle equipment, copy random-option lines between matching items, or reroll individual lines.
+</NpcCard>
+
+<Callout title="Class Gems">
+Class Gem services remain with **Iris**.
+</Callout>
+
+Check <a href={guideHref('random-rolls')}>Random Rolls</a> for the available options. Each option on a line has the same chance to roll. Some items have their own option pools.
+
+Your old gear keeps its rolls. If you reroll a line, it draws from the updated pool. The other lines stay as they are.
+
+## Orphanage unlocks
+
+Services unlock as the **shared Orphanage** levels up.
+
+<OrphanageUnlocks />
+
+## Recycle equipment into Rough Materials
+
+Weapon recycling unlocks at **Orphanage Lv50**; other equipment unlocks at **Lv60**.
+
+<div class="guide-table-wrap">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Equipment</th><th scope="col">Recycles into</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Weapons</th><td>Rough Oridecon</td></tr>
+      <tr><th scope="row">Other equipment</th><td>Rough Elunium</td></tr>
+      <tr><th scope="row">Shadow Equipment</th><td>Cannot be recycled into Roughs</td></tr>
+    </tbody>
+  </table>
+</div>
+
+Only items with random options can be recycled. The drop source’s level determines how many Roughs you receive.
+
+<div class="guide-table-wrap">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Source level</th><th scope="col">Pieces</th><th scope="col">Roughs</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Below 50</th><td>5</td><td>1</td></tr>
+      <tr><th scope="row">50–109</th><td>1</td><td>1</td></tr>
+      <tr><th scope="row">110–129</th><td>1</td><td>2</td></tr>
+      <tr><th scope="row">130+</th><td>1</td><td>4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<Callout title="Items you cannot recycle" tone="warning">
+- Equipped items, including those in your equipment-switch setup.
+- Favorites, bound items, and rentals.
+- Items with cards or enchants.
+- Class Gems, costumes, and items without random options.
+</Callout>
+
+<Callout title="Recycling consumes the selected equipment" tone="warning">
+Choose the pieces and confirm the exchange. They are permanently destroyed, including their refines and rolls.
+</Callout>
+
+## Inherit
+
+<Callout title="One line at a time">
+Copy one existing random-option line from a matching donor item with **100% success**. It cannot add lines: a three-line item cannot gain a fourth line through inheritance.
+</Callout>
+
+1. **Equip the item you want to keep.** Bring a donor copy of the **exact same item** with a compatible option pool.
+2. **Choose the line to replace.** Croc Alt-Eisen copies the donor’s option and value onto the same line of your item. For example, **ATK% on the donor’s first line will replace MATK% on your item’s first line**.
+3. **Pay the transfer cost** listed below. The donor is permanently consumed.
+
+<Callout title="Your equipped item">
+Will keep its refine, cards, enchants, binding, and all the other lines.
+</Callout>
+
+<Callout title="Donor requirements" tone="warning">
+- Must be unbound, with no cards or enchants. Trial and rental items are not accepted.
+- Must be unequipped.
+- Cannot be in your equipment-switch setup.
+- Cannot be marked as a favorite.
+</Callout>
+
+<Callout title="Inheritance cost per line">
+<div class="guide-table-wrap">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Equipment</th><th scope="col">Zeny</th><th scope="col">Materials</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Weapons</th><td>500,000</td><td>60 Rough Oridecon</td></tr>
+      <tr><th scope="row">Other equipment</th><td>500,000</td><td>60 Rough Elunium</td></tr>
+      <tr><th scope="row">Shadow Equipment</th><td>1,000,000</td><td>10 Jewel Shadowdecon</td></tr>
+    </tbody>
+  </table>
+</div>
+
+Each transfer also consumes one donor item.
+</Callout>
+
+## Reroll
+
+<Callout title="One line at a time">
+Replace one random-option line with **100% success**. No donor is needed.
+</Callout>
+
+1. **Equip the item you want to reroll.**
+2. **Choose the line to replace.** Croc Alt-Eisen rolls a new option and value for that line. The same attribute cannot repeat: an ATK% line will roll a different attribute, rather than another ATK% value.
+3. **Pay the reroll cost** listed below and keep the result.
+
+<Callout title="Your equipped item">
+Will keep its refine, cards, enchants, binding, and all the other lines.
+</Callout>
+
+<Callout title="Before you reroll" tone="warning">
+- The new roll can be weaker.
+- Every attempt costs materials and Zeny.
+- There is no preview or undo.
+- A line needs another available attribute to be rerolled. Otherwise, it will not be offered or charged.
+- An empty line can only be filled if the item’s current pool supports it.
+- Manuals and Runes cannot be rerolled, even without engravings.
+- Blooming Rose Sandals cannot be rerolled because their completion options are fixed.
+</Callout>
+
+<Callout title="Reroll cost per attempt">
+<div class="guide-table-wrap">
+  <table class="guide-table">
+    <thead><tr><th scope="col">Equipment</th><th scope="col">Zeny</th><th scope="col">Materials</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Weapons</th><td>100,000</td><td>12 Rough Oridecon</td></tr>
+      <tr><th scope="row">Other equipment</th><td>100,000</td><td>12 Rough Elunium</td></tr>
+      <tr><th scope="row">Shadow Equipment</th><td>200,000</td><td>2 Jewel Shadowdecon</td></tr>
+    </tbody>
+  </table>
+</div>
+</Callout>
+
+## Restrictions
+
+<Callout title="Items Croc Alt-Eisen cannot modify" tone="danger">
+- Items with **Amatsu seals or Valhalla words** cannot use inheritance or rerolls.
+- If Croc Alt-Eisen cannot identify an item’s option pool, he refuses the service.
+</Callout>

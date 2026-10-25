@@ -5,23 +5,28 @@ description: Possible random roll options by equipment type and option line.
 category: Getting Started
 icon: compass
 order: 1.2
-updated: 2026-10-18
+updated: 2026-10-24
 status: source-reviewed
-statusNote: Uses the current server-derived option pools on Refuge’s Gear page, reviewed October 18, 2026. Refuge explicitly has no random-option reroll orbs and no weapon rarity system. Revolvers receive bow-type options through the Judge’s Quartermaster. Presented as an option reference table at the owner’s request. No in-game calibration is recorded.
+statusNote: Patch 23 option pools transcribed from the owner-supplied October 21, 2026 comparison PDF and reviewed October 24, 2026. Categories absent from the PDF retain their previously reviewed pools. Revolvers have their own Patch 23 pool and retain the Quartermaster calibration service. No new in-game verification is recorded.
 readingMinutes: 4
 tags: [random rolls, equipment, beginner]
-related: [refine-guide, dream-enchants, blooming-rose-sandals]
+related: [option-inheritance-rerolls, refine-guide, dream-enchants, blooming-rose-sandals]
 sources:
+  - title: Refuge — Patch 23 random options comparison PDF
+    url: https://rtmrefuge.pages.dev/gear#random-options
+    author: Return to Morroc Refuge team
+    sourceUpdated: October 21, 2026
+    note: Owner supplied Refuge_Random_Options_Before_After.pdf from Windows Downloads. The PATCH 23 column supersedes the LIVE column for its 18 categories. Factual option pools transcribed with original concise presentation; PDF redistribution rights unspecified, so the PDF remains private in ignored imports. Reviewed October 24, 2026. Categories absent from this comparison retain earlier reviewed pools; the PDF gives Revolvers their own pool.
   - title: Refuge — Random options
     url: https://rtmrefuge.pages.dev/gear#random-options
     author: Return to Morroc Refuge team
     sourceUpdated: null
-    note: Current option pools for 21 gear categories, one option per available line, no reroll orbs, no weapon rarity, and the Quartermaster’s revolver calibration exception. The page describes these pools as read from the server and permits copying site content. Reviewed October 18, 2026.
+    note: Earlier option pools, one option per available line, no reroll orbs, no weapon rarity, and the Quartermaster’s revolver calibration exception. Pools covered by the supplied Patch 23 PDF are superseded by that update. The page describes these pools as read from the server and permits copying site content. Reviewed October 18, 2026.
   - title: Refuge Database — Random Options
     url: https://rtm-database.pages.dev/codex#random-options
     author: Return to Morroc Refuge team
     sourceUpdated: null
-    note: Confirms drop-time options and no rerolling. Reviewed October 18, 2026.
+    note: Earlier reference for drop-time options, reviewed October 18, 2026. Its no-reroll rule predates the owner's October 24 Croc service notes; see the pending Option Inheritance & Rerolls guide for the newer eligible-item services.
   - title: Refuge Database — Shadow sets
     url: https://rtm-database.pages.dev/sets
     author: Return to Morroc Refuge team
@@ -41,6 +46,8 @@ import RandomOptionPools from '../../components/RandomOptionPools.astro';
 <Callout title="Random roll options">
 Dropped gear has **random roll options**. Gear bought from NPCs has **no random rolls**. Some quest items may have **fixed rolls**.
 </Callout>
+
+**Patch 23 · October 21, 2026.** One option per available line. Grouped resistances cover every listed element. FCT = Fixed Cast Time; VCT = Variable Cast Time; ACD = After-Cast Delay.
 
 ## Random roll options table
 

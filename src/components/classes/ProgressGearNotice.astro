@@ -1,5 +1,6 @@
 ---
 import Callout from '../Callout.astro';
+import ShadowSetNotice from './ShadowSetNotice.astro';
 interface Props { finalJob?: boolean }
 const { finalJob = false } = Astro.props;
 ---
@@ -10,3 +11,5 @@ const { finalJob = false } = Astro.props;
     {finalJob && <p>At <strong>Base Level 130</strong>, you may need to pause leveling to improve your gear before tackling harder content.</p>}
   </Callout>
 </div>
+
+<ShadowSetNotice />

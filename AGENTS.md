@@ -31,6 +31,8 @@ Choose effort for the task, not for the entire project. Reassess when moving fro
 
 ## Content rules
 
+- Present NPC service descriptions and quest instructions in the shared `NpcCard` box with the identified NPC sprite. An owner-confirmed screenshot crop is acceptable when no standalone sprite is available. Reuse established assets and crop coordinates; never substitute an unidentified sprite. Keep each NPC's instructions with its card, without a duplicate NPC image or another enclosing warning box. This applies to equipment and system guides as well as class guides.
+
 - Read `docs/game-reference.md` when authoring game content. It records reviewed class progression, source caveats, and owner-confirmed facts; update it when new game facts are established. Use `docs/todo.md` for priorities and future work.
 - Read `docs/job-class-tree.md` before changing class-tree presentation or class pages.
 - Use `docs/class-guide-template.md` and the Trickster guide as the structural template when creating future class guides. Keep the section order and presentation consistent, while researching and writing class-specific content independently. The template is mandatory for the whole guide: portraits, exact final-job scope, Overview/Refuge Changes, full boxed job quest and NPC/reward sprites, concise skill descriptions, shared stat-example box and progression, numbered skill allocation, authorized skill-tree image, combat loop, leveling link, tabbed gear/cards, Next Steps, and source metadata. Apply its Required guide contract to every new class from the first draft and compare every changed section with an established guide before finishing.

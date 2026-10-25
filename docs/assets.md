@@ -2,6 +2,8 @@
 
 ## Equipment systems
 
+Option Inheritance & Rerolls reuses the owner-confirmed Croc crop from `public/images/refining/croc-npc.jpg` in `NpcCard`, matching the New Player Guide (x 1025, y 200, 140 × 190 within the unchanged 1904 × 1041 original). The older ore-exchange dialogue is not used to illustrate the new services.
+
 Owner screenshots 140–143 add the Shadow Assistant and her ore exchanges. Originals remain in ignored imports, with unchanged JPEGs in `public/images/refining/`. Native viewports display 140 for the named NPC, 141 for the Jewel Shadowdecon price, and 143 for the lower-tier ore offer and full menu. Layout matches Croc’s grouped images and wraps on narrow screens.
 
 Owner screenshot 139 is archived in ignored imports and copied unchanged to `public/images/refining/class-gem-refining.jpg`. Its native viewport shows the Class Gem UI, normal/protected choices, and the +2 to +3 material requirements. The full original frame remains linked.

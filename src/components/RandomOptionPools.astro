@@ -5,7 +5,7 @@ import { randomOptionPools } from '../data/equipment-systems';
   <table class="guide-table">
     <thead><tr><th scope="col">Equipment</th>{[1, 2, 3, 4].map(line => <th scope="col">Line {line}</th>)}</tr></thead>
     <tbody>{randomOptionPools.map(pool => <tr>
-      <th scope="row">{pool.gear}{pool.gear === 'Revolvers' && <small>Calibrated by the Judge’s Quartermaster.</small>}</th>
+      <th scope="row">{pool.gear}{pool.gear === 'Revolvers' && <small>Calibrated by the Judge’s Quartermaster.</small>}{pool.gear === 'Codices' && <small>Skill levels use Plagiarism, capped at the listed maximum; Cantrip Mastery is required.</small>}</th>
       {[0, 1, 2, 3].map(index => <td>{pool.lines[index] ? <ul>{pool.lines[index].map(option => <li>{option}</li>)}</ul> : '—'}</td>)}
     </tr>)}</tbody>
   </table>

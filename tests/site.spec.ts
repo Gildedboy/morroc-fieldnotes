@@ -172,7 +172,7 @@ test('header and mobile menu expose the requested website and database links', a
 
 test('tutorial includes its eight uncropped source screenshots, steps, and scarf choices', async ({ page }) => {
   await page.goto('guides/new-player-guide/');
-  const images = page.locator('.source-screenshot img');
+  const images = page.locator('.source-screenshot[data-source-image] img');
   await expect(images).toHaveCount(8);
   await expect(page.getByRole('table')).toBeAttached();
   await expect(page.getByRole('row')).toHaveCount(10);
@@ -194,7 +194,7 @@ test('tutorial includes its eight uncropped source screenshots, steps, and scarf
 });
 
 test('published equipment guides appear in the library and search', async ({ page, request }) => {
-  for (const id of ['refine-guide', 'random-rolls', 'dream-enchants']) {
+  for (const id of ['refine-guide', 'random-rolls', 'option-inheritance-rerolls', 'dream-enchants']) {
     await page.goto(`guides/${id}/`);
     await expect(page.getByText('This guide is a work in progress.', { exact: true })).toHaveCount(0);
     await expect(page.locator('[data-article]')).toBeVisible();
@@ -202,6 +202,6 @@ test('published equipment guides appear in the library and search', async ({ pag
   const response = await request.get('search.json');
   expect(response.ok()).toBe(true);
   const index = await response.json();
-  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['ASPD & Element Table', 'Astrologika Moon and Sun Headgears', 'Bifrost Mirror', 'Blooming Rose Sandals', 'Celestial Tome', 'Distortions', 'Dream Enchants', 'Dungeons', 'Job Class Tree', 'Leveling Spots', 'New Player Guide', 'Random Rolls', 'Refine Guide']);
+  expect(index.map((entry: { title: string }) => entry.title).sort()).toEqual(['ASPD & Element Table', 'Amatsu Seals Unlock', 'Astrologika Moon and Sun Headgears', 'Bifrost Mirror', 'Blooming Rose Sandals', 'Celestial Tome', 'Distortions', 'Dream Enchants', 'Dungeons', 'Job Class Tree', 'Leveling Spots', 'New Player Guide', 'Option Inheritance & Rerolls', 'Random Rolls', 'Refine Guide']);
   expect(JSON.stringify(index)).toContain('Leveling Spots');
 });

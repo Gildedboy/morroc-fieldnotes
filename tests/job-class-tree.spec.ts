@@ -166,7 +166,7 @@ test('Merchant information stays beside its card without shifting the tree', asy
   await expect(page.getByRole('button', { name: 'Back', exact: true })).toBeHidden();
 });
 
-test('global sprite selection preserves the active branch and Merchant casting', async ({ page }) => {
+test('global sprite selection preserves the active branch and Merchant idle pose', async ({ page }) => {
   await page.goto('classes/');
   await page.getByRole('button', { name: 'Trickster', exact: true }).click();
   await page.getByRole('radio', { name: 'Female', exact: true }).check();
@@ -174,13 +174,13 @@ test('global sprite selection preserves the active branch and Merchant casting',
   await expect(explorer).toHaveAttribute('data-sprite-gender', 'female');
   await expect(page.getByRole('button', { name: 'Trickster', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-class-id="trickster"] .class-motion-sprite.class-attacking').first()).toHaveAttribute('src', /trickster-female-attacking\.webp$/);
-  await expect(page.locator('[data-class-id="merchant"] .class-motion-sprite.class-attacking')).toHaveAttribute('src', /merchant-female-casting\.webp$/);
+  await expect(page.locator('[data-class-id="merchant"] .class-motion-sprite.class-attacking')).toHaveAttribute('src', /merchant-female-idle\.webp$/);
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.getByRole('button', { name: 'Merchant', exact: true }).click();
   await expect(page.locator('[data-class-id="merchant"] .class-motion-sprite.class-attacking')).toHaveCSS('visibility', 'visible');
   await page.getByRole('radio', { name: 'Male', exact: true }).check();
   await expect(explorer).toHaveAttribute('data-sprite-gender', 'male');
-  await expect(page.locator('[data-class-id="merchant"] .class-motion-sprite.class-attacking')).toHaveAttribute('src', /merchant-casting\.webp$/);
+  await expect(page.locator('[data-class-id="merchant"] .class-motion-sprite.class-attacking')).toHaveAttribute('src', /merchant-idle\.webp$/);
 });
 
 test('selecting an endpoint keeps its card and connector horizontally stable', async ({ page }) => {

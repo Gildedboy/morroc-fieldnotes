@@ -575,3 +575,13 @@ The class-page snapshots provide explicit strengths and weaknesses for 20 of the
 - Replace Merchant’s class-tree strengths/weaknesses placeholders with reviewed facts: offline vending, cart storage, and free Orphanage/Alberta travel; separate linked Merchant-only account and no combat progression. Owner requests the info-panel update before deployment.
 
 - Owner immediately withdraws Merchant’s proposed strengths/weaknesses additions. Keep both null and omit their class-tree info-panel rows for Merchant rather than displaying fallback placeholders. Other jobs retain their existing information.
+
+## October 24, 2026 — owner gear and option updates
+
+- Owner reviewed Option Inheritance & Rerolls, approved removing WIP, and authorized pushing the accumulated changes. Guide is now published with owner-supplied source metadata and no asserted in-game verification. This supersedes its earlier future-guide status.
+
+- Owner supplies new Croc Alt-Eisen recycling, same-item single-line inheritance, and single-line random reroll services for a future guide. These supersede older blanket no-reroll claims for eligible items. Full owner-supplied rules are preserved in the local WIP `option-inheritance-rerolls.mdx`; announcement URL, original update date, and service screenshots are pending. Do not infer that every item of one equipment type shares a pool. Every alternative within a revised slot has equal probability; legacy unselected lines stay unchanged. Service gates use shared Orphanage levels, not character Base Level. Class Gems remain with Iris.
+
+- Gear suggestions apply to Legend. Add Marishiten Kaiken (30143, Base Level 130, four slots, Amatsu leech), Lust Pick (13041, Base Level 50, one slot, +100 Penetration, −50% SP), midgame Veins Ghoul Card (13571, +15 physical/magic penetration), Echio Card (4410, +5 Critical Rate), Famine Incarnate Card (13689, HP recovery on direct-hit kills), and Tetra Ring (15403, Base Level 110, four slots, −90% SP). Tetra Ring + Brooch additionally imposes −99% HP. Facts checked against retained Refuge item data; no new in-game verification.
+- Owner prefers concise guides that leave room for discovery. Shared Shadow tip belongs in the combat-guide template: mix pieces from different sets; a full set is optional. Preserve supported set choices, without enumerating every combination.
+- Owner-supplied `Refuge_Random_Options_Before_After.pdf` compares LIVE with PATCH 23, dated October 21, 2026. Use the right-hand PATCH 23 column for its 18 categories; retain earlier pools for categories absent from the PDF. Revolvers now have a distinct pool. PDF, extraction, and text positions stay in ignored imports/random-options-update; reuse terms unspecified, no PDF redistribution.

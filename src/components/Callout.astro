@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-interface Props { title: string; tone?: 'note' | 'warning' | 'tip' }
+interface Props { title: string; tone?: 'note' | 'warning' | 'tip' | 'danger' }
 const { title, tone = 'note' } = Astro.props;
 ---
 <aside class:list={['callout', `callout-${tone}`]}><Icon name={tone === 'tip' ? 'compass' : 'info'} size={20} /><div><strong>{title}</strong><slot /></div></aside>

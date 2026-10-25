@@ -141,3 +141,7 @@ dialog{color:var(--text);background:#17151d;border:1px solid #47374f;border-radi
 .job-nav-final-mark{position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:8px;color:#c9a65e;line-height:1}
 .job-nav-final>.job-nav-link:hover .job-nav-name{color:#f0d8a6}
 .job-nav-final>.job-nav-link.active .job-nav-name{color:#dfc4ff}
+
+.class-guide-meta { margin: -10px 0 24px; }
+.callout-danger { background: #2d1b22; border-color: #a74f60; }
+.callout-danger > svg, .callout-danger > div > strong { color: #ffb0bb; }

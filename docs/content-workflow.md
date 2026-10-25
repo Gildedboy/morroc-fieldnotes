@@ -32,6 +32,8 @@ Use second-level headings for the generated outline. Reuse `Callout`, `GuideFigu
 
 Use `SourceScreenshot` for original instructional images. It preserves the full frame, natural dimensions, readable colors, and a full-size image link. `GuideFigure` is for decorative landscape imagery and crops to fit; it must not be used for dialogue screenshots or item tooltips. The initial source's 26 images are explicitly mapped to their tutorial and leveling sections.
 
+Introduce an NPC's service or quest instructions in `NpcCard` with its identified sprite or an established owner-screenshot crop. This rule applies to all guides. Keep the instructions inside the card; do not duplicate its NPC image beside it. Additional screenshots should illustrate the actual step or service being described, rather than another service offered by the same NPC.
+
 Model character stage, class, technique, location, and resource assumptions separately. Several techniques can use a location without sharing combat instructions. Do not add a first-character/alt selector before supported variants actually exist.
 
 ## Validate

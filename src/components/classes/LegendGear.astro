@@ -68,6 +68,7 @@ const groups = [
       }
     ],
     "cards": [
+      { "id": 13571, "name": "Veins Ghoul Card", "note": "midgame Defense and Magic Defense Penetration +15" },
       {
         "id": 13523,
         "name": "Giga Sandworm Card",
@@ -375,7 +376,8 @@ const groups = [
         "level": 100,
         "slots": 0,
         "note": "STR based on base STR and Defense Penetration."
-      }
+      },
+      { "id": 15403, "name": "Tetra Ring", "level": 110, "slots": 4, "note": "Four card slots, but SP −90%. Pairing with Tetra Brooch also reduces HP by 99%." }
     ],
     "cards": [
       {
@@ -485,7 +487,7 @@ const groups = [
 <div class="gear-table-wrap"><table class="gear-table">
   <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
   <tbody>
-    <tr><td><a href={itemHref(13094)}>Murder Knife [3]</a></td><td>80</td><td>Best main-hand choice. Defense Penetration and Critical Damage improve with refine.</td></tr>
+    <tr><td><a href={itemHref(13094)}>Murder Knife [3]</a></td><td>80</td><td>Main-hand option. Defense Penetration and Critical Damage improve with refine.</td></tr>
   </tbody>
 </table></div>
 <h3>Off hand</h3>
@@ -495,6 +497,8 @@ const groups = [
     <tr><td><a href={itemHref(13067)}>Keris [3]</a></td><td>50</td><td>HP recovery on auto attacks and ASPD per refine, with reduced SP.</td></tr>
     <tr><td><a href={itemHref(1232)}>Assassin Dagger [2]</a></td><td>50</td><td>ASPD, total Critical Rate, and reduced After Cast Delay.</td></tr>
     <tr><td><a href={itemHref(13094)}>Murder Knife [3]</a></td><td>80</td><td>A second Murder Knife for Defense Penetration and Critical Damage.</td></tr>
+    <tr><td><a href={itemHref(13041)}>Lust Pick [1]</a></td><td>50</td><td>Later alternative against high-DEF enemies: Defense Penetration +100, but SP −50%.</td></tr>
+    <tr><td><a href={itemHref(30143)}>Marishiten Kaiken [4]</a></td><td>130</td><td>Amatsu leech option; leech chance increases with refine.</td></tr>
     <tr><td><a href={itemHref(13052)}>Guiding Dagger [3]</a></td><td>130</td><td>Perfect Hit and Defense Penetration.</td></tr>
   </tbody>
 </table></div>
@@ -517,7 +521,9 @@ const groups = [
     </table></div>
     {group.cards.length > 0 && <><hr class="gear-card-divider" /><p><strong>Cards:</strong></p>
       {group.id === 'accessories' ? <ul>
+        <li><a href={itemHref(4410)}>Echio Card</a> — Critical Rate +5.</li>
         <li><a href={itemHref(4069)}>Drainliar Card</a>.</li>
+        <li><a href={itemHref(13689)}>Famine Incarnate Card</a> — HP recovery on direct-hit kills.</li>
         <li><a href={itemHref(13743)}>Doomfist Card</a> — if affordable.</li>
         <li><a href={itemHref(13688)}>War Incarnate Card</a> — if affordable.</li>
       </ul> : <ul>{group.cards.map(card => <li><a href={itemHref(card.id)}>{card.name}</a> — {card.note}.</li>)}</ul>}
