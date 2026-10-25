@@ -80,5 +80,6 @@ The New Player Guide is already available as the Getting Started example. Do not
 - [x] Review Merchant quest NPC/skill-tree images and vending instructions with the owner; publish on October 22 approval.
 
 - [x] Apply October 24 Legend gear suggestions, shared mixed Shadow equipment tip, class-header editorial dates, and Patch 23 random-option pools.
-- [ ] Start the Thief build with the owner after the October 24 updates.
+- [x] Start the Thief Rolling Cutter build locally using only Balziere’s Thief section and the shared class-guide template.
+- [x] Publish Thief with owner approval on October 24 after reviewing its learning order, stats, gear, route, Lydia, and skill-tree example. Weapon card placeholder removed at the owner’s request; shield card recommendations remain visibly pending.
 - [x] Publish Option Inheritance & Rerolls immediately after Random Rolls with owner approval on October 24. Reviewed service rules, costs, restrictions, tables, and Croc's NPC card. Owner authorizes upload of the accumulated changes; original announcement date and in-game verification remain unknown.

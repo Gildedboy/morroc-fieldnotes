@@ -1,0 +1,110 @@
+---
+import { guideHref, withBase } from '../../lib/paths';
+import { thiefRollingCutterRoute } from '../../data/locations';
+import SkillIcon from '../SkillIcon.astro';
+import SourceScreenshot from '../SourceScreenshot.astro';
+import Callout from '../Callout.astro';
+import NpcCard from '../NpcCard.astro';
+import JobRewardSprites from './JobRewardSprites.astro';
+import ProgressGearNotice from './ProgressGearNotice.astro';
+import StatAllocationNotice from './StatAllocationNotice.astro';
+import ThiefGear from './ThiefGear.astro';
+---
+<div class="trickster-portraits">
+  <figure><img src={withBase('images/classes/thief-portrait.webp')} alt="Male Thief portrait from Refuge" width="759" height="760" loading="lazy" /><figcaption>Male Thief</figcaption></figure>
+  <figure><img src={withBase('images/classes/thief-female-portrait.webp')} alt="Female Thief portrait from Refuge" width="600" height="760" loading="lazy" /><figcaption>Female Thief</figcaption></figure>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>Thief is a diverse class in Refuge, with several ways to level using melee attacks, bows, or magic. This guide follows the <strong>Rolling Cutter</strong> strategy: fight with a sword and shield, build Rolling Counters, and use Cross Ripper Slasher as a ranged follow-up.</p>
+<Callout title="Refuge Changes">
+  <p>Improve Defense and Improve Wisdom scale with Base Level. Cross Ripper Slasher deals more damage, and Envenom can poison bosses. Double Attack comes from equipped daggers rather than a learnable Thief skill.</p>
+</Callout>
+
+<h2 id="job-change">Job Change Quest</h2>
+<Callout title="Become a Thief">
+  <p><strong>Requirements:</strong> Orphan Job Level 10 and 500 Zeny.</p>
+  <ol class="trickster-quest-steps">
+    <li><NpcCard name="Lydia the Thief" image="images/classes/thief-job-change-lydia.jpg" crop={{ x: 1220, y: 235, width: 100, height: 160, sourceWidth: 1904, sourceHeight: 1041 }}><p>Find her in the <strong>Orphanage</strong> at <strong>va_orpha 64, 41</strong> and ask for the Thief test.</p></NpcCard></li>
+    <li>Speak with Lydia the Thief again with the <strong>500 Zeny</strong> to join the guild.</li>
+  </ol>
+  <div class="trickster-quest-reward">
+    <p><strong>Reward:</strong> the Thief job and a starter dagger.</p>
+    <JobRewardSprites job="thief" name="Thief" />
+  </div>
+</Callout>
+
+<h2 id="core-gameplay">Core Gameplay & Skills</h2>
+<ul>
+  <li><SkillIcon icon="GC_ROLLINGCUTTER" /><strong>Rolling Cutter:</strong> spins to hit nearby enemies and build Rolling Counters. Use a sword for this build.</li>
+  <li><SkillIcon icon="GC_CROSSRIPPERSLASHER" /><strong>Cross Ripper Slasher:</strong> throws a blade at a ranged target using Rolling Counters. More counters improve its damage.</li>
+  <li><SkillIcon icon="SM_RECOVERY" /><strong>Improve Defense:</strong> increases maximum HP as your Base Level rises.</li>
+  <li><SkillIcon icon="TK_SPTIME" /><strong>Improve Wisdom:</strong> increases maximum SP as your Base Level rises.</li>
+  <li><SkillIcon icon="MG_SRECOVERY" /><strong>Increase SP Recovery:</strong> improves SP regeneration.</li>
+  <li><SkillIcon icon="TF_POISON" /><strong>Envenom:</strong> deals Poison damage and poisons the target.</li>
+  <li><SkillIcon icon="AS_ENCHANTPOISON" /><strong>Enchant Poison:</strong> changes physical attacks to Poison element. Its chance to inflict Poison applies to normal attacks, not skills.</li>
+</ul>
+<h3>Utility</h3>
+<ul><li><SkillIcon icon="TF_DETOXIFY" /><strong>Detoxify:</strong> removes Poison from a target.</li></ul>
+
+<h3 id="stat-allocation">Stat allocation</h3>
+<StatAllocationNotice />
+<p>Use <strong>STR</strong> for damage, <strong>VIT</strong> for HP, and <strong>DEX</strong> for accuracy.</p>
+<div class="gear-table-wrap"><table class="gear-table">
+  <thead><tr><th scope="col">Stage</th><th scope="col">Stats</th><th scope="col">Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Base Level 20</td><td>27 STR, 19 DEX</td><td>Early damage and accuracy.</td></tr>
+    <tr><td>Base Level 40</td><td>53 STR, 34 VIT, 21 DEX</td><td>Add HP while continuing to raise STR.</td></tr>
+  </tbody>
+</table></div>
+<p>Raise DEX if your attacks miss. Keep STR ahead of VIT rather than maxing VIT first.</p>
+
+<h3 id="skill-allocation">Skill allocation</h3>
+<ol class="trickster-skill-order">
+  <li><SkillIcon icon="GC_ROLLINGCUTTER" />Learn Rolling Cutter level 1.</li>
+  <li><SkillIcon icon="GC_CROSSRIPPERSLASHER" />Learn Cross Ripper Slasher level 1 after <SkillIcon icon="GC_ROLLINGCUTTER" />Rolling Cutter level 1.</li>
+  <li><SkillIcon icon="TK_SPTIME" />Max Improve Wisdom.</li>
+  <li><SkillIcon icon="MG_SRECOVERY" />Max Increase SP Recovery.</li>
+  <li><SkillIcon icon="SM_RECOVERY" />Max Improve Defense.</li>
+  <li><SkillIcon icon="GC_ROLLINGCUTTER" />Max Rolling Cutter.</li>
+  <li><SkillIcon icon="GC_CROSSRIPPERSLASHER" />Max Cross Ripper Slasher; it requires <SkillIcon icon="GC_ROLLINGCUTTER" />Rolling Cutter level 1.</li>
+  <li><SkillIcon icon="TF_POISON" />Learn Envenom level 1 to unlock <SkillIcon icon="AS_ENCHANTPOISON" />Enchant Poison, then raise Enchant Poison to level 7.</li>
+  <li><SkillIcon icon="TF_DETOXIFY" />Learn Detoxify level 1 after <SkillIcon icon="AS_ENCHANTPOISON" />Enchant Poison level 1.</li>
+</ol>
+<SourceScreenshot image={{ src: 'images/classes/thief-owner-skill-tree.png', width: 603, height: 425, alt: 'Owner’s Thief skill tree showing Rolling Cutter level 5 and Cross Ripper Slasher level 5', caption: 'Thief skill-tree example.', crop: { x: 36, y: 10, width: 542, height: 400 } }} />
+
+
+<h2 id="how-to-play">How to Play</h2>
+<ol>
+  <li>Make sure you have a <strong>sword</strong> equipped to use <SkillIcon icon="GC_ROLLINGCUTTER" />Rolling Cutter.</li>
+  <li>Bring enemies within reach and use <SkillIcon icon="GC_ROLLINGCUTTER" />Rolling Cutter to hit them and build Rolling Counters.</li>
+  <li>Follow with <SkillIcon icon="GC_CROSSRIPPERSLASHER" />Cross Ripper Slasher against a target at range. Unequipping your weapon removes your counters.</li>
+  <li>Watch your SP: both attacks consume extra current SP. Recover between fights when needed.</li>
+  <li>Use <SkillIcon icon="AS_ENCHANTPOISON" />Enchant Poison when Poison suits the enemies you are fighting; it changes the element of your physical attacks.</li>
+</ol>
+
+<h2 id="leveling-spots">Leveling Spots</h2>
+<p>Start in <a href={`${guideHref('leveling-spots')}#pyramid-basement`}>Pyramid Basement</a> through Base Level 15. Work on the Blank Card, Desert Prince, and Angel Wing HATred quests while leveling; use the <a href="https://hatredguide.segasunset.workers.dev/" target="_blank" rel="noreferrer">HATred guide</a> for their steps.</p>
+<p>Balziere’s route also lists these leveling targets:</p>
+<div class="gear-table-wrap"><table class="gear-table">
+  <thead><tr><th scope="col">Base Level</th><th scope="col">Monster</th><th scope="col">Location</th></tr></thead>
+  <tbody>{thiefRollingCutterRoute.map(step => <tr><td>{step.baseLevels}</td><td>{step.monster}</td><td>{step.location}</td></tr>)}</tbody>
+</table></div>
+<p>See <a href={guideHref('leveling-spots')}>Leveling Spots</a> for monster ranges, access routes, and other locations.</p>
+
+<h2 id="progress-gear">Progress Gear</h2>
+<ProgressGearNotice />
+<ThiefGear />
+
+<h2 id="next-step">Next Step</h2>
+<Callout title="Choose your next job">
+<p>At <strong>Thief Job Level 50</strong>, you can choose between:</p>
+<ul>
+  <li><a href={withBase('classes/assassin/')}>Assassin</a></li>
+  <li><a href={withBase('classes/rogue/')}>Rogue</a></li>
+  <li><a href={withBase('classes/prowler/')}>Prowler</a> (complete the quest before Base Level 80)</li>
+  <li><a href={withBase('classes/shadowseer/')}>Shadowseer</a></li>
+  <li><a href={withBase('classes/unchained-thief/')}>Unchained Thief</a> (no specialization taken; bring 1 MVP Prize Box with random options)</li>
+</ul>
+<p>See each job’s page for its job-change quest.</p>
+</Callout>

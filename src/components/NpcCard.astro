@@ -17,7 +17,7 @@ const cropScale = crop ? 96 / crop.height : 1;
 <div class="npc-card">
   {image && (crop ?
     <span class="npc-screenshot-crop" style={`width:${crop.width * cropScale}px;height:96px;`}>
-      <img src={withBase(image)} alt={name} width={crop.sourceWidth} height={crop.sourceHeight} loading="lazy" decoding="async" style={`width:${crop.sourceWidth * cropScale}px;height:${crop.sourceHeight * cropScale}px;left:${-crop.x * cropScale}px;top:${-crop.y * cropScale}px;`} />
+      <img src={withBase(image)} alt={name} width={crop.sourceWidth} height={crop.sourceHeight} loading="lazy" decoding="async" style={`width:${crop.sourceWidth * cropScale}px;max-width:none;height:${crop.sourceHeight * cropScale}px;left:${-crop.x * cropScale}px;top:${-crop.y * cropScale}px;margin:0;border:0;border-radius:0;`} />
     </span> :
     stillImage ? <picture class="npc-sprite"><source media="(prefers-reduced-motion: reduce)" srcset={withBase(stillImage)} /><img src={withBase(image)} alt={name} width={width} height={height} loading="lazy" decoding="async" /></picture> :
     <img src={withBase(image)} alt={name} width={width} height={height} loading="lazy" decoding="async" />)}

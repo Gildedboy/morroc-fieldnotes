@@ -3280,3 +3280,13 @@ export const legendJobChangeLocations = {
     warning: 'Watch for Hatii on Snow Fields 05.',
   },
 };
+
+// Thief section of Balziere's build guide, editorial review October 24, 2026.
+// These are character Base Level recommendations, not monster level ranges.
+export const thiefRollingCutterRoute = [
+  { baseLevels: '10–19', monster: 'Stone Warrior', location: 'Sograt Desert F2; alternatives F13 and F18.' },
+  { baseLevels: '20–32', monster: 'Horn', location: 'Geffen Field F7; alternatives F4 and F0.' },
+  { baseLevels: '33–37', monster: 'Living Storm', location: 'Sograt Desert F14; alternatives F17 and F15.' },
+  { baseLevels: '38–39', monster: 'Alligator', location: 'Zenhai Marsh; alternatives Border of Papuchicha Forest and Papuchicha Forest.' },
+  { baseLevels: '40', monster: 'Galapago', location: 'Papuchicha Forest; alternatives Zenhai Marsh and Border of Papuchicha Forest.' },
+] as const;

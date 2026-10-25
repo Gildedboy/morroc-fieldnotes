@@ -1,6 +1,6 @@
 # Orphanage NPC reference
 
-Owner screenshots are in `C:\Users\Gilded\Downloads\Refuge\ScreenShot`, accessible here under `/mnt/c/Users/Gilded/Downloads/Refuge/ScreenShot`. These photographs were visually reviewed on 2026-10-17. They establish appearance, names, and visible service labels, rather than prices or dialogue mechanics.
+The owner moved the game screenshots to `C:\Users\Gilded\OneDrive\Documentos\Refuge\ScreenShot`, accessible under `/mnt/c/Users/Gilded/OneDrive/Documentos/Refuge/ScreenShot` (confirmed October 24, 2026). These photographs were visually reviewed on 2026-10-17. They establish appearance, names, and visible service labels, rather than prices or dialogue mechanics.
 
 | Screenshot | NPC / service label | Standard sprite match | Publication |
 | --- | --- | --- | --- |
@@ -36,3 +36,5 @@ The owner subsequently requested Ornstein, all three smiths, the Shadow Assistan
 Owner-confirmed service descriptions: Ornstein exchanges a voucher for starter equipment after a job change; Horacio sells starting armor; Helmut sells starting weapons; Croc trades lower-tier refining materials for higher-tier materials. Owner screenshots 140–143 confirm the Shadow Assistant exchanges 250 Shadow Ore for one Jewel Shadowdecon, or 10 Shadow Ore for Elunium or Oridecon. The Shadow Recycler recycles Shadow sets and gems, rerolls gem options, and converts gems to dust. Mr Kim sells headgear for donation points; his helper offers 30-second appearance previews. The Black Market sells manuals and job consumables, including Shadow Orbs. The Weaver of Dreams adds Dream Enchants to equipment. Do not invent other prices or exchange ratios.
 
 Use https://rune-nifelheim.com/npc/ and https://ratemyragnarok.com/npcs/ for visual comparison. Refuge NPC names differ from standard sprite filenames. Never infer a match from clothing color alone. Happy Girl's first `4_f_06` candidate was wrong; the pointed hat and long dress in screenshot 041 match `4_f_kid3`.
+
+- October 24: screenPRM178 identifies Lydia the Thief at the Thief Job Quest counter; Thief uses an owner-confirmed crop in NpcCard.

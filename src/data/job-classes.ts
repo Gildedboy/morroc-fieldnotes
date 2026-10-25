@@ -95,8 +95,8 @@ export const jobClasses: JobClass[] = [
     "idleStill": "images/classes/thief-idle-still.webp",
     "sitting": "images/classes/thief-sitting.webp",
     "sittingStill": "images/classes/thief-sitting-still.webp",
-    "strengths": null,
-    "weaknesses": null,
+    "strengths": "Melee, ranged, and magic builds; several evolution paths; HP and SP passives that scale with level.",
+    "weaknesses": "Weapon-dependent skills, high SP costs on some abilities, and limited points for a broad skill tree.",
     "attacking": "images/classes/thief-attacking.webp",
     "attackingStill": "images/classes/thief-attacking-still.webp",
     "female": {

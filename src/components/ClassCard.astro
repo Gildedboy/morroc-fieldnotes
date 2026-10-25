@@ -37,7 +37,7 @@ const selectedStill = job.id === 'merchant' ? 'images/classes/merchant-idle-stil
       <button type="button" class="class-info-close" aria-label="Close class details">×</button>
       <strong>{job.name}</strong><span class="class-detail-weapon"> · {job.weaponLabel ?? job.weapons}</span><p><span class:list={['difficulty-tag', `difficulty-${job.difficulty}`]}>{difficultyLabels[job.difficulty]}</span></p>
       {job.id !== 'merchant' && <dl class="class-verdict"><div class="class-strengths"><dt>Strengths</dt><dd>{job.strengths ?? 'Not listed in the Refuge class guide.'}</dd></div><div class="class-weaknesses"><dt>Weaknesses</dt><dd>{job.weaknesses ?? 'Not listed in the Refuge class guide.'}</dd></div></dl>}
-      <a href={withBase(`classes/${job.id}/`)}>{job.id === 'thief' ? 'Read the Thief guide' : `${job.name} guide`} {!['trickster', 'revenant', 'vagabond', 'legend', 'merchant'].includes(job.id) && <span class="wip-badge">WIP</span>} →</a>
+      <a href={withBase(`classes/${job.id}/`)}>{job.id === 'thief' ? 'Read the Thief guide' : `${job.name} guide`} {!['thief', 'trickster', 'revenant', 'vagabond', 'legend', 'merchant'].includes(job.id) && <span class="wip-badge">WIP</span>} →</a>
     </aside>}
     {root && <div class="merchant-route"><Astro.self job={jobClasses.find(entry => entry.id === 'merchant')!} /></div>}
     {root && <button type="button" class="class-root-back" hidden><span aria-hidden="true">←</span> Back</button>}

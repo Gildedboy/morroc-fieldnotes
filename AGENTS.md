@@ -67,5 +67,6 @@ Choose effort for the task, not for the entire project. Reassess when moving fro
 - Keep dependencies locked and runtime JavaScript small. No React is needed for the current UI.
 - Internal links and public assets must use `withBase()` so project-path GitHub Pages deployments work.
 - Never publish externally, create a remote repository, or alter another project as a side effect of local MVP work. Configure deployment for later use.
+- When the owner explicitly asks to upload or push reviewed changes, include deployment to the existing GitHub Pages site. Its `deploy.yml` workflow is manually triggered; a Git push alone does not update the live site. Verify deployment completion and the changed live page before reporting success.
 
 - Final-job guides cover progression from obtaining the job through Base Level 130. Add a prominent scope notice explaining that most locations beyond 130 require specific equipment and setups, leaving further exploration and adaptation to players. Most jobs reach their final evolution around Base Level 99 or later; retain each class’s actual job-change requirements and distinguish Base Level from Job Level.

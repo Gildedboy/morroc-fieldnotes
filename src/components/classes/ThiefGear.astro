@@ -1,0 +1,373 @@
+---
+import GearTabBehavior from './GearTabBehavior.astro';
+const itemHref = (id: number) => `https://rtm-database.pages.dev/index.html?id=${id}&show=items&tab=items`;
+const groups = [
+  {
+    "id": "weapon",
+    "title": "Weapon",
+    "items": [
+      {
+        "id": 13408,
+        "name": "Sword of the Orphan",
+        "level": 1,
+        "slots": 0,
+        "note": "Starter sword: EXP +10% and SP regeneration +20%. Cannot be refined."
+      },
+      {
+        "id": 32350,
+        "name": "Lost Sword",
+        "level": 15,
+        "slots": 2,
+        "note": "Rolling Cutter damage, HP, and Defense Penetration; refine improves its damage bonus."
+      },
+      {
+        "id": 13405,
+        "name": "Sailor Sword",
+        "level": 25,
+        "slots": 2,
+        "note": "Rolling Cutter damage +20% and Defense Penetration +10."
+      }
+    ],
+    "cards": [],
+    "pending": "Weapon card recommendations are pending."
+  },
+  {
+    "id": "shield",
+    "title": "Shield",
+    "items": [
+      {
+        "id": 28902,
+        "name": "Lost Bunny",
+        "level": 15,
+        "slots": 1,
+        "note": "Auto Guard, all stats, and HP/SP bonuses with refine."
+      },
+      {
+        "id": 2157,
+        "name": "Scaraba Tower",
+        "level": 15,
+        "slots": 1,
+        "note": "Auto Guard level 10, Flat Defense +10, and HP regeneration +20%."
+      },
+      {
+        "id": 2108,
+        "name": "Mirror Shield",
+        "level": 30,
+        "slots": 1,
+        "note": "Later shield with Auto Guard, HP, and HP regeneration."
+      }
+    ],
+    "cards": [],
+    "pending": "Shield card recommendations are pending."
+  },
+  {
+    "id": "top",
+    "title": "Top Headgear",
+    "items": [
+      {
+        "id": 5591,
+        "name": "Desert Prince",
+        "level": 5,
+        "slots": 1,
+        "note": "Early HP/SP and regeneration option."
+      },
+      {
+        "id": 5019,
+        "name": "Corsair",
+        "level": 10,
+        "slots": 1,
+        "note": "STR per refine and ATK. Pairs with Pirate Dagger for ASPD +2."
+      },
+      {
+        "id": 5969,
+        "name": "Royal Pirate Hat",
+        "level": 10,
+        "slots": 1,
+        "note": "ATK +1% per refine. Pairs with Pirate Dagger for ASPD +2."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4558,
+        "name": "Orphan Piamette Card",
+        "note": "Optional MVP card for ATK/MATK with refine."
+      }
+    ]
+  },
+  {
+    "id": "mid",
+    "title": "Mid Headgear",
+    "items": [
+      {
+        "id": 5074,
+        "name": "Angel Wing Ears",
+        "level": 10,
+        "slots": 1,
+        "note": "Healing received and healing power."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4558,
+        "name": "Orphan Piamette Card",
+        "note": "Optional MVP card for ATK/MATK with refine."
+      }
+    ]
+  },
+  {
+    "id": "low",
+    "title": "Low Headgear",
+    "items": [
+      {
+        "id": 31877,
+        "name": "Bravery Scarf",
+        "level": 0,
+        "slots": 0,
+        "note": "ATK and physical damage."
+      },
+      {
+        "id": 5305,
+        "name": "Pirate Dagger",
+        "level": 0,
+        "slots": 0,
+        "note": "ATK +2%. Pairs with Royal Pirate Hat or Corsair for ASPD +2."
+      }
+    ],
+    "cards": [],
+    "pending": "These low headgears have no card slots."
+  },
+  {
+    "id": "armor",
+    "title": "Armor",
+    "items": [
+      {
+        "id": 15368,
+        "name": "Orphan Clothes",
+        "level": 1,
+        "slots": 1,
+        "note": "Starter HP/SP; part of the Young Orphan set."
+      },
+      {
+        "id": 2812,
+        "name": "Scarlet Suit",
+        "level": 10,
+        "slots": 1,
+        "note": "HP/SP +10%, HP +75, and HP regeneration +10%. Part of the Scarlet set."
+      },
+      {
+        "id": 2328,
+        "name": "Wooden Mail",
+        "level": 25,
+        "slots": 1,
+        "note": "HP/SP bonuses; refine adds HP at the cost of SP."
+      },
+      {
+        "id": 15448,
+        "name": "Bullhorn Armor",
+        "level": 40,
+        "slots": 1,
+        "note": "HP +18%, SP +2%, and HP per VIT. Part of the slotted Bullhorn set."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4126,
+        "name": "Minorous Card",
+        "note": "HP +20%, SP −15%."
+      }
+    ]
+  },
+  {
+    "id": "garment",
+    "title": "Garment",
+    "items": [
+      {
+        "id": 15366,
+        "name": "Orphan Cape",
+        "level": 1,
+        "slots": 1,
+        "note": "Starter ATK/MATK and Perfect Dodge; part of the Young Orphan set."
+      },
+      {
+        "id": 2811,
+        "name": "Scarlet Cape",
+        "level": 10,
+        "slots": 1,
+        "note": "Perfect Dodge +3, SP +25, and SP regeneration +10%. Part of the Scarlet set."
+      },
+      {
+        "id": 15452,
+        "name": "Bullhorn Manteau",
+        "level": 40,
+        "slots": 1,
+        "note": "HP per VIT and Perfect Dodge +7. Part of the slotted Bullhorn set."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4212,
+        "name": "Bongun Card",
+        "note": "HP regeneration; pairs with Munak Card for the Lovers Set bonus."
+      }
+    ]
+  },
+  {
+    "id": "shoes",
+    "title": "Shoes",
+    "items": [
+      {
+        "id": 15367,
+        "name": "Orphan Shoes",
+        "level": 1,
+        "slots": 1,
+        "note": "Starter movement speed and SP; part of the Young Orphan set."
+      },
+      {
+        "id": 2813,
+        "name": "Scarlet Shoes",
+        "level": 10,
+        "slots": 1,
+        "note": "Movement speed +6%, ASPD +5%, and cast time −5%. Part of the Scarlet set."
+      },
+      {
+        "id": 16135,
+        "name": "Night Boots",
+        "level": 20,
+        "slots": 1,
+        "note": "Movement speed, Dark resistance, and melee damage."
+      },
+      {
+        "id": 15450,
+        "name": "Bullhorn Shoes",
+        "level": 40,
+        "slots": 1,
+        "note": "Movement speed +7% and HP per VIT. Part of the slotted Bullhorn set."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4090,
+        "name": "Munak Card",
+        "note": "SP regeneration; pairs with Bongun Card for the Lovers Set bonus."
+      }
+    ]
+  },
+  {
+    "id": "accessories",
+    "title": "Accessories",
+    "items": [
+      {
+        "id": 32242,
+        "name": "Old Tomb Ring",
+        "level": 10,
+        "slots": 1,
+        "note": "Recover SP on kills."
+      },
+      {
+        "id": 2623,
+        "name": "Heart Container",
+        "level": 25,
+        "slots": 1,
+        "note": "HP based on VIT; use one in each accessory slot."
+      },
+      {
+        "id": 15454,
+        "name": "Bullhorn Ring",
+        "level": 40,
+        "slots": 1,
+        "note": "HP regeneration +50%, DEF +5, and total DEF +2%. Part of the slotted Bullhorn set."
+      }
+    ],
+    "cards": [
+      {
+        "id": 4076,
+        "name": "Magnolia Card",
+        "note": "ATK and weight limit."
+      }
+    ]
+  },
+  {
+    "id": "shadow-sets",
+    "title": "Shadow Sets",
+    "items": [
+      {
+        "id": 24258,
+        "name": "Legacy of Coins Set",
+        "level": 10,
+        "slots": 0,
+        "note": "Four pieces; melee damage and all stats."
+      },
+      {
+        "id": 24314,
+        "name": "Life Essence Set",
+        "level": 40,
+        "slots": 0,
+        "note": "Four pieces; later HP option for the VIT build."
+      }
+    ],
+    "cards": [],
+    "pending": "Shadow equipment has no card slots."
+  },
+  {
+    "id": "runes",
+    "title": "Runes",
+    "items": [
+      {
+        "id": 24108,
+        "name": "Soul Rune of Orphans",
+        "level": 10,
+        "slots": 0,
+        "note": "Starter rune: ATK +5. Cannot be refined."
+      },
+      {
+        "id": 24182,
+        "name": "Anima Rune of Restoration",
+        "level": 15,
+        "slots": 0,
+        "note": "HP/SP regeneration +10%, with another +5% per refine."
+      },
+      {
+        "id": 24135,
+        "name": "Eihwaz Rune of Yggdrasil",
+        "level": 15,
+        "slots": 0,
+        "note": "HP bonuses with refine; fully restores HP/SP when resurrected or respawning."
+      }
+    ],
+    "cards": [],
+    "pending": "Runes have no card slots."
+  },
+  {
+    "id": "manuals",
+    "title": "Manuals",
+    "items": [
+      {
+        "id": 24166,
+        "name": "Hammer Manual",
+        "level": 10,
+        "slots": 0,
+        "note": "STR +1 and Hammer Fall level 1."
+      }
+    ],
+    "cards": [],
+    "pending": "Manuals have no card slots."
+  }
+];
+---
+<div class="gear-tabs" data-gear-tabs>
+  <div class="gear-tab-list" role="tablist" aria-label="Thief gear slots">
+    {groups.map((group, index) => <button id={`thief-gear-tab-${group.id}`} class="gear-tab" type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`thief-gear-panel-${group.id}`} tabindex={index === 0 ? 0 : -1}>{group.title}</button>)}
+  </div>
+  {groups.map((group, index) => <section id={`thief-gear-panel-${group.id}`} class="gear-panel" role="tabpanel" aria-labelledby={`thief-gear-tab-${group.id}`} tabindex="0" hidden={index !== 0}>
+    <div class="gear-table-wrap"><table class="gear-table">
+      <thead><tr><th scope="col">Equipment</th><th scope="col">Level</th><th scope="col">Notes</th></tr></thead>
+      <tbody>{group.items.map(item => <tr><td><a href={group.id === 'shadow-sets' ? `https://rtm-database.pages.dev/?q=${encodeURIComponent(item.name.replace(/ Set$/, ''))}&show=items` : itemHref(item.id)}>{item.name}{item.slots > 0 && ` [${item.slots}]`}</a></td><td>{item.level}</td><td>{item.note}</td></tr>)}</tbody>
+    </table></div>
+    {group.id !== 'weapon' && <>
+      <hr class="gear-card-divider" />
+      <p><strong>Cards:</strong></p>
+      <ul>{group.cards.map(card => <li><a href={itemHref(card.id)}>{card.name}</a> — {card.note}</li>)}{group.pending && <li>{group.id === 'shield' && <span class="wip-badge">WIP</span>} {group.pending}</li>}</ul>
+    </>}
+  </section>)}
+</div>
+<GearTabBehavior />

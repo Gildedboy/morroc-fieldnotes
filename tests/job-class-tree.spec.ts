@@ -41,8 +41,11 @@ test('class branches expand by keyboard and link to their class guides', async (
   await thief.click();
   await thiefGuide.click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Thief');
-  await expect(page.getByRole('heading', { name: 'Become a Thief' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Job Change Quest' })).toBeVisible();
   await expect(page.locator('[data-article]')).toContainText('500 Zeny');
+  await expect(page.locator('.article-header .wip-badge')).toHaveCount(0);
+  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+  await expect(page.getByRole('tab', { name: 'Weapon', exact: true })).toBeAttached();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
