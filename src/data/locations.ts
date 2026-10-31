@@ -133,7 +133,7 @@ export const locations: LevelingLocation[] = [
   {
     id: 'toy-factory', name: 'Toy Factory', monsterLevels: '70–75', expStartBaseLevel: 55,
     monsters: ['Christmas Cookie Lv. 70', 'Cruiser Lv. 71', 'Myst Case Lv. 72', 'Chocolate Bear Lv. 73', 'Antonio Lv. 74', 'Chepet Lv. 74', 'Stormy Knight Lv. 75 (MVP)'],
-    access: 'From the Orphanage, use Kafra Allysia to warp to Hugel. Go east and take the ferry to Snow Fields. Travel north to Lutie, then continue north through town to Toy Factory.',
+    access: 'From the Orphanage, use Kafra Allysia to warp directly to Lutie (requires Orphanage Level 50). Continue north through town to Toy Factory.',
     notes: 'Myst Case casts Mammonite. Stormy Knight (Lv. 75 MVP) appears in the Toy Monitoring Room.',
     databasePlaces: [
       { label: 'Toy Factory Warehouse', query: 'toy factory' },
@@ -1009,7 +1009,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "rank": "D",
     "monsterLevels": "70–75",
     "route": [
-      "From the Orphanage, speak with Kafra Allysia and choose Einbech.",
+      "From the Orphanage, speak with Kafra Allysia and choose Einbech. This destination requires Orphanage Level 50.",
       "Enter Einbech Mine F1 on the north side of Einbech."
     ]
   },
@@ -1046,7 +1046,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "rank": "E",
     "monsterLevels": "70–75",
     "route": [
-      "From the Orphanage, speak with Kafra Allysia and choose Lutie.",
+      "From the Orphanage, speak with Kafra Allysia and choose Lutie. This destination requires Orphanage Level 50.",
       "Toy Factory Warehouse."
     ]
   },
@@ -1233,10 +1233,12 @@ export const dungeonEntrances: DungeonEntrance[] = [
         "caption": "Crystal Caves · Follow the mouse pointer to the destination map."
       }
     ],
+    "directions": "From Lutie, go south, west, then north to the map before Dicastes Diel. The Crystal Caves entrance is in the southeast corner.",
     "rank": "C",
     "monsterLevels": "90–95",
     "route": [
-      "From the Orphanage, speak with Skia Nerius and choose Crystal Caves. This destination requires Orphanage investment level 60.",
+      "From the Orphanage, speak with Kafra Allysia and choose Lutie. This destination requires Orphanage Level 50.",
+      "Go south, west, then north to the map before Dicastes Diel.",
       "Frozen Fields, Southeast — interact with Crystal Cave Sage (southeast) at 241, 79.",
       "Crystal Caves F1."
     ]
@@ -2749,7 +2751,7 @@ export const dungeonEntrances: DungeonEntrance[] = [
     "rank": "B",
     "monsterLevels": "121–125",
     "route": [
-      "From the Orphanage, speak with Kafra Allysia and choose Lutie.",
+      "From the Orphanage, speak with Kafra Allysia and choose Lutie. This destination requires Orphanage Level 50.",
       "Lutie, the Snow Village.",
       "Toy Factory Warehouse.",
       "Toy Monitoring Room — interact with Factory Distortion (middle) at 134, 134; first speak with Master of Vali at Inside Dicastes Diel.",

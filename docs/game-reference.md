@@ -1,5 +1,14 @@
 # Refuge game reference
 
+## Orphanage Level 50 — October 30, 2026
+
+- Owner confirms Crystal Caves walking access: Kafra Allysia → Lutie → south → west → north, to the map before Dicastes Diel; entrance in the southeast corner. Use this accessible Level 50 route instead of the Level 60 Skia warp. Existing route coordinate 241,79 identifies the Crystal Cave Sage; screenshot dungeons-057 shows player position 234,80, not a corrected NPC coordinate. Keep the established dungeon route format and existing NPC coordinate, without adding screenshot/player coordinates. The two existing full-frame screenshots remain unchanged.
+
+- Use the direct Lutie warp for Toy Factory leveling access instead of the Hugel ferry detour. Dungeon and distortion routes through Lutie, and the Einbech Mine route, include the shared Orphanage Level 50 gate.
+
+- Owner confirms shared Orphanage Level 50 unlocks Lutie and Einbech travel through Kafra Allysia and Bradium purchases from Howard, the Mineral Seller in the Orphanage. This is an Orphanage service threshold, not character Base Level. Bradium price and higher-tier Bradium stock were not supplied. This supersedes the earlier unknown threshold for Bradium; other ore thresholds remain unknown.
+
+
 ## Trickster and Revenant adjustments — October 21, 2026
 
 - Owner removes the duplicate Serin reward-exchange box from Trickster’s Next Step. Keep the exchange details in Revenant and retain Serin in Trickster’s job-change quest.
